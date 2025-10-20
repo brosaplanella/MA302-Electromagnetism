@@ -12,13 +12,13 @@ book:
   date-format: "D MMMM, YYYY"
   chapters:
     - index.qmd
-    - 1-introduction.qmd
-    - 2-electrostatics.qmd
-    - 3-applications-electrostatics.qmd
-    - 4-magnetostatics.qmd
-    - 5-applications-magnetostatics.qmd
-    - 6-electrodynamics.qmd
-    - 7-matter.qmd
+    # - 1-introduction.qmd
+    # - 2-electrostatics.qmd
+    # - 3-applications-electrostatics.qmd
+    # - 4-magnetostatics.qmd
+    # - 5-applications-magnetostatics.qmd
+    # - 6-electrodynamics.qmd
+    # - 7-matter.qmd
   downloads: pdf
 
 format:
