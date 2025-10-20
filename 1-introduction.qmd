@@ -1,0 +1,25 @@
+{{< include macros.qmd >}}
+
+# Introduction to electromagnetism {#sec-introduction}
+
+What is electromagnetism & motivation
+
+## Maxwell's equations
+
+<!-- Write out equations as one of our main goals
+
+Cancel time out and split: electrostatics and magnetostatics -->
+
+$$\nabla \cdot \bfE = \frac{\rho}{\epsilon_0},$$ {#eq-maxwell-1}
+$$\nabla \times \bfE = - \ppt{\bfB},$$ {#eq-maxwell-2}
+$$\nabla \cdot \bfB = 0,$$ {#eq-maxwell-3}
+$$\nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \ppt{\bfE} \right).$$ {#eq-maxwell-4}
+
+## Recap on vector calculus
+
+<!-- ## To do
+
+- Figure out end-of-proof symbol
+- Use callouts for examples, definitions, theorems...
+-  -->
+

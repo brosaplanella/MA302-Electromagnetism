@@ -1,0 +1,466 @@
+{{< include macros.qmd >}}
+
+# Electrostatics {#sec-electrostatics}
+
+We start our journey in the field of electromagnetism, which is the branch of the subject concerned with stationary electric charges. This is the simplest case but present in our day-to-day lives in many ways: from laser printing to explaining static cling (see @fig-examples-electrostatics).
+
+::: {#fig-examples-electrostatics layout-ncol=2}
+
+![Laser printers use electrostatic forces to attach the toner particles to the imaging drum. <a href="https://commons.wikimedia.org/wiki/File:Laser_printer-Writing.svg">Dale Mahalko</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons.](./figs/laser_printing.svg){#fig-printer}
+
+![Styrofoam peanuts attaching to a cat's fur due to electrostatic forces. <a href="https://commons.wikimedia.org/wiki/File:Cat_and_styrofoam_%E2%80%93_electrostatic_charge_(235112299).jpg">Sean McGrath from Saint John, NB, Canada</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons.](./figs/cat.jpg){#fig-cat}
+
+Examples of electrostatics.
+:::
+
+## Point charges and Coulomb's law
+
+As you may already know, subatomic particles like the proton and electrons, have a physical property called _electric charge_. Electric charge can be positive or negative and it is _quantized_, that means that it comes in integer multiples of the elementary charge $e$ which, in SI units, is defined as $e \approx 1.602 \times 10^{-19} \; \mathrm{C}$ (this unit is called Coulomb^[The unit is named after the french physicist Charles-Augustin de Coulomb, who formulated what today is known as Coulomb's law (coming next).]). Protons have a charge of $+e$ while electrons have a charge of $-e$, and all charges in matter made of atoms arise from them. Charges^[As a shorthand, we will refer to particles with an electrical charge as "charges".] with the same sign attract each other, while charges of opposite sign repel each other. 
+
+We want to model the force between point charges. By point charges we mean that we will represent these electrically charges as points in $\mathbb{R}^3$, with their position in space denoted by the vector $\bfr \in \mathbb{R}^3$ and (the magnitude of) their charge denoted by $q_i$. 
+
+::: {#def-Coulombs-law}
+
+## Coulomb's law
+
+Given to point charges $q_1$ and $q_2$ positioned at $\bfr_1,\bfr_2 \in \mathbb{R}^3$, respectively, each charge experiences a force
+
+$$\bfF_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1 q_2}{\|\bfr_1 - \bfr_2\|^2} \bfe_{12} = - \bfF_2,$$ {#eq-Coulombs-law}
+
+where the constant $\epsilon_0 \approx 8.854 \times 10^{-12} \; \mathrm{C}^2 \, \mathrm{N}^{-1} \, \mathrm{m}^{-2}$ is called the _permittivity of free space_, and $\bfe_{12}$ is the unit vector pointing from $q_2$ to $q_1$, which can be written as
+$$\bfe_{12} = \frac{\bfr_1 - \bfr_2}{|\bfr_1 - \bfr_2|}.$$
+:::
+
+::: {#rem-Coulombs-law}
+1. The law only holds if $\bfr_1 \neq \bfr_2$ (otherwise the force would be infinitely large), therefore charges cannot sit on top of each other.
+2. The force that the first charge exerts on the second has the same magnitude and opposite direction to the force that the second charge exerts on the first one, thus satisfying Newton's third law.
+3. You may have noticed that Coulomb's law is very similar to [Newton's law of universal gravitation](https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation) (it is inversely proportional to the square of the distance between charges). However, charges (as opposed to masses) can take both positive and negative values. Therefore, the electrostatic force between charges can be attractive or repulsive.
+4. Neutral particles (that is particles without an electric charge) do not experience electromagnetic force.
+:::
+
+We defined Coulomb's law for a set of two charges. For three or more charges, we can use the Principle of Superposition.
+
+::: {#def-principle-superposition}
+
+## Principle of superposition
+
+Given $N$ point charges $q_i$ at positions $\bfr_i$, with $i \in {1, \dots, N}$, an additional charge $q$ at position $\bfr$ experiences a force
+
+$$ \bfF = \sum_{i=1}^N \frac{1}{4 \pi \epsilon_0} \frac{q q_i}{|\bfr - \bfr_i|^2}\frac{\bfr - \bfr_i}{|\bfr - \bfr_i|}.$$ {#eq-superposition}
+
+Therefore, the total force on charge $q$ is the sum of the forces exerted by all other charges (i.e. we can superpose the forces from each charge).
+:::
+
+## Electric fields and electrostatic potentials
+
+Let's now introduce the concept of _electric field_. Even though it looks like a simple rewriting of the equation, it provides a very valuable new point of view.
+
+::: {#def-electric-field}
+
+## Electric field
+
+Given a set of charges $q_i$ at positions $\bfr_i$, with $i \in {1, \dots, N}$, we define the _electric field_ at a given point $\bfr \in \mathbb{R}^3$ as
+
+$$\bfE(\bfr) = \sum_{i=1}^N \frac{1}{4 \pi \epsilon_0} \frac{q_i}{|\bfr - \bfr_i|^2}\frac{\bfr - \bfr_i}{|\bfr - \bfr_i|}.$$ {#eq-electric-field}
+
+:::
+
+The electric field can be interpreted as the force that a _unit test charge_ (that is, a virtual charge with $q=1$) would experience at the point in space $\bfr$. It is called a test charge as its charge is not part of the set of charges we are considering (we use it only to "test" how the set of charges behaves). The electric field is a vector field defined in $\bfr \in \mathbb{R}^3 \setminus \{\bfr_1, \dots, \bfr_N\}$.
+
+::: {#rem-electric-field}
+Note that $\bfF = q \bfE$ yields @eq-superposition. This expression also allows us to deduce that the the electric field is measured (in SI units) in $\mathrm{N} \, \mathrm{C}^{-1}$.
+:::
+
+Now is the turn to introduce another useful concept: the electrostatic potential. You are probably familiar with the concept of potential, for example the gravitational potential. In a similar manner, we can define the electrostatic potential.
+
+::: {#def-electrostatic-potential}
+
+## Electrostatic potential
+
+The _electrostatic potential_ for a given electric field $\bfE$ is defined as the function $\phi: \mathbb{R}^3 \to \mathbb{R}$ such that $\bfE = -\nabla \phi$.
+
+:::
+
+::: {#thm-electrostatic-potential-point-charge}
+For a single point charge $q$ at $\bfr_0$ the electrostatic potential is given by
+
+$$ \phi(\bfr) = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\bfr - \bfr_0|}.$$ {#eq-electrostatic-potential-point-charge}
+
+:::
+
+The proof immediately follows from applying @def-electrostatic-potential to @eq-electrostatic-potential-point-charge. This result can be easily extended to multiple point charge using the principle of superposition. We will further discuss the electrostatic potential in @sec-electrostatic-potential.
+
+## Gauss' law for point charges
+
+As we said earlier, the definition of the electric field is a lot more than a simple relabelling, and in this section we will see why. Before that, we need to recall a definition from vector calculus.
+
+::: {#def-flux}
+
+## Flux
+
+Given a surface $\Sigma \subset \mathbb{R}^3$ with _outward_^[For a closed surface it is quite intuitive what outward means: pointing into the unbounded domain. For an open surface, the definition is arbitrary and we get to choose it. Note from the definition that this will simply change the sign of the flux.] unit normal vector $\bfn$, we define the _flux_ of the electric field $\bfE$ through $\Sigma$ as the integral $\int_\Sigma \bfE \cdot \bfn \dd S$.
+
+:::
+
+With this definition, we can now state one of the central results of electrostatics
+
+::: {#thm-Gauss-law}
+
+## Gauss' law
+
+For any closed surface $\Sigma = \partial \Omega$ (that is the surface bounding a region $\Omega \in \mathbb{R}^3$), we have
+
+$$\int_\Sigma \bfE \cdot \bfn \, \dd A = \frac{1}{\epsilon_0} \sum_{i=1}^N q_i,$$ {#eq-Gauss-law}
+
+where $q_i$ is the set of charges contained in $\Omega$. For convenience, we define the total charge in $\Omega$ as $Q = \sum_{i=1}^N q_i$.
+
+:::
+
+::: {.proof}
+
+Let's start by considering a single point charge $q$ at a position $\bfr_0$. Without loss of generality, we can assume $\bfr_0 = \bfzero$ as we can always perform a change of coordinates. From @eq-electric-field we find that the charge produces an electric field
+
+$$ \bfE (\bfr) = \frac{q}{4 \pi \epsilon_0} \frac{\bfr}{|\bfr|^3}.$$
+Let's also consider a ball of arbitrary radius $R > 0$ centred at the origin $B_R$, the flux of the electric field through its surface is^[Recall that the outwards normal unit vector to the sphere is $\frac{\bfr}{|\bfr|}$.]
+
+$$ \int_{\partial B_R} \bfE \cdot \bfr \, \dd A = \frac{q}{4 \pi \epsilon_0} \int_{\partial B_R} \frac{1}{|\bfr|^2} \dd A = \frac{q}{4 \pi R^2 \epsilon_0} \int_{\partial B_R} \dd A = \frac{q}{\epsilon_0}.$${#eq-gauss-law-proof-integral-BR}
+
+This resembles the Gauss' law, but for a single charge and a very specific surface, so we now need to generalise the result. From the divergence theorem `REF`, for an arbitrary domain $\Omega$ bounded by $\Sigma = \partial \Omega$ we have
+
+$$ \int_\Omega \nabla \cdot \bfE \, \dd V = \int_{\Sigma} \bfE \cdot \bfn \, \dd A.$$
+
+Let's now compute the divergence of the electric field
+
+$$ \nabla \cdot \bfE = \frac{q}{4 \pi \epsilon_0} \left( \frac{3}{|\bfr|^3} - \frac{3}{|\bfr|^3}\right) = 0,$$ {#eq-gauss-law-proof-div-E}
+
+and note we have used `add relevant references from Chapter 1`. However, the electric field is singular at $\bfr = \bfzero$, so we can only state that the divergence of the electric field is zero for $\bfr \in \mathbb{R}^3 \setminus \{\bfzero\}$.
+
+Now let's consider assume our arbitrary domain $\Omega \in \mathbb{R}^3$ contains the ball $B_R$. The integral of @eq-gauss-law-proof-div-E over $\Omega$ can be split into
+
+$$\int_\Omega \nabla \cdot \bfE \, \dd V = \int_{\Omega \setminus B_R} \nabla \cdot \bfE \, \dd V + \int_{B_R} \nabla \cdot \bfE \, \dd V.$$
+
+The first term is zero, as it the integration domain does not contain the origin, while we can apply the divergence theorem to the second term, obtaining
+
+$$\int_\Omega \nabla \cdot \bfE \, \dd V = \int_{B_R} \nabla \cdot \bfE \, \dd V = \int_{\partial B_R} \bfE \cdot \bfr \, \dd A = \frac{q}{\epsilon_0},$$ {#eq-gauss-law-proof-int-div-single-charge}
+
+where in the final step we have used @eq-gauss-law-proof-integral-BR. Therefore
+
+$$ \int_\Sigma \bfE \cdot \bfn \dd A = \frac{q}{\epsilon_0}.$$ {#eq-gauss-law-proof-gauss-single-charge}
+
+Now consider a distribution of $N$ charges $q_i$ located at $\bfr_i$, respectively. By the principle of superposition @eq-superposition we can write the electric field as the sum of the contributions for each charge. Then, similar to @eq-gauss-law-proof-div-E, we can show that the divergence of the electric field will be zero in $\mathbb{R}^3 \setminus \bigcup_i \bfr_i$. Defining as $B_i$ the ball of arbitrary radius $R$ centred at $\bfr_i$ (i.e. around charge $q_i$), we can write 
+
+$$\int_\Omega \nabla \cdot \bfE \, \dd V = \int_{\Omega \setminus \bigcup_{i=1}^N B_i} \nabla \cdot \bfE \, \dd V + \sum_{i=1}^N \int_{B_i} \nabla \cdot \bfE \, \dd V.$$
+
+The first term is still zero as it doesn't include any of the charges. For each ball $B_i$ we only need to consider the contribution of the charge $q_i$ as it is the only singularity of the electric field in that ball, so @eq-gauss-law-proof-int-div-single-charge generalises into 
+
+$$ \int_{B_i} \nabla \cdot \bfE \, \dd V  = \int_{\partial B_i} \bfE \cdot \bfn \, \dd A = \frac{q_i}{\epsilon_0}.$$
+
+Therefore, we conclude
+
+$$\int_\Sigma \bfE \cdot \bfn \, \dd A = \sum_{i=1}^N \frac{q_i}{\epsilon_0}.$$
+
+:::
+
+## Charge density
+
+So far we have worked with a set of point charges. However, this is quite often impractical. For example, a macroscopic object has an enormous number of electrons and protons so it is not reasonable to consider them one by one. A more subtle point is that, from a quantum mechanics point of view, the position of electron be determined and instead they should be treated as a "blur" of charge. In either case, the concept of _charge density_ comes handy.
+
+::: {#def-charge-density}
+
+## Charge density
+
+We define the _charge density_ as a function $\rho(\bfr): \Omega \in \mathbf{R}^3 \to \mathbf{R}$ that gives the charge per unit volume at a certain point in space.
+
+We can then define the total charge in any arbitrary region $\Omega \subset \mathbb{R}^3$ as
+
+$$Q = \int_\Omega \rho \, \dd V.$$
+
+:::
+
+Unless stated otherwise, we will assume that any charge density function $\rho$ we encounter in this module is, at least, continuous. We will also assume that $\rho$ has support $\Omega$ and that it is bounded. We can now redefine the electric field @eq-electric-field in terms of the charge density.
+
+::: {#def-electric-field-charge-density}
+
+## Electric field
+
+Given a charge density $\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}$, we define the _electric field_ at a given point $\bfr \in \mathbb{R}^3$ as
+
+$$ \bfE (\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho(\bfr')}{|\bfr - \bfr'|^2} \frac{\bfr - \bfr'}{|\bfr - \bfr'|} \dd V',$$ {#eq-electric-field-charge-density}
+
+where $\dd V'$ is the infinitesimal volume element related to $\bfr'$.
+
+:::
+
+Similarly, we can redefine the electrostatic potential for a charge density.
+
+::: {#thm-electrostatic-potential-charge-density}
+
+## Electrostatic potential
+
+The _electrostatic potential_ for a charge density $\rho(\bfr)$ is given by
+
+$$ \phi(\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho(\bfr')}{|\bfr - \bfr'|} \dd V'.$$ {#eq-electrostatic-potential-charge-density}
+
+:::
+
+::: {#rem-electrostatic-potential-charge-density}
+
+It's worth pointing out that, as $\rho$ has compact support, $\phi \sim r^{-1}$ as $|\bfr| \to \infty$ and thus it vanishes.
+
+:::
+
+The proof also follows directly from @def-electrostatic-potential. Note that, when taking the gradient of $\phi$, it acts on $\bfr$ only ($\bfr'$ is the integration variable and thus it's "invisible" from outside the integral).
+
+It should come as no surprise that we can also rewrite Gauss' law for a charge density.
+
+::: {#thm-Gauss-law-charge-density}
+
+## Gauss' law
+
+For any closed surface $\Sigma = \partial \Omega$ (that is the surface bounding a region $\Omega \in \mathbb{R}^3$), we have
+
+$$\int_\Sigma \bfE \cdot \bfn \, \dd A = \frac{1}{\epsilon_0} \int_\Omega \rho \, \dd V,$$ {#eq-Gauss-law-charge-density}
+
+where $\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}$ is the charge density in $\Omega$. For convenience, we define the total charge in $\Omega$ as $Q = \int_\Omega \rho \, \dd V$.
+
+:::
+
+Using the divergence theorem on @eq-Gauss-law-charge-density and rearranging we can write
+
+$$ \int_\Omega \left(\nabla \cdot \bfE - \frac{\rho}{\epsilon_0}\right) \dd V = 0,$$
+
+and given that this holds for any arbitrary domain $\Omega \subset \mathbb{R}^3$ we obtain the Gauss' law in differential form.
+
+::: {#thm-Gauss-law-diff}
+
+## Gauss' law - differential form
+
+The electric field generated by a given charge density $\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}$ satisfies
+
+$$ \nabla \cdot \bfE = \frac{\rho}{\epsilon_0}.$$ {#eq-Gauss-law-differential}
+
+This is the first of the Maxwell's equations (@eq-maxwell-1).
+
+:::
+
+We have now two sets of definitions for electric field and Gauss' law: one for point charges and one for charge densities. But how do they relate to each other? The key is the _Dirac delta function_.
+
+::: {#def-Dirac-delta-1D}
+
+## Dirac delta function - 1D
+
+The _Dirac delta function_ $\delta(x)$ in 1D is defined to satisfy the following properties:
+
+$$ \delta (x) = 0 \quad \text{ if } x \neq 0,$$
+
+and
+
+$$\int_I \delta(x) \dd x = \begin{cases} 1 & \text{if } 0 \in I,\\ 0 & \text{otherwise}.\end{cases} $$
+
+In words, it is a function that is equal to zero everywhere except at the origin (where it is infinitely large), and its integral over $\mathbb{R}$ (or any interval $I$ containing the origin) is equal to one.
+
+:::
+
+::: {#rem-Dirac-delta}
+
+One way of thinking about the Dirac delta is as the limit of a Gaussian probability distribution centred at the origin when the variance tends to zero (i.e. when you "squeeze" it).
+
+:::
+
+::: {#prp-Dirac-delta-properties-1D}
+
+The Dirac delta function satisfies:
+
+1. $$\int_{-\infty}^{\infty} = f(x') \delta(x' - x) \dd x' = f(x),$$
+
+2. $$\delta ( a x ) = \frac{1}{|a|} \delta(x),$$
+
+3. $$\int_{-\infty}^x \delta(x') \dd x' = H(x),$$
+
+where $f(x)$ is any continuous function, $a \neq 0$ is a constant and $H(x)$ is the Heaviside step function.
+
+:::
+
+The proofs for these properties follow immediately from @def-Dirac-delta-1D. We can generalise the definition of the Dirac delta function to higher dimensions
+
+::: {#def-Dirac-delta}
+
+## Dirac delta function
+
+The n-dimensional version Dirac delta function $\delta: \mathbb{R}^n \to \mathbb{R}$ is defined as
+
+$$ \delta(\bfr) = \Pi_{i = 1}^n \delta(x_i) = \delta(x_1) \delta(x_2) \dots \delta(x_n),$$
+
+where $\bfr = (x_1, x_2, \dots, x_n)$ in Cartesian coordinates.
+
+:::
+
+::: {#prp-Dirac-delta-properties-nD}
+
+The Dirac delta function in n-dimensions satisfies the properties
+
+1. $$ \delta (\bfr) = 0 \quad \text{ if } \bfr \neq \bfzero,$$
+
+2. $$\int_\Omega \delta(\bfr) \dd V = \begin{cases} 1 & \text{if } \bfzero \in \Omega,\\ 0 & \text{otherwise},\end{cases} $$
+
+3. $$\int_\Omega  f(\bfr') \delta(\bfr' - \bfr) \dd V = f(\bfr),$$
+:::
+
+Let's now get back to the connection between point charges and charge densities. We can think of a point charge $q$ at $\bfr_0$ as a charge density
+
+$$\rho(\bfr) = q \delta(\bfr - \bfr_0).$$ {#eq-point-charge-to-density}
+
+Substituting this definition in @eq-electric-field-charge-density we obtain
+
+$$\bfE(\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{q \delta(\bfr' -\bfr_0)}{|\bfr - \bfr'|^2} \frac{\bfr-\bfr'}{|\bfr - \bfr'|} \dd V' = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\bfr - \bfr_0|^2} \frac{\bfr - \bfr_0}{|\bfr -\ bfr_0|},$$
+
+which corresponds to @eq-electric-field for a single point charge. We can proceed similarly for the electrostatic potential.
+
+
+For the Gauss' law, we can substitute @eq-point-charge-to-density into @eq-Gauss-law-charge-density and obtain
+
+$$\int_\Sigma \bfE \cdot \bfn \dd A = \frac{1}{\epsilon_0} \int_\Omega q \delta(\bfr - \bfr_0) \dd V = \frac{q}{\epsilon_0},$$
+
+as, by assumption, $\bfr_0 \in \Omega$. Therefore, we have recovered @eq-Gauss-law for a single point charge.
+
+## More on the electrostatic potential {#sec-electrostatic-potential}
+
+Let's turn our attention back to the electrostatic potential. In @def-electrostatic-potential we defined it in terms of the electric field, but it's usually more convenient to compute it directly from the charge density. 
+
+::: {#prp-Poisson}
+
+The electrostatic potential satisfies
+
+$$ \nabla ^ 2 \phi = - \frac{\rho}{\epsilon_0}.$$
+
+This equation is known as _Poisson's equation_.
+
+:::
+
+::: {.proof}
+
+Substituting @def-electrostatic-potential into @eq-Gauss-law-differential we get
+
+$$\nabla \cdot \left( - \nabla \phi \right) = \frac{\rho}{\epsilon_0},$$
+
+and thus
+
+$$\nabla^2 \phi = - \frac{\rho}{\epsilon_0}.$$
+
+:::
+
+There is another interesting implication stemming from the definition of electrostatic potential. If $\bfE = - \nabla \phi$ we have
+
+$$\nabla \times \bfE = \nabla \times \left( \nabla \phi \right) = 0,$$ {#eq-curl-E-zero}
+
+as the curl of a gradient is always zero `CROSSREF`. Note that this is the steady-state version of the second of the Maxwell's equations @eq-maxwell-2 (i.e. when $\frac{\partial \bfB}{\partial t} = 0$).
+
+You may recall, for example when studying gravity, that when a force can be defined as the gradient of a scalar function (i.e. a potential), then the force is called _conservative_. Given that the electrostatic force is given by $\bfF = q \bfE$, and $\bfE = - \nabla \phi$, it must be conservative. Then, we can compute the work^[Recall that the work is defined as the energy transferred to or from an object via the application of force along a displacement. Note the importance of the displacement, as if there is no displacement, there is no work.] done against the electrostatic force for a charge $q$ moving along a path $C$ starting at $\bfr_\mathrm{i}$ and ending at $\bfr_\mathrm{f}$ is
+
+$$ W = - \int_C \bfF \cdot \dd \bfs = - q \int_C \bfE \cdot \dd \bfs = q \int_C \nabla \phi \cdot \dd \bfs = q ( \phi (\bfr_\mathrm{f} - \phi (\bfr_\mathrm{i}))).$$ {#eq-work-electrostatic}
+
+Therefore, we deduce that the work done does not depend on the path $C$, only on its start and end points, and we can conclude that the electrostatic force is conservative. 
+
+::: {#rem-conservative}
+
+Note that the electrostatic potential is defined up to a constant. This means that, if $\phi$ is a potential for a given electric field $\bfE$, then $\hat{\phi} = \phi + c$ (where $c$ is a constant) is also a potential for $\bfE$. Therefore, the quantity that is well-defined (and we can measure) physically is the potential difference between two points, which we call _voltage_. 
+
+When working with electrostatic potentials, it is up to us to define a reference for the potential, that is the value of the potential at a given point, which allows us to fix the constant. For example, in @def-electrostatic-potential we assumed that the potential is zero as $|\bfr| \to \infty$. 
+
+:::
+
+::: {#def-field-lines}
+
+## Field lines
+
+Given a vector field, a field line is a line that at each point is tangent to the vector field.^[If you are taking MA3D1, you will notice that the streamlines are another example of field lines, in this case for a velocity field.]
+:::
+
+Field lines are a very useful way to visualise electric (and magnetic) fields.
+
+::: {#def-equipotentials}
+
+## Equipotential surfaces
+
+Surfaces of constant $\phi$ are called _equipotentials_.^[If considering a 2D problem, equipotential surfaces reduce to equipotential curves.]
+
+:::
+
+::: {#prp-electric-field-equipotential}
+
+The electric field (i.e. the field lines) are always normal to an equipotential surface.
+
+:::
+
+::: {.proof}
+
+Define $\bft$ to be a tangent vector to the equipotential at a given point $\bfr$. From the definition of the equipotential, we know that the derivative of $\phi$ in the tangent direction $\bft$ must be zero (as the potential is constant along an equipotential surface). Thus $(\nabla \phi) \cdot \bft = 0$ and from the definition of the electrostatic potential we conclude that $\bfE \cdot \nabla \phi = 0$ so the electric field is perpendicular to the equipotential surface (and so are the field lines).
+
+:::
+
+## Electrostatic energy
+
+To finish this chapter on electrostatics, let's talk about the electrostatic energy. Note that the electrostatic potential at a given point can be interpreted as the potential energy required to bring a unit charge to that point from some reference point (usually infinity).
+
+However, we want to extend this concept from a single charge to any electrostatic configuration. As usual, let's start considering point charges to build intuition about the general form. We start with a charge $q_1$ at $\bfr_1$. Its potential is
+
+$$ \phi_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1}{|\bfr - \bfr_1|}. $$
+
+Now let's consider a charge $q_2$, which we move from infinity to a point $\bfr_2$. From @eq-work-electrostatic, the work done against the electric field is
+
+$$ W_2 = q_2 \phi_1(\bfr_2) = \frac{1}{4 \pi \epsilon_0} \frac{q_2 q_1}{|\bfr_2 - \bfr_1|}.$$
+
+Let's now do the same for a charge $q_3$ that needs to be placed at $\bfr_3$, in the presence of $q_1$ and $q_2$:
+
+$$W_3 = q_3 (\phi_1 (\bfr_3) + \phi_2 (\bfr_3)) = \frac{1}{4 \pi \epsilon_0} \left( \frac{q_3 q_1}{|\bfr_3 - \bfr_1} + \frac{q_3 q_2}{|\bfr_3 - \bfr_2|} \right),$$
+
+which we deduce fro the principle of superposition ($\phi_2$ is the potential of the charge $q_2$). The total work done so far is $W = W_2 + W_3$. By induction, we can deduce that for $N$ charges $q_1, \dots, q_N$ at $\bfr_1,\dots,\bfr_N$ the total work to assemble them is
+
+$$ W = \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^N \sum_{j < i} \frac{q_i q_j}{|\bfr_i - \bfr_j|}.$$
+
+By symmetry on $i$ and $j$, we can write
+
+$$W = \frac{1}{2} \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^N \sum_{j \neq i} \frac{q_i q_j}{|\bfr_i - \bfr_j|}.$$
+
+Rewriting it in terms of electrostatic potentials we get
+
+$$W = \frac{1}{2} \sum_{i=1}^N q_i \phi^{(i)},$$ {#eq-work-points}
+
+where
+
+$$\phi^{(i)} = \frac{1}{4 \pi \epsilon_0} \sum_{j \neq i} \frac{q_j}{|\bfr_i - \bfr_j|}$$ {#eq-work-charge-density-1}
+
+is defined as the potential generated by all charges except for $q_i$ evaluated at $\bfr_i$. 
+
+Now let's take the continuum limit, to consider the potential created by a charge density instead (@eq-electrostatic-potential-charge-density). Then @eq-work-points becomes
+
+$$W = \frac{1}{2} \int_\Omega \rho \phi \dd V$$.
+
+Using Gauss' law (#eq-Gauss-law-charge-density) and some basic vector calculus identities, we obtain
+
+$$\phi \frac{\rho}{\epsilon_0} = \phi \nabla \cdot \bfE = \nabla \cdot (\phi \bfE) - \nabla \phi \cdot \bfE = \nabla \cdot (\phi \bfE) + \bfE \cdot \bfE = \nabla \cdot (\phi \bfE) + | \bfE |^2.$$
+
+Substituting into @eq-work-charge-density-1 and using the divergence theorem we get
+
+$$W = \frac{\epsilon_0}{2} \left( \int_\Sigma \phi \bfE \cdot \bfn \dd A + \int_\Omega  
+| \bfE |^2 \dd V \right).$$ {#eq-work-charge-density-2}
+
+As we want to know the energy of the whole charge configuration, we take $\Omega$ to be a ball centred at the origin with radius $r$. Taking the limit $r \to \infty$ and recalling that in that limit $\phi \sim \frac{1}{r}$, the surface integral term vanishes, and @eq-work-charge-density-2 reduces to
+
+$$ W = \frac{\epsilon_0}{2} \int_{\bbR^3} | \bfE |^2 \dd V.$$
+
+If the integral exists, we say that the charge configuration has finite energy $W$. 
+
+::: {#def-energy-density}
+
+## Energy density
+
+The energy density of a charge configuration is defined by
+
+$$\mathcal{E} = \frac{\epsilon_0}{2} | \bfE |^2,$$
+
+and the total energy of the configuration can be written as
+
+$$W = \int_{\bbR^3} \mathcal{E} \dd V.$$
+
+:::
