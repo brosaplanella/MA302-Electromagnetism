@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Electrostatics – MA302 Electromagnetism</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./1-introduction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ec314ad1f90a069ede53d8d1b9942adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-3396d056e495cf15e5a954e3723c5eed.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-ec314ad1f90a069ede53d8d1b9942adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2-electrostatics.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Electrostatics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA302 Electromagnetism</a> 
+        <div class="sidebar-tools-main">
+    <a href="./MA302-Electromagnetism.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to electromagnetism</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-electrostatics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Electrostatics</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#point-charges-and-coulombs-law" id="toc-point-charges-and-coulombs-law" class="nav-link active" data-scroll-target="#point-charges-and-coulombs-law"><span class="header-section-number">2.1</span> Point charges and Coulomb’s law</a></li>
+  <li><a href="#electric-fields-and-electrostatic-potentials" id="toc-electric-fields-and-electrostatic-potentials" class="nav-link" data-scroll-target="#electric-fields-and-electrostatic-potentials"><span class="header-section-number">2.2</span> Electric fields and electrostatic potentials</a></li>
+  <li><a href="#gauss-law-for-point-charges" id="toc-gauss-law-for-point-charges" class="nav-link" data-scroll-target="#gauss-law-for-point-charges"><span class="header-section-number">2.3</span> Gauss’ law for point charges</a></li>
+  <li><a href="#charge-density" id="toc-charge-density" class="nav-link" data-scroll-target="#charge-density"><span class="header-section-number">2.4</span> Charge density</a></li>
+  <li><a href="#sec-electrostatic-potential" id="toc-sec-electrostatic-potential" class="nav-link" data-scroll-target="#sec-electrostatic-potential"><span class="header-section-number">2.5</span> More on the electrostatic potential</a></li>
+  <li><a href="#electrostatic-energy" id="toc-electrostatic-energy" class="nav-link" data-scroll-target="#electrostatic-energy"><span class="header-section-number">2.6</span> Electrostatic energy</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-electrostatics" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Electrostatics</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<p>We start our journey in the field of electromagnetism, which is the branch of the subject concerned with stationary electric charges. This is the simplest case but present in our day-to-day lives in many ways: from laser printing to explaining static cling (see <a href="#fig-examples-electrostatics" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>).</p>
+<div id="fig-examples-electrostatics" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-examples-electrostatics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-examples-electrostatics" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-printer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-printer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/laser_printing.svg" class="img-fluid figure-img" data-ref-parent="fig-examples-electrostatics">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-printer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Laser printers use electrostatic forces to attach the toner particles to the imaging drum. <a href="https://commons.wikimedia.org/wiki/File:Laser_printer-Writing.svg">Dale Mahalko</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-examples-electrostatics" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-cat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/cat.jpg" class="img-fluid figure-img" data-ref-parent="fig-examples-electrostatics">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Styrofoam peanuts attaching to a cat’s fur due to electrostatic forces. <a href="https://commons.wikimedia.org/wiki/File:Cat_and_styrofoam_%E2%80%93_electrostatic_charge_(235112299).jpg">Sean McGrath from Saint John, NB, Canada</a>, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, via Wikimedia Commons.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-examples-electrostatics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Examples of electrostatics.
+</figcaption>
+</figure>
+</div>
+<section id="point-charges-and-coulombs-law" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="point-charges-and-coulombs-law"><span class="header-section-number">2.1</span> Point charges and Coulomb’s law</h2>
+<p>As you may already know, subatomic particles like the proton and electrons, have a physical property called <em>electric charge</em>. Electric charge can be positive or negative and it is <em>quantized</em>, that means that it comes in integer multiples of the elementary charge <span class="math inline">e</span> which, in SI units, is defined as <span class="math inline">e \approx 1.602 \times 10^{-19} \; \mathrm{C}</span> (this unit is called Coulomb<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>). Protons have a charge of <span class="math inline">+e</span> while electrons have a charge of <span class="math inline">-e</span>, and all charges in matter made of atoms arise from them. Charges<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> with the same sign attract each other, while charges of opposite sign repel each other.</p>
+<p>We want to model the force between point charges. By point charges we mean that we will represent these electrically charges as points in <span class="math inline">\mathbb{R}^3</span>, with their position in space denoted by the vector <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> and (the magnitude of) their charge denoted by <span class="math inline">q_i</span>.</p>
+<div id="def-Coulombs-law" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1 (Coulomb’s law)</strong></span> Given to point charges <span class="math inline">q_1</span> and <span class="math inline">q_2</span> positioned at <span class="math inline">{\boldsymbol{r}}_1,{\boldsymbol{r}}_2 \in \mathbb{R}^3</span>, respectively, each charge experiences a force</p>
+<p><span id="eq-Coulombs-law"><span class="math display">{\boldsymbol{F}}_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1 q_2}{\|{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2\|^2} {\boldsymbol{e}}_{12} = - {\boldsymbol{F}}_2, \tag{2.1}</span></span></p>
+<p>where the constant <span class="math inline">\epsilon_0 \approx 8.854 \times 10^{-12} \; \mathrm{C}^2 \, \mathrm{N}^{-1} \, \mathrm{m}^{-2}</span> is called the <em>permittivity of free space</em>, and <span class="math inline">{\boldsymbol{e}}_{12}</span> is the unit vector pointing from <span class="math inline">q_2</span> to <span class="math inline">q_1</span>, which can be written as <span class="math display">{\boldsymbol{e}}_{12} = \frac{{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2}{|{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2|}.</span></p>
+</div>
+<div id="rem-Coulombs-law" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.1</em>. </span></p>
+<ol type="1">
+<li>The law only holds if <span class="math inline">{\boldsymbol{r}}_1 \neq {\boldsymbol{r}}_2</span> (otherwise the force would be infinitely large), therefore charges cannot sit on top of each other.</li>
+<li>The force that the first charge exerts on the second has the same magnitude and opposite direction to the force that the second charge exerts on the first one, thus satisfying Newton’s third law.</li>
+<li>You may have noticed that Coulomb’s law is very similar to <a href="https://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton’s law of universal gravitation</a> (it is inversely proportional to the square of the distance between charges). However, charges (as opposed to masses) can take both positive and negative values. Therefore, the electrostatic force between charges can be attractive or repulsive.</li>
+<li>Neutral particles (that is particles without an electric charge) do not experience electromagnetic force.</li>
+</ol>
+</div>
+<p>We defined Coulomb’s law for a set of two charges. For three or more charges, we can use the Principle of Superposition.</p>
+<div id="def-principle-superposition" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.2 (Principle of superposition)</strong></span> Given <span class="math inline">N</span> point charges <span class="math inline">q_i</span> at positions <span class="math inline">{\boldsymbol{r}}_i</span>, with <span class="math inline">i \in {1, \dots, N}</span>, an additional charge <span class="math inline">q</span> at position <span class="math inline">{\boldsymbol{r}}</span> experiences a force</p>
+<p><span id="eq-superposition"><span class="math display"> {\boldsymbol{F}}= \sum_{i=1}^N \frac{1}{4 \pi \epsilon_0} \frac{q q_i}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|^2}\frac{{\boldsymbol{r}}- {\boldsymbol{r}}_i}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|}. \tag{2.2}</span></span></p>
+<p>Therefore, the total force on charge <span class="math inline">q</span> is the sum of the forces exerted by all other charges (i.e.&nbsp;we can superpose the forces from each charge).</p>
+</div>
+</section>
+<section id="electric-fields-and-electrostatic-potentials" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="electric-fields-and-electrostatic-potentials"><span class="header-section-number">2.2</span> Electric fields and electrostatic potentials</h2>
+<p>Let’s now introduce the concept of <em>electric field</em>. Even though it looks like a simple rewriting of the equation, it provides a very valuable new point of view.</p>
+<div id="def-electric-field" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.3 (Electric field)</strong></span> Given a set of charges <span class="math inline">q_i</span> at positions <span class="math inline">{\boldsymbol{r}}_i</span>, with <span class="math inline">i \in {1, \dots, N}</span>, we define the <em>electric field</em> at a given point <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> as</p>
+<p><span id="eq-electric-field"><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}) = \sum_{i=1}^N \frac{1}{4 \pi \epsilon_0} \frac{q_i}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|^2}\frac{{\boldsymbol{r}}- {\boldsymbol{r}}_i}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|}. \tag{2.3}</span></span></p>
+</div>
+<p>The electric field can be interpreted as the force that a <em>unit test charge</em> (that is, a virtual charge with <span class="math inline">q=1</span>) would experience at the point in space <span class="math inline">{\boldsymbol{r}}</span>. It is called a test charge as its charge is not part of the set of charges we are considering (we use it only to “test” how the set of charges behaves). The electric field is a vector field defined in <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3 \setminus \{{\boldsymbol{r}}_1, \dots, {\boldsymbol{r}}_N\}</span>.</p>
+<div id="rem-electric-field" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.2</em>. </span>Note that <span class="math inline">{\boldsymbol{F}}= q {\boldsymbol{E}}</span> yields <a href="#eq-superposition" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>. This expression also allows us to deduce that the the electric field is measured (in SI units) in <span class="math inline">\mathrm{N} \, \mathrm{C}^{-1}</span>.</p>
+</div>
+<p>Now is the turn to introduce another useful concept: the electrostatic potential. You are probably familiar with the concept of potential, for example the gravitational potential. In a similar manner, we can define the electrostatic potential.</p>
+<div id="def-electrostatic-potential" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.4 (Electrostatic potential)</strong></span> The <em>electrostatic potential</em> for a given electric field <span class="math inline">{\boldsymbol{E}}</span> is defined as the function <span class="math inline">\phi: \mathbb{R}^3 \to \mathbb{R}</span> such that <span class="math inline">{\boldsymbol{E}}= -\nabla \phi</span>.</p>
+</div>
+<div id="thm-electrostatic-potential-point-charge" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> For a single point charge <span class="math inline">q</span> at <span class="math inline">{\boldsymbol{r}}_0</span> the electrostatic potential is given by</p>
+<p><span id="eq-electrostatic-potential-point-charge"><span class="math display"> \phi({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \frac{q}{|{\boldsymbol{r}}- {\boldsymbol{r}}_0|}. \tag{2.4}</span></span></p>
+</div>
+<p>The proof immediately follows from applying <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a> to <a href="#eq-electrostatic-potential-point-charge" class="quarto-xref">Equation&nbsp;<span>2.4</span></a>. This result can be easily extended to multiple point charge using the principle of superposition. We will further discuss the electrostatic potential in <a href="#sec-electrostatic-potential" class="quarto-xref"><span>Section 2.5</span></a>.</p>
+</section>
+<section id="gauss-law-for-point-charges" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="gauss-law-for-point-charges"><span class="header-section-number">2.3</span> Gauss’ law for point charges</h2>
+<p>As we said earlier, the definition of the electric field is a lot more than a simple relabelling, and in this section we will see why. Before that, we need to recall a definition from vector calculus.</p>
+<div id="def-flux" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.5 (Flux)</strong></span> Given a surface <span class="math inline">\Sigma \subset \mathbb{R}^3</span> with <em>outward</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> unit normal vector <span class="math inline">{\boldsymbol{n}}</span>, we define the <em>flux</em> of the electric field <span class="math inline">{\boldsymbol{E}}</span> through <span class="math inline">\Sigma</span> as the integral <span class="math inline">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}S</span>.</p>
+</div>
+<p>With this definition, we can now state one of the central results of electrostatics</p>
+<div id="thm-Gauss-law" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.2 (Gauss’ law)</strong></span> For any closed surface <span class="math inline">\Sigma = \partial \Omega</span> (that is the surface bounding a region <span class="math inline">\Omega \in \mathbb{R}^3</span>), we have</p>
+<p><span id="eq-Gauss-law"><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \frac{1}{\epsilon_0} \sum_{i=1}^N q_i, \tag{2.5}</span></span></p>
+<p>where <span class="math inline">q_i</span> is the set of charges contained in <span class="math inline">\Omega</span>. For convenience, we define the total charge in <span class="math inline">\Omega</span> as <span class="math inline">Q = \sum_{i=1}^N q_i</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let’s start by considering a single point charge <span class="math inline">q</span> at a position <span class="math inline">{\boldsymbol{r}}_0</span>. Without loss of generality, we can assume <span class="math inline">{\boldsymbol{r}}_0 = {\boldsymbol{0}}</span> as we can always perform a change of coordinates. From <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> we find that the charge produces an electric field</p>
+<p><span class="math display"> {\boldsymbol{E}}({\boldsymbol{r}}) = \frac{q}{4 \pi \epsilon_0} \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}.</span> Let’s also consider a ball of arbitrary radius <span class="math inline">R &gt; 0</span> centred at the origin <span class="math inline">B_R</span>, the flux of the electric field through its surface is<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><span id="eq-gauss-law-proof-integral-BR"><span class="math display"> \int_{\partial B_R} {\boldsymbol{E}}\cdot {\boldsymbol{r}}\, {\mathrm{d}}A = \frac{q}{4 \pi \epsilon_0} \int_{\partial B_R} \frac{1}{|{\boldsymbol{r}}|^2} {\mathrm{d}}A = \frac{q}{4 \pi R^2 \epsilon_0} \int_{\partial B_R} {\mathrm{d}}A = \frac{q}{\epsilon_0}. \tag{2.6}</span></span></p>
+<p>This resembles the Gauss’ law, but for a single charge and a very specific surface, so we now need to generalise the result. From the divergence theorem <code>REF</code>, for an arbitrary domain <span class="math inline">\Omega</span> bounded by <span class="math inline">\Sigma = \partial \Omega</span> we have</p>
+<p><span class="math display"> \int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\Sigma} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A.</span></p>
+<p>Let’s now compute the divergence of the electric field</p>
+<p><span id="eq-gauss-law-proof-div-E"><span class="math display"> \nabla \cdot {\boldsymbol{E}}= \frac{q}{4 \pi \epsilon_0} \left( \frac{3}{|{\boldsymbol{r}}|^3} - \frac{3}{|{\boldsymbol{r}}|^3}\right) = 0, \tag{2.7}</span></span></p>
+<p>and note we have used <code>add relevant references from Chapter 1</code>. However, the electric field is singular at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span>, so we can only state that the divergence of the electric field is zero for <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3 \setminus \{{\boldsymbol{0}}\}</span>.</p>
+<p>Now let’s consider assume our arbitrary domain <span class="math inline">\Omega \in \mathbb{R}^3</span> contains the ball <span class="math inline">B_R</span>. The integral of <a href="#eq-gauss-law-proof-div-E" class="quarto-xref">Equation&nbsp;<span>2.7</span></a> over <span class="math inline">\Omega</span> can be split into</p>
+<p><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\Omega \setminus B_R} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V + \int_{B_R} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V.</span></p>
+<p>The first term is zero, as it the integration domain does not contain the origin, while we can apply the divergence theorem to the second term, obtaining</p>
+<p><span id="eq-gauss-law-proof-int-div-single-charge"><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{B_R} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\partial B_R} {\boldsymbol{E}}\cdot {\boldsymbol{r}}\, {\mathrm{d}}A = \frac{q}{\epsilon_0}, \tag{2.8}</span></span></p>
+<p>where in the final step we have used <a href="#eq-gauss-law-proof-integral-BR" class="quarto-xref">Equation&nbsp;<span>2.6</span></a>. Therefore</p>
+<p><span id="eq-gauss-law-proof-gauss-single-charge"><span class="math display"> \int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}A = \frac{q}{\epsilon_0}. \tag{2.9}</span></span></p>
+<p>Now consider a distribution of <span class="math inline">N</span> charges <span class="math inline">q_i</span> located at <span class="math inline">{\boldsymbol{r}}_i</span>, respectively. By the principle of superposition <a href="#eq-superposition" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> we can write the electric field as the sum of the contributions for each charge. Then, similar to <a href="#eq-gauss-law-proof-div-E" class="quarto-xref">Equation&nbsp;<span>2.7</span></a>, we can show that the divergence of the electric field will be zero in <span class="math inline">\mathbb{R}^3 \setminus \bigcup_i {\boldsymbol{r}}_i</span>. Defining as <span class="math inline">B_i</span> the ball of arbitrary radius <span class="math inline">R</span> centred at <span class="math inline">{\boldsymbol{r}}_i</span> (i.e.&nbsp;around charge <span class="math inline">q_i</span>), we can write</p>
+<p><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\Omega \setminus \bigcup_{i=1}^N B_i} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V + \sum_{i=1}^N \int_{B_i} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V.</span></p>
+<p>The first term is still zero as it doesn’t include any of the charges. For each ball <span class="math inline">B_i</span> we only need to consider the contribution of the charge <span class="math inline">q_i</span> as it is the only singularity of the electric field in that ball, so <a href="#eq-gauss-law-proof-int-div-single-charge" class="quarto-xref">Equation&nbsp;<span>2.8</span></a> generalises into</p>
+<p><span class="math display"> \int_{B_i} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V  = \int_{\partial B_i} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \frac{q_i}{\epsilon_0}.</span></p>
+<p>Therefore, we conclude</p>
+<p><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \sum_{i=1}^N \frac{q_i}{\epsilon_0}.</span></p>
+</div>
+</section>
+<section id="charge-density" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="charge-density"><span class="header-section-number">2.4</span> Charge density</h2>
+<p>So far we have worked with a set of point charges. However, this is quite often impractical. For example, a macroscopic object has an enormous number of electrons and protons so it is not reasonable to consider them one by one. A more subtle point is that, from a quantum mechanics point of view, the position of electron be determined and instead they should be treated as a “blur” of charge. In either case, the concept of <em>charge density</em> comes handy.</p>
+<div id="def-charge-density" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.6 (Charge density)</strong></span> We define the <em>charge density</em> as a function <span class="math inline">\rho({\boldsymbol{r}}): \Omega \in \mathbf{R}^3 \to \mathbf{R}</span> that gives the charge per unit volume at a certain point in space.</p>
+<p>We can then define the total charge in any arbitrary region <span class="math inline">\Omega \subset \mathbb{R}^3</span> as</p>
+<p><span class="math display">Q = \int_\Omega \rho \, {\mathrm{d}}V.</span></p>
+</div>
+<p>Unless stated otherwise, we will assume that any charge density function <span class="math inline">\rho</span> we encounter in this module is, at least, continuous. We will also assume that <span class="math inline">\rho</span> has support <span class="math inline">\Omega</span> and that it is bounded. We can now redefine the electric field <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> in terms of the charge density.</p>
+<div id="def-electric-field-charge-density" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.7 (Electric field)</strong></span> Given a charge density <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span>, we define the <em>electric field</em> at a given point <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> as</p>
+<p><span id="eq-electric-field-charge-density"><span class="math display"> {\boldsymbol{E}}({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^2} \frac{{\boldsymbol{r}}- {\boldsymbol{r}}'}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} {\mathrm{d}}V', \tag{2.10}</span></span></p>
+<p>where <span class="math inline">{\mathrm{d}}V'</span> is the infinitesimal volume element related to <span class="math inline">{\boldsymbol{r}}'</span>.</p>
+</div>
+<p>Similarly, we can redefine the electrostatic potential for a charge density.</p>
+<div id="thm-electrostatic-potential-charge-density" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.3 (Electrostatic potential)</strong></span> The <em>electrostatic potential</em> for a charge density <span class="math inline">\rho({\boldsymbol{r}})</span> is given by</p>
+<p><span id="eq-electrostatic-potential-charge-density"><span class="math display"> \phi({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} {\mathrm{d}}V'. \tag{2.11}</span></span></p>
+</div>
+<div id="rem-electrostatic-potential-charge-density" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.3</em>. </span>It’s worth pointing out that, as <span class="math inline">\rho</span> has compact support, <span class="math inline">\phi \sim r^{-1}</span> as <span class="math inline">|{\boldsymbol{r}}| \to \infty</span> and thus it vanishes.</p>
+</div>
+<p>The proof also follows directly from <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a>. Note that, when taking the gradient of <span class="math inline">\phi</span>, it acts on <span class="math inline">{\boldsymbol{r}}</span> only (<span class="math inline">{\boldsymbol{r}}'</span> is the integration variable and thus it’s “invisible” from outside the integral).</p>
+<p>It should come as no surprise that we can also rewrite Gauss’ law for a charge density.</p>
+<div id="thm-Gauss-law-charge-density" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.4 (Gauss’ law)</strong></span> For any closed surface <span class="math inline">\Sigma = \partial \Omega</span> (that is the surface bounding a region <span class="math inline">\Omega \in \mathbb{R}^3</span>), we have</p>
+<p><span id="eq-Gauss-law-charge-density"><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \frac{1}{\epsilon_0} \int_\Omega \rho \, {\mathrm{d}}V, \tag{2.12}</span></span></p>
+<p>where <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span> is the charge density in <span class="math inline">\Omega</span>. For convenience, we define the total charge in <span class="math inline">\Omega</span> as <span class="math inline">Q = \int_\Omega \rho \, {\mathrm{d}}V</span>.</p>
+</div>
+<p>Using the divergence theorem on <a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and rearranging we can write</p>
+<p><span class="math display"> \int_\Omega \left(\nabla \cdot {\boldsymbol{E}}- \frac{\rho}{\epsilon_0}\right) {\mathrm{d}}V = 0,</span></p>
+<p>and given that this holds for any arbitrary domain <span class="math inline">\Omega \subset \mathbb{R}^3</span> we obtain the Gauss’ law in differential form.</p>
+<div id="thm-Gauss-law-diff" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.5 (Gauss’ law - differential form)</strong></span> The electric field generated by a given charge density <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span> satisfies</p>
+<p><span id="eq-Gauss-law-differential"><span class="math display"> \nabla \cdot {\boldsymbol{E}}= \frac{\rho}{\epsilon_0}. \tag{2.13}</span></span></p>
+<p>This is the first of the Maxwell’s equations (<a href="1-introduction.html#eq-maxwell-1" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>).</p>
+</div>
+<p>We have now two sets of definitions for electric field and Gauss’ law: one for point charges and one for charge densities. But how do they relate to each other? The key is the <em>Dirac delta function</em>.</p>
+<div id="def-Dirac-delta-1D" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.8 (Dirac delta function - 1D)</strong></span> The <em>Dirac delta function</em> <span class="math inline">\delta(x)</span> in 1D is defined to satisfy the following properties:</p>
+<p><span class="math display"> \delta (x) = 0 \quad \text{ if } x \neq 0,</span></p>
+<p>and</p>
+<p><span class="math display">\int_I \delta(x) {\mathrm{d}}x = \begin{cases} 1 &amp; \text{if } 0 \in I,\\ 0 &amp; \text{otherwise}.\end{cases} </span></p>
+<p>In words, it is a function that is equal to zero everywhere except at the origin (where it is infinitely large), and its integral over <span class="math inline">\mathbb{R}</span> (or any interval <span class="math inline">I</span> containing the origin) is equal to one.</p>
+</div>
+<div id="rem-Dirac-delta" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.4</em>. </span>One way of thinking about the Dirac delta is as the limit of a Gaussian probability distribution centred at the origin when the variance tends to zero (i.e.&nbsp;when you “squeeze” it).</p>
+</div>
+<div id="prp-Dirac-delta-properties-1D" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.1</strong></span> The Dirac delta function satisfies:</p>
+<ol type="1">
+<li><p><span class="math display">\int_{-\infty}^{\infty} = f(x') \delta(x' - x) {\mathrm{d}}x' = f(x),</span></p></li>
+<li><p><span class="math display">\delta ( a x ) = \frac{1}{|a|} \delta(x),</span></p></li>
+<li><p><span class="math display">\int_{-\infty}^x \delta(x') {\mathrm{d}}x' = H(x),</span></p></li>
+</ol>
+<p>where <span class="math inline">f(x)</span> is any continuous function, <span class="math inline">a \neq 0</span> is a constant and <span class="math inline">H(x)</span> is the Heaviside step function.</p>
+</div>
+<p>The proofs for these properties follow immediately from <a href="#def-Dirac-delta-1D" class="quarto-xref">Definition&nbsp;<span>2.8</span></a>. We can generalise the definition of the Dirac delta function to higher dimensions</p>
+<div id="def-Dirac-delta" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.9 (Dirac delta function)</strong></span> The n-dimensional version Dirac delta function <span class="math inline">\delta: \mathbb{R}^n \to \mathbb{R}</span> is defined as</p>
+<p><span class="math display"> \delta({\boldsymbol{r}}) = \Pi_{i = 1}^n \delta(x_i) = \delta(x_1) \delta(x_2) \dots \delta(x_n),</span></p>
+<p>where <span class="math inline">{\boldsymbol{r}}= (x_1, x_2, \dots, x_n)</span> in Cartesian coordinates.</p>
+</div>
+<div id="prp-Dirac-delta-properties-nD" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.2</strong></span> The Dirac delta function in n-dimensions satisfies the properties</p>
+<ol type="1">
+<li><p><span class="math display"> \delta ({\boldsymbol{r}}) = 0 \quad \text{ if } {\boldsymbol{r}}\neq {\boldsymbol{0}},</span></p></li>
+<li><p><span class="math display">\int_\Omega \delta({\boldsymbol{r}}) {\mathrm{d}}V = \begin{cases} 1 &amp; \text{if } {\boldsymbol{0}}\in \Omega,\\ 0 &amp; \text{otherwise},\end{cases} </span></p></li>
+<li><p><span class="math display">\int_\Omega  f({\boldsymbol{r}}') \delta({\boldsymbol{r}}' - {\boldsymbol{r}}) {\mathrm{d}}V = f({\boldsymbol{r}}),</span></p></li>
+</ol>
+</div>
+<p>Let’s now get back to the connection between point charges and charge densities. We can think of a point charge <span class="math inline">q</span> at <span class="math inline">{\boldsymbol{r}}_0</span> as a charge density</p>
+<p><span id="eq-point-charge-to-density"><span class="math display">\rho({\boldsymbol{r}}) = q \delta({\boldsymbol{r}}- {\boldsymbol{r}}_0). \tag{2.14}</span></span></p>
+<p>Substituting this definition in <a href="#eq-electric-field-charge-density" class="quarto-xref">Equation&nbsp;<span>2.10</span></a> we obtain</p>
+<p><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{q \delta({\boldsymbol{r}}' -{\boldsymbol{r}}_0)}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^2} \frac{{\boldsymbol{r}}-{\boldsymbol{r}}'}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} {\mathrm{d}}V' = \frac{1}{4 \pi \epsilon_0} \frac{q}{|{\boldsymbol{r}}- {\boldsymbol{r}}_0|^2} \frac{{\boldsymbol{r}}- {\boldsymbol{r}}_0}{|{\boldsymbol{r}}-\ bfr_0|},</span></p>
+<p>which corresponds to <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> for a single point charge. We can proceed similarly for the electrostatic potential.</p>
+<p>For the Gauss’ law, we can substitute <a href="#eq-point-charge-to-density" class="quarto-xref">Equation&nbsp;<span>2.14</span></a> into <a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and obtain</p>
+<p><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}A = \frac{1}{\epsilon_0} \int_\Omega q \delta({\boldsymbol{r}}- {\boldsymbol{r}}_0) {\mathrm{d}}V = \frac{q}{\epsilon_0},</span></p>
+<p>as, by assumption, <span class="math inline">{\boldsymbol{r}}_0 \in \Omega</span>. Therefore, we have recovered <a href="#eq-Gauss-law" class="quarto-xref">Equation&nbsp;<span>2.5</span></a> for a single point charge.</p>
+</section>
+<section id="sec-electrostatic-potential" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sec-electrostatic-potential"><span class="header-section-number">2.5</span> More on the electrostatic potential</h2>
+<p>Let’s turn our attention back to the electrostatic potential. In <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a> we defined it in terms of the electric field, but it’s usually more convenient to compute it directly from the charge density.</p>
+<div id="prp-Poisson" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.3</strong></span> The electrostatic potential satisfies</p>
+<p><span class="math display"> \nabla ^ 2 \phi = - \frac{\rho}{\epsilon_0}.</span></p>
+<p>This equation is known as <em>Poisson’s equation</em>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Substituting <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a> into <a href="#eq-Gauss-law-differential" class="quarto-xref">Equation&nbsp;<span>2.13</span></a> we get</p>
+<p><span class="math display">\nabla \cdot \left( - \nabla \phi \right) = \frac{\rho}{\epsilon_0},</span></p>
+<p>and thus</p>
+<p><span class="math display">\nabla^2 \phi = - \frac{\rho}{\epsilon_0}.</span></p>
+</div>
+<p>There is another interesting implication stemming from the definition of electrostatic potential. If <span class="math inline">{\boldsymbol{E}}= - \nabla \phi</span> we have</p>
+<p><span id="eq-curl-E-zero"><span class="math display">\nabla \times {\boldsymbol{E}}= \nabla \times \left( \nabla \phi \right) = 0, \tag{2.15}</span></span></p>
+<p>as the curl of a gradient is always zero <code>CROSSREF</code>. Note that this is the steady-state version of the second of the Maxwell’s equations <a href="1-introduction.html#eq-maxwell-2" class="quarto-xref">Equation&nbsp;<span>1.2</span></a> (i.e.&nbsp;when <span class="math inline">\frac{\partial {\boldsymbol{B}}}{\partial t} = 0</span>).</p>
+<p>You may recall, for example when studying gravity, that when a force can be defined as the gradient of a scalar function (i.e.&nbsp;a potential), then the force is called <em>conservative</em>. Given that the electrostatic force is given by <span class="math inline">{\boldsymbol{F}}= q {\boldsymbol{E}}</span>, and <span class="math inline">{\boldsymbol{E}}= - \nabla \phi</span>, it must be conservative. Then, we can compute the work<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> done against the electrostatic force for a charge <span class="math inline">q</span> moving along a path <span class="math inline">C</span> starting at <span class="math inline">{\boldsymbol{r}}_\mathrm{i}</span> and ending at <span class="math inline">{\boldsymbol{r}}_\mathrm{f}</span> is</p>
+<p><span id="eq-work-electrostatic"><span class="math display"> W = - \int_C {\boldsymbol{F}}\cdot {\mathrm{d}}{\boldsymbol{s}}= - q \int_C {\boldsymbol{E}}\cdot {\mathrm{d}}{\boldsymbol{s}}= q \int_C \nabla \phi \cdot {\mathrm{d}}{\boldsymbol{s}}= q ( \phi ({\boldsymbol{r}}_\mathrm{f} - \phi ({\boldsymbol{r}}_\mathrm{i}))). \tag{2.16}</span></span></p>
+<p>Therefore, we deduce that the work done does not depend on the path <span class="math inline">C</span>, only on its start and end points, and we can conclude that the electrostatic force is conservative.</p>
+<div id="rem-conservative" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.5</em>. </span>Note that the electrostatic potential is defined up to a constant. This means that, if <span class="math inline">\phi</span> is a potential for a given electric field <span class="math inline">{\boldsymbol{E}}</span>, then <span class="math inline">\hat{\phi} = \phi + c</span> (where <span class="math inline">c</span> is a constant) is also a potential for <span class="math inline">{\boldsymbol{E}}</span>. Therefore, the quantity that is well-defined (and we can measure) physically is the potential difference between two points, which we call <em>voltage</em>.</p>
+<p>When working with electrostatic potentials, it is up to us to define a reference for the potential, that is the value of the potential at a given point, which allows us to fix the constant. For example, in <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a> we assumed that the potential is zero as <span class="math inline">|{\boldsymbol{r}}| \to \infty</span>.</p>
+</div>
+<div id="def-field-lines" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.10 (Field lines)</strong></span> Given a vector field, a field line is a line that at each point is tangent to the vector field.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+</div>
+<p>Field lines are a very useful way to visualise electric (and magnetic) fields.</p>
+<div id="def-equipotentials" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.11 (Equipotential surfaces)</strong></span> Surfaces of constant <span class="math inline">\phi</span> are called <em>equipotentials</em>.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+</div>
+<div id="prp-electric-field-equipotential" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.4</strong></span> The electric field (i.e.&nbsp;the field lines) are always normal to an equipotential surface.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">{\boldsymbol{t}}</span> to be a tangent vector to the equipotential at a given point <span class="math inline">{\boldsymbol{r}}</span>. From the definition of the equipotential, we know that the derivative of <span class="math inline">\phi</span> in the tangent direction <span class="math inline">{\boldsymbol{t}}</span> must be zero (as the potential is constant along an equipotential surface). Thus <span class="math inline">(\nabla \phi) \cdot {\boldsymbol{t}}= 0</span> and from the definition of the electrostatic potential we conclude that <span class="math inline">{\boldsymbol{E}}\cdot \nabla \phi = 0</span> so the electric field is perpendicular to the equipotential surface (and so are the field lines).</p>
+</div>
+</section>
+<section id="electrostatic-energy" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="electrostatic-energy"><span class="header-section-number">2.6</span> Electrostatic energy</h2>
+<p>To finish this chapter on electrostatics, let’s talk about the electrostatic energy. Note that the electrostatic potential at a given point can be interpreted as the potential energy required to bring a unit charge to that point from some reference point (usually infinity).</p>
+<p>However, we want to extend this concept from a single charge to any electrostatic configuration. As usual, let’s start considering point charges to build intuition about the general form. We start with a charge <span class="math inline">q_1</span> at <span class="math inline">{\boldsymbol{r}}_1</span>. Its potential is</p>
+<p><span class="math display"> \phi_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1}{|{\boldsymbol{r}}- {\boldsymbol{r}}_1|}. </span></p>
+<p>Now let’s consider a charge <span class="math inline">q_2</span>, which we move from infinity to a point <span class="math inline">{\boldsymbol{r}}_2</span>. From <a href="#eq-work-electrostatic" class="quarto-xref">Equation&nbsp;<span>2.16</span></a>, the work done against the electric field is</p>
+<p><span class="math display"> W_2 = q_2 \phi_1({\boldsymbol{r}}_2) = \frac{1}{4 \pi \epsilon_0} \frac{q_2 q_1}{|{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1|}.</span></p>
+<p>Let’s now do the same for a charge <span class="math inline">q_3</span> that needs to be placed at <span class="math inline">{\boldsymbol{r}}_3</span>, in the presence of <span class="math inline">q_1</span> and <span class="math inline">q_2</span>:</p>
+<p><span class="math display">W_3 = q_3 (\phi_1 ({\boldsymbol{r}}_3) + \phi_2 ({\boldsymbol{r}}_3)) = \frac{1}{4 \pi \epsilon_0} \left( \frac{q_3 q_1}{|{\boldsymbol{r}}_3 - {\boldsymbol{r}}_1} + \frac{q_3 q_2}{|{\boldsymbol{r}}_3 - {\boldsymbol{r}}_2|} \right),</span></p>
+<p>which we deduce fro the principle of superposition (<span class="math inline">\phi_2</span> is the potential of the charge <span class="math inline">q_2</span>). The total work done so far is <span class="math inline">W = W_2 + W_3</span>. By induction, we can deduce that for <span class="math inline">N</span> charges <span class="math inline">q_1, \dots, q_N</span> at <span class="math inline">{\boldsymbol{r}}_1,\dots,{\boldsymbol{r}}_N</span> the total work to assemble them is</p>
+<p><span class="math display"> W = \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^N \sum_{j &lt; i} \frac{q_i q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|}.</span></p>
+<p>By symmetry on <span class="math inline">i</span> and <span class="math inline">j</span>, we can write</p>
+<p><span class="math display">W = \frac{1}{2} \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^N \sum_{j \neq i} \frac{q_i q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|}.</span></p>
+<p>Rewriting it in terms of electrostatic potentials we get</p>
+<p><span id="eq-work-points"><span class="math display">W = \frac{1}{2} \sum_{i=1}^N q_i \phi^{(i)}, \tag{2.17}</span></span></p>
+<p>where</p>
+<p><span id="eq-work-charge-density-1"><span class="math display">\phi^{(i)} = \frac{1}{4 \pi \epsilon_0} \sum_{j \neq i} \frac{q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|} \tag{2.18}</span></span></p>
+<p>is defined as the potential generated by all charges except for <span class="math inline">q_i</span> evaluated at <span class="math inline">{\boldsymbol{r}}_i</span>.</p>
+<p>Now let’s take the continuum limit, to consider the potential created by a charge density instead (<a href="#eq-electrostatic-potential-charge-density" class="quarto-xref">Equation&nbsp;<span>2.11</span></a>). Then <a href="#eq-work-points" class="quarto-xref">Equation&nbsp;<span>2.17</span></a> becomes</p>
+<p><span class="math display">W = \frac{1}{2} \int_\Omega \rho \phi {\mathrm{d}}V</span>.</p>
+<p>Using Gauss’ law (#eq-Gauss-law-charge-density) and some basic vector calculus identities, we obtain</p>
+<p><span class="math display">\phi \frac{\rho}{\epsilon_0} = \phi \nabla \cdot {\boldsymbol{E}}= \nabla \cdot (\phi {\boldsymbol{E}}) - \nabla \phi \cdot {\boldsymbol{E}}= \nabla \cdot (\phi {\boldsymbol{E}}) + {\boldsymbol{E}}\cdot {\boldsymbol{E}}= \nabla \cdot (\phi {\boldsymbol{E}}) + | {\boldsymbol{E}}|^2.</span></p>
+<p>Substituting into <a href="#eq-work-charge-density-1" class="quarto-xref">Equation&nbsp;<span>2.18</span></a> and using the divergence theorem we get</p>
+<p><span id="eq-work-charge-density-2"><span class="math display">W = \frac{\epsilon_0}{2} \left( \int_\Sigma \phi {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}A + \int_\Omega  
+| {\boldsymbol{E}}|^2 {\mathrm{d}}V \right). \tag{2.19}</span></span></p>
+<p>As we want to know the energy of the whole charge configuration, we take <span class="math inline">\Omega</span> to be a ball centred at the origin with radius <span class="math inline">r</span>. Taking the limit <span class="math inline">r \to \infty</span> and recalling that in that limit <span class="math inline">\phi \sim \frac{1}{r}</span>, the surface integral term vanishes, and <a href="#eq-work-charge-density-2" class="quarto-xref">Equation&nbsp;<span>2.19</span></a> reduces to</p>
+<p><span class="math display"> W = \frac{\epsilon_0}{2} \int_{{\mathbb{R}}^3} | {\boldsymbol{E}}|^2 {\mathrm{d}}V.</span></p>
+<p>If the integral exists, we say that the charge configuration has finite energy <span class="math inline">W</span>.</p>
+<div id="def-energy-density" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.12 (Energy density)</strong></span> The energy density of a charge configuration is defined by</p>
+<p><span class="math display">\mathcal{E} = \frac{\epsilon_0}{2} | {\boldsymbol{E}}|^2,</span></p>
+<p>and the total energy of the configuration can be written as</p>
+<p><span class="math display">W = \int_{{\mathbb{R}}^3} \mathcal{E} {\mathrm{d}}V.</span></p>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The unit is named after the french physicist Charles-Augustin de Coulomb, who formulated what today is known as Coulomb’s law (coming next).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>As a shorthand, we will refer to particles with an electrical charge as “charges”.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>For a closed surface it is quite intuitive what outward means: pointing into the unbounded domain. For an open surface, the definition is arbitrary and we get to choose it. Note from the definition that this will simply change the sign of the flux.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Recall that the outwards normal unit vector to the sphere is <span class="math inline">\frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|}</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Recall that the work is defined as the energy transferred to or from an object via the application of force along a displacement. Note the importance of the displacement, as if there is no displacement, there is no work.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>If you are taking MA3D1, you will notice that the streamlines are another example of field lines, in this case for a velocity field.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>If considering a 2D problem, equipotential surfaces reduce to equipotential curves.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./1-introduction.html" class="pagination-link" aria-label="Introduction to electromagnetism">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to electromagnetism</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

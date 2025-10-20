@@ -2,13 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ferran Brosa Planella">
 
-<title>MA302 Electromagnetism</title>
+<title>1&nbsp; Introduction to electromagnetism – MA302 Electromagnetism</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./2-electrostatics.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -38,14 +39,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2641b481724464e61c86985d8c912b6f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4c6d65c679321d81af7ec8b61b1d5a24.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-2641b481724464e61c86985d8c912b6f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ec314ad1f90a069ede53d8d1b9942adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-3396d056e495cf15e5a954e3723c5eed.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-ec314ad1f90a069ede53d8d1b9942adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,6 +75,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -249,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1-introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to electromagnetism</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -282,8 +326,20 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-introduction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to electromagnetism</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-electrostatics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Electrostatics</span></span></a>
   </div>
 </li>
     </ul>
@@ -296,7 +352,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#maxwells-equations" id="toc-maxwells-equations" class="nav-link active" data-scroll-target="#maxwells-equations"><span class="header-section-number">1.1</span> Maxwell’s equations</a></li>
+  <li><a href="#recap-on-vector-calculus" id="toc-recap-on-vector-calculus" class="nav-link" data-scroll-target="#recap-on-vector-calculus"><span class="header-section-number">1.2</span> Recap on vector calculus</a></li>
   </ul>
 </nav>
     </div>
@@ -306,26 +363,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MA302 Electromagnetism</h1>
+<h1 class="title"><span id="sec-introduction" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to electromagnetism</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ferran Brosa Planella </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">20 October, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -338,51 +383,21 @@ ul.task-list li input[type="checkbox"] {
 <div class="hidden">
 
 </div>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>These are the lecture notes for the third-year Maths module <a href="https://courses.warwick.ac.uk/modules/2025/MA302-15">MA302 Electromagnetism</a> taught at the <a href="https://warwick.ac.uk/">University of Warwick</a>.</p>
-<!-- ACKNOWLEDGE OXFORD LECTURE NOTED AND FEYNMAN 
-They are intended to be essentially self--contained, but are based upon (my interpretation
-of) the content of chapters drawn from [A First Course in Continuum
-Mechanics](https://go.exlibris.link/CMjyhLvJ) by Oscar Gonzalez and Andrew Stuart. This book is a good place to read more about the topics covered and to find various
-exercises to test your understanding of the content, but it is
-definitely not the only good book covering many of the topics we
-consider here. In particular, for those looking for additional reading,
-various additional books are recommended on the module Moodle page.
+<p>What is electromagnetism &amp; motivation</p>
+<section id="maxwells-equations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="maxwells-equations"><span class="header-section-number">1.1</span> Maxwell’s equations</h2>
+<!-- Write out equations as one of our main goals
 
-## Aims and structure {#aims-and-structure}
+Cancel time out and split: electrostatics and magnetostatics -->
+<p><span id="eq-maxwell-1"><span class="math display">\nabla \cdot {\boldsymbol{E}}= \frac{\rho}{\epsilon_0}, \tag{1.1}</span></span> <span id="eq-maxwell-2"><span class="math display">\nabla \times {\boldsymbol{E}}= - {\frac{\partial}{\partial t}}{{\boldsymbol{B}}}, \tag{1.2}</span></span> <span id="eq-maxwell-3"><span class="math display">\nabla \cdot {\boldsymbol{B}}= 0, \tag{1.3}</span></span> <span id="eq-maxwell-4"><span class="math display">\nabla \times {\boldsymbol{B}}= \mu_0 \left( {\boldsymbol{J}}+ \epsilon_0 {\frac{\partial}{\partial t}}{{\boldsymbol{E}}} \right). \tag{1.4}</span></span></p>
+</section>
+<section id="recap-on-vector-calculus" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="recap-on-vector-calculus"><span class="header-section-number">1.2</span> Recap on vector calculus</h2>
+<!-- ## To do
 
-The central aim of the module is to present a mathematical framework
-within which various continuum models of solids, liquids and gases can
-be described and derived, and to provide some examples of the Partial
-Differential Equation (PDE) models which result. -->
-<!-- As background, we make use of various concepts from Linear Algebra,
-Analysis and Vector Calculus. In @sec-tensor-algebra and
-@sec-tensor-calculus, we therefore recap various concepts
-and discuss some operations on these objects which may be new to you,
-and at the very least, may take a different perspective. Since some of
-these concepts will be taken as understood, it will be up to you to
-ensure that you are comfortable with any concepts which are not covered
-in detail in lectures. In particular, one of the techniques we use as a
-baseline throughout the module is converting back and forth between
-tensor notation and component notation in a particular coordinate
-system. You should ensure you get comfortable with doing this for
-yourself. -->
-<!-- @sec-mass-forces introduces some of the important physical
-concepts central to this module, including mass density, force and
-stress fields. In particular, developing an understanding of *stress* is
-one of the keys to unlocking this module.
-@sec-kinematics introduces the study of kinematics, or the
-study of motion of continuous bodies. Here, we introduce the concept of
-*strain*, which is another central focus for the module. In
-@sec-balance-laws, we combine these concepts to derive
-balance laws, which are the Partial Differential Equations which govern
-a continuum body's motion. As we will see, these balance laws can be
-formulated in *Eulerian* or *Lagrangian* form. The former formulation is
-generally used for the study of fluids, while the latter is generally
-used for the study of solid materials. -->
-<p>There will doubtless be errors and typos in these notes. If you spot anything, please feel free to let me know via email.</p>
-<p><a href="https://www.brosaplanella.xyz">Dr Ferran Brosa Planella</a>, Summer 2025</p>
+- Figure out end-of-proof symbol
+- Use callouts for examples, definitions, theorems...
+-  -->
 
 
 </section>
@@ -801,6 +816,18 @@ used for the study of solid materials. -->
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./2-electrostatics.html" class="pagination-link" aria-label="Electrostatics">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Electrostatics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
