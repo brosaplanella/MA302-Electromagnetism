@@ -1,3 +1,6 @@
 /.quarto/
+/docs/
+/site_libs/
+
 
 **/*.quarto_ipynb
