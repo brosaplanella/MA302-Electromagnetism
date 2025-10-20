@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: docs
+  preview:
+    watch-inputs: true  # re-render inputs when they change
+
+
+book:
+  title: "MA302 Electromagnetism"
+  author: "Ferran Brosa Planella"
+  date: today
+  date-format: "D MMMM, YYYY"
+  chapters:
+    - index.qmd
+    # - 1-introduction.qmd
+    # - 2-electrostatics.qmd
+    # - 3-applications-electrostatics.qmd
+    # - 4-magnetostatics.qmd
+    # - 5-applications-magnetostatics.qmd
+    # - 6-electrodynamics.qmd
+    # - 7-matter.qmd
+  downloads: pdf
+
+format:
+  html:
+    toc: true
+    html-math-method: katex
+    css: styles.css
+    theme:
+      light: flatly
+      dark: darkly
+  pdf:
+    documentclass: scrbook
+    papersize: a4
+    toc: true
+    toc-depth: 2
+    pdf-engine: pdflatex
+    colorlinks: true
+    linkcolor: blue
+    toccolor: blue
