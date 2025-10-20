@@ -1,0 +1,53 @@
+{{< include macros.qmd >}}
+
+# Preface {.unnumbered}
+
+These are the lecture notes for the third-year Maths module [MA302 Electromagnetism](https://courses.warwick.ac.uk/modules/2025/MA302-15) taught at the [University of Warwick](https://warwick.ac.uk/).
+
+<!-- ACKNOWLEDGE OXFORD LECTURE NOTED AND FEYNMAN 
+They are intended to be essentially self--contained, but are based upon (my interpretation
+of) the content of chapters drawn from [A First Course in Continuum
+Mechanics](https://go.exlibris.link/CMjyhLvJ) by Oscar Gonzalez and Andrew Stuart. This book is a good place to read more about the topics covered and to find various
+exercises to test your understanding of the content, but it is
+definitely not the only good book covering many of the topics we
+consider here. In particular, for those looking for additional reading,
+various additional books are recommended on the module Moodle page.
+
+## Aims and structure {#aims-and-structure}
+
+The central aim of the module is to present a mathematical framework
+within which various continuum models of solids, liquids and gases can
+be described and derived, and to provide some examples of the Partial
+Differential Equation (PDE) models which result. -->
+
+<!-- As background, we make use of various concepts from Linear Algebra,
+Analysis and Vector Calculus. In @sec-tensor-algebra and
+@sec-tensor-calculus, we therefore recap various concepts
+and discuss some operations on these objects which may be new to you,
+and at the very least, may take a different perspective. Since some of
+these concepts will be taken as understood, it will be up to you to
+ensure that you are comfortable with any concepts which are not covered
+in detail in lectures. In particular, one of the techniques we use as a
+baseline throughout the module is converting back and forth between
+tensor notation and component notation in a particular coordinate
+system. You should ensure you get comfortable with doing this for
+yourself. -->
+
+<!-- @sec-mass-forces introduces some of the important physical
+concepts central to this module, including mass density, force and
+stress fields. In particular, developing an understanding of *stress* is
+one of the keys to unlocking this module.
+@sec-kinematics introduces the study of kinematics, or the
+study of motion of continuous bodies. Here, we introduce the concept of
+*strain*, which is another central focus for the module. In
+@sec-balance-laws, we combine these concepts to derive
+balance laws, which are the Partial Differential Equations which govern
+a continuum body's motion. As we will see, these balance laws can be
+formulated in *Eulerian* or *Lagrangian* form. The former formulation is
+generally used for the study of fluids, while the latter is generally
+used for the study of solid materials. -->
+
+There will doubtless be errors and typos in these notes. If you spot
+anything, please feel free to let me know via email.
+
+[Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Summer 2025

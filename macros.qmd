@@ -1,0 +1,109 @@
+---
+format: html
+---
+
+::: {.hidden}
+
+\providecommand{\bfa}{{\boldsymbol{a}}}
+\providecommand{\bfb}{{\boldsymbol{b}}}
+\providecommand{\bfc}{{\boldsymbol{c}}}
+\providecommand{\bfd}{{\boldsymbol{d}}}
+\providecommand{\bfe}{{\boldsymbol{e}}}
+\providecommand{\bff}{{\boldsymbol{f}}}
+\providecommand{\bfg}{{\boldsymbol{g}}}
+\providecommand{\bfh}{{\boldsymbol{h}}}
+\providecommand{\bfi}{{\boldsymbol{i}}}
+\providecommand{\bfj}{{\boldsymbol{j}}}
+\providecommand{\bfk}{{\boldsymbol{k}}}
+\providecommand{\bfl}{{\boldsymbol{l}}}
+\providecommand{\bfm}{{\boldsymbol{m}}}
+\providecommand{\bfn}{{\boldsymbol{n}}}
+\providecommand{\bfo}{{\boldsymbol{o}}}
+\providecommand{\bfp}{{\boldsymbol{p}}}
+\providecommand{\bfq}{{\boldsymbol{q}}}
+\providecommand{\bfr}{{\boldsymbol{r}}}
+\providecommand{\bfs}{{\boldsymbol{s}}}
+\providecommand{\bft}{{\boldsymbol{t}}}
+\providecommand{\bfu}{{\boldsymbol{u}}}
+\providecommand{\bfv}{{\boldsymbol{v}}}
+\providecommand{\bfw}{{\boldsymbol{w}}}
+\providecommand{\bfx}{{\boldsymbol{x}}}
+\providecommand{\bfy}{{\boldsymbol{y}}}
+\providecommand{\bfz}{{\boldsymbol{z}}}
+
+\providecommand{\bfA}{{\boldsymbol{A}}}
+\providecommand{\bfB}{{\boldsymbol{B}}}
+\providecommand{\bfC}{{\boldsymbol{C}}}
+\providecommand{\bfD}{{\boldsymbol{D}}}
+\providecommand{\bfE}{{\boldsymbol{E}}}
+\providecommand{\bfF}{{\boldsymbol{F}}}
+\providecommand{\bfG}{{\boldsymbol{G}}}
+\providecommand{\bfH}{{\boldsymbol{H}}}
+\providecommand{\bfI}{{\boldsymbol{I}}}
+\providecommand{\bfJ}{{\boldsymbol{J}}}
+\providecommand{\bfK}{{\boldsymbol{K}}}
+\providecommand{\bfL}{{\boldsymbol{L}}}
+\providecommand{\bfM}{{\boldsymbol{M}}}
+\providecommand{\bfN}{{\boldsymbol{N}}}
+\providecommand{\bfO}{{\boldsymbol{O}}}
+\providecommand{\bfP}{{\boldsymbol{P}}}
+\providecommand{\bfQ}{{\boldsymbol{Q}}}
+\providecommand{\bfR}{{\boldsymbol{R}}}
+\providecommand{\bfS}{{\boldsymbol{S}}}
+\providecommand{\bfT}{{\boldsymbol{T}}}
+\providecommand{\bfU}{{\boldsymbol{U}}}
+\providecommand{\bfV}{{\boldsymbol{V}}}
+\providecommand{\bfW}{{\boldsymbol{W}}}
+\providecommand{\bfX}{{\boldsymbol{X}}}
+\providecommand{\bfY}{{\boldsymbol{Y}}}
+\providecommand{\bfZ}{{\boldsymbol{Z}}}
+
+\providecommand{\bfzero}{{\boldsymbol{0}}}
+
+\providecommand{\bfkappa}{{\boldsymbol{\kappa}}}
+\providecommand{\bfomega}{{\boldsymbol{\omega}}}
+\providecommand{\bftau}{{\boldsymbol{\tau}}}
+\providecommand{\bfnu}{{\boldsymbol{\nu}}}
+\providecommand{\bfpsi}{{\boldsymbol{\psi}}}
+\providecommand{\bfxi}{{\boldsymbol{\xi}}}
+\providecommand{\bfphi}{{\boldsymbol{\varphi}}}
+\providecommand{\bfeps}{{\boldsymbol{\varepsilon}}}
+\providecommand{\bfSigma}{{\boldsymbol{\Sigma}}}
+\providecommand{\bfOmega}{{\boldsymbol{\Omega}}}
+\providecommand{\calI}{{\mathcal{I}}}
+\providecommand{\calN}{{\mathcal{N}}}
+\providecommand{\calV}{{\mathcal{V}}}
+\providecommand{\bbE}{{\mathbb{E}}}
+\providecommand{\bbR}{{\mathbb{R}}}
+\providecommand{\bbC}{{\mathbb{C}}}
+\providecommand{\bsfC}{{\mathsf{C}}}
+\providecommand{\bsfD}{{\mathsf{D}}}
+\providecommand{\bsfI}{{\mathsf{I}}}
+\providecommand{\bsfO}{{\mathsf{O}}}
+\providecommand{\tr}{{\operatorname{tr}}}
+\providecommand{\sym}{{\operatorname{sym}}}
+\providecommand{\skw}{{\operatorname{skew}}}
+\providecommand{\vc}{{\operatorname{vec}}}
+\providecommand{\ten}{{\operatorname{ten}}}
+\providecommand{\cof}{{\operatorname{cof}}}
+\providecommand{\mass}{{\operatorname{mass}}}
+\providecommand{\vol}{{\operatorname{vol}}}
+\providecommand{\area}{{\operatorname{area}}}
+\providecommand{\com}{{\operatorname{com}}}
+\providecommand{\cov}{{\operatorname{cov}}}
+\providecommand{\e}{{\mathrm{e}}}
+\providecommand{\D}{{\mathrm{D}}}
+\providecommand{\dd}{{\mathrm{d}}}
+\providecommand{\dt}{{\dd t}}
+\providecommand{\ppt}{{\frac{\partial}{\partial t}}}
+\providecommand{\Dt}{{\D t}}
+\providecommand{\DDt}{{\frac{\D}{\Dt}}}
+\providecommand{\bigO}{{O}}
+\providecommand{\litO}{{o}}
+\providecommand{\dVx}{{\,\dd V_{\bfx}}}
+\providecommand{\dAx}{{\,\dd A_{\bfx}}}
+\providecommand{\dVy}{{\,\dd V_{\bfy}}}
+\providecommand{\dAy}{{\,\dd A_{\bfy}}}
+\providecommand{\ds}{{\,\dd s}}
+
+:::
