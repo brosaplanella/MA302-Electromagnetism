@@ -2,52 +2,37 @@
 
 # Preface {.unnumbered}
 
-These are the lecture notes for the third-year Maths module [MA302 Electromagnetism](https://courses.warwick.ac.uk/modules/2025/MA302-15) taught at the [University of Warwick](https://warwick.ac.uk/).
+These are the lecture notes for the third-year Maths module [MA302 Electromagnetism](https://courses.warwick.ac.uk/modules/2025/MA302-15) taught at the [University of Warwick](https://warwick.ac.uk/). These notes are available both as a PDF and a static website (which should be suitable for screen-reading devices), you can access both at [https://brosaplanella.github.io/MA302-Electromagnetism/](https://brosaplanella.github.io/MA302-Electromagnetism/). I might update the notes as we go, fixing typos and improving explanations. You can keep track of those changes in the [CHANGELOG](https://github.com/brosaplanella/MA302-Electromagnetism/blob/main/CHANGELOG.md). Further material is available on Moodle for registered students.
 
-<!-- ACKNOWLEDGE OXFORD LECTURE NOTED AND FEYNMAN 
-They are intended to be essentially self--contained, but are based upon (my interpretation
-of) the content of chapters drawn from [A First Course in Continuum
-Mechanics](https://go.exlibris.link/CMjyhLvJ) by Oscar Gonzalez and Andrew Stuart. This book is a good place to read more about the topics covered and to find various
-exercises to test your understanding of the content, but it is
-definitely not the only good book covering many of the topics we
-consider here. In particular, for those looking for additional reading,
-various additional books are recommended on the module Moodle page.
+These lectures notes, which aim to be self--contained, are inspired by three main sources:
+
+1. D. Tong, [Electromagnetism](https://doi.org/10.1017/9781009594660), Cambridge University Press, Cambridge, 2025.
+2. R.P. Feynman, R.B. Leighton, M.L. Sands, [The Feynman lectures on physics](https://www.feynmanlectures.caltech.edu/), Definitive ed, Pearson Addison Wesley, San Francisco, 2006.
+3. Lecture notes of the B7.2 Electromagnetism course at the University of Oxford, written by James Sparks and Erik Panzer.
+
+The first two are good references if you want to read more about the topic, probably Tong's book is closer in structure to these lecture notes. In both cases, they cover a lot more material than this module does.
 
 ## Aims and structure {#aims-and-structure}
 
-The central aim of the module is to present a mathematical framework
-within which various continuum models of solids, liquids and gases can
-be described and derived, and to provide some examples of the Partial
-Differential Equation (PDE) models which result. -->
+The main aims of this module are:
 
-<!-- As background, we make use of various concepts from Linear Algebra,
-Analysis and Vector Calculus. In @sec-tensor-algebra and
-@sec-tensor-calculus, we therefore recap various concepts
-and discuss some operations on these objects which may be new to you,
-and at the very least, may take a different perspective. Since some of
-these concepts will be taken as understood, it will be up to you to
-ensure that you are comfortable with any concepts which are not covered
-in detail in lectures. In particular, one of the techniques we use as a
-baseline throughout the module is converting back and forth between
-tensor notation and component notation in a particular coordinate
-system. You should ensure you get comfortable with doing this for
-yourself. -->
+- Provide the student with the background necessary to understand basic electromagnetism concepts and Maxwell's equations.
+- Apply this knowledge to write and solve models for simple electromagnetism setups.
+- Highlight the connections of electromagnetism to practical applications in our day-to-day lives.
 
-<!-- @sec-mass-forces introduces some of the important physical
-concepts central to this module, including mass density, force and
-stress fields. In particular, developing an understanding of *stress* is
-one of the keys to unlocking this module.
-@sec-kinematics introduces the study of kinematics, or the
-study of motion of continuous bodies. Here, we introduce the concept of
-*strain*, which is another central focus for the module. In
-@sec-balance-laws, we combine these concepts to derive
-balance laws, which are the Partial Differential Equations which govern
-a continuum body's motion. As we will see, these balance laws can be
-formulated in *Eulerian* or *Lagrangian* form. The former formulation is
-generally used for the study of fluids, while the latter is generally
-used for the study of solid materials. -->
+We will look at electromagnetism from a mathematical perspective, and use it to better understand the world around us, which is what applied mathematics is about.
 
-There will doubtless be errors and typos in these notes. If you spot
-anything, please feel free to let me know via email.
+In @sec-introduction we will provide some motivation to the topic and recap some basic results from vector calculus that we will use in this module. 
+
+We will start with electrostatics in @sec-electrostatics, which is the study of static electric charges. We will introduce some fundamental concepts like electric charge, electric field and electrostatic potential; and derive some results like Gauss' law. In @sec-applications-electrostatics we will put into practice what we learned about electrostatics, by developing some concepts further and using them to understand some real applications, like conductors or capacitors.
+
+Next, we will turn our attention to magnetostatics (@sec-magnetostatics), which is the study of steady magnetic fields. As magnetic fields are produced by charges in motion, we will introduce the concepts of current and current density. We will also derive some key results, like the Biot-Savart law, Gauss'law for magnetism or Ampère's law. Similarly to electrostatics, in @sec-applications-magnetostatics we will focus on applications of magnetostatics.
+
+In @sec-electrodynamics we will bring time into the equation, and generalise our previous results to allow for time-dependence, leading to the Maxwell's equations. We will talk about induction and displacement currents, but the spotlight will be on light^[Pun intended.]. We will derive the governing equation for electromagnetic waves, and introduce some results, though if you want to learn a lot more about wave you should probably sign up for [MA301 Waves and Metamaterials](https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma301/).
+
+We will conclude with @sec-matter, in which we will extend the Maxwell's equations to account for real macroscale materials, rather than just charges in motion, and explain some of the phenomena that arise.
+
+This is the first time I teach this module, and there will doubtless be errors and typos in these notes. There are also probably sections that could be better explained. If you spot
+anything or you have any suggestions, please do let me know via email.
 
 [Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Summer 2025
