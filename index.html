@@ -44,9 +44,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ec314ad1f90a069ede53d8d1b9942adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-3396d056e495cf15e5a954e3723c5eed.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-ec314ad1f90a069ede53d8d1b9942adc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4ff66e45b39d49436fe97d3fe27b9920.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7e34ecb6a0e7991f0346b0751d4a7c3f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4ff66e45b39d49436fe97d3fe27b9920.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -309,7 +309,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <ul class="collapse">
+  <li><a href="#aims-and-structure" id="toc-aims-and-structure" class="nav-link" data-scroll-target="#aims-and-structure">Aims and structure</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -336,7 +339,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">20 October, 2025</p>
+      <p class="date">23 October, 2025</p>
     </div>
   </div>
   
@@ -353,51 +356,39 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>These are the lecture notes for the third-year Maths module <a href="https://courses.warwick.ac.uk/modules/2025/MA302-15">MA302 Electromagnetism</a> taught at the <a href="https://warwick.ac.uk/">University of Warwick</a>.</p>
-<!-- ACKNOWLEDGE OXFORD LECTURE NOTED AND FEYNMAN 
-They are intended to be essentially self--contained, but are based upon (my interpretation
-of) the content of chapters drawn from [A First Course in Continuum
-Mechanics](https://go.exlibris.link/CMjyhLvJ) by Oscar Gonzalez and Andrew Stuart. This book is a good place to read more about the topics covered and to find various
-exercises to test your understanding of the content, but it is
-definitely not the only good book covering many of the topics we
-consider here. In particular, for those looking for additional reading,
-various additional books are recommended on the module Moodle page.
-
-## Aims and structure {#aims-and-structure}
-
-The central aim of the module is to present a mathematical framework
-within which various continuum models of solids, liquids and gases can
-be described and derived, and to provide some examples of the Partial
-Differential Equation (PDE) models which result. -->
-<!-- As background, we make use of various concepts from Linear Algebra,
-Analysis and Vector Calculus. In @sec-tensor-algebra and
-@sec-tensor-calculus, we therefore recap various concepts
-and discuss some operations on these objects which may be new to you,
-and at the very least, may take a different perspective. Since some of
-these concepts will be taken as understood, it will be up to you to
-ensure that you are comfortable with any concepts which are not covered
-in detail in lectures. In particular, one of the techniques we use as a
-baseline throughout the module is converting back and forth between
-tensor notation and component notation in a particular coordinate
-system. You should ensure you get comfortable with doing this for
-yourself. -->
-<!-- @sec-mass-forces introduces some of the important physical
-concepts central to this module, including mass density, force and
-stress fields. In particular, developing an understanding of *stress* is
-one of the keys to unlocking this module.
-@sec-kinematics introduces the study of kinematics, or the
-study of motion of continuous bodies. Here, we introduce the concept of
-*strain*, which is another central focus for the module. In
-@sec-balance-laws, we combine these concepts to derive
-balance laws, which are the Partial Differential Equations which govern
-a continuum body's motion. As we will see, these balance laws can be
-formulated in *Eulerian* or *Lagrangian* form. The former formulation is
-generally used for the study of fluids, while the latter is generally
-used for the study of solid materials. -->
-<p>There will doubtless be errors and typos in these notes. If you spot anything, please feel free to let me know via email.</p>
+<p>These are the lecture notes for the third-year Maths module <a href="https://courses.warwick.ac.uk/modules/2025/MA302-15">MA302 Electromagnetism</a> taught at the <a href="https://warwick.ac.uk/">University of Warwick</a>. These notes are available both as a PDF and a static website (which should be suitable for screen-reading devices), you can access both at <a href="https://brosaplanella.github.io/MA302-Electromagnetism/">https://brosaplanella.github.io/MA302-Electromagnetism/</a>. I might update the notes as we go, fixing typos and improving explanations. You can keep track of those changes in the <a href="https://github.com/brosaplanella/MA302-Electromagnetism/blob/main/CHANGELOG.md">CHANGELOG</a>. Further material is available on Moodle for registered students.</p>
+<p>These lectures notes, which aim to be self–contained, are inspired by three main sources:</p>
+<ol type="1">
+<li>D. Tong, <a href="https://doi.org/10.1017/9781009594660">Electromagnetism</a>, Cambridge University Press, Cambridge, 2025.</li>
+<li>R.P. Feynman, R.B. Leighton, M.L. Sands, <a href="https://www.feynmanlectures.caltech.edu/">The Feynman lectures on physics</a>, Definitive ed, Pearson Addison Wesley, San Francisco, 2006.</li>
+<li>Lecture notes of the B7.2 Electromagnetism course at the University of Oxford, written by James Sparks and Erik Panzer.</li>
+</ol>
+<p>The first two are good references if you want to read more about the topic, probably Tong’s book is closer in structure to these lecture notes. In both cases, they cover a lot more material than this module does.</p>
+<section id="aims-and-structure" class="level2">
+<h2 class="anchored" data-anchor-id="aims-and-structure">Aims and structure</h2>
+<p>The main aims of this module are:</p>
+<ul>
+<li>Provide the student with the background necessary to understand basic electromagnetism concepts and Maxwell’s equations.</li>
+<li>Apply this knowledge to write and solve models for simple electromagnetism setups.</li>
+<li>Highlight the connections of electromagnetism to practical applications in our day-to-day lives.</li>
+</ul>
+<p>We will look at electromagnetism from a mathematical perspective, and use it to better understand the world around us, which is what applied mathematics is about.</p>
+<p>In <a href="1-introduction.html" class="quarto-xref"><span>1&nbsp; Introduction to electromagnetism</span></a> we will provide some motivation to the topic and recap some basic results from vector calculus that we will use in this module.</p>
+<p>We will start with electrostatics in <a href="2-electrostatics.html" class="quarto-xref"><span>2&nbsp; Electrostatics</span></a>, which is the study of static electric charges. We will introduce some fundamental concepts like electric charge, electric field and electrostatic potential; and derive some results like Gauss’ law. In <span class="quarto-unresolved-ref">?sec-applications-electrostatics</span> we will put into practice what we learned about electrostatics, by developing some concepts further and using them to understand some real applications, like conductors or capacitors.</p>
+<p>Next, we will turn our attention to magnetostatics (<span class="quarto-unresolved-ref">?sec-magnetostatics</span>), which is the study of steady magnetic fields. As magnetic fields are produced by charges in motion, we will introduce the concepts of current and current density. We will also derive some key results, like the Biot-Savart law, Gauss’law for magnetism or Ampère’s law. Similarly to electrostatics, in <span class="quarto-unresolved-ref">?sec-applications-magnetostatics</span> we will focus on applications of magnetostatics.</p>
+<p>In <span class="quarto-unresolved-ref">?sec-electrodynamics</span> we will bring time into the equation, and generalise our previous results to allow for time-dependence, leading to the Maxwell’s equations. We will talk about induction and displacement currents, but the spotlight will be on light<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. We will derive the governing equation for electromagnetic waves, and introduce some results, though if you want to learn a lot more about wave you should probably sign up for <a href="https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma301/">MA301 Waves and Metamaterials</a>.</p>
+<p>We will conclude with <span class="quarto-unresolved-ref">?sec-matter</span>, in which we will extend the Maxwell’s equations to account for real macroscale materials, rather than just charges in motion, and explain some of the phenomena that arise.</p>
+<p>This is the first time I teach this module, and there will doubtless be errors and typos in these notes. There are also probably sections that could be better explained. If you spot anything or you have any suggestions, please do let me know via email.</p>
 <p><a href="https://www.brosaplanella.xyz">Dr Ferran Brosa Planella</a>, Summer 2025</p>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Pun intended.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

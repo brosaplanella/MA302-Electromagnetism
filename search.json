@@ -4,7 +4,27 @@
     "href": "index.html",
     "title": "MA302 Electromagnetism",
     "section": "",
-    "text": "Preface\nThese are the lecture notes for the third-year Maths module MA302 Electromagnetism taught at the University of Warwick.\n\n\n\nThere will doubtless be errors and typos in these notes. If you spot anything, please feel free to let me know via email.\nDr Ferran Brosa Planella, Summer 2025",
+    "text": "Preface\nThese are the lecture notes for the third-year Maths module MA302 Electromagnetism taught at the University of Warwick. These notes are available both as a PDF and a static website (which should be suitable for screen-reading devices), you can access both at https://brosaplanella.github.io/MA302-Electromagnetism/. I might update the notes as we go, fixing typos and improving explanations. You can keep track of those changes in the CHANGELOG. Further material is available on Moodle for registered students.\nThese lectures notes, which aim to be self–contained, are inspired by three main sources:\nThe first two are good references if you want to read more about the topic, probably Tong’s book is closer in structure to these lecture notes. In both cases, they cover a lot more material than this module does.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#aims-and-structure",
+    "href": "index.html#aims-and-structure",
+    "title": "MA302 Electromagnetism",
+    "section": "Aims and structure",
+    "text": "Aims and structure\nThe main aims of this module are:\n\nProvide the student with the background necessary to understand basic electromagnetism concepts and Maxwell’s equations.\nApply this knowledge to write and solve models for simple electromagnetism setups.\nHighlight the connections of electromagnetism to practical applications in our day-to-day lives.\n\nWe will look at electromagnetism from a mathematical perspective, and use it to better understand the world around us, which is what applied mathematics is about.\nIn 1  Introduction to electromagnetism we will provide some motivation to the topic and recap some basic results from vector calculus that we will use in this module.\nWe will start with electrostatics in 2  Electrostatics, which is the study of static electric charges. We will introduce some fundamental concepts like electric charge, electric field and electrostatic potential; and derive some results like Gauss’ law. In ?sec-applications-electrostatics we will put into practice what we learned about electrostatics, by developing some concepts further and using them to understand some real applications, like conductors or capacitors.\nNext, we will turn our attention to magnetostatics (?sec-magnetostatics), which is the study of steady magnetic fields. As magnetic fields are produced by charges in motion, we will introduce the concepts of current and current density. We will also derive some key results, like the Biot-Savart law, Gauss’law for magnetism or Ampère’s law. Similarly to electrostatics, in ?sec-applications-magnetostatics we will focus on applications of magnetostatics.\nIn ?sec-electrodynamics we will bring time into the equation, and generalise our previous results to allow for time-dependence, leading to the Maxwell’s equations. We will talk about induction and displacement currents, but the spotlight will be on light1. We will derive the governing equation for electromagnetic waves, and introduce some results, though if you want to learn a lot more about wave you should probably sign up for MA301 Waves and Metamaterials.\nWe will conclude with ?sec-matter, in which we will extend the Maxwell’s equations to account for real macroscale materials, rather than just charges in motion, and explain some of the phenomena that arise.\nThis is the first time I teach this module, and there will doubtless be errors and typos in these notes. There are also probably sections that could be better explained. If you spot anything or you have any suggestions, please do let me know via email.\nDr Ferran Brosa Planella, Summer 2025",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "MA302 Electromagnetism",
+    "section": "",
+    "text": "Pun intended.↩︎",
     "crumbs": [
       "Preface"
     ]
