@@ -47,7 +47,6 @@ formulated in *Eulerian* or *Lagrangian* form. The former formulation is
 generally used for the study of fluids, while the latter is generally
 used for the study of solid materials. -->
 
-There will doubtless be errors and typos in these notes. If you spot
-anything, please feel free to let me know via email.
+There will doubtless be errors and typos in these notes. If you spot any or you have some ideas on how to improve the notes, please let me know via email.
 
-[Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Summer 2025
+[Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Autumn 2025
