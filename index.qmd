@@ -35,4 +35,4 @@ We will conclude with @sec-matter, in which we will extend the Maxwell's equatio
 This is the first time I teach this module, and there will doubtless be errors and typos in these notes. There are also probably sections that could be better explained. If you spot
 anything or you have any suggestions, please do let me know via email.
 
-[Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Summer 2025
+[Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Autumn 2025

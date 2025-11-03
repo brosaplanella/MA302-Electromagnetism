@@ -1,0 +1,436 @@
+{{< include macros.qmd >}}
+
+# Magnetostatics {#sec-magnetostatics}
+
+So far we have considered situations where charges are static, so the next step is to consider what happens when charges move around. However, when charges move around, they create magnetic fields! This can create some quite interesting (and messy) interactions between electric and magnetic fields. We will unpick this little by little starting with magnetostatics, that is the study of magnetic fields that do not depend on time.
+
+## Electric current & conservation of charge
+
+Consider a point charge. It's pretty straightforward to picture this charge moving around the space with a velocity $\bfv(t)$. Let's now think what would happen when we have infinitely many charges, so we consider a charge density $\rho(\bfr)$. Similarly, we can define a velocity field $\bfv(\bfr, t)$, which gives us the average^[Real charges (e.g. electrons) will have some random motion, but they can still have an overall velocity, for example, induced by an electric field. We ignore (i.e. average out) the random motion and focus only on the overall _drift_ velocity.] drift velocity of a charge at point $\bfr$ and time $t$. In this chapter we focus on time independent problems, so we drop time, i.e. $\bfv(\bfr)$. This means that the charges can still move around, but the velocity does not change in time (though it can change in space). In short, the charge at a position $\bfr$ will always have the same velocity $\bfv(\bfr)$. 
+
+::: {#def-current-density}
+
+## Current density
+
+Given a distribution of charge with density $\rho$ and a velocity (vector) field $\bfv$, the electric current density $\bfJ$ is defined as
+
+$$ \bfJ = \rho \bfv.$$
+
+:::
+
+If you stop to consider what are the dimensions of the current density, you will find that they are charge per unit time and unit area^[In SI units we have $\mathrm{A}\; \mathrm{m}^{-2}$, where $\mathrm{A} = \mathrm{C}\;\mathrm{s}^{-1}$ are amperes (name after Mr Ampère, who we will meet in a few pages).]. It is therefore a flux, that is (in very rigorous terms) _amount of stuff through a surface per unit time_, where in this case _stuff_ is charge. 
+
+It is convenient to define electric current (or current, for short).
+
+::: {#def-electric-current}
+
+## Electric current
+
+The electric current $I$ through a surface $\Sigma$ is given by
+
+$$I = \int_\Sigma \bfJ \cdot \bfn \; \dd A.$$
+
+In SI units, current is measured in amperes ($A$). 
+:::
+
+The physical interpretation of the current is the amount of charge per unit time flowing through the surface $\Sigma$. Therefore, current is not a vector quantity but a scalar. Depending on which way we define the normal vector $\bfn$, we may have positive or negative current. This arbitrarity is fine: we basically define a direction for current and, if it ends up being negative, it means charge is flowing in the opposite direction.
+
+You are probably familiar with the idea of current when you think of electric cables. Charges inside might be doing all sorts of things, but what matters in the end is how much charge gets through the cross-section of the cable, i.e. the current.
+
+A very important property of electric charge is that it is conserved. Like with mass, this means that charge cannot be created nor destroyed. The idea of conservation of _stuff_ underpins many areas of physics^[You will encounter it in quite a few modules, e.g. MA3D1.] and, luckily for us, we have a very convenient way of representing it mathematically.
+
+The equation that encapsulates conservation of _stuff_ is called the continuity equation. Even though it is a very general equation, here we will state it and derive it in the context of electric fields.^[In MA3D1 you will derive the generic form.]
+
+::: {#thm-continuity-equation}
+
+## Continuity equation
+
+Given a charge density $\rho$ with a current density $\bfJ$, it must satisfy
+
+$$\ppt{\rho} + \nabla \cdot \bfJ = 0.$$ {#eq-continuity}
+
+:::
+
+::: {.proof}
+
+Consider a bounded region $\Omega \in \bbR^3$, bounded by the surface $\partial \Omega$. The total charge in $\Omega$ is given by
+
+$$Q = \int_\Omega \rho \; \dd V.$$
+
+Because charge is conserved, the only way by which $Q$ can change is either by charge coming in or charge coming out through the boundary $\partial \Omega$. This is defined by the current density $\bfJ$, so current through $\partial \Omega$ is equal to minus the rate of change of $Q$:
+
+$$\int_{\partial \Omega} \bfJ \cdot \bfn \; \dd A = - \frac{\dd Q}{\dd t} = - \int_\Omega \frac{\partial \rho}{\partial t} \; \dd V.$$ {#eq-proof-continuity}
+
+The minus sign is because we define the normal vector $\bfn$ to point outwards of $\Omega$, therefore, if $\bfJ\cdot\bfn$ is positive, it means charge is leaving $\Omega$ and therefore $Q$ should decrease.
+
+Applying the divergence theorem to the left-hand side of @eq-proof-continuity we obtain
+
+$$ \int_\Omega \left( \frac{\partial \rho}{\partial t} + \nabla \cdot \bfJ \right) \; \dd V = 0,$$
+
+and given that $\Omega$ is arbitrarily defined we must have
+
+$$ \frac{\partial \rho}{\partial t} + \nabla \cdot \bfJ = 0.$$
+:::
+
+In magnetostatics we have $\frac{\partial \rho}{\partial t} = 0$, therefore the continuity equation reduces to
+
+$$\nabla \cdot \bfJ = 0.$$ {#eq-conservation-current-steady}
+
+Currents satisfying this property are called _steady currents_.
+
+
+## Lorentz force & magnetic field
+
+When charges move around, they generate a magnetic field, which we will denote with $\bfB(\bfr, t)$ (though in this chapter we concert only with static problems, i.e. $\bfB(\bfr)$). The magnetic field, in turn, exerts a force over electric charges. In SI units the magnetic field is measure in _teslas_ ($T$)^[Named after Nikola Tesla, not after a certain famous car brand...], which correspond to $\mathrm{N} \; \mathrm{s} \; \mathrm{m}^{-1} \; \mathrm{C}^{-1}$.
+
+::: {#def-Lorentz-force}
+
+## Lorentz force law
+
+Given a point charge $q$ under the effects of an electric field $\bfE(\bfr, t)$ and $\bfB(\bfr, t)$. The charge moves with a velocity $\bfu = \frac{\dd \bfr}{\dd t}$, where $\bfr(t)$ is the position of the charge at a time $t$. Then, the charge experiences a force
+
+$$ \bfF(\bfr, t) = q \bfE(\bfr, t) + q \bfu(t) \times \bfB(\bfr, t).$$
+
+:::
+
+You may have noticed we haven't given a "proper" definition of the magnetic field. One may regard the Lorentz force law as the implicit definition of a magnetic field.
+
+Note that when the charge is static (i.e. $\bfu \equiv \bfzero$), the Lorentz force law gives
+
+$$ \bfF = q \bfE,$$
+
+as expected from electrostatics. Note as well that the component related to the magnetic field actually does no work on the particle. We can rewrite the definition of work (@eq-work-electrostatic) as
+
+$$ W = - \int_0^{t} \bfF \cdot \bfu \; \dd \tilde t,$$
+
+which represents the work on the charge moving with velocity $\bfu$ during the time interval $[0, t]$. Then,
+
+$$ W = - \int_0^{t} q \bfE \cdot \bfu \; \dd \tilde t,$$
+
+and the component related to the magnetic field vanishes because $\bfu(t) \times \bfB(\bfr, t)$ is, by the properties of the cross product, perpendicular to $\bfu(t)$. Therefore, its dot product with $\bfu(t)$ is equal to zero.
+
+## Biot-Savart law
+
+In the definition of the Lorentz force we have introduced the concept of magnetic field, but we have not yet given a mathematical definition like we did for the electric field @def-electric-field. This is the goal of this section. 
+
+Remember that the electric field can be interpreted as the force that a set of _static_ charges exerts on a unit test charge. Similarly, the magnetic field is the force that a set of _moving_ charges exerts on a unit test charge. Its mathematical expression is given by the Biot-Savart law
+
+::: {#def-Biot-Savart-law}
+
+## Biot-Savart law
+
+A charge $q$ at position $\bfr_0$ and moving with a velocity $\bfv$ produces a magnetic field^[I am deliberately vague about whether the velocity can depend on time or not. It will be easier to discuss this when we reformulate the Biot-Savart law in terms of currents.]
+
+$$\bfB(\bfr) = \frac{\mu_0 q}{4 \pi} \frac{\bfv \times (\bfr - \bfr_0)}{|\bfr - \bfr_0|^3},$$
+
+where $\mu_0$ is a parameter called _permeability of free space_. Its value is $\mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \, \mathrm{A}^{-2}$.
+:::
+
+Note the similarities between @def-electric-field and @def-Biot-Savart-law.
+
+The Principle of Superposition also applies to magnetic fields. Therefore, the magnetic field generated by a steady current density $\bfJ$ defined in a domain $\Omega$ is given by
+
+$$\bfB (\bfr) = \frac{\mu_0}{4\pi} \int_\Omega \frac{\bfJ(\bfr') \times (\bfr - \bfr')}{|\bfr - \bfr'|^3} \dd V'.$$ {#eq-Biot-Savart-J}
+
+In the particular case of a steady current $I$ through a wire $C$ we can write
+
+$$\bfB(\bfr) = \frac{\mu_0 I}{4 \pi} \int_C \frac{\dd \bfr' \times (\bfr - \bfr')}{|\bfr - \bfr'|^3},$$
+
+where $\dd \bfr'$ is the differential of length along the curve $C$.
+
+::: {#exm-straight-wire}
+
+## Straight wire
+
+Let's consider a steady current $I$ through an infinitely long straight wire. Wlog we will assume the wire is along the $z$ axis (i.e. $x=y=0$). Then, we can work in cylindrical coordinates $(r, \theta, z)$. In that case, the differential of length in the integral can be written as $\dd \bfr' = \bfe_z \dd z$. Then, we have
+
+$$ \dd \bfr' \times (\bfr - \bfr') = r \dd z \bfe_\theta,$$
+
+i.e. the magnetic field will point in the angular direction. Then, from @def-Biot-Savart-law we have 
+
+$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{r}{(r^2 + z^2)^\frac{3}{2}} \dd z = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
+
+:::
+
+::: {.callout-warning}
+
+Clarify example above and add sketch
+
+:::
+
+## Gauss' law for magnetism
+
+We have now derived three of Maxwell's equation (at least their static versions); there is only @eq-Maxwell-3 left. This equation is often referred to as the Gauss' law for magnetism and, as the name suggests, it is very similar to Gauss' law for electric fields (@thm-Gauss-law-diff).
+
+::: {#thm-Gauss-law-magnetism}
+
+## Gauss' law for magnetism
+
+Any magnetic field $\bfB$ satisfies
+
+$$\nabla \cdot \bfB = 0.$$
+
+:::
+
+::: {.proof}
+
+We will prove Gauss' law for magnetism for a point charge, but the proof for a current density would follow similarly, just with more complicated algebra. Wlog we set $\bfr_0 = \bfzero$, so
+
+$$\bfB(\bfr) = \frac{\mu_0 q}{4 \pi} \frac{\bfv \times \bfr}{|\bfr|^3}$$
+
+First, note that
+
+$$\nabla \cdot \left( \frac{\bfv \times \bfr}{| \bfr|^3} \right) = \frac{\bfr}{|\bfr|^3} \cdot \left( \nabla \times \bfv \right) - \bfv \cdot \left( \nabla \times \frac{\bfr}{|\bfr|^3} \right) $$ 
+
+using `CROSSREF`, but as $\bfv$ does not depend on $\bfr$ the first term vanished. Recall from `CROSSREF` that
+
+$$\frac{\bfr}{|\bfr|^3} = - \nabla \frac{1}{|\bfr|},$$
+
+therefore 
+
+$$\nabla \cdot \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) = 0,$$
+
+as the curl of a gradient is zero (`CROSSREF`). This shows that $\nabla \cdot \bfB = 0$ everywhere except at $\bfr = \bfzero$ due to the singularity in the definition of $\bfB$. To resolve it, we consider the ball of radius $R$ centred at the origin, $B_R$. Then
+
+$$ \int_{\partial B_R} \bfB \cdot \bfn \; \dd A = \frac{\mu_0 q}{4 \pi} \int_{\partial B_R} \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) \cdot \bfn \; \dd A = 0,$$
+
+where in the final step we have used that $\bfv \times \bfr$ is perpendicular to the normal to the ball surface (which is in the radial direction). Then, by the divergence theorem, we find
+
+$$ \int_{B_R} \nabla \cdot \bfB \; \dd V = 0,$$
+
+and thus we conclude that $\nabla \cdot \bfB = 0$ everywhere.
+
+:::
+
+
+## Ampère's law
+
+So far we have defined the magnetic field for a given charge and for a current in a wire. However, we would like a more generic equation that, given an electric current, tells us the magnetic field it induces. This is precisely what Ampère's law^[Named after André-Marie Ampère (1775-1836), a French physicist and mathematician.] does.
+
+::: {#thm-Ampere-law}
+
+## Ampère's law
+
+The magnetic field $\bfB$ induced by a steady electric current density $\bfJ$ satisfies
+
+$$\nabla \times \bfB = \mu_0 \bfJ.$$
+
+Note that this is equivalent to @eq-Maxwell-4 if the electric field $\bfE$ is steady.
+
+:::
+
+Historically, this was derived by Ampère (and others) using experimental and theoretical tools. However, we can derive it from the Biot-Savart law (@eq-Biot-Savart-J). But before we need to introduce a couple of lemmas.
+
+::: {#lem-vector-potential}
+
+The vector field
+
+$$ \bfA(\bfr) = \frac{\mu_0}{4\pi} \int_\Omega \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \dd V' $$ {#eq-vector-potential}
+
+satisfies $\bfB(\bfr) = \nabla \times \bfA(\bfr)$.
+
+:::
+
+::: {.proof}
+
+Let's compute the derivative of the $i$-th component of $\bfA$ with respect to the $j$-th coordinate:
+
+$$\frac{\partial A_i}{\partial x_j} = - \frac{\mu_0}{4 \pi} \int_\Omega \frac{\bfJ_i(\bfr')}{|\bfr - \bfr'|^3} (x_j - x_j') \dd V',$$
+
+where we are using $\bfr = (x_1, x_2, x_3)$ and $\bfr' = (x'_1, x'_2, x'_3)$. 
+
+From `CROSSREF` we have
+
+$$\nabla \times \bfA = \sum_{j=1}^3 \bfe_j \times \frac{\partial \bfA}{\partial x_j} = - \sum_{i,j=1}^3 (\bfe_i \times \bfe_j) \frac{\partial A_i}{\partial x_j}.$$
+
+And we observe that, after some close manipulation, the last term is equal to $\bfB(\bfr)$ from @eq-Biot-Savart-J.
+
+:::
+
+::: {#lem-div-A-0}
+
+For steady currents $\bfJ$ supported inside a bounded region $\Omega$ we have $\nabla \cdot \bfA(\bfr) = 0$.
+
+:::
+
+::: {.proof}
+
+First, note that if $\bfr \neq \bfr'$ we can write
+
+$$ \nabla \left( \frac{1}{|\bfr - \bfr'|}\right) = - \nabla' \left(|\bfr - \bfr'| \right),$$
+
+where $\nabla'$ is the gradient with respect to the $\bfr'$ variable. 
+
+From @eq-vector-potential
+
+$$\begin{aligned}
+\nabla \cdot \bfA &= \frac{\mu_0}{4 \pi} \int_\Omega \bfJ(\bfr') \cdot \nabla \left( \frac{1}{|\bfr - \bfr'|} \right) \dd V' \\
+&= -\frac{\mu_0}{4 \pi} \int_\Omega \bfJ(\bfr') \cdot \nabla' \left( \frac{1}{|\bfr - \bfr'|} \right) \dd V'\\
+&= -\frac{\mu_0}{4 \pi} \int_\Omega \nabla' \left( \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \right) \dd V' + \frac{\mu_0}{4 \pi} \int_\Omega \frac{1}{|\bfr - \bfr'|} \left(  \nabla' \cdot \bfJ(\bfr') \right) \dd V'.
+\end{aligned}
+$$
+
+The last term vanishes as it satisfies @eq-conservation-current-steady. For the remaining term, we can use divergence theorem: 
+
+$$ -\frac{\mu_0}{4 \pi} \int_\Omega \nabla' \left( \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \right) \dd V' = -\frac{\mu_0}{4 \pi} \int_{\partial \Omega} \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \cdot \bfn \; \dd A'.$$
+
+But, by definition, $\bfJ$ is supported inside $\Omega$, therefore the boundary integral vanishes and we conclude
+
+$$\nabla \cdot \bfA = 0.$$
+
+:::
+
+
+::: {.proof}
+
+## of Ampère's law 
+
+From @lem-vector-potential we have
+
+$$\nabla \times \bfB = \nabla \times (\nabla \times \bfA).$$
+
+Using the identity `CROSSREF`, which applies to any vector field $\bfA$, we obtain
+
+$$ \nabla \times (\nabla \times \bfA) = \nabla (\nabla \cdot \bfA) - \nabla^2 \bfA.$$
+
+Applying @lem-div-A-0 we deduce
+
+$$\nabla \times \bfB = -\nabla^2 \bfA.$$
+
+Now we only need to compute $\nabla^2 \bfA$ from @eq-vector-potential:
+
+$$\nabla^2 \bfA = \frac{\mu_0}{4\pi} \int_\Omega \bfJ(\bfr') \nabla^2 \left(\frac{1}{|\bfr - \bfr'|}\right) \dd V' = \frac{\mu_0}{4\pi} \int_\Omega \bfJ(\bfr') \left(- 4 \pi \delta(\bfr - \bfr') \right) \dd V' = - \mu_0 \bfJ(\bfr).$$
+
+We have used `CROSSREF` in the second step.
+
+Combining everything we conclude
+
+$$ \nabla \times \bfB = \mu_0 \bfJ,$$ {#eq-Ampere-law}
+
+which is Ampère's law (@thm-Ampere-law).
+
+:::
+
+::: {#cor-Ampere-law-alternative}
+
+## Ampère's law - alternative formulation
+
+For any simple^[i.e. that it doesn't intersect itself.] closed curve $C = \partial \Sigma$ bounding a surface $\Sigma$
+
+$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \dd A = \mu_0 I,$$
+
+where $I$ is the current through $\Sigma$.
+
+:::
+
+::: {#exm-straight-wire-2}
+
+## Straight wire -- 2
+
+Let's consider again the current through a straight wire (@exm-straight-wire), but now let's approach it using @cor-Ampere-law-alternative. If we look at the symmetries of the problem, we notice it is invariant under vertical translations and rotations around the $z$-axis, so we can conclude that the magnetic field only depends on the radial direction. Let's further assume that the only non-zero component is on the angular direction:
+
+$$ \bfB = B(r) \bfe_\theta.$$
+
+For our curve $C$ we choose a circle of arbitrary radius $r$ in the $x-y$ plane with the centre on the $z$ axis. @cor-Ampere-law-alternative gives
+
+$$ \int_C \bfB \cdot \dd \bfr = B(r) \int_0^{2\pi} r \dd \theta = 2 \pi R B(r) = \mu_0 I,$$
+
+therefore we conclude that
+
+$$ \bfB = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
+
+:::
+
+## Magnetostatic vector potential
+
+In the derivation of Ampère's law we introduced the vector field $\bfA$, purely for convenience. It turns out though, that there is a lot more to it.
+
+::: {#def-magnetostatic-vector-potential}
+
+## Magnetostatic vector potential
+
+The _vector potential_ of a static magnetic field $\bfB$ is defined as vector field $\bfA$ such that
+
+$$ \bfB = \nabla \times \bfA.$$
+
+:::
+
+Note the parallelisms (and differences) with the electrostatic potential in @sec-electrostatic-potential. There, we had a scalar potential $\phi$ from which we computed the electric field as $\bfE = -\nabla \phi$. Now, we have a vector potential^[In some books you may encounter a _magnetic scalar potential_, which may confuse you. This scalar potential is used as a calculation technique in some very specific problems, and we will not use it in this module. If you want to learn more, there is a very good discussion in section 3.2.1 of David Tong's book.] $\bfA$ from which we compute the magnetic field $\bfB = \nabla \times \bfA$.
+
+Note as well that by defining the magnetic field from the vector potential it automatically satisfies $\nabla \cdot \bfB = 0$, as the divergence of a curl is always zero. The implication works both ways and any field $\bfB$ that can be written as the curl of a potential satisfies $\nabla \cdot \bfB = 0$. `CROSSREF`
+
+The choice for $\bfA$ is far from unique, similarly to the definition of the electric potential. In this case, the argument is a bit more subtle, as we can not only add constants, but also vector fields of the form $\nabla \chi$ (for a given function $\chi(\bfx)$):
+
+$$\bfA' = \bfA + \nabla \chi \implies \nabla \times \bfA' = \nabla \times \bfA + \nabla \times (\nabla \chi) = \nabla \times \bfA.$$
+
+::: {#def-gauge-transformation}
+
+## Gauge transformation
+
+The transformation
+
+$$ \bfA \rightarrow \bfA' = \bfA + \nabla \chi$$
+
+for any given function $\chi$ is called a _gauge transformation_. 
+
+:::
+
+::: {#prp-Coulomb-gauge}
+
+We can always find a gauge transformation $\chi$ such that $\bfA'$ satisfies 
+
+$$\nabla \cdot \bfA' = 0.$$
+
+Such transformation is called _Coulomb gauge_.
+
+:::
+
+::: {.proof}
+
+Suppose that we have a vector field $\bfA$ already satisfying $\nabla \times \bfA = \bfB$, but with $\nabla \cdot \bfA = \psi(\bfx)$. 
+
+Consider the transformed vector field $\bfA' = \bfA + \nabla \chi$, taking the divergence we obtain
+
+$$\nabla \cdot \bfA' = \nabla \cdot \bfA + \nabla^2 \chi = \psi + \nabla^2 \chi.$$
+
+Then, to make $\nabla \cdot \bfA' = 0$ we simply need to choose $\chi$ such that
+
+$$\nabla^2 \chi = - \psi.$$
+
+This is the Poisson equation, and we know that it has a unique solution (up to an additive constant).
+
+:::
+
+There is a lot to unpack from gauges when one goes into quantum physics (in fact, there is a class of quantum field theories called [gauge theories](https://en.wikipedia.org/wiki/Gauge_theory)). However, in this module we will use gauges purely as a mathematical tool: choosing the _right_ gauge allows us to write equations in a simpler form. For example, Ampère's law for the vector field yields
+
+$$\mu_0 \bfJ = \nabla \times \left( \nabla \times \bfA \right) = \nabla (\nabla \cdot \bfA) - \nabla^2 \bfA,$$
+
+and taking the Coulomb gauge allows us to simplify the equation to
+
+$$ \nabla^2 \bfA = - \mu_0 \bfJ,$$
+
+which is the Poisson's equation and we know how to solve it.
+
+::: {#exm-straight-wire-3}
+
+## Straight wire -- 3
+
+Let's consider yet again the current through a straight wire (@exm-straight-wire). Now we want to compute the vector potential $\bfA$. We found out in the previous examples that
+
+$$ \bfB = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
+
+As $\bfB = \nabla \times \bfA$, we can write the following system of equations for the components of $\bfA$:
+
+$$ \frac{1}{r} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,$$
+
+$$ \frac{\partial A_r}{\partial z} - \frac{\partial A_z}{\partial r} = \frac{\mu_0 I}{2 \pi r},$$
+
+$$\frac{1}{r} \left(\frac{\partial (r A_\theta)}{\partial r} - \frac{\partial A_r}{\partial \theta} \right) = 0.$$
+
+
+It is not straightforward how to solve this equation, but we can construct a suitable solution (remember, it will not be unique) by taking
+
+$$\bfA = - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{r}{r_0} \right) \bfe_z,$$
+
+where $r_0$ is an integrating constant.
+:::

@@ -68,6 +68,7 @@ format: html
 \providecommand{\bfxi}{{\boldsymbol{\xi}}}
 \providecommand{\bfphi}{{\boldsymbol{\varphi}}}
 \providecommand{\bfeps}{{\boldsymbol{\varepsilon}}}
+\providecommand{\bfsigma}{{\boldsymbol{\sigma}}}
 \providecommand{\bfSigma}{{\boldsymbol{\Sigma}}}
 \providecommand{\bfOmega}{{\boldsymbol{\Omega}}}
 \providecommand{\calI}{{\mathcal{I}}}

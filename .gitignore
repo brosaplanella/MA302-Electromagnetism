@@ -1,6 +1,6 @@
 /.quarto/
 /docs/
 /site_libs/
-
+/.vscode/
 
 **/*.quarto_ipynb

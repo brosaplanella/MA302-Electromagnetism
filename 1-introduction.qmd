@@ -10,10 +10,10 @@ What is electromagnetism & motivation
 
 Cancel time out and split: electrostatics and magnetostatics -->
 
-$$\nabla \cdot \bfE = \frac{\rho}{\epsilon_0},$$ {#eq-maxwell-1}
-$$\nabla \times \bfE = - \ppt{\bfB},$$ {#eq-maxwell-2}
-$$\nabla \cdot \bfB = 0,$$ {#eq-maxwell-3}
-$$\nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \ppt{\bfE} \right).$$ {#eq-maxwell-4}
+$$\nabla \cdot \bfE = \frac{\rho}{\epsilon_0},$$ {#eq-Maxwell-1}
+$$\nabla \cdot \bfB = 0,$$ {#eq-Maxwell-3}
+$$\nabla \times \bfE = - \ppt{\bfB},$$ {#eq-Maxwell-2}
+$$\nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \ppt{\bfE} \right).$$ {#eq-Maxwell-4}
 
 ## Recap on vector calculus
 
