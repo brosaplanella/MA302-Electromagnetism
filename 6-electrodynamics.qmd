@@ -228,7 +228,11 @@ $$c \approx 2.99 \times 10^{8} \; \mathrm{m}\,\mathrm{s}^{-1},$$
 
 which is the speed of light!
 
-- Polarisation
+::: {.callout-warning}
+
+Consider adding polarisation here
+
+:::
 
 ## Electromagnetic potentials and gauge transformations
 
