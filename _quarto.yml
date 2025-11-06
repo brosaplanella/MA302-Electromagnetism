@@ -14,7 +14,7 @@ book:
     - index.qmd
     - 1-introduction.qmd
     - 2-electrostatics.qmd
-    # - 3-applications-electrostatics.qmd
+    - 3-applications-electrostatics.qmd
     - 4-magnetostatics.qmd
     # - 5-applications-magnetostatics.qmd
     - 6-electrodynamics.qmd

@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+  pull_request:
+
+name: Test on push
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install rsvg-convert
+        run: sudo apt-get install librsvg2-bin
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Render Quarto project
+        uses: quarto-dev/quarto-actions/render@v2
