@@ -1,0 +1,98 @@
+<svg width="400" height="400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="g">
+   <stop stop-color="#7a7a7a" offset="0"/>
+   <stop stop-color="#fff" offset=".29201"/>
+   <stop stop-color="#313131" offset="1"/>
+  </linearGradient>
+  <linearGradient id="h" x1="30.569" x2="51.048" y1="47.554" y2="47.554" gradientTransform="matrix(7.4014 0 0 24.886 -95.267 -1121.1)" gradientUnits="userSpaceOnUse" xlink:href="#g"/>
+  <radialGradient id="f" cx="4.5" cy="6" r="22.5" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" stop-opacity=".7" offset="0"/>
+   <stop stop-color="#fff" stop-opacity=".5" offset=".1"/>
+   <stop stop-color="#fff" stop-opacity="0" offset=".6"/>
+   <stop stop-opacity="0" offset=".6"/>
+   <stop stop-opacity=".05" offset=".75"/>
+   <stop stop-opacity=".15" offset=".85"/>
+   <stop stop-opacity=".5" offset="1"/>
+  </radialGradient>
+ </defs>
+ <use transform="translate(226.33 275.65)" width="100%" height="100%" xlink:href="#e"/>
+ <use transform="translate(226.33 146.22)" width="100%" height="100%" xlink:href="#e"/>
+ <path id="c" d="m-27.368 19.957-5.0196-4.4781 12.02 4.4476-11.98 4.5523z"/>
+ <g id="e" transform="translate(-233.11 -137.83)" fill="url(#h)">
+  <rect x="130.99" y="10.364" width="151.58" height="103.93"/>
+  <path d="m282.56 10.364v103.93m-151.58 0v-103.93" stroke="#000" stroke-width="3"/>
+ </g>
+ <use xlink:href="#c"/>
+ <g id="a" transform="translate(7.1909 -207.83)">
+  <use transform="translate(356,44)" width="100%" height="100%" xlink:href="#c"/>
+  <path d="m46.032 64.01h336.94" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <use transform="translate(233.55 44)" width="100%" height="100%" xlink:href="#c"/>
+  <use transform="translate(109.96 44)" width="100%" height="100%" xlink:href="#c"/>
+  <text x="-261.42819" y="296.81653" fill="#000000" font-family="sans-serif" font-size="40px" letter-spacing="0px" stroke-width="1px" word-spacing="0px" style="line-height:125%" xml:space="preserve"><tspan x="-261.42819" y="332.20715"/></text>
+ </g>
+ <use transform="translate(-7.1909 173.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 194.33)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 214.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 235.33)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 255.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 308.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 328.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 348.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 368.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.1909 388.83)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.6909 434)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.6909 454.5)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.6909 475)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.6909 495.5)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(-7.6909 516)" width="100%" height="100%" xlink:href="#a"/>
+ <use transform="translate(226.33 405.09)" width="100%" height="100%" xlink:href="#e"/>
+ <g id="d" transform="matrix(-1 0 0 1 399 -22)">
+  <path d="m126.03-5.6031h146.94" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <use transform="translate(235.55 -25.613)" width="100%" height="100%" fill="#000000" xlink:href="#c"/>
+ </g>
+ <g id="symbols" transform="matrix(15.682 0 0 -15.56 165.3 -71.152)" stroke-width="1.9205">
+  <g transform="scale(.033333)" stroke-width="1.9205">
+   <circle r="14" fill="#00f"/>
+   <circle r="14" fill="url(#f)" stroke="#000" stroke-width="3.841"/>
+   <path d="m8 2h-16v-4h16z"/>
+  </g>
+ </g>
+ <g id="b" transform="matrix(15.682 0 0 -15.56 267.17 -67.862)" stroke-width="1.9205">
+  <g transform="scale(.033333)" stroke-width="1.9205">
+   <circle r="14" fill="#f00"/>
+   <circle r="14" fill="url(#f)" stroke="#000" stroke-width="3.841"/>
+   <path d="m2 2v6h-4v-6h-6v-4h6v-6h4v6h6v4z"/>
+  </g>
+ </g>
+ <use transform="translate(0 186.16)" width="100%" height="100%" xlink:href="#d"/>
+ <use transform="translate(0 206.23)" width="100%" height="100%" xlink:href="#d"/>
+ <use transform="translate(0 266.44)" width="100%" height="100%" xlink:href="#d"/>
+ <use transform="translate(0 226.3)" width="100%" height="100%" xlink:href="#d"/>
+ <use transform="translate(0 246.37)" width="100%" height="100%" xlink:href="#d"/>
+ <use transform="translate(-33.686 230.04)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 250.11)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 270.17)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 290.23)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 310.3)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(1.6949 226.39)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 246.46)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 266.53)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 286.59)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 306.66)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(-33.686 362.04)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 382.11)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 402.17)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 422.23)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(-33.686 442.3)" width="100%" height="100%" xlink:href="#symbols"/>
+ <use transform="translate(1.6949 358.39)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 378.46)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 398.53)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 418.59)" width="100%" height="100%" xlink:href="#b"/>
+ <use transform="translate(1.6949 438.66)" width="100%" height="100%" xlink:href="#b"/>
+ <g fill="#000000" font-family="sans-serif" font-size="18px" letter-spacing="0px" stroke-width="1px" word-spacing="0px">
+  <text x="11.016953" y="76.62104" style="line-height:125%" xml:space="preserve"><tspan x="11.016953" y="76.62104">(a)</tspan></text>
+  <text x="11.016953" y="210.62939" style="line-height:125%" xml:space="preserve"><tspan x="11.016953" y="210.62939">(b)</tspan></text>
+  <text x="12.711868" y="336.78769" style="line-height:125%" xml:space="preserve"><tspan x="12.711868" y="336.78769">(c)</tspan></text>
+ </g>
+</svg>
