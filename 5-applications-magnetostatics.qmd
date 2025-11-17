@@ -108,7 +108,7 @@ If the currents have the same sign (i.e. $I_1 I_2 > 0$), then the force is attra
 
 ### Force between dipoles
 
-Let's now calculate the force that a given magnetic field $\bfB$ exerts on a dipole. We will use the same argument that we used in the definition of the dipole (@sec-magnetic-dipole), in which we took the current around an infinitely small circular wire. From the Lorentz force law (@def-Lorentz-force), the force on the dipole is
+Let's now calculate the force that a given magnetic field $\bfB$ exerts on a dipole. We will use the same argument that we used in the definition of the dipole (@sec-magnetic-dipoles), in which we took the current around an infinitely small circular wire. From the Lorentz force law (@def-Lorentz-force), the force on the dipole is
 
 $$\bfF = \int_C I \dd \bfr' \times \bfB(\bfr').$$
 
