@@ -1,0 +1,268 @@
+{{< include macros.qmd >}}
+
+# Electromagnetism in matter {#sec-matter}
+
+In all the preceding chapters we have considered the Maxwell's equations in the vacuum. But in most real applications we want to consider, the electric and magnetic fields are not in the vacuum but interact with matter. The aim of this final chapter is to adjust Maxwell's equations to account for the effects of matter.
+
+## Electric fields in matter
+
+::: {.callout-warning}
+
+Introduce dielectrics somewhere
+
+:::
+
+We will start by considering electric fields in the presence of matter. Matter is made of atoms and, even though usually these atoms have neutral charge, its components don't: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call _polarisation_^[This is different from light polarisation.], which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.
+
+::: {.callout-warning}
+
+Add sketch polarisation
+
+:::
+
+To model this effect, let's introduce the _electric dipole_. Consider two point charges with opposite sign, $\pm q$, with the separation between them defined by a vector $\bfd$. Now, let's take the limit $d = |\bfd| \to 0$, while we let $q \to \infty$ in such a way that the _electric dipole moment_ $\bfp = q \bfd$ remains constant. This is called an electric dipole.^[The concept of dipole might be familiar to you if you are taking MA3D1 Fluid Dynamics, as it appears in the potential flows chapter.] We can loosely interpret the dipole (and its moment) as a charge with an orientation.
+
+Now let's compute the force that the dipole experiences from a given electric field $\bfE$. We start with the pair of charges (i.e. before taking the limit $d \to 0$). By the superposition principle the force is
+
+$$\bfF = q \bfE \left(\bfr + \frac{\bfd}{2}\right) - q \bfE \left(\bfr - \frac{\bfd}{2}\right),$$
+
+where, wlog, we have placed the charge $+q$ at $\bfr + \frac{\bfd}{2}$ and the charge $-q$ at $\bfr - \frac{\bfd}{2}$. Taking the Taylor expansion for small $d$ we obtain
+
+$$\begin{aligned}
+\bfF &= q \left( \bfE (\bfr) + \left(\frac{\bfd}{2} \cdot \nabla \right) \bfE + O(d^2) \right) - q \left( \bfE (\bfr) - \left(\frac{\bfd}{2} \cdot \nabla \right) \bfE + O(d^2) \right)\\
+&= \left( q \bfd \cdot \nabla \right) \bfE(\bfr) + O(d^2),
+\end{aligned}
+$$
+
+and when we take the limit $d \to 0$ (assuming $\bfp$ stays constant) we obtain
+
+$$\bfF = (\bfp \cdot \nabla) \bfE.$$
+
+As a side note, we can also consider the torque that the field exerts on the dipole around the point $\bfr$, which is
+
+$$ \bftau = \frac{\bfd}{2} \times \left[ q \bfE \left(\bfr + \frac{\bfd}{2}\right) \right] - \frac{\bfd}{2} \times \left[ -q \bfE \left(\bfr - \frac{\bfd}{2}\right) \right] \to \bfp \times \bfE,$$
+
+where we have skipped the details for the Taylor expansion and the limit $d \to 0$. Basically, this conveys the idea that the tendency of the dipoles will be to rotate until $\bfp$ and $\bfE$ are aligned. Interestingly if they point in the same direction we have a _stable equilibrium_, while if they point in opposite directions we have an _unstable equilibrium_. We omit the details here, but you can check it yourself thinking in which way does the torque operate when the angle between $\bfp$ and $\bfE$ is $\varepsilon \ll 1$ and $\pi - \varepsilon$.
+
+An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment $\bfp$ placed at the origin is
+
+$$\phi(\bfr)_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{r^3}.$$
+
+A dielectric medium is made of many (many) electric dipoles. Applying the principle of superposition, we can write the potential of the medium as
+
+$$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \sum_{i = 1}^{N} \frac{\bfp_i \cdot (\bfr - \bfr_i)}{|\bfr - \bfr_i|^3}.$$
+
+::: {#def-electric-polarisation-density}
+
+## Electric polarisation density
+
+We define the _electric polarisation density_ as a vector field $\bfP(\bfr): \Omega \in \mathbb{R}^3 \to \mathbb{R}^3$ that gives the dipole moment per unit volume at a certain point in space. This is analogous to the electric charge density in @def-charge-density.
+
+:::
+
+With this definition, we can write the potential induced by a given polarisation density as
+
+$$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\bfP(\bfr') \cdot (\bfr-\bfr')}{|\bfr - \bfr'|^3} \dd V'.$$
+
+Now, by a similar argument to the proof of @lem-div-A-0, we can write
+
+$$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \nabla' \cdot \left(\frac{\bfP'(\bfr')}{|\bfr - \bfr'|} \right) \dd V' - \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V' = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{-\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V',$$ {#eq-potential-dipoles}
+
+where in the last step we have used the divergence theorem on the first term, plus the fact that, by definition, $\bfP$ is zero at the boundary of $\Omega$ (and outside of it). 
+
+Comparing the equation above with @eq-electrostatic-potential-charge-density we can see the convenience of defining
+
+$$\rho_\mathrm{bound}(\bfr) = - \nabla \cdot \bfP(\bfr),$$ {#eq-rho-bound}
+
+so we can rewrite @eq-potential-dipoles as
+
+$$ \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho_\mathrm{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
+
+Thus we can interpret $\rho_\mathrm{bound}$ as the _effective_ charge density that produces the electric field @eq-potential-dipoles caused by the dipole distribution. We also observe that @eq-rho-bound looks like Gauss' law but now with $-\bfP/\epsilon_0$ instead of $\bfE$. So how is this related to Gauss' law?
+
+When considering a material, we can define its total charge density $\rho$ (the one appearing in Gauss' law) as the combination of the effective charge density $\rho_\mathrm{bound}$ caused by the polarisation of the dielectric material, plus the free charge density $\rho_\mathrm{free}$ (which is all the other charges that do not arise from polarisation). Then, Gauss' law becomes
+
+$$\nabla \cdot \bfE = \frac{1}{\epsilon_0} \left( \rho_\mathrm{free} + \rho_\mathrm{bound} \right) = \frac{1}{\epsilon_0} \left( \rho_\mathrm{free} - \nabla \cdot \bfP \right).$$
+
+As discussed earlier, we expect that the polarisation density $\bfP$ to be aligned with $\bfE$ everywhere, so we write
+
+$$\frac{1}{\epsilon_0} \bfP = \chi_e \bfE,$$
+
+where $\chi_e$ is a newly introduced parameter called the _electric susceptibility_ of the dielectric material. It's often more convenient to define $\chi_e$ in terms of the _permittivity_ of the material $\epsilon = \epsilon_0 (1 + \chi_e)$, which quantifies the response of the dielectric material to an external electric field.^[Now you see why we called $\epsilon_0$ the permittivity of free space.]
+
+The value of $\epsilon$ depends on many aspects of the material and the electric field, but in most cases we can take it to be approximately constant throughout the material. For vacuum, we have $\epsilon = \epsilon_0$, while for most other materials^[The exceptions are very weird materials in very weird situations, so unless stated otherwise it is safe to assume this is true.] $\epsilon > \epsilon_0$, e.g. for air $\epsilon \approx \epsilon_0$ while for water $\epsilon \approx 80 \epsilon_0$.
+
+Using the permittivity, we can rewrite Gauss' law as
+
+$$\nabla \cdot \left( \epsilon \bfE \right) = \rho_\mathrm{free},$$
+
+which sometimes is written in terms of the quantity $\bfD = \epsilon \bfE$, called the _electric displacement_. Note that, as $\epsilon > \epsilon_0$ the electric field generated by the free charges $\rho_\mathrm{free}$ in a material will be smaller than that generated in the vacuum.
+
+## Magnetic fields in matter
+
+::: {.callout-warning}
+
+Update crossrefs to magnetic dipoles in previous chapters.
+
+:::
+
+Now let's look how matter affects magnetic fields. In the previous section we used electric dipoles to understand the behaviour of matter under an electric field. Now, we will follow a similar argument but with magnetic dipoles instead. 
+
+Recall, from @eq-vector-potential-magnetic-dipole, that the magnetic potential produced by a dipole is
+
+$$\bfA (\bfr) = \frac{\mu_0}{4 \pi} \frac{\bfm \times \bfr}{|\bfr|^3}.$$ 
+
+This is for a single dipole, but using the principle of superposition we can write
+
+$$\bfA (\bfr) = \frac{\mu_0}{4 \pi} \sum_{i=1}^N \frac{\bfm_i \times (\bfr - \bfr_i)}{|\bfr - \bfr_i|^3}.$$ 
+
+::: {#def-magnetisation-density}
+
+## Magnetisation density
+
+We define the _magnetisation density_ as a vector field $\bfM(\bfr): \Omega \in \mathbb{R}^3 \to \mathbb{R}^3$ that gives the magnetic dipole moment per unit volume at a certain point in space.
+
+:::
+
+Then, we can write the vector potential of a distribution of magnetic dipoles as
+
+$$\bfA (\bfr) = \frac{\mu_0}{4 \pi} \int_\Omega \frac{\bfM(\bfr') \times (\bfr - \bfr')}{|\bfr - \bfr'|^3} \dd V'.$$ 
+
+Now, we can do some manipulation of this expression to obtain
+
+$$\begin{aligned}
+\bfA (\bfr) &= \frac{\mu_0}{4 \pi} \int_\Omega \bfM(\bfr') \times \nabla' \left( \frac{1}{|\bfr - \bfr'|} \right)\dd V' \\
+&= \frac{\mu_0}{4 \pi} \int_\Omega \left[ \frac{\nabla' \times \bfM(\bfr') }{|\bfr - \bfr'|} - \nabla' \times \left( \frac{\bfM(\bfr')}{|\bfr - \bfr'|} \right) \right] \dd V' \\
+&= \frac{\mu_0}{4 \pi} \int_\Omega \frac{\nabla' \times \bfM(\bfr')}{|\bfr - \bfr'|} \dd V' + \frac{\mu_0}{4 \pi} \int_{\partial \Omega} \frac{\bfM(\bfr')}{|\bfr - \bfr'|} \times \bfn \, \dd A' \\
+&= \frac{\mu_0}{4 \pi} \int_\Omega \frac{\nabla' \times \bfM(\bfr')}{|\bfr - \bfr'|} \dd V'.
+\end{aligned} 
+$$ {#eq-vector-potential-magnetic-dipole-derivation}
+
+Here, in the second line we have used the product properties of the curl (`CROSSREF`), in the third line we have applied Stokes' theorem to the second term, and in the fourth line we have used the assumption that the magnetic dipole moment is zero at the boundary (similar argument to what we did with electric dipoles earlier). Now compare this expression with @eq-vector-potential, we may define
+
+$$ \bfJ_\text{bound}(\bfr) = \nabla \times \bfM,$$ {#eq-J-bound}
+
+and thus rewrite @eq-vector-potential-magnetic-dipole-derivation as
+
+$$\bfA(\bfr) = \frac{\mu_0}{4 \pi} \int_\Omega \frac{\bfJ_\text{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
+
+In this case $\bfJ_\text{bound}(\bfr)$ represents the _effective magnetising currents_ that generate the magnetic dipoles in the material. These current represents the added-up effect of all the microscopic currents induced by the magnetisation.^[There is a more detail of this argument in Chapter 8.2.1 of Tong's book, and here is a [cute animation](https://en.wikipedia.org/wiki/Magnetization#Magnetization_current) in Wikipedia that illustrates it.]
+
+Similarly with charge when we revisited Gauss' law, the current appearing in Ampère's law (@eq-Ampere-law) is made of both the contributions due to the free charges $\bfJ_\text{free}$ and the contributions due to the effective magnetising current $\bfJ_\text{bound}$. Then, Ampère's law becomes
+
+$$ \nabla \times \bfB = \mu_0 (\bfJ_\text{free} + \bfJ_\text{bound}) = \mu_0 \bfJ_\text{free} + \mu_0 \nabla \times \bfM.$$
+
+For most materials, the magnetisation density will align with the magnetic field $\bfB$ such that there is no torque on the dipoles (same argument as with electric dipoles), therefore it is reasonable to write
+
+$$ \bfM = \frac{1}{\mu_0} \frac{\chi_m}{1 + \chi_m} \bfB,$$
+
+where $\chi_m$ (you probably see it coming) is a newly introduced parameter called the _magnetic susceptibility_ of the material. You probably won't be surprised either that we may want to define the _permeability_^[Don't mix it up with the _permittivity_!] of the material $\mu = \mu_0 (1 + \chi_m)$.
+
+Then, we can write
+
+$$\bfM = \frac{\chi_m}{\mu} \bfB,$$ {#eq-M-B}
+
+and therefore Ampère's law can be written as
+
+$$\nabla \times \left( \frac{1}{\mu} \bfB \right) = \bfJ_\text{free},$$ {#eq-Ampere-law-material-static}
+
+which sometimes is written in terms of the quantity $\bfH = \frac{1}{\mu}\bfB$, called the _magnetising field_.
+
+Before finishing the section, let's have a quick discussion about what values can $\chi_m$ take:
+
+* If $-1 < \chi_m < 0$ the material is called **diamagnetic**. This means that the magnetisation of the material opposes the applied magnetic field (i.e. the object is repelled by the magnetic field). Some examples of diamagnetic materials are copper, gold and water^[Therefore humans are also diamagnetic, as we are made mostly of water.].
+* If $\chi_m > 0$ the material is called **paramagnetic**. This means that the magnetisation of the material points in the same direction of the applied magnetic field (i.e. the object is attracted by the magnetic field). Some examples of paramagnetic materials are aluminium or tungsten.
+* In some cases, we can have $\bfM \neq \bfzero$ when $\bfB \neq \bfzero$, so @eq-M-B doesn't hold. These are known as **ferromagnetic** materials. These materials become magnetised very easily by external magnetic fields and, more importantly, remain magnetised long after the field is gone. These are the materials that we commonly know as magnets. Very few elements are ferromagnetic, most notably iron, nickel and cobalt.
+
+There is one final aspect we need to discuss. @eq-Ampere-law-material-static holds for the magnetostatic case, but similarly to what we did in @sec-displacement-current we need to modify it to account for time-dependent fields.
+
+When the fields are time-dependent, the bound charge $\rho_\text{bound}$ no longer sits still but it moves around. Still, it must satisfy the continuity equation @eq-continuity, i.e.
+
+$$\ppt{\rho_\text{bound}} + \nabla \cdot \bfJ_\text{bound} = 0.$$
+
+Recall, from @eq-rho-bound, that $\rho_\text{bound}$ is related to the polarisation density, so we can rewrite @eq-J-bound as
+
+$$\bfJ_\text{bound} = \nabla \times \bfM + \frac{\partial \bfP}{\partial t}.$$
+
+Now we can use a similar argument as before, but starting from the time-dependent Ampère's law @eq-Ampere-law-modified-time-dependence we have
+
+$$\nabla \times \bfB - \mu_0 \epsilon_0 \frac{\partial \bfE}{\partial t} = \mu_0 \left( \bfJ_\text{free} + \bfJ_\text{bound} \right) = \mu_0 \bfJ_\text{free} + \mu_0 \nabla \times \bfM + \mu_0 \frac{\partial \bfP}{\partial t}.$$
+
+Rearranging it in terms of $\bfH$ and $\bfD$ we obtain
+
+$$ \nabla \times \bfH - \frac{\partial \bfD}{\partial t} = \bfJ_\text{free}.$$
+
+
+## Macroscopic Maxwell's equations
+
+Now we can put together the results of the previous sections into the macroscopic Maxwell's equations. Inside matter, electromagnetic fields are governed by
+
+$$\nabla \cdot \bfD = \rho_\text{free},$$ {#eq-Maxwell-matter-1}
+$$\nabla \cdot \bfB = 0,$$ {#eq-Maxwell-matter-3}
+$$\nabla \times \bfE = - \frac{\partial\bfB}{\partial t},$$ {#eq-Maxwell-matter-2}
+$$\nabla \times \bfH - \frac{\partial \bfD}{\partial t} = \bfJ_\text{free}.$$ {#eq-Maxwell-matter-4}
+
+Note that two of the equations are written using $\bfE$ and $\bfB$, while the other two use $\bfD$ and $\bfH$. Therefore, we need some additional constraints to relate these quantities. However, we have seen that in the simplest case we can write
+
+$$\bfD = \epsilon \bfE, \quad \text{and} \quad \bfB = \mu \bfH.$$
+
+Materials that behave like this are callen _linear materials_, and all the complexity of the material is absorbed into the permittivity $\epsilon$ and the permeability $\mu$, which we assume to be constant. Things are a bit more complicated in real life, and many materials do not behave linearly, but that is out of the scope of this module.^[Ferromagnetic materials are a clear example of materials that do not behave linearly.]
+
+### Waves in matter
+
+Let's study now how electromagnetic waves propagate through matter. As we did in @sec-electrodynamics for vacuum, we will constrain to the case where there is no free charge nor current, and we will study only linear materials. Then, Maxwell's equations simplify to
+
+$$\nabla \cdot \left(\epsilon \bfE \right) = 0,$$ {#eq-Maxwell-matter-no-charge-1}
+$$\nabla \cdot \bfB = 0,$$ {#eq-Maxwell-matter-no-charge-3}
+$$\nabla \times \bfE = - \frac{\partial\bfB}{\partial t},$$ {#eq-Maxwell-matter-no-charge-2}
+$$\nabla \times \left( \frac{\bfB}{\mu}\right) = \frac{\partial \left(\epsilon \bfE \right)}{\partial t}.$$ {#eq-Maxwell-matter-no-charge-4}
+
+Applying the same transformations as in @sec-light, we can derive the wave equations
+
+$$\frac{1}{v^2} \frac{\partial^2 \bfE}{\partial t^2} - \nabla^2 \bfE = \bfzero,$$
+
+and
+
+$$\frac{1}{v^2} \frac{\partial^2 \bfB}{\partial t^2} - \nabla^2 \bfB = \bfzero,$$
+
+where the new wave propagation speed is given by $v = (\epsilon \mu)^{-\frac{1}{2}}$. It's not directly obvious from the definitions of $\epsilon$ and $\mu$, but for all materials $v \leq c$, so matter basically slows light down. There are also other interesting effects that we will briefly discuss later in this chapter. Note that as the relation between variables is linear, we could replace $\bfE$ by $\bfD$ and $\bfB$ by $\bfH$ and the equations would still hold.
+
+### Boundary conditions
+
+To conclude this section, we need to talk about what happens at the interface between two dielectric materials, with different permitivities and permeabilities. We already showed in @sec-applications-electrostatics and @sec-applications-magnetostatics that at a surface, electric fields are continuous in the tangent direction but may be discontinuous in the normal direction, and viceversa for magnetic fields. The culprits for those discontinuities were surface charges and currents.
+
+We now want to extend these conditions for electromagnetic fields in matter. To do so, we will repeat the arguments from previous sections, but we will apply them to @eq-Maxwell-matter-1 - @eq-Maxwell-matter-4. We label the two materials 1 and 2, and the normal vector $\bfn$ is defined to point from material 1 to material 2.
+
+We first apply the pillbox argument to @eq-Maxwell-matter-1, and in the presence of a (free) surface charge $\sigma$ we obtain
+
+$$\bfn \cdot \left(\bfD_2 - \bfD_1\right) = 0.$$
+
+Similarly, from @eq-Maxwell-matter-3 we obtain 
+
+$$\bfn \cdot \left(\bfB_2 - \bfB_1\right) = 0.$$
+
+Now we need to integrate along a close curve that intersects the boundary. From @eq-Maxwell-matter-2 we obtain
+
+$$\bfn \times \left(\bfE_2 - \bfE_1 \right) = \bfzero,$$
+
+while for @eq-Maxwell-matter-4 we obtain
+
+$$\bfn \times \left(\bfH_2 - \bfH_1 \right) = \bfK,$$
+
+where $\bfK$ is the surface current.
+
+Note that we have obtain one condition per field $\bfE$, $\bfD$, $\bfB$ and $\bfH$. Typically we will only use two of them, but we can convert between them using the relevant constraints for the materials we are considering.
+
+<!-- ## Solving the wave equation
+
+## Applications
+
+### Reflection and refraction
+
+Introduce index of refraction
+
+Dispersion relation ? 
+
+### Polarisation
+
+###  -->

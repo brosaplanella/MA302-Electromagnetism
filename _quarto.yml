@@ -18,7 +18,7 @@ book:
     - 4-magnetostatics.qmd
     - 5-applications-magnetostatics.qmd
     - 6-electrodynamics.qmd
-    # - 7-matter.qmd
+    - 7-matter.qmd
   downloads: pdf
 
 format:
