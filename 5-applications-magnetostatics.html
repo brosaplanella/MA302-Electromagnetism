@@ -380,14 +380,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#magnetic-monopoles" id="toc-magnetic-monopoles" class="nav-link active" data-scroll-target="#magnetic-monopoles"><span class="header-section-number">5.1</span> Magnetic monopoles</a></li>
-  <li><a href="#sec-magnetic-dipoles" id="toc-sec-magnetic-dipoles" class="nav-link" data-scroll-target="#sec-magnetic-dipoles"><span class="header-section-number">5.2</span> Magnetic dipoles</a></li>
-  <li><a href="#magnetic-forces" id="toc-magnetic-forces" class="nav-link" data-scroll-target="#magnetic-forces"><span class="header-section-number">5.3</span> Magnetic forces</a>
+  <li><a href="#surface-currents" id="toc-surface-currents" class="nav-link active" data-scroll-target="#surface-currents"><span class="header-section-number">5.1</span> Surface currents</a></li>
+  <li><a href="#magnetic-monopoles" id="toc-magnetic-monopoles" class="nav-link" data-scroll-target="#magnetic-monopoles"><span class="header-section-number">5.2</span> Magnetic monopoles</a></li>
+  <li><a href="#sec-magnetic-dipoles" id="toc-sec-magnetic-dipoles" class="nav-link" data-scroll-target="#sec-magnetic-dipoles"><span class="header-section-number">5.3</span> Magnetic dipoles</a></li>
+  <li><a href="#magnetic-forces" id="toc-magnetic-forces" class="nav-link" data-scroll-target="#magnetic-forces"><span class="header-section-number">5.4</span> Magnetic forces</a>
   <ul class="collapse">
-  <li><a href="#force-between-currents" id="toc-force-between-currents" class="nav-link" data-scroll-target="#force-between-currents"><span class="header-section-number">5.3.1</span> Force between currents</a></li>
-  <li><a href="#force-between-dipoles" id="toc-force-between-dipoles" class="nav-link" data-scroll-target="#force-between-dipoles"><span class="header-section-number">5.3.2</span> Force between dipoles</a></li>
+  <li><a href="#force-between-currents" id="toc-force-between-currents" class="nav-link" data-scroll-target="#force-between-currents"><span class="header-section-number">5.4.1</span> Force between currents</a></li>
+  <li><a href="#force-between-dipoles" id="toc-force-between-dipoles" class="nav-link" data-scroll-target="#force-between-dipoles"><span class="header-section-number">5.4.2</span> Force between dipoles</a></li>
   </ul></li>
-  <li><a href="#application-permanent-magnets" id="toc-application-permanent-magnets" class="nav-link" data-scroll-target="#application-permanent-magnets"><span class="header-section-number">5.4</span> Application: permanent magnets</a></li>
+  <li><a href="#application-permanent-magnets" id="toc-application-permanent-magnets" class="nav-link" data-scroll-target="#application-permanent-magnets"><span class="header-section-number">5.5</span> Application: permanent magnets</a></li>
   </ul>
 </nav>
     </div>
@@ -418,8 +419,14 @@ window.Quarto = {
 
 </div>
 <p>Having introduced the basic concepts for magnetostatics, let’s now put them into practice to better understand magnetism.</p>
-<section id="magnetic-monopoles" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="magnetic-monopoles"><span class="header-section-number">5.1</span> Magnetic monopoles</h2>
+<section id="surface-currents" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="surface-currents"><span class="header-section-number">5.1</span> Surface currents</h2>
+<div id=".callout-warning">
+<p>Add section on surface currents</p>
+</div>
+</section>
+<section id="magnetic-monopoles" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="magnetic-monopoles"><span class="header-section-number">5.2</span> Magnetic monopoles</h2>
 <p>Let’s start by looking more carefully at the Gauss’ law for magnetic fields:</p>
 <p><span class="math display">\nabla \cdot {\boldsymbol{B}}= 0.</span></p>
 <p>What this equation tells us, physically, is that there is no such thing as a <em>magnetic point charge</em> (more commonly known as a <em>monopole</em>). To see this, let’s compare it with Gauss’ law for electric fields:</p>
@@ -427,14 +434,14 @@ window.Quarto = {
 <p>In this case, the point charges (or <em>electric monopoles</em>, to continue the parallelism) are the sources and sinks of electric field. Therefore, going back to the magnetic field equation, we conclude magnetic monopoles can’t exist.</p>
 <p>Mathematically it might still make sense to allow for magnetic monopoles, and from a physical point of view they also are a useful tool to understand some effects (especially going down to quantum mechanics). However, no one has ever been able to observe a magnetic monopole in real life, so one should not worry very much about them.</p>
 </section>
-<section id="sec-magnetic-dipoles" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="sec-magnetic-dipoles"><span class="header-section-number">5.2</span> Magnetic dipoles</h2>
+<section id="sec-magnetic-dipoles" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-magnetic-dipoles"><span class="header-section-number">5.3</span> Magnetic dipoles</h2>
 <p>Now let’s talk about magnetic dipoles. Consider the magnetic vector potential generated by a current <span class="math inline">I</span> flowing through a small circle <span class="math inline">C</span>. From <a href="4-magnetostatics.html#eq-vector-potential" class="quarto-xref">Equation&nbsp;<span>4.5</span></a>, we have</p>
 <p><span class="math display"> {\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0 I}{4 \pi} \int_C \frac{{\mathrm{d}}{\boldsymbol{r}}'}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|}.</span></p>
 <p>We now want to see what happens when we make this circle infinitely small. Wlog we take the <span class="math inline">C</span> to be centred at the origin and lying on the <span class="math inline">(x,y)</span>-plane. We can then parameterise it as <span class="math inline">{\boldsymbol{r}}' = (R \cos \theta', R \sin \theta', 0)</span> for <span class="math inline">\theta' \in [0, 2\pi)</span>, where <span class="math inline">R &gt; 0</span> is the radius of the circle. If we take a Taylor expansion in the limit of <span class="math inline">R \ll 1</span>, we can write the integrand as</p>
 <p><span class="math display"> \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} = \frac{1}{\sqrt{(x - R \cos \theta')^2 + (y - R \sin \theta')^2 + z^2}} = \frac{1}{\sqrt{x^2 + y^2 + z^2}} + R \frac{x \cos \theta' + y \sin \theta'}{\left(x^2 + y^2 + z^2 \right)^\frac{3}{2}} + O(R^2).</span></p>
 <p>Using that <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}' = (-R \sin \theta',- R \cos \theta', 0) {\mathrm{d}}\theta'</span>, we can write the vector potential as</p>
-<p><span id="eq-vector-potential-magnetic-dipole"><span class="math display">
+<p><span id="eq-vector-potential-magnetic-dipole-derivation"><span class="math display">
 \begin{aligned}
 {\boldsymbol{A}}({\boldsymbol{r}}) &amp;= \frac{\mu_0 I}{4 \pi} \int_C \left(\frac{1}{\sqrt{(x - R \cos \theta')^2 + (y - R \sin \theta')^2 + z^2}} \right) {\mathrm{d}}{\boldsymbol{r}}' \\
 &amp;= \frac{\mu_0 I}{4 \pi} \int_0^{2\pi} \left[\frac{1}{\sqrt{x^2 + y^2 + z^2}} + R \frac{x \cos \theta' + y \sin \theta'}{\left(x^2 + y^2 + z^2 \right)^\frac{3}{2}} + O(R^2) \right] (-R \sin \theta',- R \cos \theta', 0) {\mathrm{d}}\theta'\\
@@ -445,16 +452,16 @@ window.Quarto = {
 <p>The first term in the integral vanishes, as the integral is with respect to the tilde variables. Therefore, we are effectively taking the integral of a constant over a closed curve. In the last line we have just rewritten the result as a cross product for convenience.</p>
 <p>Continuing with rewriting things in a convenient way, let’s introduce the <em>magnetic dipole moment</em>:</p>
 <p><span class="math display">{\boldsymbol{m}}= I \pi R^2 {\boldsymbol{n}},</span></p>
-<p>where <span class="math inline">{\boldsymbol{n}}</span> is the vector normal to the surface enclosed by <span class="math inline">C</span> (in our calculations above we have <span class="math inline">{\boldsymbol{n}}= {\boldsymbol{e}}_z</span> due to our choice of coordinates). Now let’s take the limit <span class="math inline">{\boldsymbol{R}}\to 0</span> while taking <span class="math inline">I \to \infty</span> in such a way that <span class="math inline">I \pi R^2</span> remains constant. THen, as the higher order terms vanish, the potential <a href="#eq-vector-potential-magnetic-dipole" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> can be written as</p>
-<p><span class="math display">{\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4 \pi} \frac{{\boldsymbol{m}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}.</span></p>
+<p>where <span class="math inline">{\boldsymbol{n}}</span> is the vector normal to the surface enclosed by <span class="math inline">C</span> (in our calculations above we have <span class="math inline">{\boldsymbol{n}}= {\boldsymbol{e}}_z</span> due to our choice of coordinates). Now let’s take the limit <span class="math inline">{\boldsymbol{R}}\to 0</span> while taking <span class="math inline">I \to \infty</span> in such a way that <span class="math inline">I \pi R^2</span> remains constant. THen, as the higher order terms vanish, the potential <a href="7-matter.html#eq-vector-potential-magnetic-dipole-derivation" class="quarto-xref">Equation&nbsp;<span>7.3</span></a> can be written as</p>
+<p><span id="eq-vector-potential-magnetic-dipole"><span class="math display">{\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4 \pi} \frac{{\boldsymbol{m}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}. \tag{5.2}</span></span></p>
 <p>Calculating the magnetic field of the dipole we obtain, after some algebra,</p>
-<p><span id="eq-B-dipole"><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \nabla \times {\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4 \pi} \left(- \frac{{\boldsymbol{m}}}{|{\boldsymbol{r}}|^3} + \frac{3 ({\boldsymbol{m}}\cdot {\boldsymbol{r}}) {\boldsymbol{r}}}{|{\boldsymbol{r}}|^5}\right). \tag{5.2}</span></span></p>
+<p><span id="eq-B-dipole"><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \nabla \times {\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4 \pi} \left(- \frac{{\boldsymbol{m}}}{|{\boldsymbol{r}}|^3} + \frac{3 ({\boldsymbol{m}}\cdot {\boldsymbol{r}}) {\boldsymbol{r}}}{|{\boldsymbol{r}}|^5}\right). \tag{5.3}</span></span></p>
 </section>
-<section id="magnetic-forces" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="magnetic-forces"><span class="header-section-number">5.3</span> Magnetic forces</h2>
+<section id="magnetic-forces" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="magnetic-forces"><span class="header-section-number">5.4</span> Magnetic forces</h2>
 <p>Now let’s turn our attention to magnetic forces. We will consider two cases: forces between currents and forces between dipoles.</p>
-<section id="force-between-currents" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="force-between-currents"><span class="header-section-number">5.3.1</span> Force between currents</h3>
+<section id="force-between-currents" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="force-between-currents"><span class="header-section-number">5.4.1</span> Force between currents</h3>
 <p>We first consider the force between two current distributions <span class="math inline">{\boldsymbol{J}}_1({\boldsymbol{r}})</span> and <span class="math inline">{\boldsymbol{J}}_2 ({\boldsymbol{r}})</span> defined in <span class="math inline">\Omega_1</span> and <span class="math inline">\Omega_2</span>, respectively. Take the magnetic field produced by <span class="math inline">{\boldsymbol{J}}_1</span>, from the Biot-Savart law (<a href="4-magnetostatics.html#def-Biot-Savart-law" class="quarto-xref">Definition&nbsp;<span>4.4</span></a>) we have</p>
 <p><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0}{4 \pi} \int_{\Omega_1} \frac{{\boldsymbol{J}}_1({\boldsymbol{r}}') \times ({\boldsymbol{r}}- {\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3} {\mathrm{d}}V'.</span></p>
 <p>I we restrict ourselves to the case where we have a current <span class="math inline">I_1</span> through a curve (wire) <span class="math inline">C_1</span>, we can write it as</p>
@@ -464,11 +471,11 @@ window.Quarto = {
 <p>or, if we again restrict to the case where we have a current <span class="math inline">I_2</span> through a curve <span class="math inline">C_2</span>,</p>
 <p><span class="math display">{\boldsymbol{F}}= I_2 \int_{C_2} {\mathrm{d}}{\boldsymbol{r}}\times {\boldsymbol{B}}({\boldsymbol{r}}).</span></p>
 <p>Combining the two results we obtain</p>
-<p><span id="eq-force-between-currents"><span class="math display">{\boldsymbol{F}}= \frac{\mu_0}{4\pi} I_1 I_2 \int_{C_1} \int_{C_2} {\mathrm{d}}{\boldsymbol{r}}_2 \times \left( {\mathrm{d}}{\boldsymbol{r}}_1 \times \frac{{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1}{| {\boldsymbol{r}}_2 - {\boldsymbol{r}}_1|^3} \right). \tag{5.3}</span></span></p>
+<p><span id="eq-force-between-currents"><span class="math display">{\boldsymbol{F}}= \frac{\mu_0}{4\pi} I_1 I_2 \int_{C_1} \int_{C_2} {\mathrm{d}}{\boldsymbol{r}}_2 \times \left( {\mathrm{d}}{\boldsymbol{r}}_1 \times \frac{{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1}{| {\boldsymbol{r}}_2 - {\boldsymbol{r}}_1|^3} \right). \tag{5.4}</span></span></p>
 <p>Notice the symmetry of the expression: if we were to compute the force on <span class="math inline">{\boldsymbol{J}}_1</span> produced by <span class="math inline">{\boldsymbol{J}}_2</span> we would reach the same result.</p>
 <div id="exm-two-wires" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5.1 (Two straight wires)</strong></span> Consider the case were we have to infinite, straight, parallel wires a distance <span class="math inline">d</span> from each other, carrying currents <span class="math inline">I_1</span> and <span class="math inline">I_2</span> respectively. We want the force applied to the second wire.</p>
-<p>Wlog we can write <span class="math inline">{\boldsymbol{r}}_1 = (0, 0, z_1)</span> and <span class="math inline">{\boldsymbol{r}}_2 = (d, 0, z_2)</span>, and derive that <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}_1 = {\mathrm{d}}z_1 {\boldsymbol{e}}_z</span> and <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}_2 = {\mathrm{d}}z_2 {\boldsymbol{e}}_z</span>. Then, <a href="#eq-force-between-currents" class="quarto-xref">Equation&nbsp;<span>5.3</span></a> becomes</p>
+<p>Wlog we can write <span class="math inline">{\boldsymbol{r}}_1 = (0, 0, z_1)</span> and <span class="math inline">{\boldsymbol{r}}_2 = (d, 0, z_2)</span>, and derive that <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}_1 = {\mathrm{d}}z_1 {\boldsymbol{e}}_z</span> and <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}_2 = {\mathrm{d}}z_2 {\boldsymbol{e}}_z</span>. Then, <a href="#eq-force-between-currents" class="quarto-xref">Equation&nbsp;<span>5.4</span></a> becomes</p>
 <p><span class="math display">{\boldsymbol{F}}= \frac{\mu_0}{4 \pi} I_1 I_2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} {\boldsymbol{e}}_z \times \left({\boldsymbol{e}}_z \times \frac{{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1}{|{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1|^3}\right) {\mathrm{d}}z_2 {\mathrm{d}}z_1.</span></p>
 <p>We have <span class="math inline">{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1 = d {\boldsymbol{e}}_x + (z_2 - z_1) {\mathrm{d}}{\boldsymbol{e}}_z</span>, and using the properties of the cross product we obtain</p>
 <p><span class="math display">\begin{aligned}
@@ -480,9 +487,9 @@ window.Quarto = {
 <p>If the currents have the same sign (i.e.&nbsp;<span class="math inline">I_1 I_2 &gt; 0</span>), then the force is attractive, while if the currents have opposite sign it is repulsive.</p>
 </div>
 </section>
-<section id="force-between-dipoles" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="force-between-dipoles"><span class="header-section-number">5.3.2</span> Force between dipoles</h3>
-<p>Let’s now calculate the force that a given magnetic field <span class="math inline">{\boldsymbol{B}}</span> exerts on a dipole. We will use the same argument that we used in the definition of the dipole (<a href="#sec-magnetic-dipoles" class="quarto-xref"><span>Section 5.2</span></a>), in which we took the current around an infinitely small circular wire. From the Lorentz force law (<a href="4-magnetostatics.html#def-Lorentz-force" class="quarto-xref">Definition&nbsp;<span>4.3</span></a>), the force on the dipole is</p>
+<section id="force-between-dipoles" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="force-between-dipoles"><span class="header-section-number">5.4.2</span> Force between dipoles</h3>
+<p>Let’s now calculate the force that a given magnetic field <span class="math inline">{\boldsymbol{B}}</span> exerts on a dipole. We will use the same argument that we used in the definition of the dipole (<a href="#sec-magnetic-dipoles" class="quarto-xref"><span>Section 5.3</span></a>), in which we took the current around an infinitely small circular wire. From the Lorentz force law (<a href="4-magnetostatics.html#def-Lorentz-force" class="quarto-xref">Definition&nbsp;<span>4.3</span></a>), the force on the dipole is</p>
 <p><span class="math display">{\boldsymbol{F}}= \int_C I {\mathrm{d}}{\boldsymbol{r}}' \times {\boldsymbol{B}}({\boldsymbol{r}}').</span></p>
 <p>Using the parameterisation <span class="math inline">{\boldsymbol{r}}'=\left(R \cos \theta', R \sin \theta', 0 \right)</span> for <span class="math inline">\theta' \in [0, 2\pi)</span>, and taking the Taylor expansion in the limit of small <span class="math inline">R</span> we get</p>
 <p><span class="math display">\begin{aligned}
@@ -492,11 +499,11 @@ window.Quarto = {
 &amp;= I \pi R^2 \left[\nabla B_z({\boldsymbol{0}}) - \left( \nabla \cdot {\boldsymbol{B}}({\boldsymbol{0}}) \right) {\boldsymbol{e}}_z + O(R^3) \right].
 \end{aligned}</span></p>
 <p>Taking the limit <span class="math inline">R \to 0</span> while keeping the dipole moment <span class="math inline">{\boldsymbol{m}}= I \pi R^2 {\boldsymbol{e}}_z</span> constant we obtain</p>
-<p><span id="eq-force-on-dipole"><span class="math display">{\boldsymbol{F}}= \nabla ({\boldsymbol{m}}\cdot {\boldsymbol{B}}) - (\nabla \cdot {\boldsymbol{B}}) {\boldsymbol{m}}= \nabla({\boldsymbol{m}}\cdot {\boldsymbol{B}}) = \nabla ({\boldsymbol{m}}\cdot {\boldsymbol{B}}), \tag{5.4}</span></span></p>
+<p><span id="eq-force-on-dipole"><span class="math display">{\boldsymbol{F}}= \nabla ({\boldsymbol{m}}\cdot {\boldsymbol{B}}) - (\nabla \cdot {\boldsymbol{B}}) {\boldsymbol{m}}= \nabla({\boldsymbol{m}}\cdot {\boldsymbol{B}}) = \nabla ({\boldsymbol{m}}\cdot {\boldsymbol{B}}), \tag{5.5}</span></span></p>
 <p>where in the final step we have used that <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span>.</p>
 <p>This force is conservative, and we can define the potential</p>
 <p><span class="math display">V_\text{dipole} = - {\boldsymbol{m}}\cdot {\boldsymbol{B}}, \quad \implies \quad {\boldsymbol{F}}= - \nabla V_\text{dipole}.</span></p>
-<p>The torque around the origin (using <code>CROSSREF</code>) is</p>
+<p>The torque around the origin (using <a href="1-introduction.html#eq-triple-cross-product" class="quarto-xref">Equation&nbsp;<span>1.6</span></a>) is</p>
 <p><span class="math display"> {\boldsymbol{\tau}}= \int_C {\boldsymbol{r}}' \times \left(I {\mathrm{d}}{\boldsymbol{r}}' \times {\boldsymbol{B}}({\boldsymbol{r}}') \right) = I \int_C {\mathrm{d}}{\boldsymbol{r}}' \left( {\boldsymbol{r}}' \cdot {\boldsymbol{B}}({\boldsymbol{r}}') \right).</span></p>
 <p>By a similar argument as before, we can write</p>
 <p><span class="math display">\begin{aligned}
@@ -507,7 +514,7 @@ window.Quarto = {
 <p><span class="math display">{\boldsymbol{\tau}}= {\boldsymbol{m}}\times {\boldsymbol{B}}.</span></p>
 <p>Note that both for the force and the forque, the expressions are analogous to those of the electric dipole, but replacing <span class="math inline">{\boldsymbol{p}}</span> with <span class="math inline">{\boldsymbol{m}}</span> and <span class="math inline">{\boldsymbol{E}}</span> with <span class="math inline">{\boldsymbol{B}}</span>. This also implies that magnetic dipoles will try to align with the magnetic field.</p>
 <div id="exm-force-between-dipoles" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.2 (Force between dipoles)</strong></span> Now let’s consider the force between to dipoles with moment <span class="math inline">{\boldsymbol{m}}_1</span> and <span class="math inline">{\boldsymbol{m}}_2</span> separated by a distance <span class="math inline">{\boldsymbol{d}}</span> (with <span class="math inline">|{\boldsymbol{d}}| = d</span>). The magnetic field produced by the first dipole is given by <a href="#eq-B-dipole" class="quarto-xref">Equation&nbsp;<span>5.2</span></a>. Then, using <a href="#eq-force-on-dipole" class="quarto-xref">Equation&nbsp;<span>5.4</span></a> we obtain that the force on the second dipole is</p>
+<p><span class="theorem-title"><strong>Example 5.2 (Force between dipoles)</strong></span> Now let’s consider the force between to dipoles with moment <span class="math inline">{\boldsymbol{m}}_1</span> and <span class="math inline">{\boldsymbol{m}}_2</span> separated by a distance <span class="math inline">{\boldsymbol{d}}</span> (with <span class="math inline">|{\boldsymbol{d}}| = d</span>). The magnetic field produced by the first dipole is given by <a href="#eq-B-dipole" class="quarto-xref">Equation&nbsp;<span>5.3</span></a>. Then, using <a href="#eq-force-on-dipole" class="quarto-xref">Equation&nbsp;<span>5.5</span></a> we obtain that the force on the second dipole is</p>
 <p><span class="math display">{\boldsymbol{F}}= \frac{\mu_0}{4\pi} \nabla \left( - \frac{{\boldsymbol{m}}_1 \cdot {\boldsymbol{m}}_2}{d^3} + \frac{3({\boldsymbol{m}}_1 \cdot {\boldsymbol{d}})({\boldsymbol{m}}_2 \cdot {\boldsymbol{d}})}{d^5} \right).</span></p>
 <p>We can compute the explicit expression (note that, here, the gradient applies on the vector <span class="math inline">{\boldsymbol{d}}</span>). After some careful<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> manipulation, we obtain</p>
 <p><span class="math display">{\boldsymbol{F}}= \frac{3 \mu_0}{4 \pi d^4} \left( ({\boldsymbol{m}}_1 \cdot \hat{{\boldsymbol{d}}}) {\boldsymbol{m}}_2 + ({\boldsymbol{m}}_2 \cdot \hat{{\boldsymbol{d}}}) {\boldsymbol{m}}_1 + ({\boldsymbol{m}}_1 \cdot {\boldsymbol{m}}_2) \hat{{\boldsymbol{d}}} - 5 ({\boldsymbol{m}}_1 \cdot \hat{{\boldsymbol{d}}}) ({\boldsymbol{m}}_2 \cdot \hat{{\boldsymbol{d}}}) \hat{{\boldsymbol{d}}}  \right),</span></p>
@@ -515,8 +522,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="application-permanent-magnets" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="application-permanent-magnets"><span class="header-section-number">5.4</span> Application: permanent magnets</h2>
+<section id="application-permanent-magnets" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="application-permanent-magnets"><span class="header-section-number">5.5</span> Application: permanent magnets</h2>
 <p>All the discussion we have had up to now was about magnetic fields arising from electric currents. But the magnets we are familiar with are the kind of thing we buy on our holidays to stick on our fridges. So where are the currents that produce the magnetic field in those magnets?</p>
 <p>The answer to this question involves quantum mechanics. Even though quantum mechanics is out of scope for this model, let’s try to give some intuition about it.</p>
 <div id="fig-magnet" class="quarto-float quarto-figure quarto-figure-center anchored">

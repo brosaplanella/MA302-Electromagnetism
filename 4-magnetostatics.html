@@ -516,11 +516,11 @@ Warning
 <p><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0 q}{4 \pi} \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}</span></p>
 <p>First, note that</p>
 <p><span class="math display">\nabla \cdot \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{| {\boldsymbol{r}}|^3} \right) = \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \cdot \left( \nabla \times {\boldsymbol{v}}\right) - {\boldsymbol{v}}\cdot \left( \nabla \times \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) </span></p>
-<p>using <code>CROSSREF</code>, but as <span class="math inline">{\boldsymbol{v}}</span> does not depend on <span class="math inline">{\boldsymbol{r}}</span> the first term vanished. Recall from <code>CROSSREF</code> that</p>
+<p>using <a href="1-introduction.html#eq-div-cross-product" class="quarto-xref">Equation&nbsp;<span>1.11</span></a>, but as <span class="math inline">{\boldsymbol{v}}</span> does not depend on <span class="math inline">{\boldsymbol{r}}</span> the first term vanished. Recall from <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.13</span></a> that</p>
 <p><span class="math display">\frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} = - \nabla \frac{1}{|{\boldsymbol{r}}|},</span></p>
 <p>therefore</p>
 <p><span class="math display">\nabla \cdot \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) = 0,</span></p>
-<p>as the curl of a gradient is zero (<code>CROSSREF</code>). This shows that <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span> everywhere except at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span> due to the singularity in the definition of <span class="math inline">{\boldsymbol{B}}</span>. To resolve it, we consider the ball of radius <span class="math inline">R</span> centred at the origin, <span class="math inline">B_R</span>. Then</p>
+<p>as the curl of a gradient is zero (<a href="1-introduction.html#eq-curl-grad-zero" class="quarto-xref">Equation&nbsp;<span>1.7</span></a>). This shows that <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span> everywhere except at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span> due to the singularity in the definition of <span class="math inline">{\boldsymbol{B}}</span>. To resolve it, we consider the ball of radius <span class="math inline">R</span> centred at the origin, <span class="math inline">B_R</span>. Then</p>
 <p><span class="math display"> \int_{\partial B_R} {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{\mu_0 q}{4 \pi} \int_{\partial B_R} \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A = 0,</span></p>
 <p>where in the final step we have used that <span class="math inline">{\boldsymbol{v}}\times {\boldsymbol{r}}</span> is perpendicular to the normal to the ball surface (which is in the radial direction). Then, by the divergence theorem, we find</p>
 <p><span class="math display"> \int_{B_R} \nabla \cdot {\boldsymbol{B}}\; {\mathrm{d}}V = 0,</span></p>
@@ -545,7 +545,7 @@ Warning
 <p><span class="proof-title"><em>Proof</em>. </span>Let’s compute the derivative of the <span class="math inline">i</span>-th component of <span class="math inline">{\boldsymbol{A}}</span> with respect to the <span class="math inline">j</span>-th coordinate:</p>
 <p><span class="math display">\frac{\partial A_i}{\partial x_j} = - \frac{\mu_0}{4 \pi} \int_\Omega \frac{{\boldsymbol{J}}_i({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3} (x_j - x_j') {\mathrm{d}}V',</span></p>
 <p>where we are using <span class="math inline">{\boldsymbol{r}}= (x_1, x_2, x_3)</span> and <span class="math inline">{\boldsymbol{r}}' = (x'_1, x'_2, x'_3)</span>.</p>
-<p>From <code>CROSSREF</code> we have</p>
+<p>From <a href="1-introduction.html#def-curl" class="quarto-xref">Definition&nbsp;<span>1.3</span></a> we have</p>
 <p><span class="math display">\nabla \times {\boldsymbol{A}}= \sum_{j=1}^3 {\boldsymbol{e}}_j \times \frac{\partial {\boldsymbol{A}}}{\partial x_j} = - \sum_{i,j=1}^3 ({\boldsymbol{e}}_i \times {\boldsymbol{e}}_j) \frac{\partial A_i}{\partial x_j}.</span></p>
 <p>And we observe that, after some close manipulation, the last term is equal to <span class="math inline">{\boldsymbol{B}}({\boldsymbol{r}})</span> from <a href="#eq-Biot-Savart-J" class="quarto-xref">Equation&nbsp;<span>4.4</span></a>.</p>
 </div>
@@ -571,13 +571,13 @@ Warning
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (of Ampère’s law). </span>From <a href="#lem-vector-potential" class="quarto-xref">Lemma&nbsp;<span>4.1</span></a> we have</p>
 <p><span class="math display">\nabla \times {\boldsymbol{B}}= \nabla \times (\nabla \times {\boldsymbol{A}}).</span></p>
-<p>Using the identity <code>CROSSREF</code>, which applies to any vector field <span class="math inline">{\boldsymbol{A}}</span>, we obtain</p>
+<p>Using the identity <a href="1-introduction.html#eq-curl-curl" class="quarto-xref">Equation&nbsp;<span>1.9</span></a>, which applies to any vector field <span class="math inline">{\boldsymbol{A}}</span>, we obtain</p>
 <p><span class="math display"> \nabla \times (\nabla \times {\boldsymbol{A}}) = \nabla (\nabla \cdot {\boldsymbol{A}}) - \nabla^2 {\boldsymbol{A}}.</span></p>
 <p>Applying <a href="#lem-div-A-0" class="quarto-xref">Lemma&nbsp;<span>4.2</span></a> we deduce</p>
 <p><span class="math display">\nabla \times {\boldsymbol{B}}= -\nabla^2 {\boldsymbol{A}}.</span></p>
 <p>Now we only need to compute <span class="math inline">\nabla^2 {\boldsymbol{A}}</span> from <a href="#eq-vector-potential" class="quarto-xref">Equation&nbsp;<span>4.5</span></a>:</p>
 <p><span class="math display">\nabla^2 {\boldsymbol{A}}= \frac{\mu_0}{4\pi} \int_\Omega {\boldsymbol{J}}({\boldsymbol{r}}') \nabla^2 \left(\frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|}\right) {\mathrm{d}}V' = \frac{\mu_0}{4\pi} \int_\Omega {\boldsymbol{J}}({\boldsymbol{r}}') \left(- 4 \pi \delta({\boldsymbol{r}}- {\boldsymbol{r}}') \right) {\mathrm{d}}V' = - \mu_0 {\boldsymbol{J}}({\boldsymbol{r}}).</span></p>
-<p>We have used <code>CROSSREF</code> in the second step.</p>
+<p>We have used <a href="2-electrostatics.html#prp-del2-1-r" class="quarto-xref">Proposition&nbsp;<span>2.3</span></a> in the second step.</p>
 <p>Combining everything we conclude</p>
 <p><span id="eq-Ampere-law"><span class="math display"> \nabla \times {\boldsymbol{B}}= \mu_0 {\boldsymbol{J}}, \tag{4.6}</span></span></p>
 <p>which is Ampère’s law (<a href="#thm-Ampere-law" class="quarto-xref">Theorem&nbsp;<span>4.3</span></a>).</p>
@@ -604,7 +604,7 @@ Warning
 <p><span class="math display"> {\boldsymbol{B}}= \nabla \times {\boldsymbol{A}}.</span></p>
 </div>
 <p>Note the parallelisms (and differences) with the electrostatic potential in <a href="2-electrostatics.html#sec-electrostatic-potential" class="quarto-xref"><span>Section 2.5</span></a>. There, we had a scalar potential <span class="math inline">\phi</span> from which we computed the electric field as <span class="math inline">{\boldsymbol{E}}= -\nabla \phi</span>. Now, we have a vector potential<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> <span class="math inline">{\boldsymbol{A}}</span> from which we compute the magnetic field <span class="math inline">{\boldsymbol{B}}= \nabla \times {\boldsymbol{A}}</span>.</p>
-<p>Note as well that by defining the magnetic field from the vector potential it automatically satisfies <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span>, as the divergence of a curl is always zero. The implication works both ways and any field <span class="math inline">{\boldsymbol{B}}</span> that can be written as the curl of a potential satisfies <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span>. <code>CROSSREF</code></p>
+<p>Note as well that by defining the magnetic field from the vector potential it automatically satisfies <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span>, as the divergence of a curl is always zero (<a href="1-introduction.html#eq-div-curl-zero" class="quarto-xref">Equation&nbsp;<span>1.8</span></a>). The implication works both ways and any field <span class="math inline">{\boldsymbol{B}}</span> that can be written as the curl of a potential satisfies <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span>.</p>
 <p>The choice for <span class="math inline">{\boldsymbol{A}}</span> is far from unique, similarly to the definition of the electric potential. In this case, the argument is a bit more subtle, as we can not only add constants, but also vector fields of the form <span class="math inline">\nabla \chi</span> (for a given function <span class="math inline">\chi({\boldsymbol{x}})</span>):</p>
 <p><span class="math display">{\boldsymbol{A}}' = {\boldsymbol{A}}+ \nabla \chi \implies \nabla \times {\boldsymbol{A}}' = \nabla \times {\boldsymbol{A}}+ \nabla \times (\nabla \chi) = \nabla \times {\boldsymbol{A}}.</span></p>
 <div id="def-gauge-transformation" class="theorem definition">
@@ -618,7 +618,7 @@ Warning
 <p>Such transformation is called <em>Coulomb gauge</em>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Suppose that we have a vector field <span class="math inline">{\boldsymbol{A}}</span> already satisfying <span class="math inline">\nabla \times {\boldsymbol{A}}= {\boldsymbol{B}}</span>, but with <span class="math inline">\nabla \cdot {\boldsymbol{A}}= \psi({\boldsymbol{x}})</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose that we have a vector field <span class="math inline">{\boldsymbol{A}}</span> already satisfying <span class="math inline">\nabla \times {\boldsymbol{A}}= {\boldsymbol{B}},</span> but with <span class="math inline">\nabla \cdot {\boldsymbol{A}}= \psi({\boldsymbol{x}})</span>.</p>
 <p>Consider the transformed vector field <span class="math inline">{\boldsymbol{A}}' = {\boldsymbol{A}}+ \nabla \chi</span>, taking the divergence we obtain</p>
 <p><span class="math display">\nabla \cdot {\boldsymbol{A}}' = \nabla \cdot {\boldsymbol{A}}+ \nabla^2 \chi = \psi + \nabla^2 \chi.</span></p>
 <p>Then, to make <span class="math inline">\nabla \cdot {\boldsymbol{A}}' = 0</span> we simply need to choose <span class="math inline">\chi</span> such that</p>

@@ -389,6 +389,7 @@ window.Quarto = {
   <li><a href="#boundary-value-problems" id="toc-boundary-value-problems" class="nav-link" data-scroll-target="#boundary-value-problems"><span class="header-section-number">3.3</span> Boundary value problems</a></li>
   <li><a href="#greens-functions" id="toc-greens-functions" class="nav-link" data-scroll-target="#greens-functions"><span class="header-section-number">3.4</span> Green’s functions</a></li>
   <li><a href="#method-of-images" id="toc-method-of-images" class="nav-link" data-scroll-target="#method-of-images"><span class="header-section-number">3.5</span> Method of images</a></li>
+  <li><a href="#electric-dipoles" id="toc-electric-dipoles" class="nav-link" data-scroll-target="#electric-dipoles"><span class="header-section-number">3.6</span> Electric dipoles</a></li>
   </ul>
 </nav>
     </div>
@@ -589,7 +590,7 @@ Figure&nbsp;3.1: Diagram of a Faraday cage in operation. <a href="https://common
 <section id="boundary-value-problems" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="boundary-value-problems"><span class="header-section-number">3.3</span> Boundary value problems</h2>
 <p>So far, we have considered problems where we are given a charge distribution <span class="math inline">\rho</span> everywhere in space, and we just computed the potential <span class="math inline">\phi</span> from <a href="2-electrostatics.html#thm-electrostatic-potential-charge-density" class="quarto-xref">Theorem&nbsp;<span>2.3</span></a>. Instead, we now want to consider situations where the charge distribution is given in a region of space <span class="math inline">\Omega</span> only, along with some conditions on the potential at the boundary <span class="math inline">\partial \Omega</span>. This type of problems are called, quite naturally, boundary value problems. More intuitively, it means that we will assume we have an infinite source/sink of charges outside <span class="math inline">\Omega</span>, and that they will do <em>whatever they need to do</em> to satisfy the imposed boundary condition.</p>
-<p>In practice, this means solving <a href="2-electrostatics.html#prp-Poisson" class="quarto-xref">Proposition&nbsp;<span>2.3</span></a>, i.e.</p>
+<p>In practice, this means solving <a href="2-electrostatics.html#prp-Poisson" class="quarto-xref">Proposition&nbsp;<span>2.4</span></a>, i.e.</p>
 <p><span id="eq-Poisson-bis"><span class="math display"> \nabla ^ 2 \phi = - \frac{\rho}{\epsilon_0}, \tag{3.4}</span></span></p>
 <p>along with some boundary conditions. There are two types of boundary conditions we will consider.</p>
 <div id="def-Dirichlet" class="theorem definition">
@@ -624,7 +625,7 @@ Figure&nbsp;3.1: Diagram of a Faraday cage in operation. <a href="https://common
 <p><span id="eq-Green-function"><span class="math display">\nabla'^2 G({\boldsymbol{r}}, {\boldsymbol{r}}') = - 4 \pi \delta ({\boldsymbol{r}}- {\boldsymbol{r}}'), \tag{3.6}</span></span></p>
 <p>where <span class="math inline">{\boldsymbol{r}},{\boldsymbol{r}}' \in \Omega</span>. Note that the Laplacian <span class="math inline">\nabla'^2</span> is defined in terms of the prime variable. This means it does not affect <span class="math inline">{\boldsymbol{r}}</span>, only <span class="math inline">{\boldsymbol{r}}'</span>.</p>
 </div>
-<p>From <code>CROSSREF</code> we know that a particular solution to <a href="#eq-Green-function" class="quarto-xref">Equation&nbsp;<span>3.6</span></a> is</p>
+<p>From <a href="2-electrostatics.html#prp-del2-1-r" class="quarto-xref">Proposition&nbsp;<span>2.3</span></a> we know that a particular solution to <a href="#eq-Green-function" class="quarto-xref">Equation&nbsp;<span>3.6</span></a> is</p>
 <p><span class="math display">G({\boldsymbol{r}}, {\boldsymbol{r}}') = \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|}.</span></p>
 <p>Note, however, that this solution is not unique. The general solution to <a href="#eq-Green-function" class="quarto-xref">Equation&nbsp;<span>3.6</span></a> is any function</p>
 <p><span id="eq-Green-function-F"><span class="math display">G({\boldsymbol{r}}, {\boldsymbol{r}}') = \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} + F({\boldsymbol{r}}, {\boldsymbol{r}}'), \tag{3.7}</span></span></p>
@@ -699,6 +700,23 @@ Warning
 <p>Add diagram to example above.</p>
 </div>
 </div>
+</section>
+<section id="electric-dipoles" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="electric-dipoles"><span class="header-section-number">3.6</span> Electric dipoles</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Add section about electric dipoles.</p>
+</div>
+</div>
+<p>To conclude this section, let’s t</p>
 
 
 </section>
