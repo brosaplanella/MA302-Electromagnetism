@@ -40,13 +40,13 @@ For the second observer, the electric field is static, so @eq-curl-E-zero applie
 
 $$ 
 \begin{aligned}
-\bfzero = \nabla \times \bfE' &= \nabla \times \bfE + \nabla \times \left( \nabla \times \bfB \right)\\
+\bfzero = \nabla \times \bfE' &= \nabla \times \bfE + \nabla \times \left( \bfv \times \bfB \right)\\
 &= \nabla \times \bfE + \bfv (\nabla \cdot \bfB) - (\bfv \cdot \nabla) \bfB \\
 &= \nabla \times \bfE - (\bfv \cdot \nabla) \bfB,
 \end{aligned}
 $$ {#eq-aux-Faraday-law}
 
-where in the second line we have used `CROSSREF` and in the third line we have applied @thm-Gauss-law-magnetism.
+where in the second line we have used @eq-curl-cross-product and in the third line we have applied @thm-Gauss-law-magnetism.
 
 For the first observer (the static one) all charges move with constant velocity $\bfv$, so the magnetic field at position $\bfr + \bfv \tau$ and time $\tau$ is the same as the magnetic field at position $\bfr$ and time $t$:
 
@@ -116,7 +116,7 @@ Consider adding
 :::
 
 
-## Displacement current
+## Displacement current {#sec-displacement-current}
 
 The last step before being able to write the Maxwell's equations is to revise Ampère's law (@thm-Ampere-law) to account for time-dependent electric fields. To do this, let's start with its integral form (@cor-Ampere-law-alternative):
 
@@ -148,9 +148,9 @@ $$\int_\Sigma \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t} \right) 
 
 which suggests we can write Ampère's law @eq-Ampere-law as
 
-$$ \nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t}\right).$$
+$$ \nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t}\right).$$ {#eq-Ampere-law-modified-time-dependence}
 
-This is one of the Maxwell's equation (@eq-Maxwell-4). This extra term that we picked up, ${\partial \bfE}{\partial t}$, is called the _displacement current_.
+This is one of the Maxwell's equation (@eq-Maxwell-4). This extra term that we picked up, $\frac{\partial \bfE}{\partial t}$, is called the _displacement current_.
 
 There is a quite interesting historical note about this equation. While the other three Maxwell's equations (and the static version of Ampère's law) were discovered mostly through experiments (even though mathematicians were still needed to write them as equations), the displacement current term @eq-Maxwell-4 was discovered purely by reasoning by Maxwell, and that's probably why all four equations are now named after him. Moreover, the displacement current _must_ be included, otherwise the equations are not consistent, but we will discuss this in the next section.
 
@@ -194,7 +194,7 @@ $$0 = \nabla \cdot \left( \frac{1}{\mu_0} \nabla \times \bfB \right) = \nabla \c
 
 where in the last step we have used @eq-Maxwell-1-bis. Therefore, the continuity equation is encapsulated in the Maxwell's equations. This means that we can only get a solution to the Maxwell's equation if $\rho$ and $\bfJ$ satisfy the continuity equation (they would not be physical otherwise). This is why the displacement current is necessary in @eq-Maxwell-4-bis.
 
-## Light
+## Light {#sec-light}
 
 We are now in a position to study what is probably one of the most astonishing outcomes of the Maxwell's equations: the governing equation for light. The Maxwell's equations tell us that the electric and magnetic fields are closely coupled together, and that oscillations on one affect the other.
 
@@ -212,7 +212,7 @@ $$\frac{1}{c^2} \frac{\partial^2 \bfE}{\partial t^2} - \nabla^2 \bfE = \bfzero,$
 
 where we defined
 
-$$c \sqrt{\frac{1}{\mu_0 \epsilon_0}}.$$
+$$c = \sqrt{\frac{1}{\mu_0 \epsilon_0}}.$$
 
 Similarly, we can take the time derivative of @eq-Maxwell-2-bis to obtain
 
@@ -354,7 +354,7 @@ $$
 \end{aligned}
 $$
 
-where in the second line we have used @eq-Maxwell-2-bis and @eq-Maxwell-4-bis, and the third line uses `CROSSREF`.
+where in the second line we have used @eq-Maxwell-2-bis and @eq-Maxwell-4-bis, and the third line uses @eq-div-cross-product.
 
 :::
 

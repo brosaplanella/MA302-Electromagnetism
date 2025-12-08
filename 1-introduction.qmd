@@ -2,24 +2,267 @@
 
 # Introduction to electromagnetism {#sec-introduction}
 
-What is electromagnetism & motivation
+Electromagnetism governs the interactions between particles that carry electric charge. It is one of the four fundamental forces, alongside gravity and the two nuclear forces (weak and strong).
 
-## Maxwell's equations
+At the atomic scale, electromagnetism dictates how atoms and molecules interact, which in turn determines the many properties that materials exhibit. This means that electromagnetism underpins all of chemistry and, by extension, biology.
 
-<!-- Write out equations as one of our main goals
+This has consequences that extend far beyond the microscopic world. Many of the physical phenomena we encounter in everyday life arise from electromagnetic interactions: friction, electricity, magnetism, and electromagnetic radiation such as microwaves, X-rays, and visible light. In fact, apart from gravity and its effects, almost everything we experience daily is a consequence of electromagnetism.
 
-Cancel time out and split: electrostatics and magnetostatics -->
+What makes electromagnetism remarkable is that, despite giving rise to such a wide range of phenomena, it can be described by just four elegant equations: the _Maxwell’s equations_:
 
 $$\nabla \cdot \bfE = \frac{\rho}{\epsilon_0},$$ {#eq-Maxwell-1}
 $$\nabla \cdot \bfB = 0,$$ {#eq-Maxwell-3}
 $$\nabla \times \bfE = - \ppt{\bfB},$$ {#eq-Maxwell-2}
 $$\nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \ppt{\bfE} \right).$$ {#eq-Maxwell-4}
 
+These equations govern the behaviour of the electric field $\bfE$ and the magnetic field $\bfB$, and from them we can explain all the phenomena mentioned above. From a mathematical perspective, electromagnetism is fascinating because it applies the vector calculus concepts you have learned in previous modules and demonstrates their power. The goal of this module is to derive Maxwell’s equations and use them to explain real-world phenomena.
+
 ## Recap on vector calculus
 
-<!-- ## To do
+Before going into electromagnetism, let's review some notation and basic results from vector calculus, that you should already be familiar with from previous modules. Throughout all the module, all functions and vector fields are assumed to be sufficiently "nice" unless otherwise stated. This means, for example, that we take all functions to be smooth enough so all partial derivatives up to whatever order is needed exist.
 
-- Figure out end-of-proof symbol
-- Use callouts for examples, definitions, theorems...
--  -->
+### Vectors in $\mathbb{R}^3$
 
+In this module we will work mostly in $\mathbb{R}^3$ or a subdomain, and in Cartesian coordinates.  Given the standard orthonormal base $\bfe_x = (1, 0, 0)$, $\bfe_y = (0, 1, 0)$ and $\bfe_z = (0, 0, 1)$, the position vector is given by
+
+$$ \bfr = x \bfe_x + y \bfe_y + z \bfe_z,$$ {#eq-position-vector}
+
+or $\bfr = (x, y, z)$. For convenience, we may interchange notation, using $x = x_1$, $y = x_2$ and $z = x_3$ (and $\bfe_i = \bfe_{x_i}$), such that @eq-position-vector can be written more compactly as
+
+$$\bfr = \sum_{i=1}^3 x_i \bfe_i.$$
+
+By default, we will use the Euclidean norm, i.e.
+
+$$|\bfr| = \sqrt{x^2 + y^2 + z^2}.$$
+
+Similarly, we can write a vector field $\bff(\bfr)$ in terms of the orthonormal basis
+
+$$\bff (\bfr) = \sum_{i=1}^3 f_i(\bfr) \bfe_i,$$
+
+where $f_i$ are the components of $\bff$.
+
+Given three vectors $\bfa$, $\bfb$ and $\bfc$, we define the _scalar product_ as
+
+$$\bfa \cdot \bfb = \sum_{i=1}^3 a_i b_i.$$
+
+Note that the Euclidean norm can be written in terms of the scalar product as $|\bfa|^2 = \bfa \cdot \bfa$.
+
+We can also define the _cross product_ as
+
+$$\bfa \times \bfb = (a_2 b_3 - a_3 b_2) \bfe_1 + (a_3 b_1 - a_1 b_3) \bfe_2 + (a_1 b_2 - a_2 b_1) \bfe_3.$$
+
+We also have the _vector triple product identity_, i.e.
+
+$$\bfa \times (\bfb \times \bfc) = (\bfa \cdot \bfc) \bfb - (\bfa \cdot \bfb) \bfc.$$ {#eq-triple-cross-product}
+
+### Vector operators
+We now turn our attention to the vector differential operators: the gradient, the divergence and the curl.
+
+::: {#def-gradient}
+
+## Gradient
+
+The _gradient_ of a scalar function $\psi(\bfr)$ is
+
+$$\nabla \psi = \sum_{i=1}^3 \frac{\partial \psi}{\partial x_i} \bfe_i = \left(\frac{\partial \psi}{\partial x}, \frac{\partial \psi}{\partial y}, \frac{\partial \psi}{\partial z} \right).$$
+
+:::
+
+::: {#def-divergence}
+
+## Divergence
+
+The _divergence_ of a vector field $\bff(\bfr)$ is
+
+$$\nabla \cdot \bff = \sum_{i=1}^3 \frac{\partial f_i}{\partial x_i} = \frac{\partial f_1}{\partial x} + \frac{\partial f_2}{\partial y} + \frac{\partial f_3}{\partial z}.$$
+
+:::
+
+::: {#def-curl}
+
+## Curl
+
+The _curl_ of a vector field $\bff(\bfr)$ is
+
+$$\nabla \times \bff = \sum_{i=1}^3 \bfe_i \times \frac{\partial \bff}{\partial x_i} = \left(\frac{\partial f_3}{\partial x_2} - \frac{\partial f_2}{\partial x_3}\right) \bfe_1 + \left(\frac{\partial f_1}{\partial x_3} - \frac{\partial f_3}{\partial x_1}\right) \bfe_2 + \left(\frac{\partial f_2}{\partial x_1} - \frac{\partial f_1}{\partial x_2}\right) \bfe_3.$$
+
+:::
+
+::: {#def-laplacian}
+
+## Laplacian
+
+The _Laplacian_ of a scalar function $\psi(\bfr)$ is
+
+
+$$\nabla^2 \psi = \sum_{i=1}^3 \frac{\partial^2 \psi}{\partial x_i^2} = \frac{\partial^2 \psi}{\partial x^2} + \frac{\partial^2 \psi}{\partial y^2} + \frac{\partial^2 \psi}{\partial z^2}.$$
+
+Similarly, the Laplacian of vector field $\bff(\bfr)$ is
+
+$$\nabla^2 \bff = \sum_{i=1}^3 \frac{\partial^2 \bff}{\partial x_i^2} = \frac{\partial^2 \bff}{\partial x^2} + \frac{\partial^2 \bff}{\partial y^2} + \frac{\partial^2 \bff}{\partial z^2}.$$
+
+:::
+
+Remember that the Laplacian can also be defined as
+
+$$\nabla^2 \psi = \nabla \cdot \left( \nabla \psi \right).$$
+
+We can now define two very important and useful properties of these operators:
+
+$$ \nabla \times \left( \nabla \psi \right) = \bfzero,$$ {#eq-curl-grad-zero}
+
+and
+
+$$\nabla \cdot \left( \nabla \times \bff \right) = 0.$$ {#eq-div-curl-zero}
+
+That is: the curl of a gradient is zero, and the divergence of a curl is zero.
+
+Moreover, we have that the curl of a curl can be written as
+
+$$\nabla \times \left( \nabla \times \bff \right) = \nabla \left( \nabla \cdot \bff \right) - \nabla^2 \bff.$$ {#eq-curl-curl}
+
+We can also define the curl and divergence of a cross product:
+
+$$\nabla \times \left( \bfa \times \bfb \right) = \bfa \left( \nabla \cdot \bfb \right) - \bfb \left( \nabla \cdot \bfa \right) + \left( \bfb \cdot \nabla \right) \bfa - \left( \bfa \cdot \nabla \right) \bfb,$$ {#eq-curl-cross-product}
+
+and
+
+$$\nabla \cdot \left( \bfa \times \bfb \right) = \bfb \cdot \left( \nabla \times \bfa \right) - \bfa \cdot \left( \nabla \times \bfb \right).$$ {#eq-div-cross-product}
+
+It will also be handy to define the curl of the product of a scalar function and a vector field:
+
+$$\nabla \times \left( \psi \bff \right) = \left(\nabla \psi \right) \times \bff + \psi \left( \nabla \times \bff \right).$$ {#eq-curl-scalar-times-vector}
+
+Finally, we need to present some identities related to $\bfr$, which will be very handy in electromagnetism:
+
+$$\nabla \frac{1}{|\bfr|} = - \frac{\bfr}{|\bfr|^3},$$ {#eq-grad-1-r}
+
+and
+
+$$\nabla \cdot \frac{\bfr}{|\bfr|^3} = 0,$$ {#eq-div-r-r3}
+
+for $\bfr \in \mathbb{R}^3 \setminus \{0\}$.
+
+
+### Integral theorems
+
+Now let's talk about integrals.
+
+::: {#def-line-integral}
+
+## Line integral
+
+Let $C$ be the curve in $\mathbb{R}^3$ parameterised by $\bfr : [t_0, t_1] \to \mathbb{R}^3$ (or, in short, $\bfr(t)$). Then, we can define the line integral of a scalar field $\psi$ and a vector field $\bff$ as
+
+$$\int_C \psi \dd s = \int_{t_0}^{t_1} \psi(\bfr(t)) \left| \frac{\dd \bfr}{\dd t} \right| \dd t,$$
+
+and
+
+$$\int_C \bff \cdot \bft \; \dd s = \int_{t_0}^{t_1} \bff(\bfr(t)) \cdot \frac{\dd \bfr}{\dd t} \dd t,$$
+
+where $\bft = \frac{\dd \bfr}{\dd t}$ is the tangent vector to the curve.
+
+:::
+
+We say a curve is simple if it does not self-intersect (i.e. $\bfr$ is injective), and we say a curve is closed if it starts at the same point it ends (i.e. $\bfr(t_0) = \bfr(t_1)$).
+
+::: {#def-surface-integral}
+
+## Surface integral
+
+Let $\Sigma$ be the surface in $\mathbb{R}^3$ parameterised by $\bfr(u,v)$, with $(u,v) \in D \subseteq \mathbb{R}^2$$ . We first define the _unit normal vector_ to the surface $\bfn$ as
+
+$$\bfn = \frac{\bft_u \times \bft_v}{|\bft_u \times \bft_v|},$$
+
+where
+
+$$\bft_u = \frac{\partial \bfr}{\partial u}, \quad \text{and} \quad \bft_v = \frac{\partial \bfr}{\partial v},$$
+
+are two tangent vectors to the surface.
+
+We can define the surface integral of a scalar field $\psi$ and a vector field $\bff$ as
+
+$$\int_\Sigma \psi \; \bfn \; \dd A = \int \int_D \psi(\bfr(u,v)) \left| \frac{\partial \bfr}{\partial u} \times \frac{\partial \bfr}{\partial v} \right| \dd u \; \dd v,$$
+
+and
+
+$$ \int_\Sigma \bff \cdot \bfn \; \dd A = \int \int_D \bff(\bfr(u,v)) \cdot \left( \frac{\partial \bfr}{\partial u} \times \frac{\partial \bfr}{\partial v} \right) \dd u \; \dd v.$$
+
+Note that quite often it will not be possible to parameterise a whole surface using a single domain $D$. In these cases, we can split the surface into multiple parts, each one parameterised in a given domain $D_i$. 
+
+:::
+
+We say a surface $\Sigma$ is orientable if there is a choice of continuous unit normal vector field $\bfn$ on the surface.^[A Möbius strip is not orientable, because if we define a normal and then we continuously move than normal along the strip, once we get back to where we started it points in the other direction. Therefore, we cannot define a continuous unit normal.] If an orientable surface $\Sigma$ has boundary $\partial \Sigma$ (a simple closed curve) then the normal $bfn$ induces an orientation on $\partial \Sigma$: $\bft \times \bfn$ must point away from $Sigma$. Therefore, the choice of either $\bft$ or $\bfn$ determines the sign of the other one.
+
+Now we can introduce two very important theorems.
+
+::: {#thm-Stokes}
+
+## Stokes' theorem
+
+Let $\Sigma$ be a smooth orientable surface in $\mathbb{R}^3$, and $\bff$ a smooth vector field. Then
+
+$$\int_\Sigma \left(\nabla \times \bff \right) \cdot \bfn \; \dd A = \int_{\partial \Sigma} \bff \cdot \bft \; \dd s.$$
+
+:::
+
+::: {#thm-divergence}
+
+## Divergence theorem
+
+Let $\Omega$ be a bounded region of $\mathbb{R}^3$, and $\bff$ a smooth vector field. Then
+
+$$\int_\Omega \nabla \cdot \bff \; \dd V = \int_{\partial \Omega} \bff \cdot \bfn \; \dd A,$$
+
+where $\bfn$ is the normal unit vector to $\partial \Omega$ pointing outwards.
+
+:::
+
+### Other coordinate systems
+
+In this module we will mostly work in Cartesian coordinates, but occasionally it might be more convenient to use cylindrical or spherical coordinates. In this section we provide a brief overview of them
+
+#### Cylindrical coordinates
+
+In cylindrical coordinates $(\rho, \theta, z)$,  we can write a vector field as
+
+$$\bff = f_\rho \bfe_\rho + f_\theta \bfe_\theta + f_z \bfe_z,$$
+
+where $f_\rho$ is the radial component, $f_\theta$ the angular component and $f_z$ is the axial component.
+
+Then, the differential operators can be written as
+
+$$\nabla \psi = \frac{\partial \psi}{\partial \rho} \bfe_\rho + \frac{1}{\rho} \frac{\partial \psi}{\partial \theta} \bfe_\theta + \frac{\partial \psi}{\partial z} \bfe_z,$$
+
+$$\nabla \cdot \bff = \frac{1}{\rho} \frac{\partial (\rho f_\rho)}{\partial \rho} + \frac{1}{\rho} \frac{\partial f_\theta}{\partial \theta} + \frac{\partial f_z}{\partial z},$$
+
+$$\begin{aligned}
+\nabla \times \bff &= \left(\frac{1}{\rho} \frac{\partial f_z}{\partial \theta} - \frac{\partial f_\theta}{\partial z} \right) \bfe_\rho \\
+& \quad + \left( \frac{\partial f_\rho}{\partial z} - \frac{\partial f_z}{\partial \rho} \right) \bfe_\theta \\
+& \quad + \frac{1}{\rho} \left( \frac{\partial (\rho f_\theta)}{\partial \rho}  - \frac{\partial f_\rho}{\partial \theta} \right) \bfe_z,
+\end{aligned}$$
+
+$$\nabla^2 \psi = \frac{1}{\rho} \frac{\partial}{\partial \rho} \left(\rho \frac{\partial \psi}{\partial \rho} \right)  + \frac{1}{\rho^2} \frac{\partial^2 \psi}{\partial \theta^2} + \frac{\partial^2 \psi}{\partial z^2}.$$
+
+
+#### Spherical coordinates
+
+In spherical coordinates $(\rho, \theta, \varphi)$, we define the position vector as
+
+$$\bff = f_\rho \bfe_\rho + f_\theta \bfe_\theta + f_\varphi \bfe_\varphi,$$
+
+where $f_\rho$ is the radial component, $f_\theta$ the polar angular component and $f_\varphi$ is the azimuthal angular component.
+
+Then, the differential operators can be written as
+
+$$\nabla \psi = \frac{\partial \psi}{\partial \rho} \bfe_\rho + \frac{1}{\rho} \frac{\partial \psi}{\partial \theta} \bfe_\theta + \frac{1}{\rho \sin \theta} \frac{\partial \psi}{\partial \varphi} \bfe_\varphi,$$
+
+$$\nabla \cdot \bff = \frac{1}{\rho^2} \frac{\partial (\rho^2 f_\rho)}{\partial \rho} + \frac{1}{r \sin \theta} \frac{\partial}{\partial \theta} \left( f_\theta \sin \theta \right) + \frac{1}{\rho \sin \theta} \frac{\partial f_\varphi}{\partial \varphi},$$
+
+$$\begin{aligned}
+\nabla \times \bff &= \frac{1}{\rho \sin \theta} \left( \frac{\partial }{\partial \theta} (f_\varphi \sin \theta) - \frac{\partial f_\theta}{\partial \varphi} \right) \bfe_\rho \\
+& \quad + \frac{1}{\rho} \left( \frac{1}{\sin \theta} \frac{\partial f_\rho}{\partial \varphi} -  \frac{\partial}{\partial \rho} (\rho f_\varphi) \right) \bfe_\theta \\
+& \quad + \frac{1}{\rho} \left( \frac{\partial}{\partial \rho} (\rho f_\theta) - \frac{\partial f_\rho}{\partial \theta} \right) \bfe_\varphi,
+\end{aligned}$$
+
+$$\nabla^2 \psi = \frac{1}{\rho^2} \frac{\partial}{\partial \rho} \left( \rho^2 \frac{\partial \psi}{\partial \rho} \right) + \frac{1}{\rho^2 \sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial \psi}{\partial \theta} \right) + \frac{1}{\rho^2 \sin^2 \theta} \frac{\partial^2 \psi}{\partial \varphi^2}.$$

@@ -182,7 +182,7 @@ First, note that
 
 $$\nabla \cdot \left( \frac{\bfv \times \bfr}{| \bfr|^3} \right) = \frac{\bfr}{|\bfr|^3} \cdot \left( \nabla \times \bfv \right) - \bfv \cdot \left( \nabla \times \frac{\bfr}{|\bfr|^3} \right) $$ 
 
-using `CROSSREF`, but as $\bfv$ does not depend on $\bfr$ the first term vanished. Recall from `CROSSREF` that
+using @eq-div-cross-product, but as $\bfv$ does not depend on $\bfr$ the first term vanished. Recall from @eq-grad-1-r that
 
 $$\frac{\bfr}{|\bfr|^3} = - \nabla \frac{1}{|\bfr|},$$
 
@@ -190,7 +190,7 @@ therefore
 
 $$\nabla \cdot \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) = 0,$$
 
-as the curl of a gradient is zero (`CROSSREF`). This shows that $\nabla \cdot \bfB = 0$ everywhere except at $\bfr = \bfzero$ due to the singularity in the definition of $\bfB$. To resolve it, we consider the ball of radius $R$ centred at the origin, $B_R$. Then
+as the curl of a gradient is zero (@eq-curl-grad-zero). This shows that $\nabla \cdot \bfB = 0$ everywhere except at $\bfr = \bfzero$ due to the singularity in the definition of $\bfB$. To resolve it, we consider the ball of radius $R$ centred at the origin, $B_R$. Then
 
 $$ \int_{\partial B_R} \bfB \cdot \bfn \; \dd A = \frac{\mu_0 q}{4 \pi} \int_{\partial B_R} \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) \cdot \bfn \; \dd A = 0,$$
 
@@ -239,7 +239,7 @@ $$\frac{\partial A_i}{\partial x_j} = - \frac{\mu_0}{4 \pi} \int_\Omega \frac{\b
 
 where we are using $\bfr = (x_1, x_2, x_3)$ and $\bfr' = (x'_1, x'_2, x'_3)$. 
 
-From `CROSSREF` we have
+From @def-curl we have
 
 $$\nabla \times \bfA = \sum_{j=1}^3 \bfe_j \times \frac{\partial \bfA}{\partial x_j} = - \sum_{i,j=1}^3 (\bfe_i \times \bfe_j) \frac{\partial A_i}{\partial x_j}.$$
 
@@ -289,7 +289,7 @@ From @lem-vector-potential we have
 
 $$\nabla \times \bfB = \nabla \times (\nabla \times \bfA).$$
 
-Using the identity `CROSSREF`, which applies to any vector field $\bfA$, we obtain
+Using the identity @eq-curl-curl, which applies to any vector field $\bfA$, we obtain
 
 $$ \nabla \times (\nabla \times \bfA) = \nabla (\nabla \cdot \bfA) - \nabla^2 \bfA.$$
 
@@ -301,7 +301,7 @@ Now we only need to compute $\nabla^2 \bfA$ from @eq-vector-potential:
 
 $$\nabla^2 \bfA = \frac{\mu_0}{4\pi} \int_\Omega \bfJ(\bfr') \nabla^2 \left(\frac{1}{|\bfr - \bfr'|}\right) \dd V' = \frac{\mu_0}{4\pi} \int_\Omega \bfJ(\bfr') \left(- 4 \pi \delta(\bfr - \bfr') \right) \dd V' = - \mu_0 \bfJ(\bfr).$$
 
-We have used `CROSSREF` in the second step.
+We have used @prp-del2-1-r in the second step.
 
 Combining everything we conclude
 
@@ -357,7 +357,7 @@ $$ \bfB = \nabla \times \bfA.$$
 
 Note the parallelisms (and differences) with the electrostatic potential in @sec-electrostatic-potential. There, we had a scalar potential $\phi$ from which we computed the electric field as $\bfE = -\nabla \phi$. Now, we have a vector potential^[In some books you may encounter a _magnetic scalar potential_, which may confuse you. This scalar potential is used as a calculation technique in some very specific problems, and we will not use it in this module. If you want to learn more, there is a very good discussion in section 3.2.1 of David Tong's book.] $\bfA$ from which we compute the magnetic field $\bfB = \nabla \times \bfA$.
 
-Note as well that by defining the magnetic field from the vector potential it automatically satisfies $\nabla \cdot \bfB = 0$, as the divergence of a curl is always zero. The implication works both ways and any field $\bfB$ that can be written as the curl of a potential satisfies $\nabla \cdot \bfB = 0$. `CROSSREF`
+Note as well that by defining the magnetic field from the vector potential it automatically satisfies $\nabla \cdot \bfB = 0$, as the divergence of a curl is always zero (@eq-div-curl-zero). The implication works both ways and any field $\bfB$ that can be written as the curl of a potential satisfies $\nabla \cdot \bfB = 0$.
 
 The choice for $\bfA$ is far from unique, similarly to the definition of the electric potential. In this case, the argument is a bit more subtle, as we can not only add constants, but also vector fields of the form $\nabla \chi$ (for a given function $\chi(\bfx)$):
 
@@ -387,7 +387,7 @@ Such transformation is called _Coulomb gauge_.
 
 ::: {.proof}
 
-Suppose that we have a vector field $\bfA$ already satisfying $\nabla \times \bfA = \bfB$, but with $\nabla \cdot \bfA = \psi(\bfx)$. 
+Suppose that we have a vector field $\bfA$ already satisfying $\nabla \times \bfA = \bfB,$ but with $\nabla \cdot \bfA = \psi(\bfx)$. 
 
 Consider the transformed vector field $\bfA' = \bfA + \nabla \chi$, taking the divergence we obtain
 
