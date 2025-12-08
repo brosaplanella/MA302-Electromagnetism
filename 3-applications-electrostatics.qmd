@@ -306,7 +306,7 @@ where $\bfr,\bfr' \in \Omega$. Note that the Laplacian $\nabla'^2$ is defined in
 
 :::
 
-From `CROSSREF` we know that a particular solution to @eq-Green-function is
+From @prp-del2-1-r we know that a particular solution to @eq-Green-function is
 
 $$G(\bfr, \bfr') = \frac{1}{|\bfr - \bfr'|}.$$
 
@@ -432,3 +432,13 @@ Therefore, the (actual) charge experiences an attractive force towards the condu
 Add diagram to example above.
 
 :::
+
+## Electric dipoles
+
+::: {.callout-warning}
+
+Add section about electric dipoles.
+
+:::
+
+To conclude this section, let's t

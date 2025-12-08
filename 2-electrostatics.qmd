@@ -125,15 +125,15 @@ Let's also consider a ball of arbitrary radius $R > 0$ centred at the origin $B_
 
 $$ \int_{\partial B_R} \bfE \cdot \bfr \, \dd A = \frac{q}{4 \pi \epsilon_0} \int_{\partial B_R} \frac{1}{|\bfr|^2} \dd A = \frac{q}{4 \pi R^2 \epsilon_0} \int_{\partial B_R} \dd A = \frac{q}{\epsilon_0}.$${#eq-gauss-law-proof-integral-BR}
 
-This resembles the Gauss' law, but for a single charge and a very specific surface, so we now need to generalise the result. From the divergence theorem `REF`, for an arbitrary domain $\Omega$ bounded by $\Sigma = \partial \Omega$ we have
+This resembles the Gauss' law, but for a single charge and a very specific surface, so we now need to generalise the result. From the divergence theorem @thm-divergence, for an arbitrary domain $\Omega$ bounded by $\Sigma = \partial \Omega$ we have
 
 $$ \int_\Omega \nabla \cdot \bfE \, \dd V = \int_{\Sigma} \bfE \cdot \bfn \, \dd A.$$
 
 Let's now compute the divergence of the electric field
 
-$$ \nabla \cdot \bfE = \frac{q}{4 \pi \epsilon_0} \left( \frac{3}{|\bfr|^3} - \frac{3}{|\bfr|^3}\right) = 0,$$ {#eq-gauss-law-proof-div-E}
+$$ \nabla \cdot \bfE = \frac{q}{4 \pi \epsilon_0} \nabla \cdot \left( \frac{\bfr}{|\bfr|^3} \right) = 0,$$ {#eq-gauss-law-proof-div-E}
 
-and note we have used `add relevant references from Chapter 1`. However, the electric field is singular at $\bfr = \bfzero$, so we can only state that the divergence of the electric field is zero for $\bfr \in \mathbb{R}^3 \setminus \{\bfzero\}$.
+and note we have used @eq-div-r-r3. However, the electric field is singular at $\bfr = \bfzero$, so we can only state that the divergence of the electric field is zero for $\bfr \in \mathbb{R}^3 \setminus \{\bfzero\}$.
 
 Now let's consider assume our arbitrary domain $\Omega \in \mathbb{R}^3$ contains the ball $B_R$. The integral of @eq-gauss-law-proof-div-E over $\Omega$ can be split into
 
@@ -271,7 +271,7 @@ One way of thinking about the Dirac delta is as the limit of a Gaussian probabil
 
 The Dirac delta function satisfies:
 
-1. $$\int_{-\infty}^{\infty} = f(x') \delta(x' - x) \dd x' = f(x),$$
+1. $$\int_{-\infty}^{\infty}  f(x') \delta(x' - x) \dd x' = f(x),$$
 
 2. $$\delta ( a x ) = \frac{1}{|a|} \delta(x),$$
 
@@ -312,7 +312,7 @@ $$\rho(\bfr) = q \delta(\bfr - \bfr_0).$$ {#eq-point-charge-to-density}
 
 Substituting this definition in @eq-electric-field-charge-density we obtain
 
-$$\bfE(\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{q \delta(\bfr' -\bfr_0)}{|\bfr - \bfr'|^2} \frac{\bfr-\bfr'}{|\bfr - \bfr'|} \dd V' = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\bfr - \bfr_0|^2} \frac{\bfr - \bfr_0}{|\bfr -\ bfr_0|},$$
+$$\bfE(\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{q \delta(\bfr' -\bfr_0)}{|\bfr - \bfr'|^2} \frac{\bfr-\bfr'}{|\bfr - \bfr'|} \dd V' = \frac{1}{4 \pi \epsilon_0} \frac{q}{|\bfr - \bfr_0|^2} \frac{\bfr - \bfr_0}{|\bfr - \bfr_0|},$$
 
 which corresponds to @eq-electric-field for a single point charge. We can proceed similarly for the electrostatic potential.
 
@@ -322,6 +322,33 @@ For the Gauss' law, we can substitute @eq-point-charge-to-density into @eq-Gauss
 $$\int_\Sigma \bfE \cdot \bfn \dd A = \frac{1}{\epsilon_0} \int_\Omega q \delta(\bfr - \bfr_0) \dd V = \frac{q}{\epsilon_0},$$
 
 as, by assumption, $\bfr_0 \in \Omega$. Therefore, we have recovered @eq-Gauss-law for a single point charge.
+
+::: {#prp-del2-1-r}
+
+The three-dimensional Dirac delta function can be written as
+
+$$\delta (\bfr - \bfr') = - \frac{1}{4\pi} \nabla^2 \left( \frac{1}{|\bfr - \bfr'|} \right).$$
+
+:::
+
+::: {.proof}
+
+We already know from @eq-grad-1-r and @eq-div-r-r3 that in $\mathbb{R}^3 \setminus \{\bfr'\}$ we have
+
+$$\nabla^2 \left( \frac{1}{|\bfr - \bfr'|} \right) = 0,$$
+
+so we only need to consider what happens at $\bfr'$. Let's consider the integral of the term above in $B_R$, which is the ball of radius $R$ centred at $\bfr'$. We have
+
+$$\begin{aligned}
+\int_{B_R} \nabla^2 \left( \frac{1}{|\bfr - \bfr'|} \right)\;  \dd V &= \int_{\partial B_R} \nabla \left( \frac{1}{|\bfr - \bfr'|} \right) \cdot \bfn \; \dd A \\
+&= \int_{\partial B_R} \left( - \frac{\bfr - \bfr'}{|\bfr - \bfr'|^3} \right) \cdot \bfn \; \dd A \\
+&= - \frac{4 \pi \epsilon_0}{q} \int_{\partial B_R} \bfE \cdot \bfn \; \dd A \\
+&= -4 \pi,
+\end{aligned}$$
+
+where in the first line we have used the divergence theorem, in the second line we have used @eq-grad-1-r, in the third line we have used @def-electric-field and in the last line we have used @thm-Gauss-law.
+
+:::
 
 ## More on the electrostatic potential {#sec-electrostatic-potential}
 
@@ -353,7 +380,7 @@ There is another interesting implication stemming from the definition of electro
 
 $$\nabla \times \bfE = \nabla \times \left( \nabla \phi \right) = 0,$$ {#eq-curl-E-zero}
 
-as the curl of a gradient is always zero `CROSSREF`. Note that this is the steady-state version of the second of the Maxwell's equations @eq-Maxwell-2 (i.e. when $\frac{\partial \bfB}{\partial t} = 0$).
+as the curl of a gradient is always zero @eq-curl-grad-zero. Note that this is the steady-state version of the second of the Maxwell's equations @eq-Maxwell-2 (i.e. when $\frac{\partial \bfB}{\partial t} = 0$).
 
 You may recall, for example when studying gravity, that when a force can be defined as the gradient of a scalar function (i.e. a potential), then the force is called _conservative_. Given that the electrostatic force is given by $\bfF = q \bfE$, and $\bfE = - \nabla \phi$, it must be conservative. Then, we can compute the work^[Recall that the work is defined as the energy transferred to or from an object via the application of force along a displacement. Note the importance of the displacement, as if there is no displacement, there is no work.] done against the electrostatic force for a charge $q$ moving along a path $C$ starting at $\bfr_\mathrm{i}$ and ending at $\bfr_\mathrm{f}$ is
 
@@ -434,9 +461,9 @@ is defined as the potential generated by all charges except for $q_i$ evaluated 
 
 Now let's take the continuum limit, to consider the potential created by a charge density instead (@eq-electrostatic-potential-charge-density). Then @eq-work-points becomes
 
-$$W = \frac{1}{2} \int_\Omega \rho \phi \dd V$$.
+$$W = \frac{1}{2} \int_\Omega \rho \phi \dd V.$$
 
-Using Gauss' law (#eq-Gauss-law-charge-density) and some basic vector calculus identities, we obtain
+Using Gauss' law (@eq-Gauss-law-charge-density) and some basic vector calculus identities, we obtain
 
 $$\phi \frac{\rho}{\epsilon_0} = \phi \nabla \cdot \bfE = \nabla \cdot (\phi \bfE) - \nabla \phi \cdot \bfE = \nabla \cdot (\phi \bfE) + \bfE \cdot \bfE = \nabla \cdot (\phi \bfE) + | \bfE |^2.$$
 

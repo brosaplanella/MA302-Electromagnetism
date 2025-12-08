@@ -4,6 +4,14 @@
 
 Having introduced the basic concepts for magnetostatics, let's now put them into practice to better understand magnetism.
 
+## Surface currents
+
+::: {#.callout-warning}
+
+Add section on surface currents
+
+::: 
+
 ## Magnetic monopoles
 
 Let's start by looking more carefully at the Gauss' law for magnetic fields:
@@ -37,7 +45,7 @@ $$
 &= \frac{\mu_0 I}{4 \pi r^3} \left[\pi R^2 (-y, x, 0) + O(R^2) \right]\\
 &= \frac{\mu_0 I}{4 \pi r^3} \left[\pi R^2 \bfe_z \times \bfr + O(R^2) \right]
 \end{aligned}
-$$ {#eq-vector-potential-magnetic-dipole}
+$$ {#eq-vector-potential-magnetic-dipole-derivation}
 
 The first term in the integral vanishes, as the integral is with respect to the tilde variables. Therefore, we are effectively taking the integral of a constant over a closed curve. In the last line we have just rewritten the result as a cross product for convenience.
 
@@ -45,9 +53,9 @@ Continuing with rewriting things in a convenient way, let's introduce the _magne
 
 $$\bfm = I \pi R^2 \bfn,$$
 
-where $\bfn$ is the vector normal to the surface enclosed by $C$ (in our calculations above we have $\bfn = \bfe_z$ due to our choice of coordinates). Now let's take the limit $\bfR \to 0$ while taking $I \to \infty$ in such a way that $I \pi R^2$ remains constant. THen, as the higher order terms vanish, the potential @eq-vector-potential-magnetic-dipole can be written as
+where $\bfn$ is the vector normal to the surface enclosed by $C$ (in our calculations above we have $\bfn = \bfe_z$ due to our choice of coordinates). Now let's take the limit $\bfR \to 0$ while taking $I \to \infty$ in such a way that $I \pi R^2$ remains constant. THen, as the higher order terms vanish, the potential @eq-vector-potential-magnetic-dipole-derivation can be written as
 
-$$\bfA (\bfr) = \frac{\mu_0}{4 \pi} \frac{\bfm \times \bfr}{|\bfr|^3}.$$
+$$\bfA (\bfr) = \frac{\mu_0}{4 \pi} \frac{\bfm \times \bfr}{|\bfr|^3}.$$ {#eq-vector-potential-magnetic-dipole}
 
 Calculating the magnetic field of the dipole we obtain, after some algebra,
 
@@ -131,7 +139,7 @@ This force is conservative, and we can define the potential
 
 $$V_\text{dipole} = - \bfm \cdot \bfB, \quad \implies \quad \bfF = - \nabla V_\text{dipole}.$$
 
-The torque around the origin (using `CROSSREF`) is
+The torque around the origin (using @eq-triple-cross-product) is
 
 $$ \bftau = \int_C \bfr' \times \left(I \dd \bfr' \times \bfB(\bfr') \right) = I \int_C \dd \bfr' \left( \bfr' \cdot \bfB(\bfr') \right).$$
 
