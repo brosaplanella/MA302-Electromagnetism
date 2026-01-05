@@ -142,19 +142,20 @@ where $\dd \bfr'$ is the differential of length along the curve $C$.
 
 ## Straight wire
 
-Let's consider a steady current $I$ through an infinitely long straight wire. Wlog we will assume the wire is along the $z$ axis (i.e. $x=y=0$). Then, we can work in cylindrical coordinates $(r, \theta, z)$. In that case, the differential of length in the integral can be written as $\dd \bfr' = \bfe_z \dd z$. Then, we have
+::: {#fig-wire-1}
 
-$$ \dd \bfr' \times (\bfr - \bfr') = r \dd z \bfe_\theta,$$
+![](./figs/wire1.svg)
+
+A current $I$ through an infinitely long straight wire.
+:::
+
+Let's consider a steady current $I$ through an infinitely long straight wire. Wlog we will assume the wire is along the $z$ axis (i.e. $x=y=0$), as shown in @fig-wire-1. Then, we can work in cylindrical coordinates $(\rho, \theta, z)$. In that case, the differential of length in the integral can be written as $\dd \bfr' = \bfe_z \dd z$. Then, we have
+
+$$ \dd \bfr' \times (\bfr - \bfr') = \rho \dd z \bfe_\theta,$$
 
 i.e. the magnetic field will point in the angular direction. Then, from @def-Biot-Savart-law we have 
 
-$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{r}{(r^2 + z^2)^\frac{3}{2}} \dd z = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
-
-:::
-
-::: {.callout-warning}
-
-Clarify example above and add sketch
+$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} \dd z = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
 
 :::
 
@@ -327,17 +328,24 @@ where $I$ is the current through $\Sigma$.
 
 ## Straight wire -- 2
 
+::: {#fig-wire-2}
+
+![](./figs/wire2.svg)
+
+A current $I$ through an infinitely long straight wire, but now we approach it by computing the integral along the curve $C$.
+:::
+
 Let's consider again the current through a straight wire (@exm-straight-wire), but now let's approach it using @cor-Ampere-law-alternative. If we look at the symmetries of the problem, we notice it is invariant under vertical translations and rotations around the $z$-axis, so we can conclude that the magnetic field only depends on the radial direction. Let's further assume that the only non-zero component is on the angular direction:
 
-$$ \bfB = B(r) \bfe_\theta.$$
+$$ \bfB = B(\rho) \bfe_\theta.$$
 
-For our curve $C$ we choose a circle of arbitrary radius $r$ in the $x-y$ plane with the centre on the $z$ axis. @cor-Ampere-law-alternative gives
+For our curve $C$ we choose a circle of arbitrary radius $\rho$ in the $\rho-\theta$ plane with the centre on the $z$ axis. @cor-Ampere-law-alternative gives
 
-$$ \int_C \bfB \cdot \dd \bfr = B(r) \int_0^{2\pi} r \dd \theta = 2 \pi R B(r) = \mu_0 I,$$
+$$ \int_C \bfB \cdot \dd \bfr =  \int_0^{2\pi} B(\rho) \rho \dd \theta = 2 \pi \rho B(\rho) = \mu_0 I,$$
 
 therefore we conclude that
 
-$$ \bfB = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
+$$ \bfB = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
 
 :::
 
@@ -417,20 +425,20 @@ which is the Poisson's equation and we know how to solve it.
 
 Let's consider yet again the current through a straight wire (@exm-straight-wire). Now we want to compute the vector potential $\bfA$. We found out in the previous examples that
 
-$$ \bfB = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
+$$ \bfB = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
 
 As $\bfB = \nabla \times \bfA$, we can write the following system of equations for the components of $\bfA$:
 
-$$ \frac{1}{r} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,$$
+$$ \frac{1}{\rho} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,$$
 
-$$ \frac{\partial A_r}{\partial z} - \frac{\partial A_z}{\partial r} = \frac{\mu_0 I}{2 \pi r},$$
+$$ \frac{\partial A_\rho}{\partial z} - \frac{\partial A_z}{\partial \rho} = \frac{\mu_0 I}{2 \pi \rho},$$
 
-$$\frac{1}{r} \left(\frac{\partial (r A_\theta)}{\partial r} - \frac{\partial A_r}{\partial \theta} \right) = 0.$$
+$$\frac{1}{\rho} \left(\frac{\partial (\rho A_\theta)}{\partial \rho} - \frac{\partial A_\rho}{\partial \theta} \right) = 0.$$
 
 
 It is not straightforward how to solve this equation, but we can construct a suitable solution (remember, it will not be unique) by taking
 
-$$\bfA = - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{r}{r_0} \right) \bfe_z,$$
+$$\bfA = - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{\rho}{\rho_0} \right) \bfe_z,$$
 
-where $r_0$ is an integrating constant.
+where $\rho_0$ is an integrating constant.
 :::
