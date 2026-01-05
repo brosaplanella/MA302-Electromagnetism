@@ -381,7 +381,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#equilibrium-in-an-electrostatic-field" id="toc-equilibrium-in-an-electrostatic-field" class="nav-link active" data-scroll-target="#equilibrium-in-an-electrostatic-field"><span class="header-section-number">3.1</span> Equilibrium in an electrostatic field</a></li>
-  <li><a href="#conductors" id="toc-conductors" class="nav-link" data-scroll-target="#conductors"><span class="header-section-number">3.2</span> Conductors</a>
+  <li><a href="#sec-conductors" id="toc-sec-conductors" class="nav-link" data-scroll-target="#sec-conductors"><span class="header-section-number">3.2</span> Conductors</a>
   <ul class="collapse">
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">3.2.1</span> Examples</a></li>
   <li><a href="#application-the-faraday-cage" id="toc-application-the-faraday-cage" class="nav-link" data-scroll-target="#application-the-faraday-cage"><span class="header-section-number">3.2.2</span> Application: the Faraday cage</a></li>
@@ -389,7 +389,7 @@ window.Quarto = {
   <li><a href="#boundary-value-problems" id="toc-boundary-value-problems" class="nav-link" data-scroll-target="#boundary-value-problems"><span class="header-section-number">3.3</span> Boundary value problems</a></li>
   <li><a href="#greens-functions" id="toc-greens-functions" class="nav-link" data-scroll-target="#greens-functions"><span class="header-section-number">3.4</span> Green’s functions</a></li>
   <li><a href="#method-of-images" id="toc-method-of-images" class="nav-link" data-scroll-target="#method-of-images"><span class="header-section-number">3.5</span> Method of images</a></li>
-  <li><a href="#electric-dipoles" id="toc-electric-dipoles" class="nav-link" data-scroll-target="#electric-dipoles"><span class="header-section-number">3.6</span> Electric dipoles</a></li>
+  <li><a href="#sec-electric-dipole" id="toc-sec-electric-dipole" class="nav-link" data-scroll-target="#sec-electric-dipole"><span class="header-section-number">3.6</span> Electric dipoles</a></li>
   </ul>
 </nav>
     </div>
@@ -440,8 +440,8 @@ window.Quarto = {
 <p><span class="math display">F = -\frac{q}{\pi \epsilon_0} \frac{\delta}{(\delta - 1)^2 (\delta + 1)^2},</span></p>
 <p>pushing the charge back to the origin.</p>
 </section>
-<section id="conductors" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="conductors"><span class="header-section-number">3.2</span> Conductors</h2>
+<section id="sec-conductors" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-conductors"><span class="header-section-number">3.2</span> Conductors</h2>
 <p>Let’s now talk about conductors.</p>
 <div id="def-conductor" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3.1 (Electrical Conductor)</strong></span> An <em>electrical conductor</em> (or conductor, in short) is a material in which some charges are free to move (e.g.&nbsp;electrons in a metal). We will describe it mathematically as a given region in space that contains charges which can move freely.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
@@ -477,20 +477,42 @@ window.Quarto = {
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="fig-pillbox-curve" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pillbox-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-pillbox-curve" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-pillbox" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-pillbox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/pillbox.svg" id="fig-pillbox" class="img-fluid figure-img" data-ref-parent="fig-pillbox-curve">
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-pillbox-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a)
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>ADD SKETCH OF CURVES</p>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-pillbox-curve" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-curve" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/closed_curve.svg" id="fig-curve" class="img-fluid figure-img" data-ref-parent="fig-pillbox-curve">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b)
+</figcaption>
+</figure>
 </div>
 </div>
-<p>Let’s start with the discontinuity in the normal direction. Consider a small cylinder <span class="math inline">\Omega</span> of height <span class="math inline">\delta</span> and cross-sectional area <span class="math inline">\delta A</span>. For simplicity we will assume that, as outlined in Figure <code>REF FIG</code>, in the region of interest <span class="math inline">\Sigma</span> is flat, the cylinder axis is perpendicular to the surface, and the surface intersects the cylinder at its midpoint; but the same argument holds for more generic situations.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> By Gauss’ law</p>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pillbox-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Diagrams for the (a) Gaussian cylinder and the (b) loop used for the proof.
+</figcaption>
+</figure>
+</div>
+<p>Let’s start with the discontinuity in the normal direction. Consider a small cylinder <span class="math inline">\Omega</span> of height <span class="math inline">\delta H</span> and cross-sectional area <span class="math inline">\delta A</span>. For simplicity we will assume that, as outlined in <a href="#fig-pillbox" class="quarto-xref">Figure&nbsp;<span>3.1 (a)</span></a>, in the region of interest <span class="math inline">\Sigma</span> is flat, the cylinder axis is perpendicular to the surface, and the surface intersects the cylinder at its midpoint; but the same argument holds for more generic situations.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> By Gauss’ law</p>
 <p><span id="eq-Gauss-law-cylinder"><span class="math display"> \int_{\partial \Omega} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{Q}{\epsilon_0}, \tag{3.3}</span></span></p>
 <p>where, remember, <span class="math inline">Q</span> is the total charge inside the cylinder <span class="math inline">\Omega</span>. Let’s now decompose the surface of the cylinder into three surfaces: the “top lid” <span class="math inline">\partial \Omega^+</span>, the “bottom lid” <span class="math inline">\partial \Omega^-</span>, and the side <span class="math inline">\partial \Omega_\mathrm{side}</span>. We can split the integral into</p>
 <p><span class="math display"> \int_{\partial \Omega} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \int_{\partial \Omega^+} {\boldsymbol{E}}\cdot {\boldsymbol{n}}^+ \; {\mathrm{d}}A + \int_{\partial \Omega^-} {\boldsymbol{E}}\cdot {\boldsymbol{n}}^- \; {\mathrm{d}}A + \int_{\partial \Omega_\mathrm{side}} {\boldsymbol{E}}\cdot {\boldsymbol{n}}_\mathrm{side} \; {\mathrm{d}}A.</span></p>
@@ -502,7 +524,7 @@ Warning
 <p><span class="math display"> \int_{\partial \Omega^+} \left({\boldsymbol{E}}^+ \cdot {\boldsymbol{n}}^+\right) - \left({\boldsymbol{E}}^- \cdot {\boldsymbol{n}}^+\right) \; {\mathrm{d}}A = \int_{\partial \Omega^+} \frac{\sigma}{\epsilon_0} {\mathrm{d}}A.</span></p>
 <p>As this equality must hold for any cylinder <span class="math inline">\Omega</span>, we conclude that</p>
 <p><span class="math display">{\boldsymbol{E}}^+ \cdot {\boldsymbol{N}}- {\boldsymbol{E}}^- \cdot {\boldsymbol{n}}= \frac{\sigma}{\epsilon_0}.</span></p>
-<p>Now let’s show that <span class="math inline">{\boldsymbol{E}}</span> must be continuous in the tangential direction. Consider, instead, the rectangular loop <span class="math inline">C</span> in Figure <code>REF FIG</code>, with height <span class="math inline">\delta</span> and width <span class="math inline">\delta L</span>. The surface enclosed by the loop is defined as <span class="math inline">S</span>. We compute the integral of <span class="math inline">E</span> around the loop and apply Stokes’ theorem:</p>
+<p>Now let’s show that <span class="math inline">{\boldsymbol{E}}</span> must be continuous in the tangential direction. Consider, instead, the rectangular loop <span class="math inline">C</span> in <a href="#fig-curve" class="quarto-xref">Figure&nbsp;<span>3.1 (b)</span></a>, with height <span class="math inline">\delta H</span> and width <span class="math inline">\delta L</span>. The surface enclosed by the loop is defined as <span class="math inline">S</span>. We compute the integral of <span class="math inline">E</span> around the loop and apply Stokes’ theorem:</p>
 <p><span class="math display">\int_C {\boldsymbol{E}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s = \int_S \left( \nabla \times {\boldsymbol{E}}\right) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
 <p>But from <a href="2-electrostatics.html#eq-curl-E-zero" class="quarto-xref">Equation&nbsp;<span>2.15</span></a> we have that <span class="math inline">\nabla \times {\boldsymbol{E}}= {\boldsymbol{0}}</span> so the integral needs to be equal to zero. By taking <span class="math inline">\delta \to 0</span> and applying a similar argument as we did with the cylinder, we obtain</p>
 <p><span class="math display">{\boldsymbol{E}}^+ \cdot {\boldsymbol{t}}- {\boldsymbol{E}}^- \cdot {\boldsymbol{t}}= 0,</span></p>
@@ -515,22 +537,19 @@ Warning
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">3.2.1</span> Examples</h3>
 <div id="exm-line-charge" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2 (Line charge)</strong></span> &nbsp;</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="fig-line-charge" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-line-charge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/line_charge.svg" class="img-fluid figure-img">
 </div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add diagram</p>
-</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-line-charge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Diagram of the Gaussian surface used to compute the electric field of a line charge.
+</figcaption>
+</figure>
 </div>
 <p>Consider an infinitely long line charge distribution, with charge density <span class="math inline">\lambda</span>. We want to compute the electric field it produces. We will work in cylindrical polar coordinates and, wlog, we will assume the charge is distribution along the <span class="math inline">z</span> axis (i.e.&nbsp;at <span class="math inline">r = 0</span>).</p>
 <p>By symmetry, we can conclude that the electric field should only depend on the radial coordinate and, moreover, the only non-zero component of the electric field is also along the radial coordinate. Therefore <span class="math inline">{\boldsymbol{E}}= E(r) {\boldsymbol{e}}_r</span>.</p>
-<p>We will again use a Gaussian surface for the argument, but this time we take an arbitrary cylinder of radius <span class="math inline">r</span> and length <span class="math inline">L</span> with its axis along the <span class="math inline">z</span> axis. By Gauss’ law, we have</p>
+<p>We will again use a Gaussian surface for the argument, but this time we take an arbitrary cylinder of radius <span class="math inline">r</span> and length <span class="math inline">L</span> with its axis along the <span class="math inline">z</span> axis, as shown in <a href="#fig-line-charge" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. By Gauss’ law, we have</p>
 <p><span class="math display">\int_{\partial \Omega} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = E(r) 2 \pi r L =  \frac{\lambda L}{\epsilon_0},</span></p>
 <p>and thus</p>
 <p><span class="math display">E(r) = \frac{\lambda}{2 \pi \epsilon_0 r}.</span></p>
@@ -539,21 +558,14 @@ Warning
 </div>
 <div id="exm-parallel-capacitor" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.3 (Parallel plate capacitor)</strong></span> &nbsp;</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add sketch</p>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./figs/parallel_plate_capacitor.svg" class="img-fluid figure-img"></p>
+<figcaption>Sketch of a parallel plate capacitor.</figcaption>
+</figure>
 </div>
 <p>Let’s now consider two flat parallel surfaces. We will take the plates to be perpendicular to the <span class="math inline">x</span> axis, and a distance <span class="math inline">d</span> apart. The plates have an area <span class="math inline">A</span>, and we assume that <span class="math inline">d \ll \sqrt{A}</span>, so we can ignore any effects arising from the edge of the plates<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
-<p>Each plate has a total charge <span class="math inline">Q</span>, but with opposite sign. Therefore, the surface charge distribution is defined as <span class="math inline">\pm \sigma = \pm Q/A</span>. We know<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> that the electric field produced by an infinite plate with surface charge density <span class="math inline">\sigma</span> is uniform and perpendicular to the plate (pointing away from it) with magnitude</p>
+<p>Each plate has a total charge <span class="math inline">Q</span>, but with opposite sign. Therefore, the surface charge distribution is defined as <span class="math inline">\pm \sigma = \pm Q/A</span>. We know<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> that.b the electric field produced by an infinite plate with surface charge density <span class="math inline">\sigma</span> is uniform and perpendicular to the plate (pointing away from it) with magnitude</p>
 <p><span class="math display"> \| {\boldsymbol{E}}\| = \pm \frac{\sigma}{2 \epsilon_0}.</span></p>
 <p>Then, by superposition, the electric field produced by the two plates is</p>
 <p><span class="math display"> {\boldsymbol{E}}= \begin{cases}
@@ -572,14 +584,14 @@ Warning
 </section>
 <section id="application-the-faraday-cage" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="application-the-faraday-cage"><span class="header-section-number">3.2.2</span> Application: the Faraday cage</h3>
-<p>Let’s use what we have learned about conductors to understand how a Faraday cage works. Let’s consider a box made of a conducting material. Inside the box there are no charges. As shown in <a href="#fig-Faraday-cage" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>, when we apply an electric field on the outside of the box, the charges on the box will redistribute to produce an electric field that will cancel out the field inside of the box. Therefore, anything or anyone inside the box is shielded from any external electric fields.</p>
+<p>Let’s use what we have learned about conductors to understand how a Faraday cage works. Let’s consider a box made of a conducting material. Inside the box there are no charges. As shown in <a href="#fig-Faraday-cage" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>, when we apply an electric field on the outside of the box, the charges on the box will redistribute to produce an electric field that will cancel out the field inside of the box. Therefore, anything or anyone inside the box is shielded from any external electric fields.</p>
 <div id="fig-Faraday-cage" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Faraday-cage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="./figs/Faraday_cage.svg" class="img-fluid figure-img">
+<img src="./figs/Faraday_cage.svg" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Faraday-cage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Diagram of a Faraday cage in operation. <a href="https://commons.wikimedia.org/wiki/File:Condutor-electric-field-compensation.svg">MikeRun</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
+Figure&nbsp;3.3: Diagram of a Faraday cage in operation. <a href="https://commons.wikimedia.org/wiki/File:Condutor-electric-field-compensation.svg">MikeRun</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 </figcaption>
 </figure>
 </div>
@@ -669,7 +681,18 @@ Figure&nbsp;3.1: Diagram of a Faraday cage in operation. <a href="https://common
 <p>Let’s go back to the discrete case: imagine we have a set of charges <span class="math inline">q_i</span> at positions <span class="math inline">{\boldsymbol{r}}_i \in \Omega</span>, for <span class="math inline">i = 1 \dots N</span>. We can use superposition to compute the potential of the set from <a href="2-electrostatics.html#eq-electrostatic-potential-point-charge" class="quarto-xref">Equation&nbsp;<span>2.4</span></a>, but this potential will (most likely) not satisfy the boundary conditions we would like to impose. The method of images consists on adding a set of <em>virtual charges</em> outside the domain, such that the combined effect of the actual and virtual charges satisfies the required boundary condition.</p>
 <p>This is much more easily explained through an example.</p>
 <div id="exm-method-images" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.4 (Charged particle near a conducting plane)</strong></span> Consider a grounded conductor that fills the left half of the space, i.e.&nbsp;we have <span class="math inline">\phi = 0</span> for <span class="math inline">x \leq 0</span>. We place a charge <span class="math inline">q</span> at a point <span class="math inline">(d, 0, 0)</span>, and we want to know what is the induced electrostatic potential for <span class="math inline">x &gt; 0</span>.</p>
+<p><span class="theorem-title"><strong>Example 3.4 (Charged particle near a conducting plane)</strong></span> &nbsp;</p>
+<div id="fig-method-images-setup" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-method-images-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/method_of_images_setup.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-method-images-setup-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: A grounded conductor on the left half-plane and a charge at <span class="math inline">(d,0,0)</span>. To simplify the diagram, we show the slice <span class="math inline">z=0</span>.
+</figcaption>
+</figure>
+</div>
+<p>Consider a grounded conductor that fills the left half of the space, i.e.&nbsp;we have <span class="math inline">\phi = 0</span> for <span class="math inline">x \leq 0</span>. We place a charge <span class="math inline">q</span> at a point <span class="math inline">(d, 0, 0)</span>, and we want to know what is the induced electrostatic potential for <span class="math inline">x &gt; 0</span>. The setup is shown in <a href="#fig-method-images-setup" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>.</p>
 <p>If the conductor was not there, we already know that the potential would be</p>
 <p><span class="math display">\phi = \frac{1}{4 \pi \epsilon_0} \frac{q}{\sqrt{(x - d)^2 + y^2 + z^2}},</span></p>
 <p>but this clearly does not satisfy the boundary condition at <span class="math inline">x = 0</span> as</p>
@@ -682,41 +705,41 @@ Figure&nbsp;3.1: Diagram of a Faraday cage in operation. <a href="https://common
 <p>Now let’s calculate the surface charge distribution. We need to use <a href="#prp-jump-electric-field" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a>. As our surface is the <span class="math inline">y-z</span> plane, the normal vector is <span class="math inline">{\boldsymbol{n}}= {\boldsymbol{e}}_x</span>, so we only need the <span class="math inline">x</span>-component of the electric field <span class="math inline">E_x</span>. On the left of the boundary we have <span class="math inline">\left. E^-_x \right|_{x=0} = 0</span>. On the right of the boundary we get from the expression above</p>
 <p><span class="math display">\left. E^+_x \right|_{x=0} = - \frac{q}{2 \pi \epsilon_0} \frac{d}{\left( d^2 + y^2 + z^2 \right)^\frac{3}{2}}.</span></p>
 <p>Therefore, using <a href="#eq-jump-electric-field" class="quarto-xref">Equation&nbsp;<span>3.2</span></a> we get</p>
-<p><span class="math display">\sigma = \epsilon_0 \left. E^+_x \right|_{x=0} = - \frac{q}{2 \pi} \frac{d}{\left( d^2 + y^2 + z^2 \right)^\frac{3}{2}}.</span></p>
+<p><span class="math display">\sigma = \epsilon_0 \left. E^+_x \right|_{x=0} = - \frac{q}{2 \pi} \frac{d}{\left( d^2 + y^2 + z^2 \right)^\frac{3}{2}},</span></p>
+<p>which is shown in <a href="#fig-method-images-solution" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>.</p>
+<div id="fig-method-images-solution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-method-images-solution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/method_of_images_solution.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-method-images-solution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Electric field generated by the point charge and the virtual charge used in the method of images.
+</figcaption>
+</figure>
+</div>
 <p>Finally, let’s compute the force that the charge will experience from the conductor. We can again use the potential induced by our virtual charge to write</p>
 <p><span class="math display">{\boldsymbol{F}}= \frac{-q^2}{16 \pi \epsilon_0 d^2} {\boldsymbol{e}}_x.</span></p>
 <p>Therefore, the (actual) charge experiences an attractive force towards the conductor.</p>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add diagram to example above.</p>
-</div>
-</div>
 </section>
-<section id="electric-dipoles" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="electric-dipoles"><span class="header-section-number">3.6</span> Electric dipoles</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Add section about electric dipoles.</p>
-</div>
-</div>
-<p>To conclude this section, let’s t</p>
+<section id="sec-electric-dipole" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-electric-dipole"><span class="header-section-number">3.6</span> Electric dipoles</h2>
+<p>Let’s now introduce the <em>electric dipole</em>, which is going to be extremely handy in <a href="7-matter.html" class="quarto-xref"><span>Chapter 7</span></a> when we study how electric fields interact with matter. Consider two point charges with opposite sign, <span class="math inline">\pm q</span>, with the separation between them defined by a vector <span class="math inline">{\boldsymbol{d}}</span>. Now, let’s take the limit <span class="math inline">d = |{\boldsymbol{d}}| \to 0</span>, while we let <span class="math inline">q \to \infty</span> in such a way that the <em>electric dipole moment</em> <span class="math inline">{\boldsymbol{p}}= q {\boldsymbol{d}}</span> remains constant. This is called an electric dipole.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> We can loosely interpret the dipole (and its moment) as a charge with an orientation.</p>
+<p>Now let’s compute the force that the dipole experiences from a given electric field <span class="math inline">{\boldsymbol{E}}</span>. We start with the pair of charges (i.e.&nbsp;before taking the limit <span class="math inline">d \to 0</span>). By the superposition principle the force is</p>
+<p><span class="math display">{\boldsymbol{F}}= q {\boldsymbol{E}}\left({\boldsymbol{r}}+ \frac{{\boldsymbol{d}}}{2}\right) - q {\boldsymbol{E}}\left({\boldsymbol{r}}- \frac{{\boldsymbol{d}}}{2}\right),</span></p>
+<p>where, wlog, we have placed the charge <span class="math inline">+q</span> at <span class="math inline">{\boldsymbol{r}}+ \frac{{\boldsymbol{d}}}{2}</span> and the charge <span class="math inline">-q</span> at <span class="math inline">{\boldsymbol{r}}- \frac{{\boldsymbol{d}}}{2}</span>. Taking the Taylor expansion for small <span class="math inline">d</span> we obtain</p>
+<p><span class="math display">\begin{aligned}
+{\boldsymbol{F}}&amp;= q \left( {\boldsymbol{E}}({\boldsymbol{r}}) + \left(\frac{{\boldsymbol{d}}}{2} \cdot \nabla \right) {\boldsymbol{E}}+ O(d^2) \right) - q \left( {\boldsymbol{E}}({\boldsymbol{r}}) - \left(\frac{{\boldsymbol{d}}}{2} \cdot \nabla \right) {\boldsymbol{E}}+ O(d^2) \right)\\
+&amp;= \left( q {\boldsymbol{d}}\cdot \nabla \right) {\boldsymbol{E}}({\boldsymbol{r}}) + O(d^2),
+\end{aligned}
+</span></p>
+<p>and when we take the limit <span class="math inline">d \to 0</span> (assuming <span class="math inline">{\boldsymbol{p}}</span> stays constant) we obtain</p>
+<p><span class="math display">{\boldsymbol{F}}= ({\boldsymbol{p}}\cdot \nabla) {\boldsymbol{E}}.</span></p>
+<p>As a side note, we can also consider the torque that the field exerts on the dipole around the point <span class="math inline">{\boldsymbol{r}}</span>, which is</p>
+<p><span class="math display"> {\boldsymbol{\tau}}= \frac{{\boldsymbol{d}}}{2} \times \left[ q {\boldsymbol{E}}\left({\boldsymbol{r}}+ \frac{{\boldsymbol{d}}}{2}\right) \right] - \frac{{\boldsymbol{d}}}{2} \times \left[ -q {\boldsymbol{E}}\left({\boldsymbol{r}}- \frac{{\boldsymbol{d}}}{2}\right) \right] \to {\boldsymbol{p}}\times {\boldsymbol{E}},</span></p>
+<p>where we have skipped the details for the Taylor expansion and the limit <span class="math inline">d \to 0</span>. Basically, this conveys the idea that the tendency of the dipoles will be to rotate until <span class="math inline">{\boldsymbol{p}}</span> and <span class="math inline">{\boldsymbol{E}}</span> are aligned. Interestingly if they point in the same direction we have a <em>stable equilibrium</em>, while if they point in opposite directions we have an <em>unstable equilibrium</em>. We omit the details here, but you can check it yourself thinking in which way does the torque operate when the angle between <span class="math inline">{\boldsymbol{p}}</span> and <span class="math inline">{\boldsymbol{E}}</span> is <span class="math inline">\varepsilon \ll 1</span> and <span class="math inline">\pi - \varepsilon</span>.</p>
+<p>An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment <span class="math inline">{\boldsymbol{p}}</span> placed at the origin is</p>
+<p><span class="math display">\phi({\boldsymbol{r}})_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{{\boldsymbol{p}}\cdot {\boldsymbol{r}}}{r^3}.</span></p>
 
 
 </section>
@@ -730,6 +753,7 @@ Warning
 <li id="fn5"><p>To formalise this argument, you would need to do an asymptotic analysis similar to what you learned in <a href="https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma269/">MA269 Asymptotics and Integral Transforms</a> (if you took it).<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>This is an exercise in the problem sheets.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>In this module it will be “nice enough” unless otherwise stated. For example, <span class="math inline">\partial \Omega</span> being smooth is “nice enough”.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>The concept of dipole might be familiar to you if you are taking MA3D1 Fluid Dynamics, as it appears in the potential flows chapter.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 

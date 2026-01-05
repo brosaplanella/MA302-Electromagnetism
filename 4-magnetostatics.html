@@ -485,23 +485,21 @@ window.Quarto = {
 <p><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0 I}{4 \pi} \int_C \frac{{\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3},</span></p>
 <p>where <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}'</span> is the differential of length along the curve <span class="math inline">C</span>.</p>
 <div id="exm-straight-wire" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.1 (Straight wire)</strong></span> Let’s consider a steady current <span class="math inline">I</span> through an infinitely long straight wire. Wlog we will assume the wire is along the <span class="math inline">z</span> axis (i.e.&nbsp;<span class="math inline">x=y=0</span>). Then, we can work in cylindrical coordinates <span class="math inline">(r, \theta, z)</span>. In that case, the differential of length in the integral can be written as <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}' = {\boldsymbol{e}}_z {\mathrm{d}}z</span>. Then, we have</p>
-<p><span class="math display"> {\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}') = r {\mathrm{d}}z {\boldsymbol{e}}_\theta,</span></p>
+<p><span class="theorem-title"><strong>Example 4.1 (Straight wire)</strong></span> &nbsp;</p>
+<div id="fig-wire-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wire-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/wire1.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wire-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: A current <span class="math inline">I</span> through an infinitely long straight wire.
+</figcaption>
+</figure>
+</div>
+<p>Let’s consider a steady current <span class="math inline">I</span> through an infinitely long straight wire. Wlog we will assume the wire is along the <span class="math inline">z</span> axis (i.e.&nbsp;<span class="math inline">x=y=0</span>), as shown in <a href="#fig-wire-1" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. Then, we can work in cylindrical coordinates <span class="math inline">(\rho, \theta, z)</span>. In that case, the differential of length in the integral can be written as <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}' = {\boldsymbol{e}}_z {\mathrm{d}}z</span>. Then, we have</p>
+<p><span class="math display"> {\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}') = \rho {\mathrm{d}}z {\boldsymbol{e}}_\theta,</span></p>
 <p>i.e.&nbsp;the magnetic field will point in the angular direction. Then, from <a href="#def-Biot-Savart-law" class="quarto-xref">Definition&nbsp;<span>4.4</span></a> we have</p>
-<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{4 \pi} {\boldsymbol{e}}_\theta \int_{-\infty}^{\infty} \frac{r}{(r^2 + z^2)^\frac{3}{2}} {\mathrm{d}}z = \frac{\mu_0 I}{2 \pi r} {\boldsymbol{e}}_\theta.</span></p>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Clarify example above and add sketch</p>
-</div>
+<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{4 \pi} {\boldsymbol{e}}_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} {\mathrm{d}}z = \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
 </div>
 </section>
 <section id="gauss-law-for-magnetism" class="level2" data-number="4.4">
@@ -588,12 +586,23 @@ Warning
 <p>where <span class="math inline">I</span> is the current through <span class="math inline">\Sigma</span>.</p>
 </div>
 <div id="exm-straight-wire-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.2 (Straight wire – 2)</strong></span> Let’s consider again the current through a straight wire (<a href="#exm-straight-wire" class="quarto-xref">Example&nbsp;<span>4.1</span></a>), but now let’s approach it using <a href="#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a>. If we look at the symmetries of the problem, we notice it is invariant under vertical translations and rotations around the <span class="math inline">z</span>-axis, so we can conclude that the magnetic field only depends on the radial direction. Let’s further assume that the only non-zero component is on the angular direction:</p>
-<p><span class="math display"> {\boldsymbol{B}}= B(r) {\boldsymbol{e}}_\theta.</span></p>
-<p>For our curve <span class="math inline">C</span> we choose a circle of arbitrary radius <span class="math inline">r</span> in the <span class="math inline">x-y</span> plane with the centre on the <span class="math inline">z</span> axis. <a href="#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a> gives</p>
-<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}= B(r) \int_0^{2\pi} r {\mathrm{d}}\theta = 2 \pi R B(r) = \mu_0 I,</span></p>
+<p><span class="theorem-title"><strong>Example 4.2 (Straight wire – 2)</strong></span> &nbsp;</p>
+<div id="fig-wire-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wire-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/wire2.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wire-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: A current <span class="math inline">I</span> through an infinitely long straight wire, but now we approach it by computing the integral along the curve <span class="math inline">C</span>.
+</figcaption>
+</figure>
+</div>
+<p>Let’s consider again the current through a straight wire (<a href="#exm-straight-wire" class="quarto-xref">Example&nbsp;<span>4.1</span></a>), but now let’s approach it using <a href="#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a>. If we look at the symmetries of the problem, we notice it is invariant under vertical translations and rotations around the <span class="math inline">z</span>-axis, so we can conclude that the magnetic field only depends on the radial direction. Let’s further assume that the only non-zero component is on the angular direction:</p>
+<p><span class="math display"> {\boldsymbol{B}}= B(\rho) {\boldsymbol{e}}_\theta.</span></p>
+<p>For our curve <span class="math inline">C</span> we choose a circle of arbitrary radius <span class="math inline">\rho</span> in the <span class="math inline">\rho-\theta</span> plane with the centre on the <span class="math inline">z</span> axis. <a href="#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a> gives</p>
+<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}=  \int_0^{2\pi} B(\rho) \rho {\mathrm{d}}\theta = 2 \pi \rho B(\rho) = \mu_0 I,</span></p>
 <p>therefore we conclude that</p>
-<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{2 \pi r} {\boldsymbol{e}}_\theta.</span></p>
+<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
 </div>
 </section>
 <section id="magnetostatic-vector-potential" class="level2" data-number="4.6">
@@ -632,14 +641,14 @@ Warning
 <p>which is the Poisson’s equation and we know how to solve it.</p>
 <div id="exm-straight-wire-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.3 (Straight wire – 3)</strong></span> Let’s consider yet again the current through a straight wire (<a href="#exm-straight-wire" class="quarto-xref">Example&nbsp;<span>4.1</span></a>). Now we want to compute the vector potential <span class="math inline">{\boldsymbol{A}}</span>. We found out in the previous examples that</p>
-<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{2 \pi r} {\boldsymbol{e}}_\theta.</span></p>
+<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
 <p>As <span class="math inline">{\boldsymbol{B}}= \nabla \times {\boldsymbol{A}}</span>, we can write the following system of equations for the components of <span class="math inline">{\boldsymbol{A}}</span>:</p>
-<p><span class="math display"> \frac{1}{r} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,</span></p>
-<p><span class="math display"> \frac{\partial A_r}{\partial z} - \frac{\partial A_z}{\partial r} = \frac{\mu_0 I}{2 \pi r},</span></p>
-<p><span class="math display">\frac{1}{r} \left(\frac{\partial (r A_\theta)}{\partial r} - \frac{\partial A_r}{\partial \theta} \right) = 0.</span></p>
+<p><span class="math display"> \frac{1}{\rho} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,</span></p>
+<p><span class="math display"> \frac{\partial A_\rho}{\partial z} - \frac{\partial A_z}{\partial \rho} = \frac{\mu_0 I}{2 \pi \rho},</span></p>
+<p><span class="math display">\frac{1}{\rho} \left(\frac{\partial (\rho A_\theta)}{\partial \rho} - \frac{\partial A_\rho}{\partial \theta} \right) = 0.</span></p>
 <p>It is not straightforward how to solve this equation, but we can construct a suitable solution (remember, it will not be unique) by taking</p>
-<p><span class="math display">{\boldsymbol{A}}= - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{r}{r_0} \right) {\boldsymbol{e}}_z,</span></p>
-<p>where <span class="math inline">r_0</span> is an integrating constant.</p>
+<p><span class="math display">{\boldsymbol{A}}= - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{\rho}{\rho_0} \right) {\boldsymbol{e}}_z,</span></p>
+<p>where <span class="math inline">\rho_0</span> is an integrating constant.</p>
 </div>
 
 

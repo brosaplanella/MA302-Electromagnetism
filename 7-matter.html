@@ -418,20 +418,7 @@ window.Quarto = {
 <p>In all the preceding chapters we have considered the Maxwell’s equations in the vacuum. But in most real applications we want to consider, the electric and magnetic fields are not in the vacuum but interact with matter. The aim of this final chapter is to adjust Maxwell’s equations to account for the effects of matter.</p>
 <section id="electric-fields-in-matter" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="electric-fields-in-matter"><span class="header-section-number">7.1</span> Electric fields in matter</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Introduce dielectrics somewhere</p>
-</div>
-</div>
-<p>We will start by considering electric fields in the presence of matter. Matter is made of atoms and, even though usually these atoms have neutral charge, its components don’t: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call <em>polarisation</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.</p>
+<p>We will start by considering electric fields in the presence of a matter, in particular a type of material called <em>dielectric</em>. Dielectric materials do not have any charges inside that can move around (they are all held in place).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> But dielectrics, like all matter, are made of atoms and, even though usually these atoms have neutral charge, its components don’t: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call <em>polarisation</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -445,23 +432,7 @@ Warning
 <p>Add sketch polarisation</p>
 </div>
 </div>
-<p>To model this effect, let’s introduce the <em>electric dipole</em>. Consider two point charges with opposite sign, <span class="math inline">\pm q</span>, with the separation between them defined by a vector <span class="math inline">{\boldsymbol{d}}</span>. Now, let’s take the limit <span class="math inline">d = |{\boldsymbol{d}}| \to 0</span>, while we let <span class="math inline">q \to \infty</span> in such a way that the <em>electric dipole moment</em> <span class="math inline">{\boldsymbol{p}}= q {\boldsymbol{d}}</span> remains constant. This is called an electric dipole.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> We can loosely interpret the dipole (and its moment) as a charge with an orientation.</p>
-<p>Now let’s compute the force that the dipole experiences from a given electric field <span class="math inline">{\boldsymbol{E}}</span>. We start with the pair of charges (i.e.&nbsp;before taking the limit <span class="math inline">d \to 0</span>). By the superposition principle the force is</p>
-<p><span class="math display">{\boldsymbol{F}}= q {\boldsymbol{E}}\left({\boldsymbol{r}}+ \frac{{\boldsymbol{d}}}{2}\right) - q {\boldsymbol{E}}\left({\boldsymbol{r}}- \frac{{\boldsymbol{d}}}{2}\right),</span></p>
-<p>where, wlog, we have placed the charge <span class="math inline">+q</span> at <span class="math inline">{\boldsymbol{r}}+ \frac{{\boldsymbol{d}}}{2}</span> and the charge <span class="math inline">-q</span> at <span class="math inline">{\boldsymbol{r}}- \frac{{\boldsymbol{d}}}{2}</span>. Taking the Taylor expansion for small <span class="math inline">d</span> we obtain</p>
-<p><span class="math display">\begin{aligned}
-{\boldsymbol{F}}&amp;= q \left( {\boldsymbol{E}}({\boldsymbol{r}}) + \left(\frac{{\boldsymbol{d}}}{2} \cdot \nabla \right) {\boldsymbol{E}}+ O(d^2) \right) - q \left( {\boldsymbol{E}}({\boldsymbol{r}}) - \left(\frac{{\boldsymbol{d}}}{2} \cdot \nabla \right) {\boldsymbol{E}}+ O(d^2) \right)\\
-&amp;= \left( q {\boldsymbol{d}}\cdot \nabla \right) {\boldsymbol{E}}({\boldsymbol{r}}) + O(d^2),
-\end{aligned}
-</span></p>
-<p>and when we take the limit <span class="math inline">d \to 0</span> (assuming <span class="math inline">{\boldsymbol{p}}</span> stays constant) we obtain</p>
-<p><span class="math display">{\boldsymbol{F}}= ({\boldsymbol{p}}\cdot \nabla) {\boldsymbol{E}}.</span></p>
-<p>As a side note, we can also consider the torque that the field exerts on the dipole around the point <span class="math inline">{\boldsymbol{r}}</span>, which is</p>
-<p><span class="math display"> {\boldsymbol{\tau}}= \frac{{\boldsymbol{d}}}{2} \times \left[ q {\boldsymbol{E}}\left({\boldsymbol{r}}+ \frac{{\boldsymbol{d}}}{2}\right) \right] - \frac{{\boldsymbol{d}}}{2} \times \left[ -q {\boldsymbol{E}}\left({\boldsymbol{r}}- \frac{{\boldsymbol{d}}}{2}\right) \right] \to {\boldsymbol{p}}\times {\boldsymbol{E}},</span></p>
-<p>where we have skipped the details for the Taylor expansion and the limit <span class="math inline">d \to 0</span>. Basically, this conveys the idea that the tendency of the dipoles will be to rotate until <span class="math inline">{\boldsymbol{p}}</span> and <span class="math inline">{\boldsymbol{E}}</span> are aligned. Interestingly if they point in the same direction we have a <em>stable equilibrium</em>, while if they point in opposite directions we have an <em>unstable equilibrium</em>. We omit the details here, but you can check it yourself thinking in which way does the torque operate when the angle between <span class="math inline">{\boldsymbol{p}}</span> and <span class="math inline">{\boldsymbol{E}}</span> is <span class="math inline">\varepsilon \ll 1</span> and <span class="math inline">\pi - \varepsilon</span>.</p>
-<p>An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment <span class="math inline">{\boldsymbol{p}}</span> placed at the origin is</p>
-<p><span class="math display">\phi({\boldsymbol{r}})_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{{\boldsymbol{p}}\cdot {\boldsymbol{r}}}{r^3}.</span></p>
-<p>A dielectric medium is made of many (many) electric dipoles. Applying the principle of superposition, we can write the potential of the medium as</p>
+<p>Recall the concept of electric dipole that we introduced in <a href="3-applications-electrostatics.html#sec-electric-dipole" class="quarto-xref"><span>Section 3.6</span></a>. We can represent a dielectric medium as a collection of many (many) electric dipoles. Applying the principle of superposition, we can write the potential of the medium as</p>
 <p><span class="math display">\phi({\boldsymbol{r}})_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \sum_{i = 1}^{N} \frac{{\boldsymbol{p}}_i \cdot ({\boldsymbol{r}}- {\boldsymbol{r}}_i)}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|^3}.</span></p>
 <div id="def-electric-polarisation-density" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7.1 (Electric polarisation density)</strong></span> We define the <em>electric polarisation density</em> as a vector field <span class="math inline">{\boldsymbol{P}}({\boldsymbol{r}}): \Omega \in \mathbb{R}^3 \to \mathbb{R}^3</span> that gives the dipole moment per unit volume at a certain point in space. This is analogous to the electric charge density in <a href="2-electrostatics.html#def-charge-density" class="quarto-xref">Definition&nbsp;<span>2.6</span></a>.</p>
@@ -488,19 +459,6 @@ Warning
 </section>
 <section id="magnetic-fields-in-matter" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="magnetic-fields-in-matter"><span class="header-section-number">7.2</span> Magnetic fields in matter</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Update crossrefs to magnetic dipoles in previous chapters.</p>
-</div>
-</div>
 <p>Now let’s look how matter affects magnetic fields. In the previous section we used electric dipoles to understand the behaviour of matter under an electric field. Now, we will follow a similar argument but with magnetic dipoles instead.</p>
 <p>Recall, from <a href="5-applications-magnetostatics.html#eq-vector-potential-magnetic-dipole" class="quarto-xref">Equation&nbsp;<span>5.2</span></a>, that the magnetic potential produced by a dipole is</p>
 <p><span class="math display">{\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4 \pi} \frac{{\boldsymbol{m}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}.</span></p>
@@ -601,8 +559,8 @@ Dispersion relation ?
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>This is different from light polarisation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>The concept of dipole might be familiar to you if you are taking MA3D1 Fluid Dynamics, as it appears in the potential flows chapter.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Dielectric materials are similar to insulators, which we saw earlier on, but they are not quite the same thing.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is different from light polarisation.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Now you see why we called <span class="math inline">\epsilon_0</span> the permittivity of free space.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>The exceptions are very weird materials in very weird situations, so unless stated otherwise it is safe to assume this is true.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>There is a more detail of this argument in Chapter 8.2.1 of Tong’s book, and here is a <a href="https://en.wikipedia.org/wiki/Magnetization#Magnetization_current">cute animation</a> in Wikipedia that illustrates it.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
