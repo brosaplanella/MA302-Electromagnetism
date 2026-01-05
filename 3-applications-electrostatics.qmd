@@ -40,7 +40,7 @@ $$F = -\frac{q}{\pi \epsilon_0} \frac{\delta}{(\delta - 1)^2 (\delta + 1)^2},$$
 pushing the charge back to the origin.
 
 
-## Conductors
+## Conductors {#sec-conductors}
 
 Let's now talk about conductors.
 
@@ -103,13 +103,16 @@ Here the subscripts $+$ and $-$ represent different sides of the surface (arbitr
 
 ::: {.proof}
 
-::: {.callout-warning}
+::: {#fig-pillbox-curve layout-ncol=2}
 
-ADD SKETCH OF CURVES
+![](./figs/pillbox.svg){#fig-pillbox}
 
+![](./figs/closed_curve.svg){#fig-curve}
+
+Diagrams for the (a) Gaussian cylinder and the (b) loop used for the proof.
 :::
 
-Let's start with the discontinuity in the normal direction. Consider a small cylinder $\Omega$ of height $\delta$ and cross-sectional area $\delta A$. For simplicity we will assume that, as outlined in Figure `REF FIG`, in the region of interest $\Sigma$ is flat, the cylinder axis is perpendicular to the surface, and the surface intersects the cylinder at its midpoint; but the same argument holds for more generic situations.^[This is usually known as a Gaussian cylinder or Gaussian pillbox.] By Gauss' law
+Let's start with the discontinuity in the normal direction. Consider a small cylinder $\Omega$ of height $\delta H$ and cross-sectional area $\delta A$. For simplicity we will assume that, as outlined in @fig-pillbox, in the region of interest $\Sigma$ is flat, the cylinder axis is perpendicular to the surface, and the surface intersects the cylinder at its midpoint; but the same argument holds for more generic situations.^[This is usually known as a Gaussian cylinder or Gaussian pillbox.] By Gauss' law
 
 $$ \int_{\partial \Omega} \bfE \cdot \bfn \; \dd A = \frac{Q}{\epsilon_0},$$ {#eq-Gauss-law-cylinder}
 
@@ -133,7 +136,7 @@ As this equality must hold for any cylinder $\Omega$, we conclude that
 
 $$\bfE^+ \cdot \bfN - \bfE^- \cdot \bfn = \frac{\sigma}{\epsilon_0}.$$
 
-Now let's show that $\bfE$ must be continuous in the tangential direction. Consider, instead, the rectangular loop $C$ in Figure `REF FIG`, with height $\delta$ and width $\delta L$. The surface enclosed by the loop is defined as $S$. We compute the integral of $E$ around the loop and apply Stokes' theorem:
+Now let's show that $\bfE$ must be continuous in the tangential direction. Consider, instead, the rectangular loop $C$ in @fig-curve, with height $\delta H$ and width $\delta L$. The surface enclosed by the loop is defined as $S$. We compute the integral of $E$ around the loop and apply Stokes' theorem:
 
 $$\int_C \bfE \cdot \bft \; \dd s = \int_S \left( \nabla \times \bfE \right) \cdot \bfn \; \dd A.$$
 
@@ -155,17 +158,18 @@ Similarly to a surface charge density, we can define a line charge density $\lam
 
 ## Line charge
 
-::: {.callout-warning}
+::: {#fig-line-charge}
 
-Add diagram
+![](./figs/line_charge.svg)
 
+Diagram of the Gaussian surface used to compute the electric field of a line charge.
 :::
 
 Consider an infinitely long line charge distribution, with charge density $\lambda$. We want to compute the electric field it produces. We will work in cylindrical polar coordinates and, wlog, we will assume the charge is distribution along the $z$ axis (i.e. at $r = 0$). 
 
 By symmetry, we can conclude that the electric field should only depend on the radial coordinate and, moreover, the only non-zero component of the electric field is also along the radial coordinate. Therefore $\bfE = E(r) \bfe_r$.
 
-We will again use a Gaussian surface for the argument, but this time we take an arbitrary cylinder of radius $r$ and length $L$ with its axis along the $z$ axis. By Gauss' law, we have
+We will again use a Gaussian surface for the argument, but this time we take an arbitrary cylinder of radius $r$ and length $L$ with its axis along the $z$ axis, as shown in @fig-line-charge. By Gauss' law, we have
 
 $$\int_{\partial \Omega} \bfE \cdot \bfn \; \dd A = E(r) 2 \pi r L =  \frac{\lambda L}{\epsilon_0},$$
 
@@ -184,15 +188,11 @@ $$\bfE = \frac{\lambda}{2 \pi \epsilon_0 r} \bfe_r.$$
 
 ## Parallel plate capacitor
 
-::: {.callout-warning}
-
-Add sketch
-
-:::
+![Sketch of a parallel plate capacitor.](./figs/parallel_plate_capacitor.svg)
  
 Let's now consider two flat parallel surfaces. We will take the plates to be perpendicular to the $x$ axis, and a distance $d$ apart. The plates have an area $A$, and we assume that $d \ll \sqrt{A}$, so we can ignore any effects arising from the edge of the plates^[To formalise this argument, you would need to do an asymptotic analysis similar to what you learned in [MA269 Asymptotics and Integral Transforms](https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma269/) (if you took it).].
 
-Each plate has a total charge $Q$, but with opposite sign. Therefore, the surface charge distribution is defined as $\pm \sigma = \pm Q/A$. We know^[This is an exercise in the problem sheets.] that the electric field produced by an infinite plate with surface charge density $\sigma$ is uniform and perpendicular to the plate (pointing away from it) with magnitude
+Each plate has a total charge $Q$, but with opposite sign. Therefore, the surface charge distribution is defined as $\pm \sigma = \pm Q/A$. We know^[This is an exercise in the problem sheets.] that.b the electric field produced by an infinite plate with surface charge density $\sigma$ is uniform and perpendicular to the plate (pointing away from it) with magnitude
 
 $$ \| \bfE \| = \pm \frac{\sigma}{2 \epsilon_0}.$$
 
@@ -226,7 +226,7 @@ $$W = \frac{\epsilon_0 A}{2} \int_0^d \left( \frac{\sigma}{\epsilon_0} \right)^2
 
 Let's use what we have learned about conductors to understand how a Faraday cage works. Let's consider a box made of a conducting material. Inside the box there are no charges. As shown in @fig-Faraday-cage, when we apply an electric field on the outside of the box, the charges on the box will redistribute to produce an electric field that will cancel out the field inside of the box. Therefore, anything or anyone inside the box is shielded from any external electric fields.
 
-![Diagram of a Faraday cage in operation. <a href="https://commons.wikimedia.org/wiki/File:Condutor-electric-field-compensation.svg">MikeRun</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons](./figs/Faraday_cage.svg){#fig-Faraday-cage}
+![Diagram of a Faraday cage in operation. <a href="https://commons.wikimedia.org/wiki/File:Condutor-electric-field-compensation.svg">MikeRun</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons](./figs/Faraday_cage.svg){#fig-Faraday-cage width=80%}
 
 As the name suggests, though, Faraday cages are typically cages, not boxes, but the effect still holds. The mathematical analysis in that case is a bit more complicated, if you want to learn more, you can read this article by [Jon Chapman, Dave Hewett and Nick Trefethen](https://doi.org/10.1137/140984452).
 
@@ -391,7 +391,16 @@ This is much more easily explained through an example.
 
 ## Charged particle near a conducting plane
 
-Consider a grounded conductor that fills the left half of the space, i.e. we have $\phi = 0$ for $x \leq 0$. We place a charge $q$ at a point $(d, 0, 0)$, and we want to know what is the induced electrostatic potential for $x > 0$.
+::: {#fig-method-images-setup}
+
+![](./figs/method_of_images_setup.svg)
+
+A grounded conductor on the left half-plane and a charge at $(d,0,0)$. To simplify the diagram, we show the slice $z=0$.
+:::
+
+
+
+Consider a grounded conductor that fills the left half of the space, i.e. we have $\phi = 0$ for $x \leq 0$. We place a charge $q$ at a point $(d, 0, 0)$, and we want to know what is the induced electrostatic potential for $x > 0$. The setup is shown in @fig-method-images-setup.
 
 If the conductor was not there, we already know that the potential would be
 
@@ -417,7 +426,17 @@ $$\left. E^+_x \right|_{x=0} = - \frac{q}{2 \pi \epsilon_0} \frac{d}{\left( d^2 
 
 Therefore, using @eq-jump-electric-field we get
 
-$$\sigma = \epsilon_0 \left. E^+_x \right|_{x=0} = - \frac{q}{2 \pi} \frac{d}{\left( d^2 + y^2 + z^2 \right)^\frac{3}{2}}.$$
+$$\sigma = \epsilon_0 \left. E^+_x \right|_{x=0} = - \frac{q}{2 \pi} \frac{d}{\left( d^2 + y^2 + z^2 \right)^\frac{3}{2}},$$
+
+which is shown in @fig-method-images-solution.
+
+::: {#fig-method-images-solution}
+
+![](./figs/method_of_images_solution.svg)
+
+Electric field generated by the point charge and the virtual charge used in the method of images.
+:::
+
 
 Finally, let's compute the force that the charge will experience from the conductor. We can again use the potential induced by our virtual charge to write
 
@@ -427,18 +446,32 @@ Therefore, the (actual) charge experiences an attractive force towards the condu
 
 :::
 
-::: {.callout-warning}
+## Electric dipoles {#sec-electric-dipole}
 
-Add diagram to example above.
+Let's now introduce the _electric dipole_, which is going to be extremely handy in @sec-matter when we study how electric fields interact with matter. Consider two point charges with opposite sign, $\pm q$, with the separation between them defined by a vector $\bfd$. Now, let's take the limit $d = |\bfd| \to 0$, while we let $q \to \infty$ in such a way that the _electric dipole moment_ $\bfp = q \bfd$ remains constant. This is called an electric dipole.^[The concept of dipole might be familiar to you if you are taking MA3D1 Fluid Dynamics, as it appears in the potential flows chapter.] We can loosely interpret the dipole (and its moment) as a charge with an orientation.
 
-:::
+Now let's compute the force that the dipole experiences from a given electric field $\bfE$. We start with the pair of charges (i.e. before taking the limit $d \to 0$). By the superposition principle the force is
 
-## Electric dipoles
+$$\bfF = q \bfE \left(\bfr + \frac{\bfd}{2}\right) - q \bfE \left(\bfr - \frac{\bfd}{2}\right),$$
 
-::: {.callout-warning}
+where, wlog, we have placed the charge $+q$ at $\bfr + \frac{\bfd}{2}$ and the charge $-q$ at $\bfr - \frac{\bfd}{2}$. Taking the Taylor expansion for small $d$ we obtain
 
-Add section about electric dipoles.
+$$\begin{aligned}
+\bfF &= q \left( \bfE (\bfr) + \left(\frac{\bfd}{2} \cdot \nabla \right) \bfE + O(d^2) \right) - q \left( \bfE (\bfr) - \left(\frac{\bfd}{2} \cdot \nabla \right) \bfE + O(d^2) \right)\\
+&= \left( q \bfd \cdot \nabla \right) \bfE(\bfr) + O(d^2),
+\end{aligned}
+$$
 
-:::
+and when we take the limit $d \to 0$ (assuming $\bfp$ stays constant) we obtain
 
-To conclude this section, let's t
+$$\bfF = (\bfp \cdot \nabla) \bfE.$$
+
+As a side note, we can also consider the torque that the field exerts on the dipole around the point $\bfr$, which is
+
+$$ \bftau = \frac{\bfd}{2} \times \left[ q \bfE \left(\bfr + \frac{\bfd}{2}\right) \right] - \frac{\bfd}{2} \times \left[ -q \bfE \left(\bfr - \frac{\bfd}{2}\right) \right] \to \bfp \times \bfE,$$
+
+where we have skipped the details for the Taylor expansion and the limit $d \to 0$. Basically, this conveys the idea that the tendency of the dipoles will be to rotate until $\bfp$ and $\bfE$ are aligned. Interestingly if they point in the same direction we have a _stable equilibrium_, while if they point in opposite directions we have an _unstable equilibrium_. We omit the details here, but you can check it yourself thinking in which way does the torque operate when the angle between $\bfp$ and $\bfE$ is $\varepsilon \ll 1$ and $\pi - \varepsilon$.
+
+An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment $\bfp$ placed at the origin is
+
+$$\phi(\bfr)_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{r^3}.$$

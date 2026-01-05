@@ -4,3 +4,5 @@
 /.vscode/
 
 **/*.quarto_ipynb
+
+/env/

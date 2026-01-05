@@ -12,9 +12,11 @@ Add section on surface currents
 
 ::: 
 
+In @sec-conductors we talked about surface charges and their consequences on the continuity of the electric field. We now want to do a similar reasoning but for surface currents.
+
 ## Magnetic monopoles
 
-Let's start by looking more carefully at the Gauss' law for magnetic fields:
+Let's now consider more carefully the Gauss' law for magnetic fields:
 
 $$\nabla \cdot \bfB = 0.$$
 

@@ -2,6 +2,18 @@
 
 # Introduction to electromagnetism {#sec-introduction}
 
+::: {.callout-tip}
+
+## Aims of the chapter
+
+By the end of this chapter, you should be able to:
+
+* Aim 1
+
+* Aim 2
+
+:::
+
 Electromagnetism governs the interactions between particles that carry electric charge. It is one of the four fundamental forces, alongside gravity and the two nuclear forces (weak and strong).
 
 At the atomic scale, electromagnetism dictates how atoms and molecules interact, which in turn determines the many properties that materials exhibit. This means that electromagnetism underpins all of chemistry and, by extension, biology.

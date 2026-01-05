@@ -6,13 +6,7 @@ In all the preceding chapters we have considered the Maxwell's equations in the 
 
 ## Electric fields in matter
 
-::: {.callout-warning}
-
-Introduce dielectrics somewhere
-
-:::
-
-We will start by considering electric fields in the presence of matter. Matter is made of atoms and, even though usually these atoms have neutral charge, its components don't: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call _polarisation_^[This is different from light polarisation.], which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.
+We will start by considering electric fields in the presence of a matter, in particular a type of material called _dielectric_. Dielectric materials do not have any charges inside that can move around (they are all held in place).^[Dielectric materials are similar to insulators, which we saw earlier on, but they are not quite the same thing.] But dielectrics, like all matter, are made of atoms and, even though usually these atoms have neutral charge, its components don't: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call _polarisation_^[This is different from light polarisation.], which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.
 
 ::: {.callout-warning}
 
@@ -20,35 +14,7 @@ Add sketch polarisation
 
 :::
 
-To model this effect, let's introduce the _electric dipole_. Consider two point charges with opposite sign, $\pm q$, with the separation between them defined by a vector $\bfd$. Now, let's take the limit $d = |\bfd| \to 0$, while we let $q \to \infty$ in such a way that the _electric dipole moment_ $\bfp = q \bfd$ remains constant. This is called an electric dipole.^[The concept of dipole might be familiar to you if you are taking MA3D1 Fluid Dynamics, as it appears in the potential flows chapter.] We can loosely interpret the dipole (and its moment) as a charge with an orientation.
-
-Now let's compute the force that the dipole experiences from a given electric field $\bfE$. We start with the pair of charges (i.e. before taking the limit $d \to 0$). By the superposition principle the force is
-
-$$\bfF = q \bfE \left(\bfr + \frac{\bfd}{2}\right) - q \bfE \left(\bfr - \frac{\bfd}{2}\right),$$
-
-where, wlog, we have placed the charge $+q$ at $\bfr + \frac{\bfd}{2}$ and the charge $-q$ at $\bfr - \frac{\bfd}{2}$. Taking the Taylor expansion for small $d$ we obtain
-
-$$\begin{aligned}
-\bfF &= q \left( \bfE (\bfr) + \left(\frac{\bfd}{2} \cdot \nabla \right) \bfE + O(d^2) \right) - q \left( \bfE (\bfr) - \left(\frac{\bfd}{2} \cdot \nabla \right) \bfE + O(d^2) \right)\\
-&= \left( q \bfd \cdot \nabla \right) \bfE(\bfr) + O(d^2),
-\end{aligned}
-$$
-
-and when we take the limit $d \to 0$ (assuming $\bfp$ stays constant) we obtain
-
-$$\bfF = (\bfp \cdot \nabla) \bfE.$$
-
-As a side note, we can also consider the torque that the field exerts on the dipole around the point $\bfr$, which is
-
-$$ \bftau = \frac{\bfd}{2} \times \left[ q \bfE \left(\bfr + \frac{\bfd}{2}\right) \right] - \frac{\bfd}{2} \times \left[ -q \bfE \left(\bfr - \frac{\bfd}{2}\right) \right] \to \bfp \times \bfE,$$
-
-where we have skipped the details for the Taylor expansion and the limit $d \to 0$. Basically, this conveys the idea that the tendency of the dipoles will be to rotate until $\bfp$ and $\bfE$ are aligned. Interestingly if they point in the same direction we have a _stable equilibrium_, while if they point in opposite directions we have an _unstable equilibrium_. We omit the details here, but you can check it yourself thinking in which way does the torque operate when the angle between $\bfp$ and $\bfE$ is $\varepsilon \ll 1$ and $\pi - \varepsilon$.
-
-An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment $\bfp$ placed at the origin is
-
-$$\phi(\bfr)_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{r^3}.$$
-
-A dielectric medium is made of many (many) electric dipoles. Applying the principle of superposition, we can write the potential of the medium as
+Recall the concept of electric dipole that we introduced in @sec-electric-dipole. We can represent a dielectric medium as a collection of many (many) electric dipoles. Applying the principle of superposition, we can write the potential of the medium as
 
 $$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \sum_{i = 1}^{N} \frac{\bfp_i \cdot (\bfr - \bfr_i)}{|\bfr - \bfr_i|^3}.$$
 
@@ -99,12 +65,6 @@ $$\nabla \cdot \left( \epsilon \bfE \right) = \rho_\mathrm{free},$$
 which sometimes is written in terms of the quantity $\bfD = \epsilon \bfE$, called the _electric displacement_. Note that, as $\epsilon > \epsilon_0$ the electric field generated by the free charges $\rho_\mathrm{free}$ in a material will be smaller than that generated in the vacuum.
 
 ## Magnetic fields in matter
-
-::: {.callout-warning}
-
-Update crossrefs to magnetic dipoles in previous chapters.
-
-:::
 
 Now let's look how matter affects magnetic fields. In the previous section we used electric dipoles to understand the behaviour of matter under an electric field. Now, we will follow a similar argument but with magnetic dipoles instead. 
 
