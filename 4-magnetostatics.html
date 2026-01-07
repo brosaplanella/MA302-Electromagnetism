@@ -415,7 +415,26 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>So far we have considered situations where charges are static, so the next step is to consider what happens when charges move around. However, when charges move around, they create magnetic fields! This can create some quite interesting (and messy) interactions between electric and magnetic fields. We will unpick this little by little starting with magnetostatics, that is the study of magnetic fields that do not depend on time.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Aims of the chapter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li><p>Explain the concepts of electric current and current density.</p></li>
+<li><p>Calculate the Lorentz force on a moving charge.</p></li>
+<li><p>Apply the Biot-Savart law and Ampère’s law to calculate magnetic fields.</p></li>
+<li><p>Work with the vector potential and its gauge transformations.</p></li>
+</ul>
+</div>
+</div>
+<p>So far we have considered situations where charges are static, so the next step is to consider what happens when charges move around. However, when charges move around, they create something called magnetic fields! This can create some quite interesting (and messy) interactions between electric and magnetic fields. We will unpick this little by little starting with magnetostatics, that is the study of magnetic fields that do not depend on time.</p>
 <section id="electric-current-conservation-of-charge" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="electric-current-conservation-of-charge"><span class="header-section-number">4.1</span> Electric current &amp; conservation of charge</h2>
 <p>Consider a point charge. It’s pretty straightforward to picture this charge moving around the space with a velocity <span class="math inline">{\boldsymbol{v}}(t)</span>. Let’s now think what would happen when we have infinitely many charges, so we consider a charge density <span class="math inline">\rho({\boldsymbol{r}})</span>. Similarly, we can define a velocity field <span class="math inline">{\boldsymbol{v}}({\boldsymbol{r}}, t)</span>, which gives us the average<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> drift velocity of a charge at point <span class="math inline">{\boldsymbol{r}}</span> and time <span class="math inline">t</span>. In this chapter we focus on time independent problems, so we drop time, i.e.&nbsp;<span class="math inline">{\boldsymbol{v}}({\boldsymbol{r}})</span>. This means that the charges can still move around, but the velocity does not change in time (though it can change in space). In short, the charge at a position <span class="math inline">{\boldsymbol{r}}</span> will always have the same velocity <span class="math inline">{\boldsymbol{v}}({\boldsymbol{r}})</span>.</p>
@@ -423,7 +442,7 @@ window.Quarto = {
 <p><span class="theorem-title"><strong>Definition 4.1 (Current density)</strong></span> Given a distribution of charge with density <span class="math inline">\rho</span> and a velocity (vector) field <span class="math inline">{\boldsymbol{v}}</span>, the electric current density <span class="math inline">{\boldsymbol{J}}</span> is defined as</p>
 <p><span class="math display"> {\boldsymbol{J}}= \rho {\boldsymbol{v}}.</span></p>
 </div>
-<p>If you stop to consider what are the dimensions of the current density, you will find that they are charge per unit time and unit area<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. It is therefore a flux, that is (in very rigorous terms) <em>amount of stuff through a surface per unit time</em>, where in this case <em>stuff</em> is charge.</p>
+<p>If you stop to consider what are the dimensions of the current density, you will find that they are charge per unit time and unit area.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> It is therefore a flux, that is (in very rigorous terms) <em>amount of stuff through a surface per unit time</em>, where in this case <em>stuff</em> is charge.</p>
 <p>It is convenient to define electric current (or current, for short).</p>
 <div id="def-electric-current" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4.2 (Electric current)</strong></span> The electric current <span class="math inline">I</span> through a surface <span class="math inline">\Sigma</span> is given by</p>
@@ -432,7 +451,7 @@ window.Quarto = {
 </div>
 <p>The physical interpretation of the current is the amount of charge per unit time flowing through the surface <span class="math inline">\Sigma</span>. Therefore, current is not a vector quantity but a scalar. Depending on which way we define the normal vector <span class="math inline">{\boldsymbol{n}}</span>, we may have positive or negative current. This arbitrarity is fine: we basically define a direction for current and, if it ends up being negative, it means charge is flowing in the opposite direction.</p>
 <p>You are probably familiar with the idea of current when you think of electric cables. Charges inside might be doing all sorts of things, but what matters in the end is how much charge gets through the cross-section of the cable, i.e.&nbsp;the current.</p>
-<p>A very important property of electric charge is that it is conserved. Like with mass, this means that charge cannot be created nor destroyed. The idea of conservation of <em>stuff</em> underpins many areas of physics<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and, luckily for us, we have a very convenient way of representing it mathematically.</p>
+<p>A very important property of electric charge is that it is conserved. Like with mass conservation, this means that charge cannot be created nor destroyed. The idea of conservation of <em>stuff</em> underpins many areas of physics<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and, luckily for us, we have a very convenient way of representing it mathematically.</p>
 <p>The equation that encapsulates conservation of <em>stuff</em> is called the continuity equation. Even though it is a very general equation, here we will state it and derive it in the context of electric fields.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <div id="thm-continuity-equation" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 4.1 (Continuity equation)</strong></span> Given a charge density <span class="math inline">\rho</span> with a current density <span class="math inline">{\boldsymbol{J}}</span>, it must satisfy</p>
@@ -476,13 +495,13 @@ window.Quarto = {
 <div id="def-Biot-Savart-law" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4.4 (Biot-Savart law)</strong></span> A charge <span class="math inline">q</span> at position <span class="math inline">{\boldsymbol{r}}_0</span> and moving with a velocity <span class="math inline">{\boldsymbol{v}}</span> produces a magnetic field<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 <p><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0 q}{4 \pi} \frac{{\boldsymbol{v}}\times ({\boldsymbol{r}}- {\boldsymbol{r}}_0)}{|{\boldsymbol{r}}- {\boldsymbol{r}}_0|^3},</span></p>
-<p>where <span class="math inline">\mu_0</span> is a parameter called <em>permeability of free space</em>. Its value is <span class="math inline">\mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \, \mathrm{A}^{-2}</span>.</p>
+<p>where <span class="math inline">\mu_0</span> is a parameter called <em>permeability of free space</em>. Its value is <span class="math inline">\mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \; \mathrm{A}^{-2}</span>.</p>
 </div>
 <p>Note the similarities between <a href="2-electrostatics.html#def-electric-field" class="quarto-xref">Definition&nbsp;<span>2.3</span></a> and <a href="#def-Biot-Savart-law" class="quarto-xref">Definition&nbsp;<span>4.4</span></a>.</p>
 <p>The Principle of Superposition also applies to magnetic fields. Therefore, the magnetic field generated by a steady current density <span class="math inline">{\boldsymbol{J}}</span> defined in a domain <span class="math inline">\Omega</span> is given by</p>
-<p><span id="eq-Biot-Savart-J"><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0}{4\pi} \int_\Omega \frac{{\boldsymbol{J}}({\boldsymbol{r}}') \times ({\boldsymbol{r}}- {\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3} {\mathrm{d}}V'. \tag{4.4}</span></span></p>
+<p><span id="eq-Biot-Savart-J"><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0}{4\pi} \int_\Omega \frac{{\boldsymbol{J}}({\boldsymbol{r}}') \times ({\boldsymbol{r}}- {\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3} \; {\mathrm{d}}V'. \tag{4.4}</span></span></p>
 <p>In the particular case of a steady current <span class="math inline">I</span> through a wire <span class="math inline">C</span> we can write</p>
-<p><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0 I}{4 \pi} \int_C \frac{{\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3},</span></p>
+<p><span id="eq-Biot-Savart-wire"><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0 I}{4 \pi} \int_C \frac{{\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^3}, \tag{4.5}</span></span></p>
 <p>where <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}'</span> is the differential of length along the curve <span class="math inline">C</span>.</p>
 <div id="exm-straight-wire" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.1 (Straight wire)</strong></span> &nbsp;</p>
@@ -497,14 +516,14 @@ Figure&nbsp;4.1: A current <span class="math inline">I</span> through an infinit
 </figure>
 </div>
 <p>Let’s consider a steady current <span class="math inline">I</span> through an infinitely long straight wire. Wlog we will assume the wire is along the <span class="math inline">z</span> axis (i.e.&nbsp;<span class="math inline">x=y=0</span>), as shown in <a href="#fig-wire-1" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. Then, we can work in cylindrical coordinates <span class="math inline">(\rho, \theta, z)</span>. In that case, the differential of length in the integral can be written as <span class="math inline">{\mathrm{d}}{\boldsymbol{r}}' = {\boldsymbol{e}}_z {\mathrm{d}}z</span>. Then, we have</p>
-<p><span class="math display"> {\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}') = \rho {\mathrm{d}}z {\boldsymbol{e}}_\theta,</span></p>
-<p>i.e.&nbsp;the magnetic field will point in the angular direction. Then, from <a href="#def-Biot-Savart-law" class="quarto-xref">Definition&nbsp;<span>4.4</span></a> we have</p>
-<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{4 \pi} {\boldsymbol{e}}_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} {\mathrm{d}}z = \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
+<p><span class="math display"> {\mathrm{d}}{\boldsymbol{r}}' \times ({\boldsymbol{r}}- {\boldsymbol{r}}') = \rho \; {\mathrm{d}}z \; {\boldsymbol{e}}_\theta,</span></p>
+<p>i.e.&nbsp;the magnetic field will point in the angular direction. Then, from <a href="#eq-Biot-Savart-wire" class="quarto-xref">Equation&nbsp;<span>4.5</span></a> we have</p>
+<p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{4 \pi} {\boldsymbol{e}}_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} \; {\mathrm{d}}z = \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
 </div>
 </section>
 <section id="gauss-law-for-magnetism" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="gauss-law-for-magnetism"><span class="header-section-number">4.4</span> Gauss’ law for magnetism</h2>
-<p>We have now derived three of Maxwell’s equation (at least their static versions); there is only <a href="1-introduction.html#eq-Maxwell-3" class="quarto-xref">Equation&nbsp;<span>1.2</span></a> left. This equation is often referred to as the Gauss’ law for magnetism and, as the name suggests, it is very similar to Gauss’ law for electric fields (<a href="2-electrostatics.html#thm-Gauss-law-diff" class="quarto-xref">Theorem&nbsp;<span>2.5</span></a>).</p>
+<p>Let’s now derive Gauss’ law for magnetism which, as the name suggests, it is very similar to Gauss’ law for electric fields (<a href="2-electrostatics.html#thm-Gauss-law-diff" class="quarto-xref">Theorem&nbsp;<span>2.5</span></a>).</p>
 <div id="thm-Gauss-law-magnetism" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 4.2 (Gauss’ law for magnetism)</strong></span> Any magnetic field <span class="math inline">{\boldsymbol{B}}</span> satisfies</p>
 <p><span class="math display">\nabla \cdot {\boldsymbol{B}}= 0.</span></p>
@@ -512,13 +531,13 @@ Figure&nbsp;4.1: A current <span class="math inline">I</span> through an infinit
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We will prove Gauss’ law for magnetism for a point charge, but the proof for a current density would follow similarly, just with more complicated algebra. Wlog we set <span class="math inline">{\boldsymbol{r}}_0 = {\boldsymbol{0}}</span>, so</p>
 <p><span class="math display">{\boldsymbol{B}}({\boldsymbol{r}}) = \frac{\mu_0 q}{4 \pi} \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}</span></p>
-<p>First, note that</p>
-<p><span class="math display">\nabla \cdot \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{| {\boldsymbol{r}}|^3} \right) = \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \cdot \left( \nabla \times {\boldsymbol{v}}\right) - {\boldsymbol{v}}\cdot \left( \nabla \times \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) </span></p>
-<p>using <a href="1-introduction.html#eq-div-cross-product" class="quarto-xref">Equation&nbsp;<span>1.11</span></a>, but as <span class="math inline">{\boldsymbol{v}}</span> does not depend on <span class="math inline">{\boldsymbol{r}}</span> the first term vanished. Recall from <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.13</span></a> that</p>
+<p>First note that, using <a href="1-introduction.html#eq-div-cross-product" class="quarto-xref">Equation&nbsp;<span>1.11</span></a>, we get</p>
+<p><span class="math display">\nabla \cdot \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{| {\boldsymbol{r}}|^3} \right) = \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \cdot \left( \nabla \times {\boldsymbol{v}}\right) - {\boldsymbol{v}}\cdot \left( \nabla \times \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right). </span></p>
+<p>As <span class="math inline">{\boldsymbol{v}}</span> does not depend on <span class="math inline">{\boldsymbol{r}}</span> the first term vanishes. Now recall from <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.14</span></a> that</p>
 <p><span class="math display">\frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} = - \nabla \frac{1}{|{\boldsymbol{r}}|},</span></p>
-<p>therefore</p>
-<p><span class="math display">\nabla \cdot \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) = 0,</span></p>
-<p>as the curl of a gradient is zero (<a href="1-introduction.html#eq-curl-grad-zero" class="quarto-xref">Equation&nbsp;<span>1.7</span></a>). This shows that <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span> everywhere except at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span> due to the singularity in the definition of <span class="math inline">{\boldsymbol{B}}</span>. To resolve it, we consider the ball of radius <span class="math inline">R</span> centred at the origin, <span class="math inline">B_R</span>. Then</p>
+<p>so the second term can be written as the curl of a gradient. Therefore, from <a href="1-introduction.html#eq-curl-grad-zero" class="quarto-xref">Equation&nbsp;<span>1.7</span></a>, we conclude</p>
+<p><span class="math display">\nabla \cdot \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) = 0.</span></p>
+<p>This shows that <span class="math inline">\nabla \cdot {\boldsymbol{B}}= 0</span> everywhere except at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span> due to the singularity in the definition of <span class="math inline">{\boldsymbol{B}}</span>. To resolve it, we consider the ball of radius <span class="math inline">R</span> centred at the origin, <span class="math inline">B_R</span>. Then</p>
 <p><span class="math display"> \int_{\partial B_R} {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{\mu_0 q}{4 \pi} \int_{\partial B_R} \left( \frac{{\boldsymbol{v}}\times {\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A = 0,</span></p>
 <p>where in the final step we have used that <span class="math inline">{\boldsymbol{v}}\times {\boldsymbol{r}}</span> is perpendicular to the normal to the ball surface (which is in the radial direction). Then, by the divergence theorem, we find</p>
 <p><span class="math display"> \int_{B_R} \nabla \cdot {\boldsymbol{B}}\; {\mathrm{d}}V = 0,</span></p>
@@ -533,10 +552,10 @@ Figure&nbsp;4.1: A current <span class="math inline">I</span> through an infinit
 <p><span class="math display">\nabla \times {\boldsymbol{B}}= \mu_0 {\boldsymbol{J}}.</span></p>
 <p>Note that this is equivalent to <a href="1-introduction.html#eq-Maxwell-4" class="quarto-xref">Equation&nbsp;<span>1.4</span></a> if the electric field <span class="math inline">{\boldsymbol{E}}</span> is steady.</p>
 </div>
-<p>Historically, this was derived by Ampère (and others) using experimental and theoretical tools. However, we can derive it from the Biot-Savart law (<a href="#eq-Biot-Savart-J" class="quarto-xref">Equation&nbsp;<span>4.4</span></a>). But before we need to introduce a couple of lemmas.</p>
+<p>Historically, this was derived by Ampère (and others) using experimental and theoretical tools. However, we can derive it from the Biot-Savart law (<a href="#eq-Biot-Savart-J" class="quarto-xref">Equation&nbsp;<span>4.4</span></a>). We need to introduce a couple of lemmas first.</p>
 <div id="lem-vector-potential" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 4.1</strong></span> The vector field</p>
-<p><span id="eq-vector-potential"><span class="math display"> {\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4\pi} \int_\Omega \frac{{\boldsymbol{J}}({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} {\mathrm{d}}V'  \tag{4.5}</span></span></p>
+<p><span id="eq-vector-potential"><span class="math display"> {\boldsymbol{A}}({\boldsymbol{r}}) = \frac{\mu_0}{4\pi} \int_\Omega \frac{{\boldsymbol{J}}({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \; {\mathrm{d}}V'  \tag{4.6}</span></span></p>
 <p>satisfies <span class="math inline">{\boldsymbol{B}}({\boldsymbol{r}}) = \nabla \times {\boldsymbol{A}}({\boldsymbol{r}})</span>.</p>
 </div>
 <div class="proof">
@@ -552,9 +571,9 @@ Figure&nbsp;4.1: A current <span class="math inline">I</span> through an infinit
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>First, note that if <span class="math inline">{\boldsymbol{r}}\neq {\boldsymbol{r}}'</span> we can write</p>
-<p><span class="math display"> \nabla \left( \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|}\right) = - \nabla' \left(|{\boldsymbol{r}}- {\boldsymbol{r}}'| \right),</span></p>
+<p><span class="math display"> \nabla \left( \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|}\right) = - \nabla' \left(\frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \right),</span></p>
 <p>where <span class="math inline">\nabla'</span> is the gradient with respect to the <span class="math inline">{\boldsymbol{r}}'</span> variable.</p>
-<p>From <a href="#eq-vector-potential" class="quarto-xref">Equation&nbsp;<span>4.5</span></a></p>
+<p>Then, from <a href="#eq-vector-potential" class="quarto-xref">Equation&nbsp;<span>4.6</span></a></p>
 <p><span class="math display">\begin{aligned}
 \nabla \cdot {\boldsymbol{A}}&amp;= \frac{\mu_0}{4 \pi} \int_\Omega {\boldsymbol{J}}({\boldsymbol{r}}') \cdot \nabla \left( \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \right) {\mathrm{d}}V' \\
 &amp;= -\frac{\mu_0}{4 \pi} \int_\Omega {\boldsymbol{J}}({\boldsymbol{r}}') \cdot \nabla' \left( \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \right) {\mathrm{d}}V'\\
@@ -567,22 +586,23 @@ Figure&nbsp;4.1: A current <span class="math inline">I</span> through an infinit
 <p><span class="math display">\nabla \cdot {\boldsymbol{A}}= 0.</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (of Ampère’s law). </span>From <a href="#lem-vector-potential" class="quarto-xref">Lemma&nbsp;<span>4.1</span></a> we have</p>
+<p><span class="proof-title"><em>Proof</em>. </span>(of Ampère’s law)</p>
+<p>From <a href="#lem-vector-potential" class="quarto-xref">Lemma&nbsp;<span>4.1</span></a> we have</p>
 <p><span class="math display">\nabla \times {\boldsymbol{B}}= \nabla \times (\nabla \times {\boldsymbol{A}}).</span></p>
 <p>Using the identity <a href="1-introduction.html#eq-curl-curl" class="quarto-xref">Equation&nbsp;<span>1.9</span></a>, which applies to any vector field <span class="math inline">{\boldsymbol{A}}</span>, we obtain</p>
 <p><span class="math display"> \nabla \times (\nabla \times {\boldsymbol{A}}) = \nabla (\nabla \cdot {\boldsymbol{A}}) - \nabla^2 {\boldsymbol{A}}.</span></p>
 <p>Applying <a href="#lem-div-A-0" class="quarto-xref">Lemma&nbsp;<span>4.2</span></a> we deduce</p>
 <p><span class="math display">\nabla \times {\boldsymbol{B}}= -\nabla^2 {\boldsymbol{A}}.</span></p>
-<p>Now we only need to compute <span class="math inline">\nabla^2 {\boldsymbol{A}}</span> from <a href="#eq-vector-potential" class="quarto-xref">Equation&nbsp;<span>4.5</span></a>:</p>
+<p>Now we only need to compute <span class="math inline">\nabla^2 {\boldsymbol{A}}</span> from <a href="#eq-vector-potential" class="quarto-xref">Equation&nbsp;<span>4.6</span></a>:</p>
 <p><span class="math display">\nabla^2 {\boldsymbol{A}}= \frac{\mu_0}{4\pi} \int_\Omega {\boldsymbol{J}}({\boldsymbol{r}}') \nabla^2 \left(\frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|}\right) {\mathrm{d}}V' = \frac{\mu_0}{4\pi} \int_\Omega {\boldsymbol{J}}({\boldsymbol{r}}') \left(- 4 \pi \delta({\boldsymbol{r}}- {\boldsymbol{r}}') \right) {\mathrm{d}}V' = - \mu_0 {\boldsymbol{J}}({\boldsymbol{r}}).</span></p>
 <p>We have used <a href="2-electrostatics.html#prp-del2-1-r" class="quarto-xref">Proposition&nbsp;<span>2.3</span></a> in the second step.</p>
 <p>Combining everything we conclude</p>
-<p><span id="eq-Ampere-law"><span class="math display"> \nabla \times {\boldsymbol{B}}= \mu_0 {\boldsymbol{J}}, \tag{4.6}</span></span></p>
+<p><span id="eq-Ampere-law"><span class="math display"> \nabla \times {\boldsymbol{B}}= \mu_0 {\boldsymbol{J}}, \tag{4.7}</span></span></p>
 <p>which is Ampère’s law (<a href="#thm-Ampere-law" class="quarto-xref">Theorem&nbsp;<span>4.3</span></a>).</p>
 </div>
 <div id="cor-Ampere-law-alternative" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 4.1 (Ampère’s law - alternative formulation)</strong></span> For any simple<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> closed curve <span class="math inline">C = \partial \Sigma</span> bounding a surface <span class="math inline">\Sigma</span></p>
-<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}= \mu_0 \int_\Sigma {\boldsymbol{J}}\cdot {\boldsymbol{n}}{\mathrm{d}}A = \mu_0 I,</span></p>
+<p><span class="theorem-title"><strong>Corollary 4.1 (Ampère’s law – alternative formulation)</strong></span> For any simple<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> closed curve <span class="math inline">C = \partial \Sigma</span> bounding a surface <span class="math inline">\Sigma</span></p>
+<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}= \mu_0 \int_\Sigma {\boldsymbol{J}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \mu_0 I,</span></p>
 <p>where <span class="math inline">I</span> is the current through <span class="math inline">\Sigma</span>.</p>
 </div>
 <div id="exm-straight-wire-2" class="theorem example">
@@ -600,7 +620,7 @@ Figure&nbsp;4.2: A current <span class="math inline">I</span> through an infinit
 <p>Let’s consider again the current through a straight wire (<a href="#exm-straight-wire" class="quarto-xref">Example&nbsp;<span>4.1</span></a>), but now let’s approach it using <a href="#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a>. If we look at the symmetries of the problem, we notice it is invariant under vertical translations and rotations around the <span class="math inline">z</span>-axis, so we can conclude that the magnetic field only depends on the radial direction. Let’s further assume that the only non-zero component is on the angular direction:</p>
 <p><span class="math display"> {\boldsymbol{B}}= B(\rho) {\boldsymbol{e}}_\theta.</span></p>
 <p>For our curve <span class="math inline">C</span> we choose a circle of arbitrary radius <span class="math inline">\rho</span> in the <span class="math inline">\rho-\theta</span> plane with the centre on the <span class="math inline">z</span> axis. <a href="#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a> gives</p>
-<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}=  \int_0^{2\pi} B(\rho) \rho {\mathrm{d}}\theta = 2 \pi \rho B(\rho) = \mu_0 I,</span></p>
+<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}=  \int_0^{2\pi} B(\rho) \rho \; {\mathrm{d}}\theta = 2 \pi \rho B(\rho) = \mu_0 I,</span></p>
 <p>therefore we conclude that</p>
 <p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
 </div>
@@ -632,13 +652,13 @@ Figure&nbsp;4.2: A current <span class="math inline">I</span> through an infinit
 <p><span class="math display">\nabla \cdot {\boldsymbol{A}}' = \nabla \cdot {\boldsymbol{A}}+ \nabla^2 \chi = \psi + \nabla^2 \chi.</span></p>
 <p>Then, to make <span class="math inline">\nabla \cdot {\boldsymbol{A}}' = 0</span> we simply need to choose <span class="math inline">\chi</span> such that</p>
 <p><span class="math display">\nabla^2 \chi = - \psi.</span></p>
-<p>This is the Poisson equation, and we know that it has a unique solution (up to an additive constant).</p>
+<p>This is Poisson’s equation, and we know that it has a unique solution (up to an additive constant).</p>
 </div>
 <p>There is a lot to unpack from gauges when one goes into quantum physics (in fact, there is a class of quantum field theories called <a href="https://en.wikipedia.org/wiki/Gauge_theory">gauge theories</a>). However, in this module we will use gauges purely as a mathematical tool: choosing the <em>right</em> gauge allows us to write equations in a simpler form. For example, Ampère’s law for the vector field yields</p>
 <p><span class="math display">\mu_0 {\boldsymbol{J}}= \nabla \times \left( \nabla \times {\boldsymbol{A}}\right) = \nabla (\nabla \cdot {\boldsymbol{A}}) - \nabla^2 {\boldsymbol{A}},</span></p>
 <p>and taking the Coulomb gauge allows us to simplify the equation to</p>
 <p><span class="math display"> \nabla^2 {\boldsymbol{A}}= - \mu_0 {\boldsymbol{J}},</span></p>
-<p>which is the Poisson’s equation and we know how to solve it.</p>
+<p>which is again Poisson’s equation that we already know how to solve.</p>
 <div id="exm-straight-wire-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4.3 (Straight wire – 3)</strong></span> Let’s consider yet again the current through a straight wire (<a href="#exm-straight-wire" class="quarto-xref">Example&nbsp;<span>4.1</span></a>). Now we want to compute the vector potential <span class="math inline">{\boldsymbol{A}}</span>. We found out in the previous examples that</p>
 <p><span class="math display"> {\boldsymbol{B}}= \frac{\mu_0 I}{2 \pi \rho} {\boldsymbol{e}}_\theta.</span></p>
@@ -646,7 +666,7 @@ Figure&nbsp;4.2: A current <span class="math inline">I</span> through an infinit
 <p><span class="math display"> \frac{1}{\rho} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,</span></p>
 <p><span class="math display"> \frac{\partial A_\rho}{\partial z} - \frac{\partial A_z}{\partial \rho} = \frac{\mu_0 I}{2 \pi \rho},</span></p>
 <p><span class="math display">\frac{1}{\rho} \left(\frac{\partial (\rho A_\theta)}{\partial \rho} - \frac{\partial A_\rho}{\partial \theta} \right) = 0.</span></p>
-<p>It is not straightforward how to solve this equation, but we can construct a suitable solution (remember, it will not be unique) by taking</p>
+<p>This equation is not straightforward to solve, but we can construct a suitable solution (remember, it will not be unique) by taking</p>
 <p><span class="math display">{\boldsymbol{A}}= - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{\rho}{\rho_0} \right) {\boldsymbol{e}}_z,</span></p>
 <p>where <span class="math inline">\rho_0</span> is an integrating constant.</p>
 </div>
@@ -659,8 +679,8 @@ Figure&nbsp;4.2: A current <span class="math inline">I</span> through an infinit
 <li id="fn1"><p>Real charges (e.g.&nbsp;electrons) will have some random motion, but they can still have an overall velocity, for example, induced by an electric field. We ignore (i.e.&nbsp;average out) the random motion and focus only on the overall <em>drift</em> velocity.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>In SI units we have <span class="math inline">\mathrm{A}\; \mathrm{m}^{-2}</span>, where <span class="math inline">\mathrm{A} = \mathrm{C}\;\mathrm{s}^{-1}</span> are amperes (name after Mr Ampère, who we will meet in a few pages).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>You will encounter it in quite a few modules, e.g.&nbsp;MA3D1.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>In MA3D1 you will derive the generic form.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Named after Nikola Tesla, not after a certain famous car brand…<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The generic form is derived in MA3D1.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Named after Nikola Tesla, not after a certain car brand…<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>I am deliberately vague about whether the velocity can depend on time or not. It will be easier to discuss this when we reformulate the Biot-Savart law in terms of currents.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>Named after André-Marie Ampère (1775-1836), a French physicist and mathematician.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p>i.e.&nbsp;that it doesn’t intersect itself.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

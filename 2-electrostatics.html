@@ -415,7 +415,25 @@ window.Quarto = {
 <div class="hidden">
 
 </div>
-<p>We start our journey in the field of electromagnetism, which is the branch of the subject concerned with stationary electric charges. This is the simplest case but present in our day-to-day lives in many ways: from laser printing to explaining static cling (see <a href="#fig-examples-electrostatics" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Aims of the chapter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li><p>Understand Coulomb’s law and apply it to calculate forces between point charges.</p></li>
+<li><p>Explain the concepts of electric field, electrostatic potential and electrostatic energy, both for point charges and charge distributions.</p></li>
+<li><p>Understand Gauss’ law both for point charges and charge distributions.</p></li>
+</ul>
+</div>
+</div>
+<p>We start our journey in the field of electromagnetism with electrostatics, which is the branch of the subject concerned with stationary electric charges. This is the simplest case, but it is present in our day-to-day lives in many ways: from laser printing to explaining static cling (see <a href="#fig-examples-electrostatics" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>).</p>
 <div id="fig-examples-electrostatics" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-examples-electrostatics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -447,18 +465,18 @@ window.Quarto = {
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-examples-electrostatics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Examples of electrostatics.
+Figure&nbsp;2.1: Examples of electrostatic forces.
 </figcaption>
 </figure>
 </div>
 <section id="point-charges-and-coulombs-law" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="point-charges-and-coulombs-law"><span class="header-section-number">2.1</span> Point charges and Coulomb’s law</h2>
-<p>As you may already know, subatomic particles like the proton and electrons, have a physical property called <em>electric charge</em>. Electric charge can be positive or negative and it is <em>quantized</em>, that means that it comes in integer multiples of the elementary charge <span class="math inline">e</span> which, in SI units, is defined as <span class="math inline">e \approx 1.602 \times 10^{-19} \; \mathrm{C}</span> (this unit is called Coulomb<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>). Protons have a charge of <span class="math inline">+e</span> while electrons have a charge of <span class="math inline">-e</span>, and all charges in matter made of atoms arise from them. Charges<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> with the same sign attract each other, while charges of opposite sign repel each other.</p>
-<p>We want to model the force between point charges. By point charges we mean that we will represent these electrically charges as points in <span class="math inline">\mathbb{R}^3</span>, with their position in space denoted by the vector <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> and (the magnitude of) their charge denoted by <span class="math inline">q_i</span>.</p>
+<p>As you may already know, subatomic particles like the proton and electrons, have a physical property called <em>electric charge</em>. Electric charge can be positive or negative and it is <em>quantised</em>, that means that it comes in integer multiples of the elementary charge <span class="math inline">e</span> which, in SI units, is defined as <span class="math inline">e \approx 1.602 \times 10^{-19} \; \mathrm{C}</span> (this unit is called Coulomb<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>). Protons have a charge of <span class="math inline">+e</span> while electrons have a charge of <span class="math inline">-e</span>, and all charges in matter arise from them. Charges<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> with the same sign attract each other, while charges of opposite sign repel each other.</p>
+<p>We want to model the force between point charges. By point charges we mean that we will represent these electrically charges as points in <span class="math inline">\mathbb{R}^3</span>, with their position in space denoted by the vector <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> and (the magnitude and sign of) their charge denoted by <span class="math inline">q_i</span>.</p>
 <div id="def-Coulombs-law" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.1 (Coulomb’s law)</strong></span> Given to point charges <span class="math inline">q_1</span> and <span class="math inline">q_2</span> positioned at <span class="math inline">{\boldsymbol{r}}_1,{\boldsymbol{r}}_2 \in \mathbb{R}^3</span>, respectively, each charge experiences a force</p>
-<p><span id="eq-Coulombs-law"><span class="math display">{\boldsymbol{F}}_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1 q_2}{\|{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2\|^2} {\boldsymbol{e}}_{12} = - {\boldsymbol{F}}_2, \tag{2.1}</span></span></p>
-<p>where the constant <span class="math inline">\epsilon_0 \approx 8.854 \times 10^{-12} \; \mathrm{C}^2 \, \mathrm{N}^{-1} \, \mathrm{m}^{-2}</span> is called the <em>permittivity of free space</em>, and <span class="math inline">{\boldsymbol{e}}_{12}</span> is the unit vector pointing from <span class="math inline">q_2</span> to <span class="math inline">q_1</span>, which can be written as <span class="math display">{\boldsymbol{e}}_{12} = \frac{{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2}{|{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2|}.</span></p>
+<p><span id="eq-Coulombs-law"><span class="math display">{\boldsymbol{F}}_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1 q_2}{|{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2|^2} {\boldsymbol{e}}_{12} = - {\boldsymbol{F}}_2, \tag{2.1}</span></span></p>
+<p>where the constant <span class="math inline">\epsilon_0 \approx 8.854 \times 10^{-12} \; \mathrm{C}^2 \; \mathrm{N}^{-1} \; \mathrm{m}^{-2}</span> is called the <em>permittivity of free space</em>, and <span class="math inline">{\boldsymbol{e}}_{12}</span> is the unit vector pointing from <span class="math inline">q_2</span> to <span class="math inline">q_1</span>, which can be written as <span class="math display">{\boldsymbol{e}}_{12} = \frac{{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2}{|{\boldsymbol{r}}_1 - {\boldsymbol{r}}_2|}.</span></p>
 </div>
 <div id="rem-Coulombs-law" class="proof remark">
 <p><span class="proof-title"><em>Remark 2.1</em>. </span></p>
@@ -478,14 +496,14 @@ Figure&nbsp;2.1: Examples of electrostatics.
 </section>
 <section id="electric-fields-and-electrostatic-potentials" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="electric-fields-and-electrostatic-potentials"><span class="header-section-number">2.2</span> Electric fields and electrostatic potentials</h2>
-<p>Let’s now introduce the concept of <em>electric field</em>. Even though it looks like a simple rewriting of the equation, it provides a very valuable new point of view.</p>
+<p>Let’s now introduce the concept of <em>electric field</em>. Even though it looks like a simple rewriting of the equation, it provides a very valuable new point of view. As you may recall, the electric field was one of the variables appearing in the Maxwell’s equations.</p>
 <div id="def-electric-field" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.3 (Electric field)</strong></span> Given a set of charges <span class="math inline">q_i</span> at positions <span class="math inline">{\boldsymbol{r}}_i</span>, with <span class="math inline">i \in {1, \dots, N}</span>, we define the <em>electric field</em> at a given point <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> as</p>
 <p><span id="eq-electric-field"><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}) = \sum_{i=1}^N \frac{1}{4 \pi \epsilon_0} \frac{q_i}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|^2}\frac{{\boldsymbol{r}}- {\boldsymbol{r}}_i}{|{\boldsymbol{r}}- {\boldsymbol{r}}_i|}. \tag{2.3}</span></span></p>
 </div>
 <p>The electric field can be interpreted as the force that a <em>unit test charge</em> (that is, a virtual charge with <span class="math inline">q=1</span>) would experience at the point in space <span class="math inline">{\boldsymbol{r}}</span>. It is called a test charge as its charge is not part of the set of charges we are considering (we use it only to “test” how the set of charges behaves). The electric field is a vector field defined in <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3 \setminus \{{\boldsymbol{r}}_1, \dots, {\boldsymbol{r}}_N\}</span>.</p>
 <div id="rem-electric-field" class="proof remark">
-<p><span class="proof-title"><em>Remark 2.2</em>. </span>Note that <span class="math inline">{\boldsymbol{F}}= q {\boldsymbol{E}}</span> yields <a href="#eq-superposition" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>. This expression also allows us to deduce that the the electric field is measured (in SI units) in <span class="math inline">\mathrm{N} \, \mathrm{C}^{-1}</span>.</p>
+<p><span class="proof-title"><em>Remark 2.2</em>. </span>Note that <span class="math inline">{\boldsymbol{F}}= q {\boldsymbol{E}}</span> yields <a href="#eq-superposition" class="quarto-xref">Equation&nbsp;<span>2.2</span></a>. This expression also allows us to deduce that the the electric field is measured (in SI units) in <span class="math inline">\mathrm{N} \; \mathrm{C}^{-1}</span> (or, equivalently <span class="math inline">\mathrm{V} \; \mathrm{m}^{-1}</span>).</p>
 </div>
 <p>Now is the turn to introduce another useful concept: the electrostatic potential. You are probably familiar with the concept of potential, for example the gravitational potential. In a similar manner, we can define the electrostatic potential.</p>
 <div id="def-electrostatic-potential" class="theorem definition">
@@ -501,50 +519,50 @@ Figure&nbsp;2.1: Examples of electrostatics.
 <h2 data-number="2.3" class="anchored" data-anchor-id="gauss-law-for-point-charges"><span class="header-section-number">2.3</span> Gauss’ law for point charges</h2>
 <p>As we said earlier, the definition of the electric field is a lot more than a simple relabelling, and in this section we will see why. Before that, we need to recall a definition from vector calculus.</p>
 <div id="def-flux" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.5 (Flux)</strong></span> Given a surface <span class="math inline">\Sigma \subset \mathbb{R}^3</span> with <em>outward</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> unit normal vector <span class="math inline">{\boldsymbol{n}}</span>, we define the <em>flux</em> of the electric field <span class="math inline">{\boldsymbol{E}}</span> through <span class="math inline">\Sigma</span> as the integral <span class="math inline">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}S</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.5 (Flux)</strong></span> Given a surface <span class="math inline">\Sigma \subset \mathbb{R}^3</span> with <em>outward</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> unit normal vector <span class="math inline">{\boldsymbol{n}}</span>, we define the <em>flux</em> of the electric field <span class="math inline">{\boldsymbol{E}}</span> through <span class="math inline">\Sigma</span> as the integral <span class="math inline">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}S</span>.</p>
 </div>
 <p>With this definition, we can now state one of the central results of electrostatics</p>
 <div id="thm-Gauss-law" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.2 (Gauss’ law)</strong></span> For any closed surface <span class="math inline">\Sigma = \partial \Omega</span> (that is the surface bounding a region <span class="math inline">\Omega \in \mathbb{R}^3</span>), we have</p>
-<p><span id="eq-Gauss-law"><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \frac{1}{\epsilon_0} \sum_{i=1}^N q_i, \tag{2.5}</span></span></p>
-<p>where <span class="math inline">q_i</span> is the set of charges contained in <span class="math inline">\Omega</span>. For convenience, we define the total charge in <span class="math inline">\Omega</span> as <span class="math inline">Q = \sum_{i=1}^N q_i</span>.</p>
+<p><span id="eq-Gauss-law"><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{1}{\epsilon_0} \sum_{i=1}^N q_i, \tag{2.5}</span></span></p>
+<p>where <span class="math inline">q_i</span> is the (finite<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>) set of charges contained in <span class="math inline">\Omega</span>. For convenience, we define the total charge in <span class="math inline">\Omega</span> as <span class="math inline">Q = \sum_{i=1}^N q_i</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Let’s start by considering a single point charge <span class="math inline">q</span> at a position <span class="math inline">{\boldsymbol{r}}_0</span>. Without loss of generality, we can assume <span class="math inline">{\boldsymbol{r}}_0 = {\boldsymbol{0}}</span> as we can always perform a change of coordinates. From <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> we find that the charge produces an electric field</p>
-<p><span class="math display"> {\boldsymbol{E}}({\boldsymbol{r}}) = \frac{q}{4 \pi \epsilon_0} \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}.</span> Let’s also consider a ball of arbitrary radius <span class="math inline">R &gt; 0</span> centred at the origin <span class="math inline">B_R</span>, the flux of the electric field through its surface is<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-<p><span id="eq-gauss-law-proof-integral-BR"><span class="math display"> \int_{\partial B_R} {\boldsymbol{E}}\cdot {\boldsymbol{r}}\, {\mathrm{d}}A = \frac{q}{4 \pi \epsilon_0} \int_{\partial B_R} \frac{1}{|{\boldsymbol{r}}|^2} {\mathrm{d}}A = \frac{q}{4 \pi R^2 \epsilon_0} \int_{\partial B_R} {\mathrm{d}}A = \frac{q}{\epsilon_0}. \tag{2.6}</span></span></p>
-<p>This resembles the Gauss’ law, but for a single charge and a very specific surface, so we now need to generalise the result. From the divergence theorem <a href="1-introduction.html#thm-divergence" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a>, for an arbitrary domain <span class="math inline">\Omega</span> bounded by <span class="math inline">\Sigma = \partial \Omega</span> we have</p>
-<p><span class="math display"> \int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\Sigma} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A.</span></p>
+<p><span class="math display"> {\boldsymbol{E}}({\boldsymbol{r}}) = \frac{q}{4 \pi \epsilon_0} \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3}.</span> Let’s also consider a ball of arbitrary radius <span class="math inline">R &gt; 0</span> centred at the origin <span class="math inline">B_R</span>, the flux of the electric field through its surface is<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p><span id="eq-gauss-law-proof-integral-BR"><span class="math display"> \int_{\partial B_R} {\boldsymbol{E}}\cdot \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|} \; {\mathrm{d}}A = \frac{q}{4 \pi \epsilon_0} \int_{\partial B_R} \frac{1}{|{\boldsymbol{r}}|^2} {\mathrm{d}}A = \frac{q}{4 \pi R^2 \epsilon_0} \int_{\partial B_R} {\mathrm{d}}A = \frac{q}{\epsilon_0}. \tag{2.6}</span></span></p>
+<p>This resembles the Gauss’ law, but for a single charge and a very specific surface, so we now need to generalise the result. From the divergence theorem (<a href="1-introduction.html#thm-divergence" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a>), for an arbitrary domain <span class="math inline">\Omega</span> bounded by <span class="math inline">\Sigma = \partial \Omega</span> we have</p>
+<p><span class="math display"> \int_\Omega \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V = \int_{\Sigma} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
 <p>Let’s now compute the divergence of the electric field</p>
 <p><span id="eq-gauss-law-proof-div-E"><span class="math display"> \nabla \cdot {\boldsymbol{E}}= \frac{q}{4 \pi \epsilon_0} \nabla \cdot \left( \frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|^3} \right) = 0, \tag{2.7}</span></span></p>
-<p>and note we have used <a href="1-introduction.html#eq-div-r-r3" class="quarto-xref">Equation&nbsp;<span>1.14</span></a>. However, the electric field is singular at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span>, so we can only state that the divergence of the electric field is zero for <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3 \setminus \{{\boldsymbol{0}}\}</span>.</p>
+<p>and note we have used <a href="1-introduction.html#eq-div-r-r3" class="quarto-xref">Equation&nbsp;<span>1.15</span></a>. However, the electric field is singular at <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span>, so we can only state that the divergence of the electric field is zero for <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3 \setminus \{{\boldsymbol{0}}\}</span>.</p>
 <p>Now let’s consider assume our arbitrary domain <span class="math inline">\Omega \in \mathbb{R}^3</span> contains the ball <span class="math inline">B_R</span>. The integral of <a href="#eq-gauss-law-proof-div-E" class="quarto-xref">Equation&nbsp;<span>2.7</span></a> over <span class="math inline">\Omega</span> can be split into</p>
-<p><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\Omega \setminus B_R} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V + \int_{B_R} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V.</span></p>
-<p>The first term is zero, as it the integration domain does not contain the origin, while we can apply the divergence theorem to the second term, obtaining</p>
-<p><span id="eq-gauss-law-proof-int-div-single-charge"><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{B_R} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\partial B_R} {\boldsymbol{E}}\cdot {\boldsymbol{r}}\, {\mathrm{d}}A = \frac{q}{\epsilon_0}, \tag{2.8}</span></span></p>
+<p><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V = \int_{\Omega \setminus B_R} \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V + \int_{B_R} \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V.</span></p>
+<p>The first term is zero, as the integration domain does not contain the origin, while we can apply the divergence theorem to the second term, obtaining</p>
+<p><span id="eq-gauss-law-proof-int-div-single-charge"><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V = \int_{B_R} \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V = \int_{\partial B_R} {\boldsymbol{E}}\cdot {\boldsymbol{r}}\; {\mathrm{d}}A = \frac{q}{\epsilon_0}, \tag{2.8}</span></span></p>
 <p>where in the final step we have used <a href="#eq-gauss-law-proof-integral-BR" class="quarto-xref">Equation&nbsp;<span>2.6</span></a>. Therefore</p>
-<p><span id="eq-gauss-law-proof-gauss-single-charge"><span class="math display"> \int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}A = \frac{q}{\epsilon_0}. \tag{2.9}</span></span></p>
-<p>Now consider a distribution of <span class="math inline">N</span> charges <span class="math inline">q_i</span> located at <span class="math inline">{\boldsymbol{r}}_i</span>, respectively. By the principle of superposition <a href="#eq-superposition" class="quarto-xref">Equation&nbsp;<span>2.2</span></a> we can write the electric field as the sum of the contributions for each charge. Then, similar to <a href="#eq-gauss-law-proof-div-E" class="quarto-xref">Equation&nbsp;<span>2.7</span></a>, we can show that the divergence of the electric field will be zero in <span class="math inline">\mathbb{R}^3 \setminus \bigcup_i {\boldsymbol{r}}_i</span>. Defining as <span class="math inline">B_i</span> the ball of arbitrary radius <span class="math inline">R</span> centred at <span class="math inline">{\boldsymbol{r}}_i</span> (i.e.&nbsp;around charge <span class="math inline">q_i</span>), we can write</p>
-<p><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V = \int_{\Omega \setminus \bigcup_{i=1}^N B_i} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V + \sum_{i=1}^N \int_{B_i} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V.</span></p>
+<p><span id="eq-gauss-law-proof-gauss-single-charge"><span class="math display"> \int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{q}{\epsilon_0}. \tag{2.9}</span></span></p>
+<p>Now consider a distribution of <span class="math inline">N</span> charges <span class="math inline">q_i</span> located at <span class="math inline">{\boldsymbol{r}}_i</span>, respectively. By the principle of superposition <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> we can write the electric field as the sum of the contributions for each charge. Then, similar to <a href="#eq-gauss-law-proof-div-E" class="quarto-xref">Equation&nbsp;<span>2.7</span></a>, we can show that the divergence of the electric field will be zero in <span class="math inline">\mathbb{R}^3 \setminus \bigcup_i {\boldsymbol{r}}_i</span>. Defining as <span class="math inline">B_i</span> as the ball of arbitrary radius <span class="math inline">R</span> centred at <span class="math inline">{\boldsymbol{r}}_i</span> (i.e.&nbsp;around charge <span class="math inline">q_i</span>), we can write</p>
+<p><span class="math display">\int_\Omega \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V = \int_{\Omega \setminus \bigcup_{i=1}^N B_i} \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V + \sum_{i=1}^N \int_{B_i} \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V.</span></p>
 <p>The first term is still zero as it doesn’t include any of the charges. For each ball <span class="math inline">B_i</span> we only need to consider the contribution of the charge <span class="math inline">q_i</span> as it is the only singularity of the electric field in that ball, so <a href="#eq-gauss-law-proof-int-div-single-charge" class="quarto-xref">Equation&nbsp;<span>2.8</span></a> generalises into</p>
-<p><span class="math display"> \int_{B_i} \nabla \cdot {\boldsymbol{E}}\, {\mathrm{d}}V  = \int_{\partial B_i} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \frac{q_i}{\epsilon_0}.</span></p>
+<p><span class="math display"> \int_{B_i} \nabla \cdot {\boldsymbol{E}}\; {\mathrm{d}}V  = \int_{\partial B_i} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{q_i}{\epsilon_0}.</span></p>
 <p>Therefore, we conclude</p>
-<p><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \sum_{i=1}^N \frac{q_i}{\epsilon_0}.</span></p>
+<p><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \sum_{i=1}^N \frac{q_i}{\epsilon_0}.</span></p>
 </div>
 </section>
 <section id="charge-density" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="charge-density"><span class="header-section-number">2.4</span> Charge density</h2>
-<p>So far we have worked with a set of point charges. However, this is quite often impractical. For example, a macroscopic object has an enormous number of electrons and protons so it is not reasonable to consider them one by one. A more subtle point is that, from a quantum mechanics point of view, the position of electron be determined and instead they should be treated as a “blur” of charge. In either case, the concept of <em>charge density</em> comes handy.</p>
+<p>So far we have worked with a set of point charges. However, this is quite often impractical. For example, a macroscopic object has an enormous number of electrons and protons so it is not reasonable to consider them one by one. A more subtle point is that, from a quantum mechanics point of view, the position of electron cannot be determined and instead they should be treated as a “blur” of charge. In either case, the concept of <em>charge density</em> comes handy.</p>
 <div id="def-charge-density" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.6 (Charge density)</strong></span> We define the <em>charge density</em> as a function <span class="math inline">\rho({\boldsymbol{r}}): \Omega \in \mathbf{R}^3 \to \mathbf{R}</span> that gives the charge per unit volume at a certain point in space.</p>
+<p><span class="theorem-title"><strong>Definition 2.6 (Charge density)</strong></span> We define the <em>charge density</em> as a function <span class="math inline">\rho({\boldsymbol{r}}): \Omega \subset \mathbb{R}^3 \to \mathbb{R}</span> that gives the charge per unit volume at a certain point in space.</p>
 <p>We can then define the total charge in any arbitrary region <span class="math inline">\Omega \subset \mathbb{R}^3</span> as</p>
-<p><span class="math display">Q = \int_\Omega \rho \, {\mathrm{d}}V.</span></p>
+<p><span class="math display">Q = \int_\Omega \rho \; {\mathrm{d}}V.</span></p>
 </div>
 <p>Unless stated otherwise, we will assume that any charge density function <span class="math inline">\rho</span> we encounter in this module is, at least, continuous. We will also assume that <span class="math inline">\rho</span> has support <span class="math inline">\Omega</span> and that it is bounded. We can now redefine the electric field <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> in terms of the charge density.</p>
 <div id="def-electric-field-charge-density" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.7 (Electric field)</strong></span> Given a charge density <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span>, we define the <em>electric field</em> at a given point <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> as</p>
-<p><span id="eq-electric-field-charge-density"><span class="math display"> {\boldsymbol{E}}({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^2} \frac{{\boldsymbol{r}}- {\boldsymbol{r}}'}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} {\mathrm{d}}V', \tag{2.10}</span></span></p>
-<p>where <span class="math inline">{\mathrm{d}}V'</span> is the infinitesimal volume element related to <span class="math inline">{\boldsymbol{r}}'</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.7 (Electric field)</strong></span> Given a charge density <span class="math inline">\rho : \Omega \subset \mathbb{R}^3 \to \mathbb{R}</span>, we define the <em>electric field</em> at a given point <span class="math inline">{\boldsymbol{r}}\in \mathbb{R}^3</span> as</p>
+<p><span id="eq-electric-field-charge-density"><span class="math display"> {\boldsymbol{E}}({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho({\boldsymbol{r}}')}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^2} \frac{{\boldsymbol{r}}- {\boldsymbol{r}}'}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \; {\mathrm{d}}V', \tag{2.10}</span></span></p>
+<p>where <span class="math inline">{\mathrm{d}}V'</span> represents the infinitesimal volume element associated to the coordinate <span class="math inline">{\boldsymbol{r}}'</span>.</p>
 </div>
 <p>Similarly, we can redefine the electrostatic potential for a charge density.</p>
 <div id="thm-electrostatic-potential-charge-density" class="theorem">
@@ -554,28 +572,27 @@ Figure&nbsp;2.1: Examples of electrostatics.
 <div id="rem-electrostatic-potential-charge-density" class="proof remark">
 <p><span class="proof-title"><em>Remark 2.3</em>. </span>It’s worth pointing out that, as <span class="math inline">\rho</span> has compact support, <span class="math inline">\phi \sim r^{-1}</span> as <span class="math inline">|{\boldsymbol{r}}| \to \infty</span> and thus it vanishes.</p>
 </div>
-<p>The proof also follows directly from <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a>. Note that, when taking the gradient of <span class="math inline">\phi</span>, it acts on <span class="math inline">{\boldsymbol{r}}</span> only (<span class="math inline">{\boldsymbol{r}}'</span> is the integration variable and thus it’s “invisible” from outside the integral).</p>
+<p>The proof also follows directly from <a href="#def-electric-field-charge-density" class="quarto-xref">Definition&nbsp;<span>2.7</span></a>. Note that, when taking the gradient of <span class="math inline">\phi</span>, it acts on <span class="math inline">{\boldsymbol{r}}</span> only (<span class="math inline">{\boldsymbol{r}}'</span> is the integration variable and thus it’s “invisible” from outside the integral).</p>
 <p>It should come as no surprise that we can also rewrite Gauss’ law for a charge density.</p>
 <div id="thm-Gauss-law-charge-density" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.4 (Gauss’ law)</strong></span> For any closed surface <span class="math inline">\Sigma = \partial \Omega</span> (that is the surface bounding a region <span class="math inline">\Omega \in \mathbb{R}^3</span>), we have</p>
-<p><span id="eq-Gauss-law-charge-density"><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\, {\mathrm{d}}A = \frac{1}{\epsilon_0} \int_\Omega \rho \, {\mathrm{d}}V, \tag{2.12}</span></span></p>
-<p>where <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span> is the charge density in <span class="math inline">\Omega</span>. For convenience, we define the total charge in <span class="math inline">\Omega</span> as <span class="math inline">Q = \int_\Omega \rho \, {\mathrm{d}}V</span>.</p>
+<p><span id="eq-Gauss-law-charge-density"><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{1}{\epsilon_0} \int_\Omega \rho \; {\mathrm{d}}V. \tag{2.12}</span></span></p>
 </div>
-<p>Using the divergence theorem on <a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and rearranging we can write</p>
+<p>Using the divergence theorem (<a href="1-introduction.html#thm-divergence" class="quarto-xref">Theorem&nbsp;<span>1.2</span></a>) on <a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and rearranging we can write</p>
 <p><span class="math display"> \int_\Omega \left(\nabla \cdot {\boldsymbol{E}}- \frac{\rho}{\epsilon_0}\right) {\mathrm{d}}V = 0,</span></p>
 <p>and given that this holds for any arbitrary domain <span class="math inline">\Omega \subset \mathbb{R}^3</span> we obtain the Gauss’ law in differential form.</p>
 <div id="thm-Gauss-law-diff" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.5 (Gauss’ law - differential form)</strong></span> The electric field generated by a given charge density <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span> satisfies</p>
+<p><span class="theorem-title"><strong>Theorem 2.5 (Gauss’ law – differential form)</strong></span> The electric field generated by a given charge density <span class="math inline">\rho : \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}</span> satisfies</p>
 <p><span id="eq-Gauss-law-differential"><span class="math display"> \nabla \cdot {\boldsymbol{E}}= \frac{\rho}{\epsilon_0}. \tag{2.13}</span></span></p>
 <p>This is the first of the Maxwell’s equations (<a href="1-introduction.html#eq-Maxwell-1" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>).</p>
 </div>
 <p>We have now two sets of definitions for electric field and Gauss’ law: one for point charges and one for charge densities. But how do they relate to each other? The key is the <em>Dirac delta function</em>.</p>
 <div id="def-Dirac-delta-1D" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.8 (Dirac delta function - 1D)</strong></span> The <em>Dirac delta function</em> <span class="math inline">\delta(x)</span> in 1D is defined to satisfy the following properties:</p>
+<p><span class="theorem-title"><strong>Definition 2.8 (Dirac delta function – 1D)</strong></span> The <em>Dirac delta function</em> <span class="math inline">\delta(x)</span> in 1D is defined to satisfy the following properties:</p>
 <p><span class="math display"> \delta (x) = 0 \quad \text{ if } x \neq 0,</span></p>
 <p>and</p>
 <p><span class="math display">\int_I \delta(x) {\mathrm{d}}x = \begin{cases} 1 &amp; \text{if } 0 \in I,\\ 0 &amp; \text{otherwise}.\end{cases} </span></p>
-<p>In words, it is a function that is equal to zero everywhere except at the origin (where it is infinitely large), and its integral over <span class="math inline">\mathbb{R}</span> (or any interval <span class="math inline">I</span> containing the origin) is equal to one.</p>
+<p>In words, it is a function that is equal to zero everywhere except at the origin (where it is infinitely large), and its integral over any interval <span class="math inline">I</span> containing the origin<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> is equal to one.</p>
 </div>
 <div id="rem-Dirac-delta" class="proof remark">
 <p><span class="proof-title"><em>Remark 2.4</em>. </span>One way of thinking about the Dirac delta is as the limit of a Gaussian probability distribution centred at the origin when the variance tends to zero (i.e.&nbsp;when you “squeeze” it).</p>
@@ -583,15 +600,15 @@ Figure&nbsp;2.1: Examples of electrostatics.
 <div id="prp-Dirac-delta-properties-1D" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.1</strong></span> The Dirac delta function satisfies:</p>
 <ol type="1">
-<li><p><span class="math display">\int_{-\infty}^{\infty}  f(x') \delta(x' - x) {\mathrm{d}}x' = f(x),</span></p></li>
+<li><p><span class="math display">\int_{-\infty}^{\infty}  f(x') \delta(x' - x) \; {\mathrm{d}}x' = f(x),</span></p></li>
 <li><p><span class="math display">\delta ( a x ) = \frac{1}{|a|} \delta(x),</span></p></li>
-<li><p><span class="math display">\int_{-\infty}^x \delta(x') {\mathrm{d}}x' = H(x),</span></p></li>
+<li><p><span class="math display">\int_{-\infty}^x \delta(x') \; {\mathrm{d}}x' = H(x),</span></p></li>
 </ol>
 <p>where <span class="math inline">f(x)</span> is any continuous function, <span class="math inline">a \neq 0</span> is a constant and <span class="math inline">H(x)</span> is the Heaviside step function.</p>
 </div>
 <p>The proofs for these properties follow immediately from <a href="#def-Dirac-delta-1D" class="quarto-xref">Definition&nbsp;<span>2.8</span></a>. We can generalise the definition of the Dirac delta function to higher dimensions</p>
 <div id="def-Dirac-delta" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.9 (Dirac delta function)</strong></span> The n-dimensional version Dirac delta function <span class="math inline">\delta: \mathbb{R}^n \to \mathbb{R}</span> is defined as</p>
+<p><span class="theorem-title"><strong>Definition 2.9 (Dirac delta function)</strong></span> The <span class="math inline">n</span>-dimensional version Dirac delta function <span class="math inline">\delta: \mathbb{R}^n \to \mathbb{R}</span> is defined as</p>
 <p><span class="math display"> \delta({\boldsymbol{r}}) = \Pi_{i = 1}^n \delta(x_i) = \delta(x_1) \delta(x_2) \dots \delta(x_n),</span></p>
 <p>where <span class="math inline">{\boldsymbol{r}}= (x_1, x_2, \dots, x_n)</span> in Cartesian coordinates.</p>
 </div>
@@ -604,19 +621,19 @@ Figure&nbsp;2.1: Examples of electrostatics.
 </ol>
 </div>
 <p>Let’s now get back to the connection between point charges and charge densities. We can think of a point charge <span class="math inline">q</span> at <span class="math inline">{\boldsymbol{r}}_0</span> as a charge density</p>
-<p><span id="eq-point-charge-to-density"><span class="math display">\rho({\boldsymbol{r}}) = q \delta({\boldsymbol{r}}- {\boldsymbol{r}}_0). \tag{2.14}</span></span></p>
+<p><span id="eq-point-charge-to-density"><span class="math display">\rho({\boldsymbol{r}}) = q \; \delta({\boldsymbol{r}}- {\boldsymbol{r}}_0). \tag{2.14}</span></span></p>
 <p>Substituting this definition in <a href="#eq-electric-field-charge-density" class="quarto-xref">Equation&nbsp;<span>2.10</span></a> we obtain</p>
 <p><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{q \delta({\boldsymbol{r}}' -{\boldsymbol{r}}_0)}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|^2} \frac{{\boldsymbol{r}}-{\boldsymbol{r}}'}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} {\mathrm{d}}V' = \frac{1}{4 \pi \epsilon_0} \frac{q}{|{\boldsymbol{r}}- {\boldsymbol{r}}_0|^2} \frac{{\boldsymbol{r}}- {\boldsymbol{r}}_0}{|{\boldsymbol{r}}- {\boldsymbol{r}}_0|},</span></p>
 <p>which corresponds to <a href="#eq-electric-field" class="quarto-xref">Equation&nbsp;<span>2.3</span></a> for a single point charge. We can proceed similarly for the electrostatic potential.</p>
-<p>For the Gauss’ law, we can substitute <a href="#eq-point-charge-to-density" class="quarto-xref">Equation&nbsp;<span>2.14</span></a> into <a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and obtain</p>
-<p><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}A = \frac{1}{\epsilon_0} \int_\Omega q \delta({\boldsymbol{r}}- {\boldsymbol{r}}_0) {\mathrm{d}}V = \frac{q}{\epsilon_0},</span></p>
+<p>For Gauss’ law, we can substitute <a href="#eq-point-charge-to-density" class="quarto-xref">Equation&nbsp;<span>2.14</span></a> into <a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a> and obtain</p>
+<p><span class="math display">\int_\Sigma {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \frac{1}{\epsilon_0} \int_\Omega q \delta({\boldsymbol{r}}- {\boldsymbol{r}}_0) \; {\mathrm{d}}V = \frac{q}{\epsilon_0},</span></p>
 <p>as, by assumption, <span class="math inline">{\boldsymbol{r}}_0 \in \Omega</span>. Therefore, we have recovered <a href="#eq-Gauss-law" class="quarto-xref">Equation&nbsp;<span>2.5</span></a> for a single point charge.</p>
 <div id="prp-del2-1-r" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.3</strong></span> The three-dimensional Dirac delta function can be written as</p>
 <p><span class="math display">\delta ({\boldsymbol{r}}- {\boldsymbol{r}}') = - \frac{1}{4\pi} \nabla^2 \left( \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \right).</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We already know from <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.13</span></a> and <a href="1-introduction.html#eq-div-r-r3" class="quarto-xref">Equation&nbsp;<span>1.14</span></a> that in <span class="math inline">\mathbb{R}^3 \setminus \{{\boldsymbol{r}}'\}</span> we have</p>
+<p><span class="proof-title"><em>Proof</em>. </span>We already know from <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.14</span></a> and <a href="1-introduction.html#eq-div-r-r3" class="quarto-xref">Equation&nbsp;<span>1.15</span></a> that in <span class="math inline">\mathbb{R}^3 \setminus \{{\boldsymbol{r}}'\}</span> we have</p>
 <p><span class="math display">\nabla^2 \left( \frac{1}{|{\boldsymbol{r}}- {\boldsymbol{r}}'|} \right) = 0,</span></p>
 <p>so we only need to consider what happens at <span class="math inline">{\boldsymbol{r}}'</span>. Let’s consider the integral of the term above in <span class="math inline">B_R</span>, which is the ball of radius <span class="math inline">R</span> centred at <span class="math inline">{\boldsymbol{r}}'</span>. We have</p>
 <p><span class="math display">\begin{aligned}
@@ -625,7 +642,7 @@ Figure&nbsp;2.1: Examples of electrostatics.
 &amp;= - \frac{4 \pi \epsilon_0}{q} \int_{\partial B_R} {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A \\
 &amp;= -4 \pi,
 \end{aligned}</span></p>
-<p>where in the first line we have used the divergence theorem, in the second line we have used <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.13</span></a>, in the third line we have used <a href="#def-electric-field" class="quarto-xref">Definition&nbsp;<span>2.3</span></a> and in the last line we have used <a href="#thm-Gauss-law" class="quarto-xref">Theorem&nbsp;<span>2.2</span></a>.</p>
+<p>where in the first line we have used the divergence theorem, in the second line we have used <a href="1-introduction.html#eq-grad-1-r" class="quarto-xref">Equation&nbsp;<span>1.14</span></a>, in the third line we have used <a href="#def-electric-field" class="quarto-xref">Definition&nbsp;<span>2.3</span></a> and in the last line we have used <a href="#thm-Gauss-law" class="quarto-xref">Theorem&nbsp;<span>2.2</span></a>.</p>
 </div>
 </section>
 <section id="sec-electrostatic-potential" class="level2" data-number="2.5">
@@ -644,26 +661,26 @@ Figure&nbsp;2.1: Examples of electrostatics.
 </div>
 <p>There is another interesting implication stemming from the definition of electrostatic potential. If <span class="math inline">{\boldsymbol{E}}= - \nabla \phi</span> we have</p>
 <p><span id="eq-curl-E-zero"><span class="math display">\nabla \times {\boldsymbol{E}}= \nabla \times \left( \nabla \phi \right) = 0, \tag{2.15}</span></span></p>
-<p>as the curl of a gradient is always zero <a href="1-introduction.html#eq-curl-grad-zero" class="quarto-xref">Equation&nbsp;<span>1.7</span></a>. Note that this is the steady-state version of the second of the Maxwell’s equations <a href="1-introduction.html#eq-Maxwell-2" class="quarto-xref">Equation&nbsp;<span>1.3</span></a> (i.e.&nbsp;when <span class="math inline">\frac{\partial {\boldsymbol{B}}}{\partial t} = 0</span>).</p>
-<p>You may recall, for example when studying gravity, that when a force can be defined as the gradient of a scalar function (i.e.&nbsp;a potential), then the force is called <em>conservative</em>. Given that the electrostatic force is given by <span class="math inline">{\boldsymbol{F}}= q {\boldsymbol{E}}</span>, and <span class="math inline">{\boldsymbol{E}}= - \nabla \phi</span>, it must be conservative. Then, we can compute the work<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> done against the electrostatic force for a charge <span class="math inline">q</span> moving along a path <span class="math inline">C</span> starting at <span class="math inline">{\boldsymbol{r}}_\mathrm{i}</span> and ending at <span class="math inline">{\boldsymbol{r}}_\mathrm{f}</span> is</p>
-<p><span id="eq-work-electrostatic"><span class="math display"> W = - \int_C {\boldsymbol{F}}\cdot {\mathrm{d}}{\boldsymbol{s}}= - q \int_C {\boldsymbol{E}}\cdot {\mathrm{d}}{\boldsymbol{s}}= q \int_C \nabla \phi \cdot {\mathrm{d}}{\boldsymbol{s}}= q ( \phi ({\boldsymbol{r}}_\mathrm{f} - \phi ({\boldsymbol{r}}_\mathrm{i}))). \tag{2.16}</span></span></p>
+<p>as the curl of a gradient is always zero <a href="1-introduction.html#eq-curl-grad-zero" class="quarto-xref">Equation&nbsp;<span>1.7</span></a>. Note that this is the second of the Maxwell’s equations (<a href="1-introduction.html#eq-Maxwell-2" class="quarto-xref">Equation&nbsp;<span>1.3</span></a>) for the steady-state case (i.e.&nbsp;<span class="math inline">\frac{\partial {\boldsymbol{B}}}{\partial t} = 0</span>).</p>
+<p>You may recall, for example when studying gravity, that when a force can be defined as the gradient of a scalar function (i.e.&nbsp;a potential), then the force is called <em>conservative</em>. Given that the electrostatic force is given by <span class="math inline">{\boldsymbol{F}}= q {\boldsymbol{E}}</span>, and <span class="math inline">{\boldsymbol{E}}= - \nabla \phi</span>, it must be conservative. Then, we can compute the work<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> done against the electrostatic force for a charge <span class="math inline">q</span> moving along a path <span class="math inline">C</span> starting at <span class="math inline">{\boldsymbol{r}}_\mathrm{i}</span> and ending at <span class="math inline">{\boldsymbol{r}}_\mathrm{f}</span> is</p>
+<p><span id="eq-work-electrostatic"><span class="math display"> W = - \int_C {\boldsymbol{F}}\cdot {\mathrm{d}}{\boldsymbol{s}}= - q \int_C {\boldsymbol{E}}\cdot {\mathrm{d}}{\boldsymbol{s}}= q \int_C \nabla \phi \cdot {\mathrm{d}}{\boldsymbol{s}}= q \left[ \phi ({\boldsymbol{r}}_\mathrm{f}) - \phi ({\boldsymbol{r}}_\mathrm{i})\right]. \tag{2.16}</span></span></p>
 <p>Therefore, we deduce that the work done does not depend on the path <span class="math inline">C</span>, only on its start and end points, and we can conclude that the electrostatic force is conservative.</p>
 <div id="rem-conservative" class="proof remark">
 <p><span class="proof-title"><em>Remark 2.5</em>. </span>Note that the electrostatic potential is defined up to a constant. This means that, if <span class="math inline">\phi</span> is a potential for a given electric field <span class="math inline">{\boldsymbol{E}}</span>, then <span class="math inline">\hat{\phi} = \phi + c</span> (where <span class="math inline">c</span> is a constant) is also a potential for <span class="math inline">{\boldsymbol{E}}</span>. Therefore, the quantity that is well-defined (and we can measure) physically is the potential difference between two points, which we call <em>voltage</em>.</p>
 <p>When working with electrostatic potentials, it is up to us to define a reference for the potential, that is the value of the potential at a given point, which allows us to fix the constant. For example, in <a href="#def-electrostatic-potential" class="quarto-xref">Definition&nbsp;<span>2.4</span></a> we assumed that the potential is zero as <span class="math inline">|{\boldsymbol{r}}| \to \infty</span>.</p>
 </div>
 <div id="def-field-lines" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.10 (Field lines)</strong></span> Given a vector field, a field line is a line that at each point is tangent to the vector field.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p><span class="theorem-title"><strong>Definition 2.10 (Field lines)</strong></span> Given a vector field, a field line is a line that at each point is tangent to the vector field.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
 </div>
 <p>Field lines are a very useful way to visualise electric (and magnetic) fields.</p>
 <div id="def-equipotentials" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.11 (Equipotential surfaces)</strong></span> Surfaces of constant <span class="math inline">\phi</span> are called <em>equipotentials</em>.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p><span class="theorem-title"><strong>Definition 2.11 (Equipotential surfaces)</strong></span> Surfaces of constant <span class="math inline">\phi</span> are called <em>equipotentials</em>.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
 </div>
 <div id="prp-electric-field-equipotential" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.5</strong></span> The electric field (i.e.&nbsp;the field lines) are always normal to an equipotential surface.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">{\boldsymbol{t}}</span> to be a tangent vector to the equipotential at a given point <span class="math inline">{\boldsymbol{r}}</span>. From the definition of the equipotential, we know that the derivative of <span class="math inline">\phi</span> in the tangent direction <span class="math inline">{\boldsymbol{t}}</span> must be zero (as the potential is constant along an equipotential surface). Thus <span class="math inline">(\nabla \phi) \cdot {\boldsymbol{t}}= 0</span> and from the definition of the electrostatic potential we conclude that <span class="math inline">{\boldsymbol{E}}\cdot \nabla \phi = 0</span> so the electric field is perpendicular to the equipotential surface (and so are the field lines).</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Define <span class="math inline">{\boldsymbol{t}}</span> to be a tangent vector to the equipotential at a given point <span class="math inline">{\boldsymbol{r}}</span>. From the definition of the equipotential, we know that the derivative of <span class="math inline">\phi</span> in the tangent direction <span class="math inline">{\boldsymbol{t}}</span> must be zero (as the potential is constant along an equipotential surface). Thus <span class="math inline">(\nabla \phi) \cdot {\boldsymbol{t}}= 0</span> and from the definition of the electrostatic potential we conclude that <span class="math inline">{\boldsymbol{E}}\cdot {\boldsymbol{t}}= 0</span> so the electric field is perpendicular to the equipotential surface (and so are the field lines).</p>
 </div>
 </section>
 <section id="electrostatic-energy" class="level2" data-number="2.6">
@@ -672,27 +689,27 @@ Figure&nbsp;2.1: Examples of electrostatics.
 <p>However, we want to extend this concept from a single charge to any electrostatic configuration. As usual, let’s start considering point charges to build intuition about the general form. We start with a charge <span class="math inline">q_1</span> at <span class="math inline">{\boldsymbol{r}}_1</span>. Its potential is</p>
 <p><span class="math display"> \phi_1 = \frac{1}{4 \pi \epsilon_0} \frac{q_1}{|{\boldsymbol{r}}- {\boldsymbol{r}}_1|}. </span></p>
 <p>Now let’s consider a charge <span class="math inline">q_2</span>, which we move from infinity to a point <span class="math inline">{\boldsymbol{r}}_2</span>. From <a href="#eq-work-electrostatic" class="quarto-xref">Equation&nbsp;<span>2.16</span></a>, the work done against the electric field is</p>
-<p><span class="math display"> W_2 = q_2 \phi_1({\boldsymbol{r}}_2) = \frac{1}{4 \pi \epsilon_0} \frac{q_2 q_1}{|{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1|}.</span></p>
+<p><span class="math display"> W_2 = q_2 \; \phi_1({\boldsymbol{r}}_2) = \frac{1}{4 \pi \epsilon_0} \frac{q_2 q_1}{|{\boldsymbol{r}}_2 - {\boldsymbol{r}}_1|}.</span></p>
 <p>Let’s now do the same for a charge <span class="math inline">q_3</span> that needs to be placed at <span class="math inline">{\boldsymbol{r}}_3</span>, in the presence of <span class="math inline">q_1</span> and <span class="math inline">q_2</span>:</p>
-<p><span class="math display">W_3 = q_3 (\phi_1 ({\boldsymbol{r}}_3) + \phi_2 ({\boldsymbol{r}}_3)) = \frac{1}{4 \pi \epsilon_0} \left( \frac{q_3 q_1}{|{\boldsymbol{r}}_3 - {\boldsymbol{r}}_1} + \frac{q_3 q_2}{|{\boldsymbol{r}}_3 - {\boldsymbol{r}}_2|} \right),</span></p>
-<p>which we deduce fro the principle of superposition (<span class="math inline">\phi_2</span> is the potential of the charge <span class="math inline">q_2</span>). The total work done so far is <span class="math inline">W = W_2 + W_3</span>. By induction, we can deduce that for <span class="math inline">N</span> charges <span class="math inline">q_1, \dots, q_N</span> at <span class="math inline">{\boldsymbol{r}}_1,\dots,{\boldsymbol{r}}_N</span> the total work to assemble them is</p>
+<p><span class="math display">W_3 = q_3 (\phi_1 ({\boldsymbol{r}}_3) + \phi_2 ({\boldsymbol{r}}_3)) = \frac{1}{4 \pi \epsilon_0} \left( \frac{q_3 q_1}{|{\boldsymbol{r}}_3 - {\boldsymbol{r}}_1|} + \frac{q_3 q_2}{|{\boldsymbol{r}}_3 - {\boldsymbol{r}}_2|} \right),</span></p>
+<p>which we deduce from the principle of superposition (<span class="math inline">\phi_2</span> is the potential of the charge <span class="math inline">q_2</span>). The total work done so far is <span class="math inline">W = W_2 + W_3</span>. By induction, we can infer that for <span class="math inline">N</span> charges <span class="math inline">q_1, \dots, q_N</span> at <span class="math inline">{\boldsymbol{r}}_1,\dots,{\boldsymbol{r}}_N</span>, respectively, the total work to assemble them is</p>
 <p><span class="math display"> W = \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^N \sum_{j &lt; i} \frac{q_i q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|}.</span></p>
 <p>By symmetry on <span class="math inline">i</span> and <span class="math inline">j</span>, we can write</p>
 <p><span class="math display">W = \frac{1}{2} \frac{1}{4 \pi \epsilon_0} \sum_{i=1}^N \sum_{j \neq i} \frac{q_i q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|}.</span></p>
 <p>Rewriting it in terms of electrostatic potentials we get</p>
 <p><span id="eq-work-points"><span class="math display">W = \frac{1}{2} \sum_{i=1}^N q_i \phi^{(i)}, \tag{2.17}</span></span></p>
 <p>where</p>
-<p><span id="eq-work-charge-density-1"><span class="math display">\phi^{(i)} = \frac{1}{4 \pi \epsilon_0} \sum_{j \neq i} \frac{q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|} \tag{2.18}</span></span></p>
+<p><span class="math display">\phi^{(i)} = \frac{1}{4 \pi \epsilon_0} \sum_{j \neq i} \frac{q_j}{|{\boldsymbol{r}}_i - {\boldsymbol{r}}_j|}</span></p>
 <p>is defined as the potential generated by all charges except for <span class="math inline">q_i</span> evaluated at <span class="math inline">{\boldsymbol{r}}_i</span>.</p>
 <p>Now let’s take the continuum limit, to consider the potential created by a charge density instead (<a href="#eq-electrostatic-potential-charge-density" class="quarto-xref">Equation&nbsp;<span>2.11</span></a>). Then <a href="#eq-work-points" class="quarto-xref">Equation&nbsp;<span>2.17</span></a> becomes</p>
-<p><span class="math display">W = \frac{1}{2} \int_\Omega \rho \phi {\mathrm{d}}V.</span></p>
-<p>Using Gauss’ law (<a href="#eq-Gauss-law-charge-density" class="quarto-xref">Equation&nbsp;<span>2.12</span></a>) and some basic vector calculus identities, we obtain</p>
+<p><span id="eq-work-charge-density-1"><span class="math display">W = \frac{1}{2} \int_\Omega \rho \phi \; {\mathrm{d}}V. \tag{2.18}</span></span></p>
+<p>Using Gauss’ law (<a href="#eq-Gauss-law-differential" class="quarto-xref">Equation&nbsp;<span>2.13</span></a>) and <a href="1-introduction.html#eq-div-scalar-times-vector" class="quarto-xref">Equation&nbsp;<span>1.13</span></a>, we obtain</p>
 <p><span class="math display">\phi \frac{\rho}{\epsilon_0} = \phi \nabla \cdot {\boldsymbol{E}}= \nabla \cdot (\phi {\boldsymbol{E}}) - \nabla \phi \cdot {\boldsymbol{E}}= \nabla \cdot (\phi {\boldsymbol{E}}) + {\boldsymbol{E}}\cdot {\boldsymbol{E}}= \nabla \cdot (\phi {\boldsymbol{E}}) + | {\boldsymbol{E}}|^2.</span></p>
 <p>Substituting into <a href="#eq-work-charge-density-1" class="quarto-xref">Equation&nbsp;<span>2.18</span></a> and using the divergence theorem we get</p>
-<p><span id="eq-work-charge-density-2"><span class="math display">W = \frac{\epsilon_0}{2} \left( \int_\Sigma \phi {\boldsymbol{E}}\cdot {\boldsymbol{n}}{\mathrm{d}}A + \int_\Omega  
-| {\boldsymbol{E}}|^2 {\mathrm{d}}V \right). \tag{2.19}</span></span></p>
+<p><span id="eq-work-charge-density-2"><span class="math display">W = \frac{\epsilon_0}{2} \left( \int_\Sigma \phi {\boldsymbol{E}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A + \int_\Omega  
+| {\boldsymbol{E}}|^2 \; {\mathrm{d}}V \right). \tag{2.19}</span></span></p>
 <p>As we want to know the energy of the whole charge configuration, we take <span class="math inline">\Omega</span> to be a ball centred at the origin with radius <span class="math inline">r</span>. Taking the limit <span class="math inline">r \to \infty</span> and recalling that in that limit <span class="math inline">\phi \sim \frac{1}{r}</span>, the surface integral term vanishes, and <a href="#eq-work-charge-density-2" class="quarto-xref">Equation&nbsp;<span>2.19</span></a> reduces to</p>
-<p><span class="math display"> W = \frac{\epsilon_0}{2} \int_{{\mathbb{R}}^3} | {\boldsymbol{E}}|^2 {\mathrm{d}}V.</span></p>
+<p><span class="math display"> W = \frac{\epsilon_0}{2} \int_{{\mathbb{R}}^3} | {\boldsymbol{E}}|^2 \; {\mathrm{d}}V.</span></p>
 <p>If the integral exists, we say that the charge configuration has finite energy <span class="math inline">W</span>.</p>
 <div id="def-energy-density" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.12 (Energy density)</strong></span> The energy density of a charge configuration is defined by</p>
@@ -709,10 +726,12 @@ Figure&nbsp;2.1: Examples of electrostatics.
 <li id="fn1"><p>The unit is named after the french physicist Charles-Augustin de Coulomb, who formulated what today is known as Coulomb’s law (coming next).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>As a shorthand, we will refer to particles with an electrical charge as “charges”.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>For a closed surface it is quite intuitive what outward means: pointing into the unbounded domain. For an open surface, the definition is arbitrary and we get to choose it. Note from the definition that this will simply change the sign of the flux.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Recall that the outwards normal unit vector to the sphere is <span class="math inline">\frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|}</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Recall that the work is defined as the energy transferred to or from an object via the application of force along a displacement. Note the importance of the displacement, as if there is no displacement, there is no work.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>If you are taking MA3D1, you will notice that the streamlines are another example of field lines, in this case for a velocity field.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>If considering a 2D problem, equipotential surfaces reduce to equipotential curves.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>We will consider what happens with infinite amounts of charge in the next section.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Recall that the outwards normal unit vector to the sphere is <span class="math inline">\frac{{\boldsymbol{r}}}{|{\boldsymbol{r}}|}</span>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This includes <span class="math inline">\mathbb{R}</span>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Recall that the work is defined as the energy transferred to or from an object via the application of force along a displacement. Note the importance of the displacement, as if there is no displacement, there is no work.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>If you are taking MA3D1, you will notice that the streamlines are another example of field lines, in this case for a velocity field.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>If considering a 2D problem, equipotential surfaces reduce to equipotential curves.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
