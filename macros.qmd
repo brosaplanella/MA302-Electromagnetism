@@ -101,10 +101,10 @@ format: html
 \providecommand{\DDt}{{\frac{\D}{\Dt}}}
 \providecommand{\bigO}{{O}}
 \providecommand{\litO}{{o}}
-\providecommand{\dVx}{{\,\dd V_{\bfx}}}
-\providecommand{\dAx}{{\,\dd A_{\bfx}}}
-\providecommand{\dVy}{{\,\dd V_{\bfy}}}
-\providecommand{\dAy}{{\,\dd A_{\bfy}}}
-\providecommand{\ds}{{\,\dd s}}
+\providecommand{\dVx}{{\;\dd V_{\bfx}}}
+\providecommand{\dAx}{{\;\dd A_{\bfx}}}
+\providecommand{\dVy}{{\;\dd V_{\bfy}}}
+\providecommand{\dAy}{{\;\dd A_{\bfy}}}
+\providecommand{\ds}{{\;\dd s}}
 
 :::

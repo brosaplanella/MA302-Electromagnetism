@@ -2,13 +2,28 @@
 
 # Electrodynamics {#sec-electrodynamics}
 
+::: {.callout-tip}
+
+## Aims of the chapter
+
+By the end of this chapter, you should be able to:
+
+* Explain Faraday's law and how changing magnetic fields induce electric fields.
+* Understand the concept of displacement current and its role in modifying Ampère's law.
+* State Maxwell's equations in their general form.
+* Derive the electromagnetic wave equations from Maxwell's equations.
+* Define electromagnetic potentials and gauge transformations.
+* Physically interpret the Poynting vector and energy density.
+:::
+
+
 Up to now, we only considered static situations. We could already infer from the stationary Maxwell's equations that there are some connections between electric and magnetic fields: they are both produced by electric charges, the former by their existence, the latter by their motion.
 
-However, the interaction between electric and magnetic fields is much deeper, and this is only apparent when we let them change in time. This is the focus of this chapter.
+However, the interaction between electric and magnetic fields is much deeper, and this is only apparent when we let them vary in time. This is the focus of this chapter.
 
 ## Faraday's Law of Induction
 
-Let's first consider how @eq-curl-E-zero is modified when we allow both $\bfE$ and $\bfB$ to change in time. This is given by the Faraday's law^[Named after Michael Faraday (1791-1867) the English chemist and physicist. He actually started the Royal Institution Christmas Lectures, which still carry on today. You can watch past lectures at the [Royal Institution website](https://www.rigb.org/christmas-lectures)].
+Let's first consider how @eq-curl-E-zero is modified when we allow both $\bfE$ and $\bfB$ to change in time. This is given by Faraday's law.^[Named after Michael Faraday (1791-1867) the English chemist and physicist. He actually started the Royal Institution Christmas Lectures, which still carry on today. You can watch past lectures at the [Royal Institution website](https://www.rigb.org/christmas-lectures).]
 
 ::: {#thm-Faraday-law}
 
@@ -101,7 +116,7 @@ We can illustrate it as follows:
 $$ \text{change in } \bfB \xrightarrow[]{\text{Faraday}} \bfE \xrightarrow[]{\text{Lorentz}} \text{current} \xrightarrow[]{\text{Ampère}} \bfB.$$  
 
 
-::: {.callout-warning}
+<!-- ::: {.callout-warning}
 
 Consider adding
 
@@ -113,28 +128,28 @@ Consider adding
 - Resistance
 
 
-:::
+::: -->
 
 
 ## Displacement current {#sec-displacement-current}
 
 The last step before being able to write the Maxwell's equations is to revise Ampère's law (@thm-Ampere-law) to account for time-dependent electric fields. To do this, let's start with its integral form (@cor-Ampere-law-alternative):
 
-$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \dd A.$$
+$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \; \dd A.$$
 
 Remember that $C$ is a simple closed curve bounding $\Sigma$. But there are infinitely many surfaces bounded by $C$, so let's consider another surface $\Sigma'$ such that $\partial \Sigma ' = C$. Then
 
-$$0 = \int_\Sigma \bfJ \cdot \bfn \dd A - \int_{\Sigma'} \bfJ \cdot \bfn \dd A = \int_S \bfJ \cdot \bfn \dd A,$$ {#eq-flux-closed-surf}
+$$0 = \int_\Sigma \bfJ \cdot \bfn \; \dd A - \int_{\Sigma'} \bfJ \cdot \bfn \; \dd A = \int_S \bfJ \cdot \bfn \; \dd A,$$ {#eq-flux-closed-surf}
 
 where $S = \Sigma \cup \Sigma'$ is a closed surface. This tells us that the flux of $\bfJ$ through any closed surface must be zero. Another way of looking at this is to consider the volume $\Omega$ enclosed by $S$ (i.e. $\partial \Omega = S$). Then, we can write
 
-$$\int_S \bfJ \cdot \bfn \; \dd A = \int_\Omega \nabla \cdot \bfJ \dd V = 0,$$
+$$\int_S \bfJ \cdot \bfn \; \dd A = \int_\Omega \nabla \cdot \bfJ \; \dd V = 0,$$
 
 where we have applied the divergence theorem in the first equality and the steady current condition (@eq-conservation-current-steady). But let's now drop the static assumption. In that case, we need to use @eq-continuity instead, so
 
 $$\begin{aligned}
-\int_S \bfJ \cdot \bfn \; \dd A = \int_\Omega \nabla \cdot \bfJ \dd V &= - \int_\Omega \frac{\partial \rho}{\partial t} \dd V \\
-&= - \epsilon_0 \int_\Omega \frac{\partial}{\partial t} \left( \nabla \cdot \bfE \right) \dd V \\
+\int_S \bfJ \cdot \bfn \; \dd A = \int_\Omega \nabla \cdot \bfJ \; \dd V &= - \int_\Omega \frac{\partial \rho}{\partial t} \; \dd V \\
+&= - \epsilon_0 \int_\Omega \frac{\partial}{\partial t} \left( \nabla \cdot \bfE \right) \;\dd V \\
 &= - \epsilon_0 \int_S \frac{\partial \bfE}{\partial t} \cdot \bfn \; \dd A \\
 &= -\epsilon_0 \int_\Sigma \frac{\partial \bfE}{\partial t} \cdot \bfn \; \dd A + \epsilon_0 \int_{\Sigma'} \frac{\partial \bfE}{\partial t} \cdot \bfn \; \dd A,
 \end{aligned}
@@ -146,13 +161,13 @@ We conclude that
 
 $$\int_\Sigma \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t} \right) \cdot \bfn \; \dd A = \int_{\Sigma'} \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t} \right) \cdot \bfn \; \dd A,$$
 
-which suggests we can write Ampère's law @eq-Ampere-law as
+which suggests we can write Ampère's law (@eq-Ampere-law) as
 
 $$ \nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t}\right).$$ {#eq-Ampere-law-modified-time-dependence}
 
 This is one of the Maxwell's equation (@eq-Maxwell-4). This extra term that we picked up, $\frac{\partial \bfE}{\partial t}$, is called the _displacement current_.
 
-There is a quite interesting historical note about this equation. While the other three Maxwell's equations (and the static version of Ampère's law) were discovered mostly through experiments (even though mathematicians were still needed to write them as equations), the displacement current term @eq-Maxwell-4 was discovered purely by reasoning by Maxwell, and that's probably why all four equations are now named after him. Moreover, the displacement current _must_ be included, otherwise the equations are not consistent, but we will discuss this in the next section.
+There is a quite interesting historical note about this equation. While the other three Maxwell's equations (and the static version of Ampère's law) were discovered mostly through experiments (even though mathematicians were still needed to write them as equations), the displacement current term @eq-Maxwell-4 was discovered by Maxwell purely by reasoning, and that's probably why all four equations are now named after him. Moreover, the displacement current _must_ be included, otherwise the equations are not consistent, but we will discuss this in the next section.
 
 ## Maxwell's equations
 
@@ -178,9 +193,9 @@ These four equations, jointly with the Lorentz force law
 
 $$\bfF = q \left( \bfE + \bfu \times \bfB \right),$$
 
-describe the whole of electromagnetism^[At least in the non-relativistic world.]. 
+describe the whole of electromagnetism.^[At least in the non-relativistic world.]
 
-Let's took a closer look at the equations. The first two are scalar equations, while the latter two are vector equations. This means we have effectively 8 equations. Let's look at the unknowns now: each field has three components that we need to determine, so we have six unknowns in total. The system is overdetermined, so we should have two consistency conditions if we hope to get a solution.
+Let's take a closer look at the equations. The first two are scalar equations, while the latter two are vector equations. This means we have effectively 8 equations. Consider now the unknowns: each field has three components that we need to determine, so we have six unknowns in total. The system is overdetermined, so we must have two consistency conditions if we hope to get a solution.
 
 First let's compute the time derivative of @eq-Maxwell-3-bis,
 
@@ -218,21 +233,21 @@ Similarly, we can take the time derivative of @eq-Maxwell-2-bis to obtain
 
 $$\frac{1}{c^2} \frac{\partial^2 \bfB}{\partial t^2} - \nabla^2 \bfB = \bfzero.$$
 
-Therefore, both the electric and magnetic fields satisfy the wave equation^[If you are interested in learning more about waves, you should take [MA301 Waves and Metamaterials](https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma301/)]. Let's look at the parameter $c$ we defined. Recall the values for the constants
+Therefore, both the electric and magnetic fields satisfy the wave equation.^[If you are interested in learning more about waves, you should take [MA301 Waves and Metamaterials](https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma301/).] Let's look at the parameter $c$ we defined. Recall the values for the constants
 
-$$\epsilon_0 \approx 8.854 \times 10^{-12} \; \mathrm{C}^2 \, \mathrm{N}^{-1} \, \mathrm{m}^{-2} \quad \text{and} \quad \mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \, \mathrm{A}^{-2},$$
+$$\epsilon_0 \approx 8.854 \times 10^{-12} \; \mathrm{C}^2 \; \mathrm{N}^{-1} \; \mathrm{m}^{-2} \quad \text{and} \quad \mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \; \mathrm{A}^{-2},$$
 
 so the value of $c$ is
 
-$$c \approx 2.99 \times 10^{8} \; \mathrm{m}\,\mathrm{s}^{-1},$$
+$$c \approx 2.99 \times 10^{8} \; \mathrm{m}\;\mathrm{s}^{-1},$$
 
 which is the speed of light!
 
-::: {.callout-warning}
+<!-- ::: {.callout-warning}
 
 Consider adding polarisation here
 
-:::
+::: -->
 
 ## Electromagnetic potentials and gauge transformations
 
@@ -358,4 +373,4 @@ where in the second line we have used @eq-Maxwell-2-bis and @eq-Maxwell-4-bis, a
 
 :::
 
-Note that that @eq-Poynting is analogous to @eq-continuity. Therefore, one can continue the analogy, and say that the Poynting vector $\bfS$ is to the electromagnetic energy density $\mathcal{E}$, what the current density $\bfJ$ is to the charge density $\rho$. In other words, $\bfS$ is the flow of energy carried by the electromagnetic field. In the particular case where there are no currents, @eq-Poynting states that the electromagnetic energy is conserved. There is another interpretation of the Poynting vector though: it is the momentum stored in the electromagnetic field.
+Note that that @eq-Poynting is analogous to @eq-continuity. Therefore, one can continue the analogy, and say that the Poynting vector $\bfS$ is to the electromagnetic energy density $\mathcal{E}$, what the current density $\bfJ$ is to the charge density $\rho$. In other words, $\bfS$ is the flow of energy carried by the electromagnetic field. In the particular case where there are no currents, @eq-Poynting states that the electromagnetic energy is conserved. There is another interpretation^[We will not elaborate on it in this module, though.] of the Poynting vector though: it is the momentum stored in the electromagnetic field.

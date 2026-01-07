@@ -2,7 +2,25 @@
 
 # Magnetostatics {#sec-magnetostatics}
 
-So far we have considered situations where charges are static, so the next step is to consider what happens when charges move around. However, when charges move around, they create magnetic fields! This can create some quite interesting (and messy) interactions between electric and magnetic fields. We will unpick this little by little starting with magnetostatics, that is the study of magnetic fields that do not depend on time.
+::: {.callout-tip}
+
+## Aims of the chapter
+
+By the end of this chapter, you should be able to:
+
+* Explain the concepts of electric current and current density.
+
+* Calculate the Lorentz force on a moving charge.
+
+* Apply the Biot-Savart law and Ampère's law to calculate magnetic fields.
+
+* Work with the vector potential and its gauge transformations.
+
+:::
+
+
+
+So far we have considered situations where charges are static, so the next step is to consider what happens when charges move around. However, when charges move around, they create something called magnetic fields! This can create some quite interesting (and messy) interactions between electric and magnetic fields. We will unpick this little by little starting with magnetostatics, that is the study of magnetic fields that do not depend on time.
 
 ## Electric current & conservation of charge
 
@@ -18,7 +36,7 @@ $$ \bfJ = \rho \bfv.$$
 
 :::
 
-If you stop to consider what are the dimensions of the current density, you will find that they are charge per unit time and unit area^[In SI units we have $\mathrm{A}\; \mathrm{m}^{-2}$, where $\mathrm{A} = \mathrm{C}\;\mathrm{s}^{-1}$ are amperes (name after Mr Ampère, who we will meet in a few pages).]. It is therefore a flux, that is (in very rigorous terms) _amount of stuff through a surface per unit time_, where in this case _stuff_ is charge. 
+If you stop to consider what are the dimensions of the current density, you will find that they are charge per unit time and unit area.^[In SI units we have $\mathrm{A}\; \mathrm{m}^{-2}$, where $\mathrm{A} = \mathrm{C}\;\mathrm{s}^{-1}$ are amperes (name after Mr Ampère, who we will meet in a few pages).] It is therefore a flux, that is (in very rigorous terms) _amount of stuff through a surface per unit time_, where in this case _stuff_ is charge. 
 
 It is convenient to define electric current (or current, for short).
 
@@ -37,9 +55,9 @@ The physical interpretation of the current is the amount of charge per unit time
 
 You are probably familiar with the idea of current when you think of electric cables. Charges inside might be doing all sorts of things, but what matters in the end is how much charge gets through the cross-section of the cable, i.e. the current.
 
-A very important property of electric charge is that it is conserved. Like with mass, this means that charge cannot be created nor destroyed. The idea of conservation of _stuff_ underpins many areas of physics^[You will encounter it in quite a few modules, e.g. MA3D1.] and, luckily for us, we have a very convenient way of representing it mathematically.
+A very important property of electric charge is that it is conserved. Like with mass conservation, this means that charge cannot be created nor destroyed. The idea of conservation of _stuff_ underpins many areas of physics^[You will encounter it in quite a few modules, e.g. MA3D1.] and, luckily for us, we have a very convenient way of representing it mathematically.
 
-The equation that encapsulates conservation of _stuff_ is called the continuity equation. Even though it is a very general equation, here we will state it and derive it in the context of electric fields.^[In MA3D1 you will derive the generic form.]
+The equation that encapsulates conservation of _stuff_ is called the continuity equation. Even though it is a very general equation, here we will state it and derive it in the context of electric fields.^[The generic form is derived in MA3D1.]
 
 ::: {#thm-continuity-equation}
 
@@ -81,7 +99,7 @@ Currents satisfying this property are called _steady currents_.
 
 ## Lorentz force & magnetic field
 
-When charges move around, they generate a magnetic field, which we will denote with $\bfB(\bfr, t)$ (though in this chapter we concert only with static problems, i.e. $\bfB(\bfr)$). The magnetic field, in turn, exerts a force over electric charges. In SI units the magnetic field is measure in _teslas_ ($T$)^[Named after Nikola Tesla, not after a certain famous car brand...], which correspond to $\mathrm{N} \; \mathrm{s} \; \mathrm{m}^{-1} \; \mathrm{C}^{-1}$.
+When charges move around, they generate a magnetic field, which we will denote with $\bfB(\bfr, t)$ (though in this chapter we concert only with static problems, i.e. $\bfB(\bfr)$). The magnetic field, in turn, exerts a force over electric charges. In SI units the magnetic field is measure in _teslas_ ($T$)^[Named after Nikola Tesla, not after a certain car brand...], which correspond to $\mathrm{N} \; \mathrm{s} \; \mathrm{m}^{-1} \; \mathrm{C}^{-1}$.
 
 ::: {#def-Lorentz-force}
 
@@ -123,18 +141,18 @@ A charge $q$ at position $\bfr_0$ and moving with a velocity $\bfv$ produces a m
 
 $$\bfB(\bfr) = \frac{\mu_0 q}{4 \pi} \frac{\bfv \times (\bfr - \bfr_0)}{|\bfr - \bfr_0|^3},$$
 
-where $\mu_0$ is a parameter called _permeability of free space_. Its value is $\mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \, \mathrm{A}^{-2}$.
+where $\mu_0$ is a parameter called _permeability of free space_. Its value is $\mu_0 \approx 1.257 \times 10^{-6} \; \mathrm{N} \; \mathrm{A}^{-2}$.
 :::
 
 Note the similarities between @def-electric-field and @def-Biot-Savart-law.
 
 The Principle of Superposition also applies to magnetic fields. Therefore, the magnetic field generated by a steady current density $\bfJ$ defined in a domain $\Omega$ is given by
 
-$$\bfB (\bfr) = \frac{\mu_0}{4\pi} \int_\Omega \frac{\bfJ(\bfr') \times (\bfr - \bfr')}{|\bfr - \bfr'|^3} \dd V'.$$ {#eq-Biot-Savart-J}
+$$\bfB (\bfr) = \frac{\mu_0}{4\pi} \int_\Omega \frac{\bfJ(\bfr') \times (\bfr - \bfr')}{|\bfr - \bfr'|^3} \; \dd V'.$$ {#eq-Biot-Savart-J}
 
 In the particular case of a steady current $I$ through a wire $C$ we can write
 
-$$\bfB(\bfr) = \frac{\mu_0 I}{4 \pi} \int_C \frac{\dd \bfr' \times (\bfr - \bfr')}{|\bfr - \bfr'|^3},$$
+$$\bfB(\bfr) = \frac{\mu_0 I}{4 \pi} \int_C \frac{\dd \bfr' \times (\bfr - \bfr')}{|\bfr - \bfr'|^3},$$ {#eq-Biot-Savart-wire}
 
 where $\dd \bfr'$ is the differential of length along the curve $C$.
 
@@ -151,17 +169,17 @@ A current $I$ through an infinitely long straight wire.
 
 Let's consider a steady current $I$ through an infinitely long straight wire. Wlog we will assume the wire is along the $z$ axis (i.e. $x=y=0$), as shown in @fig-wire-1. Then, we can work in cylindrical coordinates $(\rho, \theta, z)$. In that case, the differential of length in the integral can be written as $\dd \bfr' = \bfe_z \dd z$. Then, we have
 
-$$ \dd \bfr' \times (\bfr - \bfr') = \rho \dd z \bfe_\theta,$$
+$$ \dd \bfr' \times (\bfr - \bfr') = \rho \; \dd z \; \bfe_\theta,$$
 
-i.e. the magnetic field will point in the angular direction. Then, from @def-Biot-Savart-law we have 
+i.e. the magnetic field will point in the angular direction. Then, from @eq-Biot-Savart-wire we have 
 
-$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} \dd z = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
+$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} \; \dd z = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
 
 :::
 
 ## Gauss' law for magnetism
 
-We have now derived three of Maxwell's equation (at least their static versions); there is only @eq-Maxwell-3 left. This equation is often referred to as the Gauss' law for magnetism and, as the name suggests, it is very similar to Gauss' law for electric fields (@thm-Gauss-law-diff).
+Let's now derive Gauss' law for magnetism which, as the name suggests, it is very similar to Gauss' law for electric fields (@thm-Gauss-law-diff).
 
 ::: {#thm-Gauss-law-magnetism}
 
@@ -179,19 +197,19 @@ We will prove Gauss' law for magnetism for a point charge, but the proof for a c
 
 $$\bfB(\bfr) = \frac{\mu_0 q}{4 \pi} \frac{\bfv \times \bfr}{|\bfr|^3}$$
 
-First, note that
+First note that, using @eq-div-cross-product, we get
 
-$$\nabla \cdot \left( \frac{\bfv \times \bfr}{| \bfr|^3} \right) = \frac{\bfr}{|\bfr|^3} \cdot \left( \nabla \times \bfv \right) - \bfv \cdot \left( \nabla \times \frac{\bfr}{|\bfr|^3} \right) $$ 
+$$\nabla \cdot \left( \frac{\bfv \times \bfr}{| \bfr|^3} \right) = \frac{\bfr}{|\bfr|^3} \cdot \left( \nabla \times \bfv \right) - \bfv \cdot \left( \nabla \times \frac{\bfr}{|\bfr|^3} \right). $$ 
 
-using @eq-div-cross-product, but as $\bfv$ does not depend on $\bfr$ the first term vanished. Recall from @eq-grad-1-r that
+As $\bfv$ does not depend on $\bfr$ the first term vanishes. Now recall from @eq-grad-1-r that
 
 $$\frac{\bfr}{|\bfr|^3} = - \nabla \frac{1}{|\bfr|},$$
 
-therefore 
+so the second term can be written as the curl of a gradient. Therefore, from @eq-curl-grad-zero, we conclude
 
-$$\nabla \cdot \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) = 0,$$
+$$\nabla \cdot \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) = 0.$$
 
-as the curl of a gradient is zero (@eq-curl-grad-zero). This shows that $\nabla \cdot \bfB = 0$ everywhere except at $\bfr = \bfzero$ due to the singularity in the definition of $\bfB$. To resolve it, we consider the ball of radius $R$ centred at the origin, $B_R$. Then
+This shows that $\nabla \cdot \bfB = 0$ everywhere except at $\bfr = \bfzero$ due to the singularity in the definition of $\bfB$. To resolve it, we consider the ball of radius $R$ centred at the origin, $B_R$. Then
 
 $$ \int_{\partial B_R} \bfB \cdot \bfn \; \dd A = \frac{\mu_0 q}{4 \pi} \int_{\partial B_R} \left( \frac{\bfv \times \bfr}{|\bfr|^3} \right) \cdot \bfn \; \dd A = 0,$$
 
@@ -220,13 +238,13 @@ Note that this is equivalent to @eq-Maxwell-4 if the electric field $\bfE$ is st
 
 :::
 
-Historically, this was derived by Ampère (and others) using experimental and theoretical tools. However, we can derive it from the Biot-Savart law (@eq-Biot-Savart-J). But before we need to introduce a couple of lemmas.
+Historically, this was derived by Ampère (and others) using experimental and theoretical tools. However, we can derive it from the Biot-Savart law (@eq-Biot-Savart-J). We need to introduce a couple of lemmas first.
 
 ::: {#lem-vector-potential}
 
 The vector field
 
-$$ \bfA(\bfr) = \frac{\mu_0}{4\pi} \int_\Omega \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \dd V' $$ {#eq-vector-potential}
+$$ \bfA(\bfr) = \frac{\mu_0}{4\pi} \int_\Omega \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \; \dd V' $$ {#eq-vector-potential}
 
 satisfies $\bfB(\bfr) = \nabla \times \bfA(\bfr)$.
 
@@ -258,11 +276,11 @@ For steady currents $\bfJ$ supported inside a bounded region $\Omega$ we have $\
 
 First, note that if $\bfr \neq \bfr'$ we can write
 
-$$ \nabla \left( \frac{1}{|\bfr - \bfr'|}\right) = - \nabla' \left(|\bfr - \bfr'| \right),$$
+$$ \nabla \left( \frac{1}{|\bfr - \bfr'|}\right) = - \nabla' \left(\frac{1}{|\bfr - \bfr'|} \right),$$
 
 where $\nabla'$ is the gradient with respect to the $\bfr'$ variable. 
 
-From @eq-vector-potential
+Then, from @eq-vector-potential
 
 $$\begin{aligned}
 \nabla \cdot \bfA &= \frac{\mu_0}{4 \pi} \int_\Omega \bfJ(\bfr') \cdot \nabla \left( \frac{1}{|\bfr - \bfr'|} \right) \dd V' \\
@@ -284,7 +302,7 @@ $$\nabla \cdot \bfA = 0.$$
 
 ::: {.proof}
 
-## of Ampère's law 
+(of Ampère's law)
 
 From @lem-vector-potential we have
 
@@ -314,11 +332,11 @@ which is Ampère's law (@thm-Ampere-law).
 
 ::: {#cor-Ampere-law-alternative}
 
-## Ampère's law - alternative formulation
+## Ampère's law -- alternative formulation
 
 For any simple^[i.e. that it doesn't intersect itself.] closed curve $C = \partial \Sigma$ bounding a surface $\Sigma$
 
-$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \dd A = \mu_0 I,$$
+$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \; \dd A = \mu_0 I,$$
 
 where $I$ is the current through $\Sigma$.
 
@@ -341,7 +359,7 @@ $$ \bfB = B(\rho) \bfe_\theta.$$
 
 For our curve $C$ we choose a circle of arbitrary radius $\rho$ in the $\rho-\theta$ plane with the centre on the $z$ axis. @cor-Ampere-law-alternative gives
 
-$$ \int_C \bfB \cdot \dd \bfr =  \int_0^{2\pi} B(\rho) \rho \dd \theta = 2 \pi \rho B(\rho) = \mu_0 I,$$
+$$ \int_C \bfB \cdot \dd \bfr =  \int_0^{2\pi} B(\rho) \rho \; \dd \theta = 2 \pi \rho B(\rho) = \mu_0 I,$$
 
 therefore we conclude that
 
@@ -405,7 +423,7 @@ Then, to make $\nabla \cdot \bfA' = 0$ we simply need to choose $\chi$ such that
 
 $$\nabla^2 \chi = - \psi.$$
 
-This is the Poisson equation, and we know that it has a unique solution (up to an additive constant).
+This is Poisson's equation, and we know that it has a unique solution (up to an additive constant).
 
 :::
 
@@ -417,7 +435,7 @@ and taking the Coulomb gauge allows us to simplify the equation to
 
 $$ \nabla^2 \bfA = - \mu_0 \bfJ,$$
 
-which is the Poisson's equation and we know how to solve it.
+which is again Poisson's equation that we already know how to solve.
 
 ::: {#exm-straight-wire-3}
 
@@ -436,7 +454,7 @@ $$ \frac{\partial A_\rho}{\partial z} - \frac{\partial A_z}{\partial \rho} = \fr
 $$\frac{1}{\rho} \left(\frac{\partial (\rho A_\theta)}{\partial \rho} - \frac{\partial A_\rho}{\partial \theta} \right) = 0.$$
 
 
-It is not straightforward how to solve this equation, but we can construct a suitable solution (remember, it will not be unique) by taking
+This equation is not straightforward to solve, but we can construct a suitable solution (remember, it will not be unique) by taking
 
 $$\bfA = - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{\rho}{\rho_0} \right) \bfe_z,$$
 
