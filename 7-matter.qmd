@@ -2,11 +2,25 @@
 
 # Electromagnetism in matter {#sec-matter}
 
+::: {.callout-tip}
+
+## Aims of the chapter
+
+By the end of this chapter, you should be able to:
+
+* Understand how electric and magnetic fields behave in matter.
+
+* Derive the corrections to the Maxwell's equations due to matter.
+
+* State Maxwell's equations (and the electromagnetic wave equations) in matter.
+
+:::
+
 In all the preceding chapters we have considered the Maxwell's equations in the vacuum. But in most real applications we want to consider, the electric and magnetic fields are not in the vacuum but interact with matter. The aim of this final chapter is to adjust Maxwell's equations to account for the effects of matter.
 
 ## Electric fields in matter
 
-We will start by considering electric fields in the presence of a matter, in particular a type of material called _dielectric_. Dielectric materials do not have any charges inside that can move around (they are all held in place).^[Dielectric materials are similar to insulators, which we saw earlier on, but they are not quite the same thing.] But dielectrics, like all matter, are made of atoms and, even though usually these atoms have neutral charge, its components don't: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call _polarisation_^[This is different from light polarisation.], which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.
+We will start by considering electric fields in the presence of a matter, in particular a type of material called _dielectric_. Dielectric materials do not have any charges inside that can move around (they are all held in place).^[Dielectric materials are similar to insulators, which we saw earlier on, but they are not quite the same thing.] But dielectrics, like all matter, are made of atoms and, even though usually these atoms have neutral charge, its components don't: the nucleus has positive charge and the cloud of electrons surrounding it has negative charge. This results in what we call _polarisation_,^[This is different from light polarisation.] which means that when exposed to an electric field the nucleus gets slightly pushed in one directions and the electrons slightly pushed in the opposite direction. Polarisation has an effect on the electric properties of a material that we will need to take into account.
 
 ::: {.callout-warning}
 
@@ -32,7 +46,10 @@ $$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\bf
 
 Now, by a similar argument to the proof of @lem-div-A-0, we can write
 
-$$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \nabla' \cdot \left(\frac{\bfP'(\bfr')}{|\bfr - \bfr'|} \right) \dd V' - \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V' = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{-\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V',$$ {#eq-potential-dipoles}
+$$\begin{aligned}
+\phi(\bfr)_\mathrm{dipoles} &= \frac{1}{4 \pi \epsilon_0} \int_\Omega \nabla' \cdot \left(\frac{\bfP'(\bfr')}{|\bfr - \bfr'|} \right) \dd V' - \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V' \\
+&= \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{-\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V',
+\end{aligned}$$ {#eq-potential-dipoles}
 
 where in the last step we have used the divergence theorem on the first term, plus the fact that, by definition, $\bfP$ is zero at the boundary of $\Omega$ (and outside of it). 
 
@@ -42,7 +59,7 @@ $$\rho_\mathrm{bound}(\bfr) = - \nabla \cdot \bfP(\bfr),$$ {#eq-rho-bound}
 
 so we can rewrite @eq-potential-dipoles as
 
-$$ \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho_\mathrm{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
+$$ \phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho_\mathrm{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
 
 Thus we can interpret $\rho_\mathrm{bound}$ as the _effective_ charge density that produces the electric field @eq-potential-dipoles caused by the dipole distribution. We also observe that @eq-rho-bound looks like Gauss' law but now with $-\bfP/\epsilon_0$ instead of $\bfE$. So how is this related to Gauss' law?
 
@@ -93,7 +110,7 @@ Now, we can do some manipulation of this expression to obtain
 $$\begin{aligned}
 \bfA (\bfr) &= \frac{\mu_0}{4 \pi} \int_\Omega \bfM(\bfr') \times \nabla' \left( \frac{1}{|\bfr - \bfr'|} \right)\dd V' \\
 &= \frac{\mu_0}{4 \pi} \int_\Omega \left[ \frac{\nabla' \times \bfM(\bfr') }{|\bfr - \bfr'|} - \nabla' \times \left( \frac{\bfM(\bfr')}{|\bfr - \bfr'|} \right) \right] \dd V' \\
-&= \frac{\mu_0}{4 \pi} \int_\Omega \frac{\nabla' \times \bfM(\bfr')}{|\bfr - \bfr'|} \dd V' + \frac{\mu_0}{4 \pi} \int_{\partial \Omega} \frac{\bfM(\bfr')}{|\bfr - \bfr'|} \times \bfn \, \dd A' \\
+&= \frac{\mu_0}{4 \pi} \int_\Omega \frac{\nabla' \times \bfM(\bfr')}{|\bfr - \bfr'|} \dd V' + \frac{\mu_0}{4 \pi} \int_{\partial \Omega} \frac{\bfM(\bfr')}{|\bfr - \bfr'|} \times \bfn \; \dd A' \\
 &= \frac{\mu_0}{4 \pi} \int_\Omega \frac{\nabla' \times \bfM(\bfr')}{|\bfr - \bfr'|} \dd V'.
 \end{aligned} 
 $$ {#eq-vector-potential-magnetic-dipole-derivation}
@@ -106,7 +123,7 @@ and thus rewrite @eq-vector-potential-magnetic-dipole-derivation as
 
 $$\bfA(\bfr) = \frac{\mu_0}{4 \pi} \int_\Omega \frac{\bfJ_\text{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
 
-In this case $\bfJ_\text{bound}(\bfr)$ represents the _effective magnetising currents_ that generate the magnetic dipoles in the material. These current represents the added-up effect of all the microscopic currents induced by the magnetisation.^[There is a more detail of this argument in Chapter 8.2.1 of Tong's book, and here is a [cute animation](https://en.wikipedia.org/wiki/Magnetization#Magnetization_current) in Wikipedia that illustrates it.]
+In this case $\bfJ_\text{bound}(\bfr)$ represents the _effective magnetising currents_ that generate the magnetic dipoles in the material. These current represents the added-up effect of all the microscopic currents induced by the magnetisation.^[There is a more detailed version of this argument in Chapter 8.2.1 of Tong's book, and here is a [cute animation](https://en.wikipedia.org/wiki/Magnetization#Magnetization_current) in Wikipedia that illustrates it.]
 
 Similarly with charge when we revisited Gauss' law, the current appearing in Ampère's law (@eq-Ampere-law) is made of both the contributions due to the free charges $\bfJ_\text{free}$ and the contributions due to the effective magnetising current $\bfJ_\text{bound}$. Then, Ampère's law becomes
 
@@ -130,9 +147,9 @@ which sometimes is written in terms of the quantity $\bfH = \frac{1}{\mu}\bfB$, 
 
 Before finishing the section, let's have a quick discussion about what values can $\chi_m$ take:
 
-* If $-1 < \chi_m < 0$ the material is called **diamagnetic**. This means that the magnetisation of the material opposes the applied magnetic field (i.e. the object is repelled by the magnetic field). Some examples of diamagnetic materials are copper, gold and water^[Therefore humans are also diamagnetic, as we are made mostly of water.].
+* If $-1 < \chi_m < 0$ the material is called **diamagnetic**. This means that the magnetisation of the material opposes the applied magnetic field (i.e. the object is repelled by the magnetic field). Some examples of diamagnetic materials are copper, gold and water.^[Therefore humans are also diamagnetic, as we are made mostly of water.]
 * If $\chi_m > 0$ the material is called **paramagnetic**. This means that the magnetisation of the material points in the same direction of the applied magnetic field (i.e. the object is attracted by the magnetic field). Some examples of paramagnetic materials are aluminium or tungsten.
-* In some cases, we can have $\bfM \neq \bfzero$ when $\bfB \neq \bfzero$, so @eq-M-B doesn't hold. These are known as **ferromagnetic** materials. These materials become magnetised very easily by external magnetic fields and, more importantly, remain magnetised long after the field is gone. These are the materials that we commonly know as magnets. Very few elements are ferromagnetic, most notably iron, nickel and cobalt.
+* In some cases, we can have $\bfM \neq \bfzero$ when $\bfB = \bfzero$, so @eq-M-B doesn't hold. These are known as **ferromagnetic** materials. These materials become magnetised very easily by external magnetic fields and, more importantly, remain magnetised long after the field is gone. These are the materials that we commonly know as magnets. Very few elements are ferromagnetic, most notably iron, nickel and cobalt.
 
 There is one final aspect we need to discuss. @eq-Ampere-law-material-static holds for the magnetostatic case, but similarly to what we did in @sec-displacement-current we need to modify it to account for time-dependent fields.
 
@@ -191,11 +208,11 @@ where the new wave propagation speed is given by $v = (\epsilon \mu)^{-\frac{1}{
 
 To conclude this section, we need to talk about what happens at the interface between two dielectric materials, with different permitivities and permeabilities. We already showed in @sec-applications-electrostatics and @sec-applications-magnetostatics that at a surface, electric fields are continuous in the tangent direction but may be discontinuous in the normal direction, and viceversa for magnetic fields. The culprits for those discontinuities were surface charges and currents.
 
-We now want to extend these conditions for electromagnetic fields in matter. To do so, we will repeat the arguments from previous sections, but we will apply them to @eq-Maxwell-matter-1 - @eq-Maxwell-matter-4. We label the two materials 1 and 2, and the normal vector $\bfn$ is defined to point from material 1 to material 2.
+We now want to extend these conditions for electromagnetic fields in matter. To do so, we will repeat the arguments from previous sections, but we will apply them to @eq-Maxwell-matter-1 -- @eq-Maxwell-matter-4. We label the two materials 1 and 2, and the normal vector $\bfn$ is defined to point from material 1 to material 2.
 
 We first apply the pillbox argument to @eq-Maxwell-matter-1, and in the presence of a (free) surface charge $\sigma$ we obtain
 
-$$\bfn \cdot \left(\bfD_2 - \bfD_1\right) = 0.$$
+$$\bfn \cdot \left(\bfD_2 - \bfD_1\right) = \sigma.$$
 
 Similarly, from @eq-Maxwell-matter-3 we obtain 
 

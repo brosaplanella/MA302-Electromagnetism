@@ -6,3 +6,5 @@
 **/*.quarto_ipynb
 
 /env/
+
+/_extensions/

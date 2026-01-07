@@ -8,24 +8,22 @@
 
 By the end of this chapter, you should be able to:
 
-* Aim 1
+* Understand the importance of electromagnetism in science.
 
-* Aim 2
+* Recall some basic concepts from vector calculus.
 
 :::
 
-Electromagnetism governs the interactions between particles that carry electric charge. It is one of the four fundamental forces, alongside gravity and the two nuclear forces (weak and strong).
+Electromagnetism governs the interactions between particles that carry electric charge. It is one of the four fundamental forces, alongside gravity and the two nuclear forces (weak and strong). At the atomic scale, electromagnetism dictates how atoms and molecules interact, which in turn determines the many properties that materials exhibit. This means that electromagnetism underpins all of chemistry and, by extension, biology.
 
-At the atomic scale, electromagnetism dictates how atoms and molecules interact, which in turn determines the many properties that materials exhibit. This means that electromagnetism underpins all of chemistry and, by extension, biology.
-
-This has consequences that extend far beyond the microscopic world. Many of the physical phenomena we encounter in everyday life arise from electromagnetic interactions: friction, electricity, magnetism, and electromagnetic radiation such as microwaves, X-rays, and visible light. In fact, apart from gravity and its effects, almost everything we experience daily is a consequence of electromagnetism.
+This has consequences that extend far beyond the microscopic world. Many of the physical phenomena we encounter in everyday life arise from electromagnetic interactions: friction, electricity, magnetism, and electromagnetic radiation such as microwaves, X-rays, and visible light. In fact, apart from gravity and its effects, almost everything else we experience daily is a consequence of electromagnetism.
 
 What makes electromagnetism remarkable is that, despite giving rise to such a wide range of phenomena, it can be described by just four elegant equations: the _Maxwell’s equations_:
 
 $$\nabla \cdot \bfE = \frac{\rho}{\epsilon_0},$$ {#eq-Maxwell-1}
 $$\nabla \cdot \bfB = 0,$$ {#eq-Maxwell-3}
-$$\nabla \times \bfE = - \ppt{\bfB},$$ {#eq-Maxwell-2}
-$$\nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \ppt{\bfE} \right).$$ {#eq-Maxwell-4}
+$$\nabla \times \bfE = - \frac{\partial \bfB}{\partial t},$$ {#eq-Maxwell-2}
+$$\nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t} \right).$$ {#eq-Maxwell-4}
 
 These equations govern the behaviour of the electric field $\bfE$ and the magnetic field $\bfB$, and from them we can explain all the phenomena mentioned above. From a mathematical perspective, electromagnetism is fascinating because it applies the vector calculus concepts you have learned in previous modules and demonstrates their power. The goal of this module is to derive Maxwell’s equations and use them to explain real-world phenomena.
 
@@ -63,7 +61,7 @@ We can also define the _cross product_ as
 
 $$\bfa \times \bfb = (a_2 b_3 - a_3 b_2) \bfe_1 + (a_3 b_1 - a_1 b_3) \bfe_2 + (a_1 b_2 - a_2 b_1) \bfe_3.$$
 
-We also have the _vector triple product identity_, i.e.
+Both products are related by the _vector triple product identity_, i.e.^[I am skipping the proofs here, but most of them are exercises in problem sheet 1.]
 
 $$\bfa \times (\bfb \times \bfc) = (\bfa \cdot \bfc) \bfb - (\bfa \cdot \bfb) \bfc.$$ {#eq-triple-cross-product}
 
@@ -133,7 +131,7 @@ Moreover, we have that the curl of a curl can be written as
 
 $$\nabla \times \left( \nabla \times \bff \right) = \nabla \left( \nabla \cdot \bff \right) - \nabla^2 \bff.$$ {#eq-curl-curl}
 
-We can also define the curl and divergence of a cross product:
+We can also rewrite the curl and divergence of a cross product as
 
 $$\nabla \times \left( \bfa \times \bfb \right) = \bfa \left( \nabla \cdot \bfb \right) - \bfb \left( \nabla \cdot \bfa \right) + \left( \bfb \cdot \nabla \right) \bfa - \left( \bfa \cdot \nabla \right) \bfb,$$ {#eq-curl-cross-product}
 
@@ -141,11 +139,15 @@ and
 
 $$\nabla \cdot \left( \bfa \times \bfb \right) = \bfb \cdot \left( \nabla \times \bfa \right) - \bfa \cdot \left( \nabla \times \bfb \right).$$ {#eq-div-cross-product}
 
-It will also be handy to define the curl of the product of a scalar function and a vector field:
+It will also be handy to define the curl and divergence of the product of a scalar function and a vector field:
 
-$$\nabla \times \left( \psi \bff \right) = \left(\nabla \psi \right) \times \bff + \psi \left( \nabla \times \bff \right).$$ {#eq-curl-scalar-times-vector}
+$$\nabla \times \left( \psi \bff \right) = \left(\nabla \psi \right) \times \bff + \psi \left( \nabla \times \bff \right),$$ {#eq-curl-scalar-times-vector}
 
-Finally, we need to present some identities related to $\bfr$, which will be very handy in electromagnetism:
+and
+
+$$\nabla \cdot \left( \psi \bff \right) = \left(\nabla \psi \right) \cdot \bff + \psi \left( \nabla \cdot \bff \right).$$ {#eq-div-scalar-times-vector}
+
+Finally, we need to present some identities related to $\bfr$ and $|\bfr|$, which will be very handy in electromagnetism:
 
 $$\nabla \frac{1}{|\bfr|} = - \frac{\bfr}{|\bfr|^3},$$ {#eq-grad-1-r}
 
@@ -164,13 +166,13 @@ Now let's talk about integrals.
 
 ## Line integral
 
-Let $C$ be the curve in $\mathbb{R}^3$ parameterised by $\bfr : [t_0, t_1] \to \mathbb{R}^3$ (or, in short, $\bfr(t)$). Then, we can define the line integral of a scalar field $\psi$ and a vector field $\bff$ as
+Let $C$ be the curve in $\mathbb{R}^3$ parameterised by $\bfr(t) : [t_0, t_1] \to \mathbb{R}^3$. Then, we can define the line integral of a scalar field $\psi$ and a vector field $\bff$ as
 
-$$\int_C \psi \dd s = \int_{t_0}^{t_1} \psi(\bfr(t)) \left| \frac{\dd \bfr}{\dd t} \right| \dd t,$$
+$$\int_C \psi \; \dd s = \int_{t_0}^{t_1} \psi(\bfr(t)) \left| \frac{\dd \bfr}{\dd t} \right| \; \dd t,$$
 
 and
 
-$$\int_C \bff \cdot \bft \; \dd s = \int_{t_0}^{t_1} \bff(\bfr(t)) \cdot \frac{\dd \bfr}{\dd t} \dd t,$$
+$$\int_C \bff \cdot \bft \; \dd s = \int_{t_0}^{t_1} \bff(\bfr(t)) \cdot \frac{\dd \bfr}{\dd t} \; \dd t,$$
 
 where $\bft = \frac{\dd \bfr}{\dd t}$ is the tangent vector to the curve.
 
@@ -182,7 +184,7 @@ We say a curve is simple if it does not self-intersect (i.e. $\bfr$ is injective
 
 ## Surface integral
 
-Let $\Sigma$ be the surface in $\mathbb{R}^3$ parameterised by $\bfr(u,v)$, with $(u,v) \in D \subseteq \mathbb{R}^2$$ . We first define the _unit normal vector_ to the surface $\bfn$ as
+Let $\Sigma$ be the surface in $\mathbb{R}^3$ parameterised by $\bfr(u,v) : D \subseteq \mathbb{R}^2 \to \mathbb{R}^3$. We first define the _unit normal vector_ to the surface $\bfn$ as
 
 $$\bfn = \frac{\bft_u \times \bft_v}{|\bft_u \times \bft_v|},$$
 
@@ -194,17 +196,17 @@ are two tangent vectors to the surface.
 
 We can define the surface integral of a scalar field $\psi$ and a vector field $\bff$ as
 
-$$\int_\Sigma \psi \; \bfn \; \dd A = \int \int_D \psi(\bfr(u,v)) \left| \frac{\partial \bfr}{\partial u} \times \frac{\partial \bfr}{\partial v} \right| \dd u \; \dd v,$$
+$$\int_\Sigma \psi \; \bfn \; \dd A = \iint_D \psi(\bfr(u,v)) \left| \frac{\partial \bfr}{\partial u} \times \frac{\partial \bfr}{\partial v} \right| \dd u \; \dd v,$$
 
 and
 
-$$ \int_\Sigma \bff \cdot \bfn \; \dd A = \int \int_D \bff(\bfr(u,v)) \cdot \left( \frac{\partial \bfr}{\partial u} \times \frac{\partial \bfr}{\partial v} \right) \dd u \; \dd v.$$
+$$ \int_\Sigma \bff \cdot \bfn \; \dd A = \iint_D \bff(\bfr(u,v)) \cdot \left( \frac{\partial \bfr}{\partial u} \times \frac{\partial \bfr}{\partial v} \right) \dd u \; \dd v.$$
 
 Note that quite often it will not be possible to parameterise a whole surface using a single domain $D$. In these cases, we can split the surface into multiple parts, each one parameterised in a given domain $D_i$. 
 
 :::
 
-We say a surface $\Sigma$ is orientable if there is a choice of continuous unit normal vector field $\bfn$ on the surface.^[A Möbius strip is not orientable, because if we define a normal and then we continuously move than normal along the strip, once we get back to where we started it points in the other direction. Therefore, we cannot define a continuous unit normal.] If an orientable surface $\Sigma$ has boundary $\partial \Sigma$ (a simple closed curve) then the normal $bfn$ induces an orientation on $\partial \Sigma$: $\bft \times \bfn$ must point away from $Sigma$. Therefore, the choice of either $\bft$ or $\bfn$ determines the sign of the other one.
+We say a surface $\Sigma$ is orientable if there is a choice of continuous unit normal vector field $\bfn$ on the surface.^[A Möbius strip is not orientable, because if we define a normal and then we continuously move that normal along the strip, once we get back to where we started it points in the other direction. Therefore, we cannot define a continuous unit normal.] If an orientable surface $\Sigma$ has boundary $\partial \Sigma$ (a simple closed curve) then the normal $\bfn$ induces an orientation on $\partial \Sigma$: we impose that $\bft \times \bfn$ must point away from $\Sigma$. Therefore, the choice of either $\bft$ or $\bfn$ determines the sign of the other one.
 
 Now we can introduce two very important theorems.
 
@@ -259,7 +261,7 @@ $$\nabla^2 \psi = \frac{1}{\rho} \frac{\partial}{\partial \rho} \left(\rho \frac
 
 #### Spherical coordinates
 
-In spherical coordinates $(\rho, \theta, \varphi)$, we define the position vector as
+In spherical coordinates $(\rho, \theta, \varphi)$, we can write a vector field as
 
 $$\bff = f_\rho \bfe_\rho + f_\theta \bfe_\theta + f_\varphi \bfe_\varphi,$$
 
