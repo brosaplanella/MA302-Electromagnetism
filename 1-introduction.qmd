@@ -158,7 +158,7 @@ $$\nabla \cdot \frac{\bfr}{|\bfr|^3} = 0,$$ {#eq-div-r-r3}
 for $\bfr \in \mathbb{R}^3 \setminus \{0\}$.
 
 
-### Integral theorems
+### Integral theorems {#sec-integral-theorems}
 
 Now let's talk about integrals.
 
