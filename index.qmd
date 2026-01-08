@@ -32,7 +32,7 @@ In @sec-electrodynamics we will bring time into the equation, and generalise our
 
 We will conclude with @sec-matter, in which we will extend the Maxwell's equations to account for real macroscale materials, rather than just charges in motion, and explain some of the phenomena that arise.
 
-I would like to thank Dr Kawa Manmi for his useful feedback on these notes and the rest of the material of the module. Still, this is the first time I teach this module, and there will doubtlessly be errors and typos in these notes. There are also probably sections that could be better explained. If you spot
+I would like to thank Dr Kawa Manmi for his valuable feedback on these notes and the rest of the material of the module. Still, this is the first time I teach this module, and there will doubtlessly be errors and typos in these notes. There are also probably sections that could be better explained. If you spot
 anything or you have any suggestions, please do let me know via email.
 
 [Dr Ferran Brosa Planella](https://www.brosaplanella.xyz), Autumn 2025
