@@ -5,7 +5,7 @@
 
 \usepgfplotslibrary{colormaps}
 \pgfplotsset{compat=1.18}
-%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\usetikzlibrary{arrows.meta}% tikz package already loaded by 'tikz' option
 \begin{document}
 
 
@@ -43,8 +43,8 @@
     \addplot3[black, thick, variable=\t, domain=0:3, samples y=1] ( {-cos(pi*\vartangent)}, {-sin(pi*\vartangent)}, {cos(-cos(pi*\vartangent)) + cos(-sin(pi*\vartangent)) + t});
     \addplot3[black, thick, dashed, variable=\t, domain=0:-3, samples y=1] ( {cos(pi*\vartangent)}, {sin(pi*\vartangent)}, {cos(cos(pi*\vartangent)) + cos(sin(pi*\vartangent)) + t});
     \addplot3[black, thick, dashed, variable=\t, domain=0:-3, samples y=1] ( {-cos(pi*\vartangent)}, {-sin(pi*\vartangent)}, {cos(-cos(pi*\vartangent)) + cos(-sin(pi*\vartangent)) + t});
-    \draw[->, thick, black] (axis cs:0,0,2) -- (axis cs: 0,0,4.5) node[left] {$\boldsymbol{n}^+$}; 
-    \draw[->, thick, black] (axis cs:0,0,2) -- (axis cs: 0,0,-1) node[right] {$\boldsymbol{n}^-$};
+    \draw[-Stealth, thick, black] (axis cs:0,0,2) -- (axis cs: 0,0,4.5) node[left] {$\boldsymbol{n}^+$}; 
+    \draw[-Stealth, thick, black] (axis cs:0,0,2) -- (axis cs: 0,0,-1) node[right] {$\boldsymbol{n}^-$};
     \node[circle,fill=black,inner sep=0pt,minimum size=3pt] at (axis cs: 0,0,2) {}; 
 \end{axis}
   
