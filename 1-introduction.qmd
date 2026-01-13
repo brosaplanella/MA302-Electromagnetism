@@ -238,45 +238,45 @@ In this module we will mostly work in Cartesian coordinates, but occasionally it
 
 #### Cylindrical coordinates
 
-In cylindrical coordinates $(\rho, \theta, z)$,  we can write a vector field as
+In cylindrical coordinates $(r, \theta, z)$,  we can write a vector field as
 
-$$\bff = f_\rho \bfe_\rho + f_\theta \bfe_\theta + f_z \bfe_z,$$
+$$\bff = f_r \bfe_r + f_\theta \bfe_\theta + f_z \bfe_z,$$
 
-where $f_\rho$ is the radial component, $f_\theta$ the angular component and $f_z$ is the axial component.
+where $f_r$ is the radial component, $f_\theta$ the angular component and $f_z$ is the axial component.
 
 Then, the differential operators can be written as
 
-$$\nabla \psi = \frac{\partial \psi}{\partial \rho} \bfe_\rho + \frac{1}{\rho} \frac{\partial \psi}{\partial \theta} \bfe_\theta + \frac{\partial \psi}{\partial z} \bfe_z,$$
+$$\nabla \psi = \frac{\partial \psi}{\partial r} \bfe_r + \frac{1}{r} \frac{\partial \psi}{\partial \theta} \bfe_\theta + \frac{\partial \psi}{\partial z} \bfe_z,$$
 
-$$\nabla \cdot \bff = \frac{1}{\rho} \frac{\partial (\rho f_\rho)}{\partial \rho} + \frac{1}{\rho} \frac{\partial f_\theta}{\partial \theta} + \frac{\partial f_z}{\partial z},$$
+$$\nabla \cdot \bff = \frac{1}{r} \frac{\partial (r f_r)}{\partial r} + \frac{1}{r} \frac{\partial f_\theta}{\partial \theta} + \frac{\partial f_z}{\partial z},$$
 
 $$\begin{aligned}
-\nabla \times \bff &= \left(\frac{1}{\rho} \frac{\partial f_z}{\partial \theta} - \frac{\partial f_\theta}{\partial z} \right) \bfe_\rho \\
-& \quad + \left( \frac{\partial f_\rho}{\partial z} - \frac{\partial f_z}{\partial \rho} \right) \bfe_\theta \\
-& \quad + \frac{1}{\rho} \left( \frac{\partial (\rho f_\theta)}{\partial \rho}  - \frac{\partial f_\rho}{\partial \theta} \right) \bfe_z,
+\nabla \times \bff &= \left(\frac{1}{r} \frac{\partial f_z}{\partial \theta} - \frac{\partial f_\theta}{\partial z} \right) \bfe_r \\
+& \quad + \left( \frac{\partial f_r}{\partial z} - \frac{\partial f_z}{\partial r} \right) \bfe_\theta \\
+& \quad + \frac{1}{r} \left( \frac{\partial (r f_\theta)}{\partial r}  - \frac{\partial f_r}{\partial \theta} \right) \bfe_z,
 \end{aligned}$$
 
-$$\nabla^2 \psi = \frac{1}{\rho} \frac{\partial}{\partial \rho} \left(\rho \frac{\partial \psi}{\partial \rho} \right)  + \frac{1}{\rho^2} \frac{\partial^2 \psi}{\partial \theta^2} + \frac{\partial^2 \psi}{\partial z^2}.$$
+$$\nabla^2 \psi = \frac{1}{r} \frac{\partial}{\partial r} \left(r \frac{\partial \psi}{\partial r} \right)  + \frac{1}{r^2} \frac{\partial^2 \psi}{\partial \theta^2} + \frac{\partial^2 \psi}{\partial z^2}.$$
 
 
 #### Spherical coordinates
 
-In spherical coordinates $(\rho, \theta, \varphi)$, we can write a vector field as
+In spherical coordinates $(r, \theta, \varphi)$, we can write a vector field as
 
-$$\bff = f_\rho \bfe_\rho + f_\theta \bfe_\theta + f_\varphi \bfe_\varphi,$$
+$$\bff = f_r \bfe_r + f_\theta \bfe_\theta + f_\varphi \bfe_\varphi,$$
 
-where $f_\rho$ is the radial component, $f_\theta$ the polar angular component and $f_\varphi$ is the azimuthal angular component.
+where $f_r$ is the radial component, $f_\theta$ the polar angular component and $f_\varphi$ is the azimuthal angular component.
 
 Then, the differential operators can be written as
 
-$$\nabla \psi = \frac{\partial \psi}{\partial \rho} \bfe_\rho + \frac{1}{\rho} \frac{\partial \psi}{\partial \theta} \bfe_\theta + \frac{1}{\rho \sin \theta} \frac{\partial \psi}{\partial \varphi} \bfe_\varphi,$$
+$$\nabla \psi = \frac{\partial \psi}{\partial r} \bfe_r + \frac{1}{r} \frac{\partial \psi}{\partial \theta} \bfe_\theta + \frac{1}{r \sin \theta} \frac{\partial \psi}{\partial \varphi} \bfe_\varphi,$$
 
-$$\nabla \cdot \bff = \frac{1}{\rho^2} \frac{\partial (\rho^2 f_\rho)}{\partial \rho} + \frac{1}{r \sin \theta} \frac{\partial}{\partial \theta} \left( f_\theta \sin \theta \right) + \frac{1}{\rho \sin \theta} \frac{\partial f_\varphi}{\partial \varphi},$$
+$$\nabla \cdot \bff = \frac{1}{r^2} \frac{\partial (r^2 f_r)}{\partial r} + \frac{1}{r \sin \theta} \frac{\partial}{\partial \theta} \left( f_\theta \sin \theta \right) + \frac{1}{r \sin \theta} \frac{\partial f_\varphi}{\partial \varphi},$$
 
 $$\begin{aligned}
-\nabla \times \bff &= \frac{1}{\rho \sin \theta} \left( \frac{\partial }{\partial \theta} (f_\varphi \sin \theta) - \frac{\partial f_\theta}{\partial \varphi} \right) \bfe_\rho \\
-& \quad + \frac{1}{\rho} \left( \frac{1}{\sin \theta} \frac{\partial f_\rho}{\partial \varphi} -  \frac{\partial}{\partial \rho} (\rho f_\varphi) \right) \bfe_\theta \\
-& \quad + \frac{1}{\rho} \left( \frac{\partial}{\partial \rho} (\rho f_\theta) - \frac{\partial f_\rho}{\partial \theta} \right) \bfe_\varphi,
+\nabla \times \bff &= \frac{1}{r \sin \theta} \left( \frac{\partial }{\partial \theta} (f_\varphi \sin \theta) - \frac{\partial f_\theta}{\partial \varphi} \right) \bfe_r \\
+& \quad + \frac{1}{r} \left( \frac{1}{\sin \theta} \frac{\partial f_r}{\partial \varphi} -  \frac{\partial}{\partial r} (r f_\varphi) \right) \bfe_\theta \\
+& \quad + \frac{1}{r} \left( \frac{\partial}{\partial r} (r f_\theta) - \frac{\partial f_r}{\partial \theta} \right) \bfe_\varphi,
 \end{aligned}$$
 
-$$\nabla^2 \psi = \frac{1}{\rho^2} \frac{\partial}{\partial \rho} \left( \rho^2 \frac{\partial \psi}{\partial \rho} \right) + \frac{1}{\rho^2 \sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial \psi}{\partial \theta} \right) + \frac{1}{\rho^2 \sin^2 \theta} \frac{\partial^2 \psi}{\partial \varphi^2}.$$
+$$\nabla^2 \psi = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial \psi}{\partial r} \right) + \frac{1}{r^2 \sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial \psi}{\partial \theta} \right) + \frac{1}{r^2 \sin^2 \theta} \frac{\partial^2 \psi}{\partial \varphi^2}.$$
