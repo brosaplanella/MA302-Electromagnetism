@@ -599,7 +599,7 @@ Figure&nbsp;2.1: Examples of electrostatic forces.
 <img src="./figs/cylinder_charge.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cylinder-charge-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.2: Diagram of the Gaussian surface used to compute the electric field of a line charge.
+Figure&nbsp;2.2: Diagram of the cylindrical charge density and of the surface <span class="math inline">\Sigma</span> used to apply Gauss’ law.
 </figcaption>
 </figure>
 </div>
@@ -615,15 +615,15 @@ Figure&nbsp;2.2: Diagram of the Gaussian surface used to compute the electric fi
 <p>while if <span class="math inline">R \geq r_0</span> the total charge is</p>
 <p><span class="math display">\int_\Omega \rho \; {\mathrm{d}}V = \rho \pi r_0^2 H.</span></p>
 <p>Using Gauss’ law, for <span class="math inline">R &lt; r_0</span> we find</p>
-<p><span class="math display"> E(R) 2 \pi R H = \rho \pi R^2 H,</span></p>
-<p>therefore the electric field is <span class="math inline">E(R) = \frac{\rho R}{2}</span>,</p>
+<p><span class="math display"> E(R) 2 \pi R H = \frac{1}{\epsilon_0} \rho \pi R^2 H,</span></p>
+<p>therefore the electric field is <span class="math inline">E(R) = \frac{\rho R}{2 \epsilon_0}</span>,</p>
 <p>while for <span class="math inline">R \geq r_0</span> we find</p>
-<p><span class="math display"> E(R) 2 \pi R H = \rho \pi r_0^2 H,</span></p>
-<p>therefore the electric field is <span class="math inline">E(R) = \frac{\rho r_0^2}{2 R}</span>.</p>
+<p><span class="math display"> E(R) 2 \pi R H = \frac{1}{\epsilon_0} \rho \pi r_0^2 H,</span></p>
+<p>therefore the electric field is <span class="math inline">E(R) = \frac{\rho r_0^2}{2 \epsilon_0 R}</span>.</p>
 <p>Combining the results (and relabelling <span class="math inline">R</span> into <span class="math inline">r</span> for convenience) we find that the electric field is</p>
 <p><span class="math display"> {\boldsymbol{E}}= \begin{cases}
-\frac{\rho r}{2}{\boldsymbol{e}}_r, &amp; \text{if} \quad r &lt; r_0,\\
-\frac{\rho r_0^2}{2 r}{\boldsymbol{e}}_r, &amp; \text{if} \quad r \geq r_0.
+\frac{\rho r}{2 \epsilon_0}{\boldsymbol{e}}_r, &amp; \text{if} \quad r &lt; r_0,\\
+\frac{\rho r_0^2}{2 \epsilon_0 r}{\boldsymbol{e}}_r, &amp; \text{if} \quad r \geq r_0.
 \end{cases}</span></p>
 </div>
 <p>We have now two sets of definitions for electric field and Gauss’ law: one for point charges and one for charge densities. But how do they relate to each other? The key is the <em>Dirac delta function</em>.</p>
