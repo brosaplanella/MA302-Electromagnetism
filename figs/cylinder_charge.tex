@@ -1,0 +1,82 @@
+\documentclass[tikz, border=5pt]{standalone}% 'crop' is the default for v1.0, before it was 'preview'
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+
+\usepgfplotslibrary{colormaps}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{plotmarks, arrows.meta}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\begin{document}
+
+
+\begin{tikzpicture}[font=\Large]
+  \begin{axis}[
+    view={120}{40},
+    hide axis,
+    scale=2,
+    xmin=-2, xmax=2, ymin=-2, ymax=2, zmin=0, zmax=4,
+  ]
+
+    % Parameters
+    % radius r, angle theta, height z
+    \addplot3[
+      surf,                % draw a surface
+      shader=flat,          % solid colour (no shading gradient)
+      opacity=0.35,         % see-through
+      samples=40,           % along theta
+      samples y=2,          % along z (2 is enough for a true straight surface)
+      domain=90:270,         % theta in degrees
+      y domain=0:4,         % z range (height)
+      draw=none,            % no mesh lines on the surface
+      colormap={cyl}{
+        rgb255(0cm)=(173,216,230); rgb255(1cm)=(173,216,230)
+      }
+    ] ({cos(x)}, {sin(x)}, {y}); % r=1 here
+
+    % Line charge (vertical line)
+        \addplot3[
+          surf,                % draw a surface
+          shader=flat,          % solid colour (no shading gradient)
+          samples=40,           % along theta
+          samples y=2,          % along z (2 is enough for a true straight surface)
+          domain=0:360,         % theta in degrees
+          y domain=-1:5,         % z range (height)
+        %   draw=black,            % no mesh lines on the surface
+          colormap={cyl}{
+            rgb255(0cm)=(105,105,105); rgb255(1cm)=(105,105,105)
+          }
+        ] ({0.5*cos(x)}, {0.5*sin(x)}, {y}); % r=0.5 here
+
+    % Circle at z=5 in x-y plane
+    \addplot3[
+        no marks,
+        samples=100,
+        domain=0:360,
+        black,
+        thick
+    ] ({0.5*cos(x)}, {0.5*sin(x)}, {5});
+
+    % radius r, angle theta, height z
+    \addplot3[
+      surf,                % draw a surface
+      shader=flat,          % solid colour (no shading gradient)
+      opacity=0.35,         % see-through
+      samples=40,           % along theta
+      samples y=2,          % along z (2 is enough for a true straight surface)
+      domain=-90:90,         % theta in degrees
+      y domain=0:4,         % z range (height)
+      draw=none,            % no mesh lines on the surface
+      colormap={cyl}{
+        rgb255(0cm)=(173,216,230); rgb255(1cm)=(173,216,230)
+      }
+    ] ({cos(x)}, {sin(x)}, {y}); % r=1 here
+
+    \draw[thick, <->, >=Stealth] (axis cs:{1.1*cos(60)}, {-1.1*sin(60)},0) -- (axis cs:{1.1*cos(60)},{-1.1*sin(60)},4) node[midway, left] {$H$};
+    \draw[thick, ->, >=Stealth] (axis cs:0,0,5) -- (axis cs:0,0.5,5) node[midway, above] {$r_0$};
+  \end{axis}
+
+    \draw[thin, black] (8.5,1.8)  node[right] {$\Sigma = \partial \Omega$} -- (7.5,2.5);
+    \node[left] at (8,7.75) {$\rho$};
+\end{tikzpicture}
+\end{document}
