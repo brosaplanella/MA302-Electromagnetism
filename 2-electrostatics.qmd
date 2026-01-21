@@ -301,21 +301,21 @@ $$\int_\Omega \rho \; \dd V = \rho \pi r_0^2 H.$$
 
 Using Gauss' law, for $R < r_0$ we find
 
-$$ E(R) 2 \pi R H = \rho \pi R^2 H,$$
+$$ E(R) 2 \pi R H = \frac{1}{\epsilon_0} \rho \pi R^2 H,$$
 
-therefore the electric field is $E(R) = \frac{\rho R}{2}$,
+therefore the electric field is $E(R) = \frac{\rho R}{2 \epsilon_0}$,
 
 while for $R \geq r_0$ we find
 
-$$ E(R) 2 \pi R H = \rho \pi r_0^2 H,$$
+$$ E(R) 2 \pi R H = \frac{1}{\epsilon_0} \rho \pi r_0^2 H,$$
 
-therefore the electric field is $E(R) = \frac{\rho r_0^2}{2 R}$.
+therefore the electric field is $E(R) = \frac{\rho r_0^2}{2 \epsilon_0 R}$.
 
 Combining the results (and relabelling $R$ into $r$ for convenience) we find that the electric field is
 
 $$ \bfE = \begin{cases}
-\frac{\rho r}{2}\bfe_r, & \text{if} \quad r < r_0,\\
-\frac{\rho r_0^2}{2 r}\bfe_r, & \text{if} \quad r \geq r_0.
+\frac{\rho r}{2 \epsilon_0}\bfe_r, & \text{if} \quad r < r_0,\\
+\frac{\rho r_0^2}{2 \epsilon_0 r}\bfe_r, & \text{if} \quad r \geq r_0.
 \end{cases}$$
 
 :::
