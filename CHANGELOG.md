@@ -1,6 +1,11 @@
 # CHANGELOG
 
-## 2026-01-XX
+## 2026-01-27
+
+- Minor typo corrections.
+- Minor edits to Example 3.2 to relate it to Example 2.1.
+
+## 2026-01-21
 
 - Minor typo corrections.
 - Improvement in formatting for consistency across sections.
