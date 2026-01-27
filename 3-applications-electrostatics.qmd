@@ -51,7 +51,7 @@ However, by Gauss' law, the right-hand side must be proportional to the charge c
 
 Note that, by using forces other than the electrostatic ones, one can construct equilibrium configurations. For example, in @exm-equilibrium-charges, if we constrain the new charge to lie in the horizontal axis (by imposing some sort of force), then we have a stable configuration as for a small displacement $\delta$ along the horizontal axis (in either direction) will result into a force in the horizontal direction with magnitude
 
-$$F = -\frac{q}{\pi \epsilon_0} \frac{\delta}{(\delta - 1)^2 (\delta + 1)^2},$$
+$$F = -\frac{q^2}{\pi \epsilon_0} \frac{\delta}{(\delta - 1)^2 (\delta + 1)^2},$$
 
 pushing the charge back to the origin.
 
@@ -181,13 +181,11 @@ Similarly to a surface charge density, we can define a line charge density $\lam
 Diagram of the Gaussian surface used to compute the electric field of a line charge.
 :::
 
-Consider an infinitely long line charge distribution, with charge density $\lambda$. We want to compute the electric field it produces. We will work in cylindrical polar coordinates and, wlog, we will assume the charge is distribution along the $z$ axis (i.e. at $r = 0$). 
+Consider an infinitely long line charge distribution, with charge density $\lambda$. We want to compute the electric field it produces. We will work in cylindrical polar coordinates and, by the usual symmetry argument we have that $\bfE = E(r) \bfe_r$.
 
-By symmetry, we can conclude that the electric field should only depend on the radial coordinate and, moreover, the only non-zero component of the electric field is also along the radial coordinate. Therefore $\bfE = E(r) \bfe_r$.
+We will again use a Gaussian surface for the argument: an arbitrary cylinder of radius $R$ and height $H$ with its axis along the $z$ axis, as shown in @fig-line-charge. By Gauss' law, we have
 
-We will again use a Gaussian surface for the argument, but this time we take an arbitrary cylinder of radius $r$ and length $L$ with its axis along the $z$ axis, as shown in @fig-line-charge. By Gauss' law, we have
-
-$$\int_{\partial \Omega} \bfE \cdot \bfn \; \dd A = E(r) 2 \pi r L =  \frac{\lambda L}{\epsilon_0},$$
+$$\int_{\partial \Omega} \bfE \cdot \bfn \; \dd A = E(R) 2 \pi R H =  \frac{\lambda H}{\epsilon_0},$$
 
 and thus
 
@@ -196,6 +194,8 @@ $$E(r) = \frac{\lambda}{2 \pi \epsilon_0 r}.$$
 So we conclude that the electric field is given by 
 
 $$\bfE = \frac{\lambda}{2 \pi \epsilon_0 r} \bfe_r.$$
+
+Compare this result with what we obtained in @exm-cylindrical-charge-density. We can think of the line charge as the limit of the cylindrical charge distribution when $r_0 \to 0$ while holding $\lambda = \rho \pi r_0^2$ constant (otherwise the total charge would vanish). A physical interpretation to this is that, if you are far away from the cylinder, from an electrostatic point of view it looks like a line charge.
 
 :::
 
@@ -492,4 +492,4 @@ where we have skipped the details for the Taylor expansion and the limit $d \to 
 
 An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment $\bfp$ placed at the origin is
 
-$$\phi(\bfr)_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{r^3}.$$
+$$\phi(\bfr)_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{|\bfr|^3}.$$
