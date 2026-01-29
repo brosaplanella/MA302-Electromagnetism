@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-01-XX
+
+- Minor typo corrections.
+- Fix error in Fig 3.6 (it was for the wrong example).
+
 ## 2026-01-27
 
 - Minor typo corrections.

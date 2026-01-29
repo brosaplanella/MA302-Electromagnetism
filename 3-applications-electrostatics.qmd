@@ -492,4 +492,4 @@ where we have skipped the details for the Taylor expansion and the limit $d \to 
 
 An electric dipole also generates its own electric field. Similarly to how we constructed the force, we can conclude that the potential of a dipole with moment $\bfp$ placed at the origin is
 
-$$\phi(\bfr)_\mathrm{dipole} = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{|\bfr|^3}.$$
+$$\phi_\mathrm{dipole}(\bfr) = \frac{1}{4 \pi \epsilon_0} \frac{\bfp \cdot \bfr}{|\bfr|^3}.$$
