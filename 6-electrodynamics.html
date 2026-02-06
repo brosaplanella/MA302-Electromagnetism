@@ -471,14 +471,14 @@ window.Quarto = {
 </div>
 <div id="cor-Faraday-law" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 6.1</strong></span> For any simple closed curve <span class="math inline">C = \partial \Sigma</span> bounding a fixed surface <span class="math inline">\Sigma</span>, the Faraday law can be rewritten as</p>
-<p><span class="math display"> \int_C {\boldsymbol{E}}\cdot {\mathrm{d}}{\boldsymbol{r}}= - \frac{{\mathrm{d}}}{{\mathrm{d}}t} \int_\Sigma {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
+<p><span class="math display"> \int_C {\boldsymbol{E}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s = - \frac{{\mathrm{d}}}{{\mathrm{d}}t} \int_\Sigma {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
 </div>
 <p>Let’s now introduce a couple of useful definitions.</p>
 <div id="def-magnetic-flux" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6.1 (Magnetic flux)</strong></span> The integral <span class="math inline">\Phi = \int_\Sigma {\boldsymbol{B}}\cdot {\boldsymbol{n}}{\mathrm{d}}A</span> is called the magnetic flux through <span class="math inline">\Sigma</span>.</p>
+<p><span class="theorem-title"><strong>Definition 6.1 (Magnetic flux)</strong></span> The integral <span class="math inline">\Phi = \int_\Sigma {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A</span> is called the magnetic flux through <span class="math inline">\Sigma</span>.</p>
 </div>
 <div id="def-emf" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6.2 (Electromotive force (emf))</strong></span> The integral <span class="math inline">\mathcal{E}_\mathrm{emf} = \int_C {\boldsymbol{E}}\cdot {\mathrm{d}}{\boldsymbol{r}}</span> is called the electromotive force.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><span class="theorem-title"><strong>Definition 6.2 (Electromotive force (emf))</strong></span> The integral <span class="math inline">\mathcal{E}_\mathrm{emf} = \int_C {\boldsymbol{E}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s</span> is called the electromotive force.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 </div>
 <p>Then, Faraday’s law can be rewritten as</p>
 <p><span class="math display"> \mathcal{E}_\mathrm{emf} = - \frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t}.</span></p>
@@ -503,7 +503,7 @@ Consider adding
 <section id="sec-displacement-current" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="sec-displacement-current"><span class="header-section-number">6.2</span> Displacement current</h2>
 <p>The last step before being able to write the Maxwell’s equations is to revise Ampère’s law (<a href="4-magnetostatics.html#thm-Ampere-law" class="quarto-xref">Theorem&nbsp;<span>4.3</span></a>) to account for time-dependent electric fields. To do this, let’s start with its integral form (<a href="4-magnetostatics.html#cor-Ampere-law-alternative" class="quarto-xref">Corollary&nbsp;<span>4.1</span></a>):</p>
-<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\mathrm{d}}{\boldsymbol{r}}= \mu_0 \int_\Sigma {\boldsymbol{J}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
+<p><span class="math display"> \int_C {\boldsymbol{B}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s = \mu_0 \int_\Sigma {\boldsymbol{J}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
 <p>Remember that <span class="math inline">C</span> is a simple closed curve bounding <span class="math inline">\Sigma</span>. But there are infinitely many surfaces bounded by <span class="math inline">C</span>, so let’s consider another surface <span class="math inline">\Sigma'</span> such that <span class="math inline">\partial \Sigma ' = C</span>. Then</p>
 <p><span id="eq-flux-closed-surf"><span class="math display">0 = \int_\Sigma {\boldsymbol{J}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A - \int_{\Sigma'} {\boldsymbol{J}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \int_S {\boldsymbol{J}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A, \tag{6.2}</span></span></p>
 <p>where <span class="math inline">S = \Sigma \cup \Sigma'</span> is a closed surface. This tells us that the flux of <span class="math inline">{\boldsymbol{J}}</span> through any closed surface must be zero. Another way of looking at this is to consider the volume <span class="math inline">\Omega</span> enclosed by <span class="math inline">S</span> (i.e.&nbsp;<span class="math inline">\partial \Omega = S</span>). Then, we can write</p>

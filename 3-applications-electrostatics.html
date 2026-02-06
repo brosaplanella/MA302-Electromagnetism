@@ -584,18 +584,18 @@ Figure&nbsp;3.2: Diagram of the Gaussian surface used to compute the electric fi
 </figure>
 </div>
 <p>Let’s now consider two flat parallel surfaces. We will take the plates to be perpendicular to the <span class="math inline">x</span> axis, and a distance <span class="math inline">d</span> apart (wlog, we take them to be at <span class="math inline">x=0</span> and <span class="math inline">x=d</span>). The plates have an area <span class="math inline">A</span>, and we assume that <span class="math inline">d \ll \sqrt{A}</span>, so we can ignore any effects arising from the edge of the plates.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
-<p>Each plate has a total charge <span class="math inline">Q</span>, but with opposite sign. Therefore, the surface charge distribution is defined as <span class="math inline">\pm \sigma = \pm Q/A</span>. We know<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> that the electric field produced by an infinite plate with surface charge density <span class="math inline">\sigma</span> is uniform and perpendicular to the plate (pointing away from it if <span class="math inline">\sigma &gt; 0</span>) with magnitude</p>
+<p>Each plate has a total charge <span class="math inline">Q</span>, but with opposite sign. Therefore, the surface charge distribution is defined as <span class="math inline">\pm \sigma = \pm Q/A</span>, with the plate at <span class="math inline">x=d</span> being the positively charged one. We know<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> that the electric field produced by an infinite plate with surface charge density <span class="math inline">\sigma</span> is uniform and perpendicular to the plate (pointing away from it if <span class="math inline">\sigma &gt; 0</span>) with magnitude</p>
 <p><span class="math display"> | {\boldsymbol{E}}| = \frac{|\sigma|}{2 \epsilon_0}.</span></p>
 <p>Then, by superposition, the electric field produced by the two plates is</p>
 <p><span class="math display"> {\boldsymbol{E}}= \begin{cases}
-\frac{\sigma}{\epsilon_0} {\boldsymbol{e}}_x, &amp; \text{between the plates},\\
+-\frac{\sigma}{\epsilon_0} {\boldsymbol{e}}_x, &amp; \text{between the plates},\\
 {\boldsymbol{0}}, &amp; \text{otherwise}.
 \end{cases}</span></p>
 <p>This configuration is known as a capacitor, and it is typically used to store small amounts of energy (and many other things). We can then consider what’s the electrostatic potential in the capacitor. As the electric field is only in the <span class="math inline">x</span> direction, we have</p>
-<p><span class="math display"> \frac{{\mathrm{d}}\phi}{{\mathrm{d}}x} = - E \implies \phi = - \frac{\sigma}{\epsilon_0} x + c,</span></p>
+<p><span class="math display"> \frac{{\mathrm{d}}\phi}{{\mathrm{d}}x} = - E \implies \phi = \frac{\sigma}{\epsilon_0} x + c,</span></p>
 <p>where <span class="math inline">c</span> is an integration constant. We define the <em>voltage</em> or <em>potential difference</em> as the difference in potential between two points. In this case, the voltage between the two plates is</p>
-<p><span class="math display">V = \phi(0) - \phi(d) = \frac{\sigma d}{\epsilon_0}.</span></p>
-<p>We can then define the <em>capacitance</em> <span class="math inline">C</span> of the capacitor as the charge in the capacitor divided by the potential difference:</p>
+<p><span class="math display">V = \phi(d) - \phi(0) = \frac{\sigma d}{\epsilon_0},</span></p>
+<p>where, by convention, we take the difference from the positively charged plate to the negatively charged one. We can then define the <em>capacitance</em> <span class="math inline">C</span> of the capacitor as the charge in the capacitor divided by the potential difference:</p>
 <p><span class="math display">C = \frac{Q}{V} = \frac{A \epsilon_0}{d}.</span></p>
 <p>The capacitance dictates how much energy the capacitor can store, from <a href="2-electrostatics.html#def-energy-density" class="quarto-xref">Definition&nbsp;<span>2.12</span></a>:</p>
 <p><span class="math display">W = \frac{\epsilon_0 A}{2} \int_0^d \left( \frac{\sigma}{\epsilon_0} \right)^2 {\mathrm{d}}x = \frac{Q^2}{2C}.</span></p>
