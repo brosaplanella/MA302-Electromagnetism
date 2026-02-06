@@ -208,26 +208,26 @@ Compare this result with what we obtained in @exm-cylindrical-charge-density. We
  
 Let's now consider two flat parallel surfaces. We will take the plates to be perpendicular to the $x$ axis, and a distance $d$ apart (wlog, we take them to be at $x=0$ and $x=d$). The plates have an area $A$, and we assume that $d \ll \sqrt{A}$, so we can ignore any effects arising from the edge of the plates.^[To formalise this argument, you would need to do an asymptotic analysis similar to what you learned in [MA269 Asymptotics and Integral Transforms](https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma269/) (if you took it).]
 
-Each plate has a total charge $Q$, but with opposite sign. Therefore, the surface charge distribution is defined as $\pm \sigma = \pm Q/A$. We know^[This is an exercise in the problem sheets.] that the electric field produced by an infinite plate with surface charge density $\sigma$ is uniform and perpendicular to the plate (pointing away from it if $\sigma > 0$) with magnitude
+Each plate has a total charge $Q$, but with opposite sign. Therefore, the surface charge distribution is defined as $\pm \sigma = \pm Q/A$, with the plate at $x=d$ being the positively charged one. We know^[This is an exercise in the problem sheets.] that the electric field produced by an infinite plate with surface charge density $\sigma$ is uniform and perpendicular to the plate (pointing away from it if $\sigma > 0$) with magnitude
 
 $$ | \bfE | = \frac{|\sigma|}{2 \epsilon_0}.$$
 
 Then, by superposition, the electric field produced by the two plates is
 
 $$ \bfE = \begin{cases}
-\frac{\sigma}{\epsilon_0} \bfe_x, & \text{between the plates},\\
+-\frac{\sigma}{\epsilon_0} \bfe_x, & \text{between the plates},\\
 \bfzero, & \text{otherwise}.
 \end{cases}$$
 
 This configuration is known as a capacitor, and it is typically used to store small amounts of energy (and many other things). We can then consider what's the electrostatic potential in the capacitor. As the electric field is only in the $x$ direction, we have
 
-$$ \frac{\dd \phi}{\dd x} = - E \implies \phi = - \frac{\sigma}{\epsilon_0} x + c,$$
+$$ \frac{\dd \phi}{\dd x} = - E \implies \phi = \frac{\sigma}{\epsilon_0} x + c,$$
 
 where $c$ is an integration constant. We define the _voltage_ or _potential difference_ as the difference in potential between two points. In this case, the voltage between the two plates is
 
-$$V = \phi(0) - \phi(d) = \frac{\sigma d}{\epsilon_0}.$$
+$$V = \phi(d) - \phi(0) = \frac{\sigma d}{\epsilon_0},$$
 
-We can then define the _capacitance_ $C$ of the capacitor as the charge in the capacitor divided by the potential difference:
+where, by convention, we take the difference from the positively charged plate to the negatively charged one. We can then define the _capacitance_ $C$ of the capacitor as the charge in the capacitor divided by the potential difference:
 
 $$C = \frac{Q}{V} = \frac{A \epsilon_0}{d}.$$
 

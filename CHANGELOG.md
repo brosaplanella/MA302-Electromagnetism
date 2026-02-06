@@ -1,9 +1,18 @@
 # CHANGELOG
 
-## 2026-01-XX
+## 2026-02-06
+
+- Fix broken cross-reference to Figure 5.1.
+- Fix inconsistency in the notation of curve integrals.
+
+## 2026-02-04
 
 - Minor typo corrections.
 - Fix error in Fig 3.6 (it was for the wrong example).
+- Fix sign in Example 3.3.
+- Clarification about flux in Section 4.1.
+- Changed rho to r in Chapter 4 (for radial coordinate).
+- Fixed typo in proof of Lemma 4.2.
 
 ## 2026-01-27
 

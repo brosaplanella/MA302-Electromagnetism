@@ -51,6 +51,8 @@ $$I = \int_\Sigma \bfJ \cdot \bfn \; \dd A.$$
 In SI units, current is measured in amperes ($A$). 
 :::
 
+At this point it is worth making a clarification. Very conveniently, the word \emph{flux} has two definitions. From a transport phenomena point of view, a flux is the rate of flow per unit area of a certain quantity, which is the case of the current density. Mathematically, a flux is the surface integral of a vector field (@def-flux), which is the case of the current. Normally it will be apparent from the context which definition is being used (otherwise it will be explicitly mentioned).
+
 The physical interpretation of the current is the amount of charge per unit time flowing through the surface $\Sigma$. Therefore, current is not a vector quantity but a scalar. Depending on which way we define the normal vector $\bfn$, we may have positive or negative current. This arbitrarity is fine: we basically define a direction for current and, if it ends up being negative, it means charge is flowing in the opposite direction.
 
 You are probably familiar with the idea of current when you think of electric cables. Charges inside might be doing all sorts of things, but what matters in the end is how much charge gets through the cross-section of the cable, i.e. the current.
@@ -65,13 +67,13 @@ The equation that encapsulates conservation of _stuff_ is called the continuity 
 
 Given a charge density $\rho$ with a current density $\bfJ$, it must satisfy
 
-$$\ppt{\rho} + \nabla \cdot \bfJ = 0.$$ {#eq-continuity}
+$$\frac{\partial \rho}{\partial t} + \nabla \cdot \bfJ = 0.$$ {#eq-continuity}
 
 :::
 
 ::: {.proof}
 
-Consider a bounded region $\Omega \in \bbR^3$, bounded by the surface $\partial \Omega$. The total charge in $\Omega$ is given by
+Consider a region $\Omega \in \bbR^3$, bounded by the surface $\partial \Omega$. The total charge in $\Omega$ is given by
 
 $$Q = \int_\Omega \rho \; \dd V.$$
 
@@ -167,13 +169,13 @@ where $\dd \bfr'$ is the differential of length along the curve $C$.
 A current $I$ through an infinitely long straight wire.
 :::
 
-Let's consider a steady current $I$ through an infinitely long straight wire. Wlog we will assume the wire is along the $z$ axis (i.e. $x=y=0$), as shown in @fig-wire-1. Then, we can work in cylindrical coordinates $(\rho, \theta, z)$. In that case, the differential of length in the integral can be written as $\dd \bfr' = \bfe_z \dd z$. Then, we have
+Let's consider a steady current $I$ through an infinitely long straight wire. Wlog we will assume the wire is along the $z$ axis (i.e. $x=y=0$), as shown in @fig-wire-1. Then, we can work in cylindrical coordinates $(r, \theta, z)$. In that case, the differential of length in the integral can be written as $\dd \bfr' = \bfe_z \dd z'$. Then, we have
 
-$$ \dd \bfr' \times (\bfr - \bfr') = \rho \; \dd z \; \bfe_\theta,$$
+$$ \dd \bfr' \times (\bfr - \bfr') = r \; \dd z' \; \bfe_\theta,$$
 
 i.e. the magnetic field will point in the angular direction. Then, from @eq-Biot-Savart-wire we have 
 
-$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{\rho}{(\rho^2 + z^2)^\frac{3}{2}} \; \dd z = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
+$$ \bfB = \frac{\mu_0 I}{4 \pi} \bfe_\theta \int_{-\infty}^{\infty} \frac{r}{(r^2 + (z-z')^2)^\frac{3}{2}} \; \dd z' = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
 
 :::
 
@@ -285,13 +287,13 @@ Then, from @eq-vector-potential
 $$\begin{aligned}
 \nabla \cdot \bfA &= \frac{\mu_0}{4 \pi} \int_\Omega \bfJ(\bfr') \cdot \nabla \left( \frac{1}{|\bfr - \bfr'|} \right) \dd V' \\
 &= -\frac{\mu_0}{4 \pi} \int_\Omega \bfJ(\bfr') \cdot \nabla' \left( \frac{1}{|\bfr - \bfr'|} \right) \dd V'\\
-&= -\frac{\mu_0}{4 \pi} \int_\Omega \nabla' \left( \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \right) \dd V' + \frac{\mu_0}{4 \pi} \int_\Omega \frac{1}{|\bfr - \bfr'|} \left(  \nabla' \cdot \bfJ(\bfr') \right) \dd V'.
+&= -\frac{\mu_0}{4 \pi} \int_\Omega \nabla' \cdot \left( \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \right) \dd V' + \frac{\mu_0}{4 \pi} \int_\Omega \frac{1}{|\bfr - \bfr'|} \left(  \nabla' \cdot \bfJ(\bfr') \right) \dd V'.
 \end{aligned}
 $$
 
 The last term vanishes as it satisfies @eq-conservation-current-steady. For the remaining term, we can use divergence theorem: 
 
-$$ -\frac{\mu_0}{4 \pi} \int_\Omega \nabla' \left( \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \right) \dd V' = -\frac{\mu_0}{4 \pi} \int_{\partial \Omega} \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \cdot \bfn \; \dd A'.$$
+$$ -\frac{\mu_0}{4 \pi} \int_\Omega \nabla' \cdot \left( \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \right) \dd V' = -\frac{\mu_0}{4 \pi} \int_{\partial \Omega} \frac{\bfJ(\bfr')}{|\bfr - \bfr'|} \cdot \bfn \; \dd A'.$$
 
 But, by definition, $\bfJ$ is supported inside $\Omega$, therefore the boundary integral vanishes and we conclude
 
@@ -336,7 +338,7 @@ which is Ampère's law (@thm-Ampere-law).
 
 For any simple^[i.e. that it doesn't intersect itself.] closed curve $C = \partial \Sigma$ bounding a surface $\Sigma$
 
-$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \; \dd A = \mu_0 I,$$
+$$ \int_C \bfB \cdot \bft \; \dd s = \mu_0 \int_\Sigma \bfJ \cdot \bfn \; \dd A = \mu_0 I,$$
 
 where $I$ is the current through $\Sigma$.
 
@@ -355,15 +357,14 @@ A current $I$ through an infinitely long straight wire, but now we approach it b
 
 Let's consider again the current through a straight wire (@exm-straight-wire), but now let's approach it using @cor-Ampere-law-alternative. If we look at the symmetries of the problem, we notice it is invariant under vertical translations and rotations around the $z$-axis, so we can conclude that the magnetic field only depends on the radial direction. Let's further assume that the only non-zero component is on the angular direction:
 
-$$ \bfB = B(\rho) \bfe_\theta.$$
+$$ \bfB = B(r) \bfe_\theta.$$
 
-For our curve $C$ we choose a circle of arbitrary radius $\rho$ in the $\rho-\theta$ plane with the centre on the $z$ axis. @cor-Ampere-law-alternative gives
+For our curve $C$ we choose a circle of arbitrary radius $r$ in the $r-\theta$ plane with the centre on the $z$ axis. @cor-Ampere-law-alternative gives
 
-$$ \int_C \bfB \cdot \dd \bfr =  \int_0^{2\pi} B(\rho) \rho \; \dd \theta = 2 \pi \rho B(\rho) = \mu_0 I,$$
-
+$$ \int_C \bfB \cdot \bft \; \dd s =  \int_0^{2\pi} B(r) r \; \dd \theta = 2 \pi r B(r) = \mu_0 I,$$
 therefore we conclude that
 
-$$ \bfB = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
+$$ \bfB = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
 
 :::
 
@@ -443,20 +444,19 @@ which is again Poisson's equation that we already know how to solve.
 
 Let's consider yet again the current through a straight wire (@exm-straight-wire). Now we want to compute the vector potential $\bfA$. We found out in the previous examples that
 
-$$ \bfB = \frac{\mu_0 I}{2 \pi \rho} \bfe_\theta.$$
+$$ \bfB = \frac{\mu_0 I}{2 \pi r} \bfe_\theta.$$
 
 As $\bfB = \nabla \times \bfA$, we can write the following system of equations for the components of $\bfA$:
 
-$$ \frac{1}{\rho} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,$$
+$$ \frac{1}{r} \frac{\partial A_z}{\partial \theta} - \frac{\partial A_\theta}{\partial z} = 0,$$
+$$ \frac{\partial A_r}{\partial z} - \frac{\partial A_z}{\partial r} = \frac{\mu_0 I}{2 \pi r},$$
 
-$$ \frac{\partial A_\rho}{\partial z} - \frac{\partial A_z}{\partial \rho} = \frac{\mu_0 I}{2 \pi \rho},$$
-
-$$\frac{1}{\rho} \left(\frac{\partial (\rho A_\theta)}{\partial \rho} - \frac{\partial A_\rho}{\partial \theta} \right) = 0.$$
+$$\frac{1}{r} \left(\frac{\partial (r A_\theta)}{\partial r} - \frac{\partial A_r}{\partial \theta} \right) = 0.$$
 
 
 This equation is not straightforward to solve, but we can construct a suitable solution (remember, it will not be unique) by taking
 
-$$\bfA = - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{\rho}{\rho_0} \right) \bfe_z,$$
+$$\bfA = - \frac{\mu_0 I}{2 \pi} \log \left(  \frac{r}{r_0} \right) \bfe_z,$$
 
-where $\rho_0$ is an integrating constant.
+where $r_0$ is an integrating constant.
 :::

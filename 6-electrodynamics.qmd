@@ -81,7 +81,7 @@ $$ \nabla \times \bfE = - \frac{\partial \bfB}{\partial t}.$$
 
 For any simple closed curve $C = \partial \Sigma$ bounding a fixed surface $\Sigma$, the Faraday law can be rewritten as
 
-$$ \int_C \bfE \cdot \dd \bfr = - \frac{\dd}{\dd t} \int_\Sigma \bfB \cdot \bfn \; \dd A.$$ 
+$$ \int_C \bfE \cdot \bft \; \dd s = - \frac{\dd}{\dd t} \int_\Sigma \bfB \cdot \bfn \; \dd A.$$ 
 
 :::
 
@@ -91,7 +91,7 @@ Let's now introduce a couple of useful definitions.
 
 ## Magnetic flux
 
-The integral $\Phi = \int_\Sigma \bfB \cdot \bfn \dd A$ is called the magnetic flux through $\Sigma$.
+The integral $\Phi = \int_\Sigma \bfB \cdot \bfn \; \dd A$ is called the magnetic flux through $\Sigma$.
 
 :::
 
@@ -99,7 +99,7 @@ The integral $\Phi = \int_\Sigma \bfB \cdot \bfn \dd A$ is called the magnetic f
 
 ## Electromotive force (emf)
 
-The integral $\mathcal{E}_\mathrm{emf} = \int_C \bfE \cdot \dd \bfr$ is called the electromotive force.^[Not confusingly at all, the electromotive force is not actually a force. It is the tangential component of the force per unit charge integrated along $C$.]
+The integral $\mathcal{E}_\mathrm{emf} = \int_C \bfE \cdot \bft \; \dd s$ is called the electromotive force.^[Not confusingly at all, the electromotive force is not actually a force. It is the tangential component of the force per unit charge integrated along $C$.]
 
 :::
 
@@ -135,7 +135,7 @@ Consider adding
 
 The last step before being able to write the Maxwell's equations is to revise Ampère's law (@thm-Ampere-law) to account for time-dependent electric fields. To do this, let's start with its integral form (@cor-Ampere-law-alternative):
 
-$$ \int_C \bfB \cdot \dd \bfr = \mu_0 \int_\Sigma \bfJ \cdot \bfn \; \dd A.$$
+$$ \int_C \bfB \cdot \bft \; \dd s = \mu_0 \int_\Sigma \bfJ \cdot \bfn \; \dd A.$$
 
 Remember that $C$ is a simple closed curve bounding $\Sigma$. But there are infinitely many surfaces bounded by $C$, so let's consider another surface $\Sigma'$ such that $\partial \Sigma ' = C$. Then
 
