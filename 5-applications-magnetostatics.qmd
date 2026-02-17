@@ -107,21 +107,21 @@ Now let's talk about magnetic dipoles. Consider the magnetic vector potential ge
 
 $$ \bfA (\bfr) = \frac{\mu_0 I}{4 \pi} \int_C \frac{\dd \bfr'}{|\bfr - \bfr'|}.$$
 
-We now want to see what happens when we make this circle infinitely small. Wlog we take the $C$ to be centred at the origin and lying on the $(x,y)$-plane. We can then parameterise it as $\bfr' = (R \cos \theta', R \sin \theta', 0)$ for $\theta' \in [0, 2\pi)$, where $R > 0$ is the radius of the circle. If we take a Taylor expansion in the limit of $R \ll 1$, we can write the integrand as
+We now want to see what happens when we make this circle infinitely small. Wlog we take the $C$ to be centred at the origin and lying on the $(x,y)$-plane. We can then parameterise it as $\bfr' = (R \cos \theta', R \sin \theta', 0)^T$ for $\theta' \in [0, 2\pi)$, where $R > 0$ is the radius of the circle. If we take a Taylor expansion in the limit of $R \ll 1$, we can write the integrand as
 
 $$ \begin{aligned}
 \frac{1}{|\bfr - \bfr'|} &= \frac{1}{\sqrt{(x - R \cos \theta')^2 + (y - R \sin \theta')^2 + z^2}} \\
 &= \frac{1}{\sqrt{x^2 + y^2 + z^2}} + R \frac{x \cos \theta' + y \sin \theta'}{\left(x^2 + y^2 + z^2 \right)^\frac{3}{2}} + O(R^2).
 \end{aligned}$$
 
-Using that $\dd \bfr' = (-R \sin \theta', R \cos \theta', 0) \dd \theta'$, we can write the vector potential as 
+Using that $\dd \bfr' = (-R \sin \theta', R \cos \theta', 0)^T \dd \theta'$, we can write the vector potential as 
 
 $$
 \begin{aligned}
 \bfA (\bfr) &= \frac{\mu_0 I}{4 \pi} \int_C \left(\frac{1}{\sqrt{(x - R \cos \theta')^2 + (y - R \sin \theta')^2 + z^2}} \right) \dd \bfr' \\
-&= \frac{\mu_0 I}{4 \pi} \int_0^{2\pi} \left[\frac{1}{\sqrt{x^2 + y^2 + z^2}} + R \frac{x \cos \theta' + y \sin \theta'}{\left(x^2 + y^2 + z^2 \right)^\frac{3}{2}} + O(R^2) \right] (-R \sin \theta',R \cos \theta', 0) \dd \theta'\\
-&= \frac{\mu_0 I}{4 \pi r^3} \left[\pi R^2 (-y, x, 0) + O(R^2) \right]\\
-&= \frac{\mu_0 I}{4 \pi r^3} \left[\pi R^2 \bfe_z \times \bfr + O(R^2) \right]
+&= \frac{\mu_0 I}{4 \pi} \int_0^{2\pi} \left[\frac{1}{\sqrt{x^2 + y^2 + z^2}} + R \frac{x \cos \theta' + y \sin \theta'}{\left(x^2 + y^2 + z^2 \right)^\frac{3}{2}} + O(R^2) \right] (-R \sin \theta',R \cos \theta', 0)^T \dd \theta'\\
+&= \frac{\mu_0 I}{4 \pi r^3} \left[\pi R^2 (-y, x, 0)^T + O(R^3) \right]\\
+&= \frac{\mu_0 I}{4 \pi r^3} \left[\pi R^2 \bfe_z \times \bfr + O(R^3) \right]
 \end{aligned}
 $$ {#eq-vector-potential-magnetic-dipole-derivation-1}
 
@@ -173,14 +173,14 @@ Notice the symmetry of the expression: if we were to compute the force on $\bfJ_
 
 Consider the case were we have to infinite, straight, parallel wires a distance $d$ from each other, carrying currents $I_1$ and $I_2$ respectively. We want the force applied to the second wire.
 
-Wlog we can write $\bfr_1 = (0, 0, z_1)$ and $\bfr_2 = (d, 0, z_2)$, and derive that $\dd \bfr_1 = \dd z_1 \; \bfe_z$ and $\dd \bfr_2 = \dd z_2 \; \bfe_z$. Then, @eq-force-between-currents becomes
+Wlog we can write $\bfr_1 = (0, 0, z_1)^T$ and $\bfr_2 = (d, 0, z_2)^T$, and derive that $\dd \bfr_1 = \dd z_1 \; \bfe_z$ and $\dd \bfr_2 = \dd z_2 \; \bfe_z$. Then, @eq-force-between-currents becomes
 
 $$\bfF = \frac{\mu_0}{4 \pi} I_1 I_2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \bfe_z \times \left(\bfe_z \times \frac{\bfr_2 - \bfr_1}{|\bfr_2 - \bfr_1|^3}\right) \dd z_2 \; \dd z_1.$$
 
 We have $\bfr_2 - \bfr_1 = d \bfe_x + (z_2 - z_1) \dd \bfe_z$, and using the properties of the cross product we obtain
 
 $$\begin{aligned}
-\bfF &= \frac{\mu_0}{4 \pi} I_1 I_2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{-d \bfe_x}{\left(d^2 + (z_2 - z_1)^2\right)^\frac{3}{2}} \dd z_2 \dd z_1\\
+\bfF &= \frac{\mu_0}{4 \pi} I_1 I_2 \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{-d \bfe_x}{\left(d^2 + (z_2 - z_1)^2\right)^\frac{3}{2}} \dd z_2 \; \dd z_1\\
 &= - \frac{\mu_0}{2 \pi d} I_1 I_2 \bfe_x \int_{-\infty}^{\infty} \dd z_2.
 \end{aligned}$$
 
@@ -194,22 +194,22 @@ If the currents have the same sign (i.e. $I_1 I_2 > 0$), then the force is attra
 
 ### Force between dipoles
 
-Let's now calculate the force that a given magnetic field $\bfB$ exerts on a dipole. We will use the same argument that we used in the definition of the dipole (@sec-magnetic-dipoles), in which we took the current around an infinitely small circular wire. From the Lorentz force law (@def-Lorentz-force), the force on the dipole is
+Let's now calculate the force that a given magnetic field $\bfB$ exerts on a dipole. We will use the same argument that we used in the definition of the dipole (@sec-magnetic-dipoles), in which we took the current around an infinitely small circular wire. From the Lorentz force law (@def-Lorentz-force), the force on the wire is
 
-$$\bfF = \int_C I \dd \bfr' \times \bfB(\bfr').$$
+$$\bfF = \int_C I \; \dd \bfr' \times \bfB(\bfr').$$
 
-Using the parameterisation $\bfr'=\left(R \cos \theta', R \sin \theta', 0 \right)$ for $\theta' \in [0, 2\pi)$, and taking the Taylor expansion in the limit of small $R$ we get
+Using the parameterisation $\bfr'=\left(R \cos \theta', R \sin \theta', 0 \right)^T$ for $\theta' \in [0, 2\pi)$, and taking the Taylor expansion in the limit of small $R$ we get
 
 $$\begin{aligned}
-\bfF &= I \int_0^{2\pi} \left(-R \sin \theta', R \cos \theta', 0 \right) \times \left[ \bfB(\bfzero) + \frac{\partial}{\partial x} \bfB(\bfzero) R \cos \theta' + \frac{\partial}{\partial y} \bfB(\bfzero) R \sin \theta' + O(R^2) \right] \dd \theta' \\
-&= I \pi R^2 \left[ \bfe_y \times \frac{\partial}{\partial x} \bfB(\bfzero) - \bfe_x \times \frac{\partial}{\partial y} \bfB(\bfzero) + O(R^3) \right] \\
-&= I \pi R^2 \left[ \frac{\partial}{\partial x} B_z(\bfzero) \bfe_x + \frac{\partial}{\partial y} B_z(\bfzero) \bfe_y - \left( \frac{\partial}{\partial x} B_x(\bfzero) + \frac{\partial}{\partial y} B_y(\bfzero) + O(R^3) \right)\right] \\
-&= I \pi R^2 \left[\nabla B_z(\bfzero) - \left( \nabla \cdot \bfB(\bfzero) \right) \bfe_z + O(R^3) \right].
+\bfF &= I \int_0^{2\pi} \left(-R \sin \theta', R \cos \theta', 0 \right)^T \times \left[ \bfB(\bfzero) + \frac{\partial}{\partial x} \bfB(\bfzero) R \cos \theta' + \frac{\partial}{\partial y} \bfB(\bfzero) R \sin \theta' + O(R^2) \right] \dd \theta' \\
+&= I \pi R^2 \left[ \bfe_y \times \frac{\partial}{\partial x} \bfB(\bfzero) - \bfe_x \times \frac{\partial}{\partial y} \bfB(\bfzero) + O(R) \right] \\
+&= I \pi R^2 \left[ \frac{\partial}{\partial x} B_z(\bfzero) \bfe_x + \frac{\partial}{\partial y} B_z(\bfzero) \bfe_y - \left( \frac{\partial}{\partial x} B_x(\bfzero) + \frac{\partial}{\partial y} B_y(\bfzero)\right) + O(R) \right] \\
+&= I \pi R^2 \left[\nabla B_z(\bfzero) - \left( \nabla \cdot \bfB(\bfzero) \right) \bfe_z + O(R) \right].
 \end{aligned}$$
 
 Taking the limit $R \to 0$ while keeping the dipole moment $\bfm = I \pi R^2 \bfe_z$ constant we obtain
 
-$$\bfF = \nabla (\bfm \cdot \bfB) - (\nabla \cdot \bfB) \bfm = \nabla(\bfm \cdot \bfB) = \nabla (\bfm \cdot \bfB),$$ {#eq-force-on-dipole}
+$$\bfF = \nabla (\bfm \cdot \bfB) - (\nabla \cdot \bfB) \bfm = \nabla(\bfm \cdot \bfB),$$ {#eq-force-on-dipole}
 
 where in the final step we have used that $\nabla \cdot \bfB = 0$. 
 
@@ -224,8 +224,8 @@ $$ \bftau = \int_C \bfr' \times \left(I \dd \bfr' \times \bfB(\bfr') \right) = I
 By a similar argument as before, we can write
 
 $$\begin{aligned}
-\bftau &= I \int_0^{2\pi} \left( -R \sin \theta' , R \cos \theta', 0 \right) \left[ B_x(\bfzero) R \cos \theta' + B_y(\bfzero) R \sin \theta' + O(R^2) \right] \dd \theta'\\
-&= I \pi R^2 \left[ (- B_y(\bfzero), B_x(\bfzero), 0) + O(R) \right],
+\bftau &= I \int_0^{2\pi} \left( -R \sin \theta' , R \cos \theta', 0 \right)^T \left[ B_x(\bfzero) R \cos \theta' + B_y(\bfzero) R \sin \theta' + O(R^2) \right] \dd \theta'\\
+&= I \pi R^2 \left[ (- B_y(\bfzero), B_x(\bfzero), 0)^T + O(R) \right],
 \end{aligned}$$
 
 and taking the limit $R \to 0$ we obtain

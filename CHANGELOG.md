@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-02-17
+
+- Fix minor typos.
+- Fix typo in (5.3), wrong order in the neglected terms.
+
 ## 2026-02-06
 
 - Fix broken cross-reference to Figure 5.1.
