@@ -1,0 +1,220 @@
+{{< include macros.qmd >}}
+
+# Applications of electrodynamics {#sec-applications-electrodynamics}
+
+::: {.callout-tip}
+
+## Aims of the chapter
+
+By the end of this chapter, you should be able to:
+
+* Calculate solutions to the wave equation for monochromatic plane waves.
+* Explain the phenomenon of light polarisation.
+* Explain the reflection of electromagnetic waves on a conductor.
+
+:::
+
+In the previous chapter we introduced the time dependency on Maxwell's equations, and derived the wave equation from them. These equations allow us to explain a huge variety of phenomena, such as electromagnetic induction and the behaviour of light. This is the goal of this chapter.
+
+## Solving the wave equation
+
+From the Maxwell's equations we derived the wave equation for both the electric and magnetic fields (@eq-wave-E and @eq-wave-B). The wave equation is a second-order linear partial differential equation, and we could solve it using the method of separation of variables. We will not go into the details of this method, but we will just show how to obtain a particular solution of the wave equation, which is the plane wave solution.
+
+Plane waves are waves that only depend on one spatial variable, say (wlog) $x$, and time $t$, and, by construction, they are constant in the $yz$-plane for fixed $x$ and $t$. Consider Gauss' law (in the absence of any charges) for this type of waves:
+
+$$\nabla \cdot \bfE = \frac{\partial E_x}{\partial x} = 0.$$
+
+Then $E_x$ must be constant, and we can set it to zero without loss of generality. Therefore, the electric field of a plane wave must be perpendicular to the direction of propagation (which is the $x$-axis in this case). We assume it takes the form
+$\bfE = E(x,t) \bfe_y$, so @eq-wave-E reduced to
+
+$$\frac{1}{c^2} \frac{\partial^2 E}{\partial t^2} - \frac{\partial^2 E}{\partial x^2} = 0.$$
+
+The most general form to the solution of this equation is 
+
+$$E(x,t) = f(x - ct) + g(x + ct),$$
+
+where $f$ and $g$ are arbitrary functions. This solution represents two waves, one travelling to the right (the $f$ term) and one travelling to the left (the $g$ term). 
+
+Within the plane wave solutions, we can study a particular class: monochromatic waves. These are oscillating waves with a single frequency $\omega$. Take
+
+$$E(x,t) = E_0 \sin\left(\omega \left( \frac{x}{c} - t\right) \right),$$
+
+where $E_0$ is the amplitude of the wave. It is often more convenient to write this solution as
+
+$$E(x,t) = E_0 \sin(kx - \omega t),$$
+
+where $k$ is called the _wavenumber_ and is related to $\omega$ by the relation $\omega = k \; c$, which is called the _dispersion relation_ of the wave. 
+
+There are some associated quantities which are very useful from a physics perspective:
+
+* To be proper, we should refer to $\omega$ as the _angular frequency_, and define the _frequency_ as 
+
+$$\nu = \omega / (2\pi),$$ 
+
+which is the number of oscillations per unit time. However, we will only work with $\omega$ in these notes, so we will just call it frequency.
+
+* The _period_ of oscillation is defined as 
+$$T = 1/\nu = 2\pi/\omega,$$ 
+
+and is the time it takes for a wave to complete an oscillation.
+
+* The _wavelength_ $\lambda$ is defined as the distance between two consecutive peaks of the wave, and is given by 
+
+$$\lambda = 2\pi/k.$$
+
+Now let's consider the magnetic field. Using Faraday's law @eq-Maxwell-2-bis, we can write
+
+$$\bfB = B(x,t) \bfe_z,$$
+
+with
+
+$$\frac{\partial B}{\partial t} = - \frac{\partial E}{\partial x} = -k E_0 \cos(kx - \omega t).$$
+
+Integrating $B$ with respect to time, we obtain
+
+$$B(x, t) = \frac{E_0}{c} \sin(kx - \omega t).$$
+
+We have ignored the integration constant, we will talk about those (which are basically shifts in the phase of the wave) when we talk about polarisation of waves.
+
+![Sketch of a plane wave. Adapted from <a href="https://tikz.net/emw-propagation/">Alexandros Tsagkaropoulos</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via TikZ.net.](./figs/plane_wave.svg){#fig-plane-wave width=80%}
+
+From the expressions for $\bfE$ and $\bfB$, we can see that, as shown in @fig-plane-wave the electric and magnetic fields oscillate in phase, but perpendicular to each other, and to the direction of propagation of the wave. The results we have derived are for a single frequency, but by linearity of the Maxwell's equations (or, if you prefer, by the principle of superposition) we can construct more complicated solutions by adding together monochromatic waves of different frequencies. This is how we can explain the behaviour of light, which is a superposition of waves of different frequencies (or, equivalently, different wavelengths).
+
+By convenience, we can switch to complex notation, and write the electric and magnetic fields as
+
+$$\bfE(x, t) = E_0 \bfe_y e^{i(kx - \omega t)}, \quad \text{and} \quad \bfB(x, t) = \frac{E_0}{c} \bfe_z e^{i(kx - \omega t)}.$$
+
+As long as we work with linear equations, we are guaranteed that both the real and imaginary parts are solutions to the wave equation, and so will be any linear combination of them.
+
+## Light polarisation {#sec-light-polarisation}
+
+We can now further generalise our wave solutions by allowing the wave to travel and oscillate in arbitrary directions. Then, the solutions can be written as
+
+$$\bfE(\bfr, t) = \bfE_0 e^{i(\bfk \cdot \bfr - \omega t)}, \quad \text{and} \quad \bfB(\bfr, t) = \bfB_0 e^{i(\bfk \cdot \bfr - \omega t)}.$$ {#eq-plane-wave-complex}
+
+Here, $\bfE_0$ and $\bfB_0$ can be complex-valued vectors, and the vector $\bfk$ is called the _wavevector_, with $|\bfk| = k$. The dispersion relation $\omega = c k$ still holds, but we need some additional constraints on $\bfE_0$, $\bfB_0$ and $\bfk$. From the Maxwell's equations we obtain
+
+$$\begin{aligned}
+\nabla \cdot \bfE &= 0, & \implies \bfk \cdot \bfE_0 &= 0, \\
+\nabla \cdot \bfB &= 0, & \implies \bfk \cdot \bfB_0 &= 0, \\
+\nabla \times \bfE &= -\frac{\partial \bfB}{\partial t}, & \implies \bfk \times \bfE_0 &= \omega \bfB_0,
+\end{aligned}$$
+
+and you can check that the remaining Maxwell's equation is automatically satisfied (and, in fact, the first and second relations can each be deduced from the other two). The first and second relations tell us that the electric and magnetic fields are perpendicular to the direction of propagation of the wave $\bfk$, respectively, while the last relation tells us that $\bfE_0$ and $\bfB_0$ are perpendicular to each other, and that their magnitudes are related by $|\bfB_0| = |\bfE_0|/c$. This means that electromagnetic waves are _transverse waves_ (or transversely polarised), as they oscillate in a direction perpendicular to the direction of propagation.^[This is in contrast to longitudinal waves, which oscillate in the direction of propagation, like sound waves.]
+
+These results will allow us to study the phenomenon of light polarisation. The first type of polarisation we will look at is linear polarisation. Let's assume that both $\bfE_0$ and $\bfB_0$ are real-valued vectors. Then, we have that the electric field oscillates in the $\bfE_0$ direction, and the magnetic field oscillates in the $\bfB_0$ direction, which is perpendicular to $\bfE_0$. The two vectors satisfy
+
+$$\bfk \times \bfE_0 = \omega \bfB_0,$$
+
+or, rearranging using the dispersion relation
+
+$$\hat{\bfk} \times \left( \frac{\bfE_0}{c} \right) = \bfB_0,$$
+
+where $\hat{\bfk} = \bfk / k$ is the unit vector in the direction of propagation. This means that $\bfE_0$, $\bfB_0$ and $\hat{\bfk}$ form a right-handed orthogonal basis, and so the electric and magnetic fields oscillate in fixed directions, which are perpendicular to each other and to the direction of propagation. This is what we call _linearly polarised light_.
+
+The next type of polarisation we will look at is elliptic polarisation (of which circular polarisation is a special case). Suppose now that $\bfE_0$ and $\bfB_0$ are complex-valued vectors. The actual electric and magnetic fields are given by the real parts of @eq-plane-wave-complex, but the polarisation of the wave now does not point in a fixed direction.
+
+Consider now two orthogonal unit vectors $\bfe_1$ and $\bfe_2$, such that $\bfe_1 \times \bfe_2 = \hat{\bfk}$. Then, we can express
+
+$$\bfE_0 = \alpha_1 e^{i \delta_1} \bfe_1 - i \alpha_2 e^{i \delta_2} \bfe_2,$$
+
+where $\alpha_1, \alpha_2 \in \mathbb{R}$ are the magnitudes and  $\delta_1,\delta_2 \in \mathbb{R}$ are the phases complex phases. Then, the real part of the electric field (i.e. the actual electric field) is given by
+
+$$\bfE(\bfr, t) = \alpha_1 \cos(\bfk \cdot \bfr - \omega t + \delta_1) \bfe_1 + \alpha_2 \sin(\bfk \cdot \bfr - \omega t + \delta_2) \bfe_2.$$
+
+If either $\alpha_1$ or $\alpha_2$ is zero, then the wave is linearly polarised. If both $\alpha_1$ and $\alpha_2$ are non-zero, then we have a more interesting behaviour. To better understand what is going on, let's fix the position $\bfr$ to an arbitrary point and look at the electric field as a function of time. Taking $\bfr = \bfzero$ we have
+
+$$\bfE(\bfzero, t) = \alpha_1 \cos(\omega t - \delta_1) \bfe_1 - \alpha_2 \sin(\omega t - \delta_2) \bfe_2 = E_1(t) \bfe_1 + E_2(t) \bfe_2,$$
+
+where the last step is simply a relabelling. Using the sum of angles trigonometric identities and some algebraic manipulation we can write
+
+$$\begin{aligned}
+\frac{E_1}{\alpha_1} \cos \delta_2 + \frac{E_2}{\alpha_2} \sin \delta_1 &= \cos(\omega t) \cos(\delta_1 - \delta_2), \\
+\frac{E_1}{\alpha_1} \sin \delta_2 - \frac{E_2}{\alpha_2} \cos \delta_1 &= \sin(\omega t) \cos(\delta_1 - \delta_2).
+\end{aligned}$$
+
+Squaring and adding these two equations we obtain
+
+$$\left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 + 2 \frac{E_1 E_2}{\alpha_1 \alpha_2} \sin(\delta_1 - \delta_2) = \cos^2(\delta_1 - \delta_2),$$
+
+or, given that $\delta_1$ and $\delta_2$ are fixed parameters,
+
+$$ \left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 = \text{constant}.$$
+
+Therefore, as shown in @fig-elliptic-polarisation, the tip of the electric field vector $\bfE$ traces an ellipse in the plane spanned by $\bfe_1$ and $\bfe_2$, which is perpendicular to the direction of propagation. This is what we call _elliptically polarised light_. If $\alpha_1 = \alpha_2$, then the wave is called _circularly polarised_, as the tip of the electric field vector traces a circle.
+
+![Sketch of an elliptically polarised wave. Adapted from <a href="https://tikz.net/elliptical-polarization/">Alexandros Tsagkaropoulos</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via TikZ.net.](./figs/elliptic_polarisation.svg){#fig-elliptic-polarisation width=80%}
+
+Given that 
+
+$$\bfk \times \bfE_0 = \omega \bfB_0,$$ 
+
+we can see that the magnetic field of an elliptically polarised wave is also elliptically polarised, and that the electric and magnetic fields are in phase (i.e. they reach their maximum and minimum values at the same time). From this equation we deduce that $c |\bfB| = |\bfE|$ at all times, so the energy density of a monochromatic wave is
+
+$$\mathcal{E} = \frac{1}{2} \epsilon_0 |\bfE|^2 + \frac{1}{2\mu_0} |\bfB|^2 = \epsilon_0 |\bfE|^2,$$
+
+and the Poynting vector is
+
+$$\bfS = \frac{1}{\mu_0} \bfE \times \bfB = \frac{1}{\mu_0 c} |\bfE|^2 \hat{\bfk} = c \mathcal{E} \hat{\bfk}.$$
+
+Finally, we need to discuss what happens when we have a general wave. A general solution to the wave equation can be build by linearly combining plane waves of different frequencies and polarisations.
+
+## Reflection of light on a conductor
+
+Let's now look at an application to a real-world problem. Consider a plane monochromatic wave of frequency $\omega$ and wavenumber $k$ travelling in the $x$-direction, and hitting a perfect conductor sitting in $x>0$. We want to understand what happens to the wave when it hits the conductor.
+
+We first consider the case where the wave hits the conductor perpendicularly. Wlog we take the incident wave to be
+
+$$\bfE_\text{inc} = E_0 e^{i(kx - \omega t)} \bfe_y.$$
+
+We know that inside the conductor the electric field must be zero. The electric field lies in the $y$-direction, which is tangent to the surface of the conductor, hence by @prp-jump-electric-field we must have that $\bfE = \bfzero$ at $x=0^-$. This means that there must be a reflected wave travelling in the opposite direction of the form
+
+$$\bfE_\text{ref} = - E_0 e^{i(-kx - \omega t)} \bfe_y,$$
+
+so the total electric field is $\bfE = \bfE_\text{inc} + \bfE_\text{ref}$, which is zero at $x=0$ as required. Using $\nabla \times \bfE = -\partial \bfB / \partial t$ we can also obtain the magnetic field $\bfB = \bfB_\text{inc} + \bfB_\text{ref}$ with
+
+$$\bfB_\text{inc} = \frac{E_0}{c} e^{i(kx - \omega t)} \bfe_z, \quad \text{and} \quad \bfB_\text{ref} = \frac{E_0}{c} e^{i(-kx - \omega t)} \bfe_z.$$
+
+We can check the continuity of the magnetic field at the surface of the conductor (@prp-jump-magnetic-field). The magnetic field is zero inside of the conductor (you can check that from Maxwell's equations and $\bfE = \bfzero$), and outside $\bfB$ is in the $z$-direction (i.e. tangential to the surface). Then, the continuity in the normal direction is automatically satisfied, and we find that in the tangential direction
+
+$$\bfe_x \times \bfB = - \frac{2 E_0}{c} e^{-i \omega t} \bfe_y,$$
+
+hence the magnetic field induces a surface current
+
+$$\bfK = \frac{2 E_0}{\mu_0 c} e^{-i \omega t} \bfe_y.$$
+
+Note that, in practice, the current induced on the surface will be very small and oscillate so quickly that in reality we will not be able to see it (and that's before any quantum effects kick in).
+
+Now let's consider a more complex case: what happens if the wave hits the conductor at an angle $\theta$? Now we write our incident wave as
+
+$$\bfE_\text{inc} = E_0 e^{i(\bfk \cdot \bfr - \omega t)} \bfe_y,$$
+
+where the vector $\bfe_y$ points out of the page. Then, we can write the wavector as
+
+$$\bfk = k \cos \theta \bfe_x + k \sin \theta \bfe_z.$$
+
+We now need to worry about the continuity of $\bfE$ both in the normal and tangential directions. The reflected wave must have the form
+
+$$\bfE_\text{ref} = E_0' e^{i(\bfk' \cdot \bfr - \omega' t)} \bfu,$$
+
+where we allow for the possibility of $E_0$, $\bfk'$, $\omega'$ and the polarisation vector $\bfu$ to be different from those of the incident wave. Let's impose the continuity condition in the tangential direction, the normal vector to the surface is $\bfe_x$, hence
+
+$$\begin{aligned}
+\bfE_\text{inc} \times \bfe_x &= - E_0 e^{i(\bfk \cdot \bfr - \omega t)} \bfe_z, \\
+\bfE_\text{ref} \times \bfe_x &= E_0' e^{i(\bfk' \cdot \bfr - \omega' t)} \bfu \times \bfe_x,
+\end{aligned}$$
+
+and we have
+
+$$\bfE \times \bfe_x = (\bfE_\text{inc} + \bfE_\text{ref}) \times \bfe_x = \bfzero$$
+
+at $x = 0$. This is only possible if $\bfu \times \bfe_x = - \bfe_z$, which means that $\bfu = \bfe_y$ (i.e. the reflected wave is linearly polarised in the same direction as the incident wave), and if $E_0' = -E_0$ and $\omega' = \omega$. For $\bfk'$, the equation only tells us that $\bfk \cdot \bfe_z = \bfk' \cdot \bfe_z$. However, due to the dispersion relation, we must have $|\bfk'| = |\bfk|$. Therefore, we have two possibilities $\bfk' \cdot \bfe_x = \pm \bfk \cdot \bfe_x$. We take the solution with the minus sign, as otherwise the reflected wave would be travelling in the same direction as the incident wave (which does not make physical sense) so we conclude that 
+
+$$\bfk' = - k \cos \theta \bfe_x + k \sin \theta \bfe_z.$$
+
+Then, the incident and reflected magnetic fields are
+
+$$\bfB_\text{inc} = \frac{E_0}{c} e^{i(\bfk \cdot \bfr - \omega t)} (\hat{\bfk} \times \bfe_z), \quad \text{and} \quad \bfB_\text{ref} = -\frac{E_0}{c} e^{i(\bfk' \cdot \bfr - \omega t)} (\hat{\bfk}' \times \bfe_z).$$
+
+This tells us that the reflected wave bounces back with the same angle $\theta$ as the incident wave.
+
