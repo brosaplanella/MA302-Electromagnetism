@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2026-02-24
+
+- Minor typo corrections (Chapter 6).
+
 ## 2026-02-17
 
 - Minor typo corrections.
