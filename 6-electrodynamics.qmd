@@ -31,7 +31,7 @@ Let's first consider how @eq-curl-E-zero is modified when we allow both $\bfE$ a
 
 The relationship between the electric field $\bfE$ and the magnetic field $\bfB$ is given by
 
-$$ \nabla \times \bfE = - \frac{\partial \bfB}{\partial t} $$
+$$ \nabla \times \bfE = - \frac{\partial \bfB}{\partial t}.$$
 
 :::
 
@@ -165,7 +165,7 @@ which suggests we can write Ampère's law (@eq-Ampere-law) as
 
 $$ \nabla \times \bfB = \mu_0 \left( \bfJ + \epsilon_0 \frac{\partial \bfE}{\partial t}\right).$$ {#eq-Ampere-law-modified-time-dependence}
 
-This is one of the Maxwell's equation (@eq-Maxwell-4). This extra term that we picked up, $\frac{\partial \bfE}{\partial t}$, is called the _displacement current_.
+This is one of the Maxwell's equation (@eq-Maxwell-4). This extra term that we picked up, $\epsilon_0 \frac{\partial \bfE}{\partial t}$, is called the _displacement current_.
 
 There is a quite interesting historical note about this equation. While the other three Maxwell's equations (and the static version of Ampère's law) were discovered mostly through experiments (even though mathematicians were still needed to write them as equations), the displacement current term @eq-Maxwell-4 was discovered by Maxwell purely by reasoning, and that's probably why all four equations are now named after him. Moreover, the displacement current _must_ be included, otherwise the equations are not consistent, but we will discuss this in the next section.
 
@@ -219,11 +219,11 @@ $$ \mu_0 \epsilon_0 \frac{\partial^2 \bfE}{\partial t^2} = \frac{\partial}{\part
 
 where, remember, we are assuming $\bfJ = \bfzero$. Now let's use the identity
 
-$$\nabla \times \left( \nabla \times \bfE \right) = \nabla \left( \nabla \times \bfE \right) - \nabla^2 \bfE.$$
+$$\nabla \times \left( \nabla \times \bfE \right) = \nabla \left( \nabla \cdot \bfE \right) - \nabla^2 \bfE.$$
 
 But by @eq-Maxwell-1-bis we conclude that the first term vanishes (remember, we assume $\rho = 0$), so we can write
 
-$$\frac{1}{c^2} \frac{\partial^2 \bfE}{\partial t^2} - \nabla^2 \bfE = \bfzero,$$
+$$\frac{1}{c^2} \frac{\partial^2 \bfE}{\partial t^2} - \nabla^2 \bfE = \bfzero,$$ {#eq-wave-E}
 
 where we defined
 
@@ -231,7 +231,7 @@ $$c = \sqrt{\frac{1}{\mu_0 \epsilon_0}}.$$
 
 Similarly, we can take the time derivative of @eq-Maxwell-2-bis to obtain
 
-$$\frac{1}{c^2} \frac{\partial^2 \bfB}{\partial t^2} - \nabla^2 \bfB = \bfzero.$$
+$$\frac{1}{c^2} \frac{\partial^2 \bfB}{\partial t^2} - \nabla^2 \bfB = \bfzero.$$ {#eq-wave-B}
 
 Therefore, both the electric and magnetic fields satisfy the wave equation.^[If you are interested in learning more about waves, you should take [MA301 Waves and Metamaterials](https://warwick.ac.uk/fac/sci/maths/currentstudents/modules/ma301/).] Let's look at the parameter $c$ we defined. Recall the values for the constants
 
@@ -335,11 +335,11 @@ Electromagnetic waves carry energy. In fact, most of the energy we get in the Ea
 
 The electromagnetic energy density for a given field is
 
-$$\mathcal{E} = \frac{\epsilon}{2}\bfE \cdot \bfE + \frac{1}{2 \mu_0} \bfB \cdot \bfB.$$
+$$\mathcal{E} = \frac{\epsilon_0}{2} |\bfE|^2 + \frac{1}{2 \mu_0} |\bfB|^2.$$
 
 :::
 
-Do not confuse the electromagnetic energy density $\mathcal{E}$ with the electromotive force $\mathcal{E}_\mathrm{emf}$. In fact, the latter will not appear again in these notes.
+Do not confuse the electromagnetic energy density $\mathcal{E}$ with the electromotive force $\mathcal{E}_\mathrm{emf}$.
 
 ::: {#thm-Poynting}
 
