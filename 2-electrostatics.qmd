@@ -503,7 +503,7 @@ Define $\bft$ to be a tangent vector to the equipotential at a given point $\bfr
 
 :::
 
-## Electrostatic energy
+## Electrostatic energy {#sec-electrostatic-energy}
 
 To finish this chapter on electrostatics, let's talk about the electrostatic energy. Note that the electrostatic potential at a given point can be interpreted as the potential energy required to bring a unit charge to that point from some reference point (usually infinity).
 

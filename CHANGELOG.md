@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2026-03-02
+
+- Added Chapter 7 on applications of electrodynamics (note that Electromagnetism in Matter is now Chapter 8).
+
 ## 2026-02-24
 
 - Minor typo corrections (Chapter 6).
