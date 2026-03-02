@@ -225,7 +225,7 @@ In @sec-electrostatic-energy we derived the expression for the electrostatic ene
 
 The idea is that, if we apply a current on a curve $C$, we will generate a magnetic field and, by Lenz's law, this magnetic field will induce a current in the opposite direction to the one we are applying. This means that we need to do work to maintain the current flowing through $C$, and this work is stored as magnetic energy in the field.
 
-Let's first need to introduce a very useful concept: the inductance.
+First we need to introduce a very useful concept: the inductance.
 
 ::: {#def-inductance}
 ## Inductance
