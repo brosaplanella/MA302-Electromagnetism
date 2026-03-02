@@ -194,7 +194,7 @@ where the vector $\bfe_y$ points out of the page. Then, we can write the wavecto
 
 $$\bfk = k \cos \theta \bfe_x + k \sin \theta \bfe_z.$$
 
-We now need to worry about the continuity of $\bfE$ both in the normal and tangential directions. The reflected wave must have the form
+We now need to worry about the continuity of $\bfE$ across the interface. The reflected wave must have the form
 
 $$\bfE_\text{ref} = E_0' e^{i(\bfk' \cdot \bfr - \omega' t)} \bfu,$$
 
@@ -215,7 +215,7 @@ $$\bfk' = - k \cos \theta \bfe_x + k \sin \theta \bfe_z.$$
 
 Then, the incident and reflected magnetic fields are
 
-$$\bfB_\text{inc} = \frac{E_0}{c} e^{i(\bfk \cdot \bfr - \omega t)} (\hat{\bfk} \times \bfe_z), \quad \text{and} \quad \bfB_\text{ref} = -\frac{E_0}{c} e^{i(\bfk' \cdot \bfr - \omega t)} (\hat{\bfk}' \times \bfe_z).$$
+$$\bfB_\text{inc} = \frac{E_0}{c} e^{i(\bfk \cdot \bfr - \omega t)} (\hat{\bfk} \times \bfe_y), \quad \text{and} \quad \bfB_\text{ref} = -\frac{E_0}{c} e^{i(\bfk' \cdot \bfr - \omega t)} (\hat{\bfk}' \times \bfe_y).$$
 
 This tells us that the reflected wave bounces back with the same angle $\theta$ as the incident wave.
 
