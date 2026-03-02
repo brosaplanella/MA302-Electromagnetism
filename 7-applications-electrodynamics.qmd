@@ -138,9 +138,9 @@ Squaring and adding these two equations we obtain
 
 $$\left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 + 2 \frac{E_1 E_2}{\alpha_1 \alpha_2} \sin(\delta_1 - \delta_2) = \cos^2(\delta_1 - \delta_2),$$
 
-or, given that $\delta_1$ and $\delta_2$ are fixed parameters,
+which is the equation for an ellipse. This is easier to see if we have $\delta_1 = \delta_2$, when 
 
-$$ \left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 = \text{constant}.$$
+$$ \left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 = 1.$$
 
 Therefore, as shown in @fig-elliptic-polarisation, the tip of the electric field vector $\bfE$ traces an ellipse in the plane spanned by $\bfe_1$ and $\bfe_2$, which is perpendicular to the direction of propagation. This is what we call _elliptically polarised light_. If $\alpha_1 = \alpha_2$, then the wave is called _circularly polarised_, as the tip of the electric field vector traces a circle.
 
