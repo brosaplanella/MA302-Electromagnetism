@@ -241,7 +241,7 @@ Equipped with this concept, let's now talk about the magnetostatic energy of a c
 
 $$\mathcal{E}_\text{emf} = - \frac{\dd \Phi}{\dd t} = - L \frac{\dd I}{\dd t}.$$ {#eq-inductance-emf}
 
-As we have explained earlier, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve $C$. We have a current $I$ in the curve, so in a time interval $\delta t$ a charge $I \; \delta t$ will flow through the curve, and the work done by the electric field to move this charge is
+As we explained in the previous chapter, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve $C$. We have a current $I$ in the curve, so in a time interval $\delta t$ a charge $I \; \delta t$ will flow through the curve, and the work done by the electric field to move this charge is
 
 $$\delta W = \mathcal{E}_\text{emf} q = \mathcal{E}_\text{emf} \; I \; \delta t = - L I \frac{\dd I}{\dd t} \delta t.$$ {#eq-work-inductance}
 
