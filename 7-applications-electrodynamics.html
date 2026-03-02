@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; Applications of electrodynamics – MA302 Electromagnetism</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./8-matter.html" rel="next">
+<link href="./6-electrodynamics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c58f986be3ff872790ab570c6d9e49f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7c8ba9dac8feea6a77ed63b2e2898d0e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c58f986be3ff872790ab570c6d9e49f2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./7-applications-electrodynamics.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications of electrodynamics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MA302 Electromagnetism</a> 
+        <div class="sidebar-tools-main">
+    <a href="./MA302-Electromagnetism.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to electromagnetism</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-electrostatics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Electrostatics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-applications-electrostatics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Applications of electrostatics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-magnetostatics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Magnetostatics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5-applications-magnetostatics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications of magnetostatics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6-electrodynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Electrodynamics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7-applications-electrodynamics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications of electrodynamics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8-matter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Electromagnetism in matter</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#solving-the-wave-equation" id="toc-solving-the-wave-equation" class="nav-link active" data-scroll-target="#solving-the-wave-equation"><span class="header-section-number">7.1</span> Solving the wave equation</a></li>
+  <li><a href="#sec-light-polarisation" id="toc-sec-light-polarisation" class="nav-link" data-scroll-target="#sec-light-polarisation"><span class="header-section-number">7.2</span> Light polarisation</a></li>
+  <li><a href="#reflection-of-light-on-a-conductor" id="toc-reflection-of-light-on-a-conductor" class="nav-link" data-scroll-target="#reflection-of-light-on-a-conductor"><span class="header-section-number">7.3</span> Reflection of light on a conductor</a></li>
+  <li><a href="#magnetostatic-energy-and-inductance" id="toc-magnetostatic-energy-and-inductance" class="nav-link" data-scroll-target="#magnetostatic-energy-and-inductance"><span class="header-section-number">7.4</span> Magnetostatic energy and inductance</a></li>
+  <li><a href="#electromagnetic-induction" id="toc-electromagnetic-induction" class="nav-link" data-scroll-target="#electromagnetic-induction"><span class="header-section-number">7.5</span> Electromagnetic induction</a>
+  <ul class="collapse">
+  <li><a href="#faradays-law-revisited" id="toc-faradays-law-revisited" class="nav-link" data-scroll-target="#faradays-law-revisited"><span class="header-section-number">7.5.1</span> Faraday’s law revisited</a></li>
+  <li><a href="#resistance" id="toc-resistance" class="nav-link" data-scroll-target="#resistance"><span class="header-section-number">7.5.2</span> Resistance</a></li>
+  <li><a href="#application-current-induced-by-a-moving-loop" id="toc-application-current-induced-by-a-moving-loop" class="nav-link" data-scroll-target="#application-current-induced-by-a-moving-loop"><span class="header-section-number">7.5.3</span> Application: current induced by a moving loop</a></li>
+  </ul></li>
+  <li><a href="#electric-circuits-brief-remark" id="toc-electric-circuits-brief-remark" class="nav-link" data-scroll-target="#electric-circuits-brief-remark"><span class="header-section-number">7.6</span> Electric circuits (brief remark)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-applications-electrodynamics" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Applications of electrodynamics</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="hidden">
+
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Aims of the chapter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this chapter, you should be able to:</p>
+<ul>
+<li>Calculate solutions to the wave equation for monochromatic plane waves.</li>
+<li>Explain the phenomenon of light polarisation.</li>
+<li>Explain the reflection of electromagnetic waves on a conductor.</li>
+</ul>
+</div>
+</div>
+<p>In the previous chapter we introduced the time dependency on Maxwell’s equations, and derived the wave equation from them. These equations allow us to explain a huge variety of phenomena, such as electromagnetic induction and the behaviour of light. This is the goal of this chapter.</p>
+<section id="solving-the-wave-equation" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="solving-the-wave-equation"><span class="header-section-number">7.1</span> Solving the wave equation</h2>
+<p>From the Maxwell’s equations we derived the wave equation for both the electric and magnetic fields (<a href="6-electrodynamics.html#eq-wave-E" class="quarto-xref">Equation&nbsp;<span>6.8</span></a> and <a href="6-electrodynamics.html#eq-wave-B" class="quarto-xref">Equation&nbsp;<span>6.9</span></a>). The wave equation is a second-order linear partial differential equation, and we could solve it using the method of separation of variables. We will not go into the details of this method, but we will just show how to obtain a particular solution of the wave equation, which is the plane wave solution.</p>
+<p>Plane waves are waves that only depend on one spatial variable, say (wlog) <span class="math inline">x</span>, and time <span class="math inline">t</span>, and, by construction, they are constant in the <span class="math inline">yz</span>-plane for fixed <span class="math inline">x</span> and <span class="math inline">t</span>. Consider Gauss’ law (in the absence of any charges) for this type of waves:</p>
+<p><span class="math display">\nabla \cdot {\boldsymbol{E}}= \frac{\partial E_x}{\partial x} = 0.</span></p>
+<p>Then <span class="math inline">E_x</span> must be constant, and we can set it to zero without loss of generality. Therefore, the electric field of a plane wave must be perpendicular to the direction of propagation (which is the <span class="math inline">x</span>-axis in this case). We assume it takes the form <span class="math inline">{\boldsymbol{E}}= E(x,t) {\boldsymbol{e}}_y</span>, so <a href="6-electrodynamics.html#eq-wave-E" class="quarto-xref">Equation&nbsp;<span>6.8</span></a> reduced to</p>
+<p><span class="math display">\frac{1}{c^2} \frac{\partial^2 E}{\partial t^2} - \frac{\partial^2 E}{\partial x^2} = 0.</span></p>
+<p>The most general form to the solution of this equation is</p>
+<p><span class="math display">E(x,t) = f(x - ct) + g(x + ct),</span></p>
+<p>where <span class="math inline">f</span> and <span class="math inline">g</span> are arbitrary functions. This solution represents two waves, one travelling to the right (the <span class="math inline">f</span> term) and one travelling to the left (the <span class="math inline">g</span> term).</p>
+<p>Within the plane wave solutions, we can study a particular class: monochromatic waves. These are oscillating waves with a single frequency <span class="math inline">\omega</span>. Take</p>
+<p><span class="math display">E(x,t) = E_0 \sin\left(\omega \left( \frac{x}{c} - t\right) \right),</span></p>
+<p>where <span class="math inline">E_0</span> is the amplitude of the wave. It is often more convenient to write this solution as</p>
+<p><span class="math display">E(x,t) = E_0 \sin(kx - \omega t),</span></p>
+<p>where <span class="math inline">k</span> is called the <em>wavenumber</em> and is related to <span class="math inline">\omega</span> by the relation <span class="math inline">\omega = k \; c</span>, which is called the <em>dispersion relation</em> of the wave.</p>
+<p>There are some associated quantities which are very useful from a physics perspective:</p>
+<ul>
+<li>To be proper, we should refer to <span class="math inline">\omega</span> as the <em>angular frequency</em>, and define the <em>frequency</em> as</li>
+</ul>
+<p><span class="math display">\nu = \omega / (2\pi),</span></p>
+<p>which is the number of oscillations per unit time. However, we will only work with <span class="math inline">\omega</span> in these notes, so we will just call it frequency.</p>
+<ul>
+<li>The <em>period</em> of oscillation is defined as <span class="math display">T = 1/\nu = 2\pi/\omega,</span></li>
+</ul>
+<p>and is the time it takes for a wave to complete an oscillation.</p>
+<ul>
+<li>The <em>wavelength</em> <span class="math inline">\lambda</span> is defined as the distance between two consecutive peaks of the wave, and is given by</li>
+</ul>
+<p><span class="math display">\lambda = 2\pi/k.</span></p>
+<p>Now let’s consider the magnetic field. Using Faraday’s law <a href="6-electrodynamics.html#eq-Maxwell-2-bis" class="quarto-xref">Equation&nbsp;<span>6.6</span></a>, we can write</p>
+<p><span class="math display">{\boldsymbol{B}}= B(x,t) {\boldsymbol{e}}_z,</span></p>
+<p>with</p>
+<p><span class="math display">\frac{\partial B}{\partial t} = - \frac{\partial E}{\partial x} = -k E_0 \cos(kx - \omega t).</span></p>
+<p>Integrating <span class="math inline">B</span> with respect to time, we obtain</p>
+<p><span class="math display">B(x, t) = \frac{E_0}{c} \sin(kx - \omega t).</span></p>
+<p>We have ignored the integration constant, we will talk about those (which are basically shifts in the phase of the wave) when we talk about polarisation of waves.</p>
+<div id="fig-plane-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plane-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/plane_wave.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plane-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Sketch of a plane wave. Adapted from <a href="https://tikz.net/emw-propagation/">Alexandros Tsagkaropoulos</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via TikZ.net.
+</figcaption>
+</figure>
+</div>
+<p>From the expressions for <span class="math inline">{\boldsymbol{E}}</span> and <span class="math inline">{\boldsymbol{B}}</span>, we can see that, as shown in <a href="#fig-plane-wave" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> the electric and magnetic fields oscillate in phase, but perpendicular to each other, and to the direction of propagation of the wave. The results we have derived are for a single frequency, but by linearity of the Maxwell’s equations (or, if you prefer, by the principle of superposition) we can construct more complicated solutions by adding together monochromatic waves of different frequencies. This is how we can explain the behaviour of light, which is a superposition of waves of different frequencies (or, equivalently, different wavelengths).</p>
+<p>By convenience, we can switch to complex notation, and write the electric and magnetic fields as</p>
+<p><span class="math display">{\boldsymbol{E}}(x, t) = E_0 {\boldsymbol{e}}_y e^{i(kx - \omega t)}, \quad \text{and} \quad {\boldsymbol{B}}(x, t) = \frac{E_0}{c} {\boldsymbol{e}}_z e^{i(kx - \omega t)}.</span></p>
+<p>As long as we work with linear equations, we are guaranteed that both the real and imaginary parts are solutions to the wave equation, and so will be any linear combination of them.</p>
+</section>
+<section id="sec-light-polarisation" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-light-polarisation"><span class="header-section-number">7.2</span> Light polarisation</h2>
+<p>We can now further generalise our wave solutions by allowing the wave to travel and oscillate in arbitrary directions. Then, the solutions can be written as</p>
+<p><span id="eq-plane-wave-complex"><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}, t) = {\boldsymbol{E}}_0 e^{i({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t)}, \quad \text{and} \quad {\boldsymbol{B}}({\boldsymbol{r}}, t) = {\boldsymbol{B}}_0 e^{i({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t)}. \tag{7.1}</span></span></p>
+<p>Here, <span class="math inline">{\boldsymbol{E}}_0</span> and <span class="math inline">{\boldsymbol{B}}_0</span> can be complex-valued vectors, and the vector <span class="math inline">{\boldsymbol{k}}</span> is called the <em>wavevector</em>, with <span class="math inline">|{\boldsymbol{k}}| = k</span>. The dispersion relation <span class="math inline">\omega = c k</span> still holds, but we need some additional constraints on <span class="math inline">{\boldsymbol{E}}_0</span>, <span class="math inline">{\boldsymbol{B}}_0</span> and <span class="math inline">{\boldsymbol{k}}</span>. From the Maxwell’s equations we obtain</p>
+<p><span class="math display">\begin{aligned}
+\nabla \cdot {\boldsymbol{E}}&amp;= 0, &amp; \implies {\boldsymbol{k}}\cdot {\boldsymbol{E}}_0 &amp;= 0, \\
+\nabla \cdot {\boldsymbol{B}}&amp;= 0, &amp; \implies {\boldsymbol{k}}\cdot {\boldsymbol{B}}_0 &amp;= 0, \\
+\nabla \times {\boldsymbol{E}}&amp;= -\frac{\partial {\boldsymbol{B}}}{\partial t}, &amp; \implies {\boldsymbol{k}}\times {\boldsymbol{E}}_0 &amp;= \omega {\boldsymbol{B}}_0,
+\end{aligned}</span></p>
+<p>and you can check that the remaining Maxwell’s equation is automatically satisfied (and, in fact, the first and second relations can each be deduced from the other two). The first and second relations tell us that the electric and magnetic fields are perpendicular to the direction of propagation of the wave <span class="math inline">{\boldsymbol{k}}</span>, respectively, while the last relation tells us that <span class="math inline">{\boldsymbol{E}}_0</span> and <span class="math inline">{\boldsymbol{B}}_0</span> are perpendicular to each other, and that their magnitudes are related by <span class="math inline">|{\boldsymbol{B}}_0| = |{\boldsymbol{E}}_0|/c</span>. This means that electromagnetic waves are <em>transverse waves</em> (or transversely polarised), as they oscillate in a direction perpendicular to the direction of propagation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>These results will allow us to study the phenomenon of light polarisation. The first type of polarisation we will look at is linear polarisation. Let’s assume that both <span class="math inline">{\boldsymbol{E}}_0</span> and <span class="math inline">{\boldsymbol{B}}_0</span> are real-valued vectors. Then, we have that the electric field oscillates in the <span class="math inline">{\boldsymbol{E}}_0</span> direction, and the magnetic field oscillates in the <span class="math inline">{\boldsymbol{B}}_0</span> direction, which is perpendicular to <span class="math inline">{\boldsymbol{E}}_0</span>. The two vectors satisfy</p>
+<p><span class="math display">{\boldsymbol{k}}\times {\boldsymbol{E}}_0 = \omega {\boldsymbol{B}}_0,</span></p>
+<p>or, rearranging using the dispersion relation</p>
+<p><span class="math display">\hat{{\boldsymbol{k}}} \times \left( \frac{{\boldsymbol{E}}_0}{c} \right) = {\boldsymbol{B}}_0,</span></p>
+<p>where <span class="math inline">\hat{{\boldsymbol{k}}} = {\boldsymbol{k}}/ k</span> is the unit vector in the direction of propagation. This means that <span class="math inline">{\boldsymbol{E}}_0</span>, <span class="math inline">{\boldsymbol{B}}_0</span> and <span class="math inline">\hat{{\boldsymbol{k}}}</span> form a right-handed orthogonal basis, and so the electric and magnetic fields oscillate in fixed directions, which are perpendicular to each other and to the direction of propagation. This is what we call <em>linearly polarised light</em>.</p>
+<p>The next type of polarisation we will look at is elliptic polarisation (of which circular polarisation is a special case). Suppose now that <span class="math inline">{\boldsymbol{E}}_0</span> and <span class="math inline">{\boldsymbol{B}}_0</span> are complex-valued vectors. The actual electric and magnetic fields are given by the real parts of <a href="#eq-plane-wave-complex" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>, but the polarisation of the wave now does not point in a fixed direction.</p>
+<p>Consider now two orthogonal unit vectors <span class="math inline">{\boldsymbol{e}}_1</span> and <span class="math inline">{\boldsymbol{e}}_2</span>, such that <span class="math inline">{\boldsymbol{e}}_1 \times {\boldsymbol{e}}_2 = \hat{{\boldsymbol{k}}}</span>. Then, we can express</p>
+<p><span class="math display">{\boldsymbol{E}}_0 = \alpha_1 e^{i \delta_1} {\boldsymbol{e}}_1 - i \alpha_2 e^{i \delta_2} {\boldsymbol{e}}_2,</span></p>
+<p>where <span class="math inline">\alpha_1, \alpha_2 \in \mathbb{R}</span> are the magnitudes and <span class="math inline">\delta_1,\delta_2 \in \mathbb{R}</span> are the phases complex phases. Then, the real part of the electric field (i.e.&nbsp;the actual electric field) is given by</p>
+<p><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}, t) = \alpha_1 \cos({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t + \delta_1) {\boldsymbol{e}}_1 + \alpha_2 \sin({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t + \delta_2) {\boldsymbol{e}}_2.</span></p>
+<p>If either <span class="math inline">\alpha_1</span> or <span class="math inline">\alpha_2</span> is zero, then the wave is linearly polarised. If both <span class="math inline">\alpha_1</span> and <span class="math inline">\alpha_2</span> are non-zero, then we have a more interesting behaviour. To better understand what is going on, let’s fix the position <span class="math inline">{\boldsymbol{r}}</span> to an arbitrary point and look at the electric field as a function of time. Taking <span class="math inline">{\boldsymbol{r}}= {\boldsymbol{0}}</span> we have</p>
+<p><span class="math display">{\boldsymbol{E}}({\boldsymbol{0}}, t) = \alpha_1 \cos(\omega t - \delta_1) {\boldsymbol{e}}_1 - \alpha_2 \sin(\omega t - \delta_2) {\boldsymbol{e}}_2 = E_1(t) {\boldsymbol{e}}_1 + E_2(t) {\boldsymbol{e}}_2,</span></p>
+<p>where the last step is simply a relabelling. Using the sum of angles trigonometric identities and some algebraic manipulation we can write</p>
+<p><span class="math display">\begin{aligned}
+\frac{E_1}{\alpha_1} \cos \delta_2 + \frac{E_2}{\alpha_2} \sin \delta_1 &amp;= \cos(\omega t) \cos(\delta_1 - \delta_2), \\
+\frac{E_1}{\alpha_1} \sin \delta_2 - \frac{E_2}{\alpha_2} \cos \delta_1 &amp;= \sin(\omega t) \cos(\delta_1 - \delta_2).
+\end{aligned}</span></p>
+<p>Squaring and adding these two equations we obtain</p>
+<p><span class="math display">\left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 + 2 \frac{E_1 E_2}{\alpha_1 \alpha_2} \sin(\delta_1 - \delta_2) = \cos^2(\delta_1 - \delta_2),</span></p>
+<p>or, given that <span class="math inline">\delta_1</span> and <span class="math inline">\delta_2</span> are fixed parameters,</p>
+<p><span class="math display"> \left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 = \text{constant}.</span></p>
+<p>Therefore, as shown in <a href="#fig-elliptic-polarisation" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>, the tip of the electric field vector <span class="math inline">{\boldsymbol{E}}</span> traces an ellipse in the plane spanned by <span class="math inline">{\boldsymbol{e}}_1</span> and <span class="math inline">{\boldsymbol{e}}_2</span>, which is perpendicular to the direction of propagation. This is what we call <em>elliptically polarised light</em>. If <span class="math inline">\alpha_1 = \alpha_2</span>, then the wave is called <em>circularly polarised</em>, as the tip of the electric field vector traces a circle.</p>
+<div id="fig-elliptic-polarisation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-elliptic-polarisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./figs/elliptic_polarisation.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elliptic-polarisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Sketch of an elliptically polarised wave. Adapted from <a href="https://tikz.net/elliptical-polarization/">Alexandros Tsagkaropoulos</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via TikZ.net.
+</figcaption>
+</figure>
+</div>
+<p>Given that</p>
+<p><span class="math display">{\boldsymbol{k}}\times {\boldsymbol{E}}_0 = \omega {\boldsymbol{B}}_0,</span></p>
+<p>we can see that the magnetic field of an elliptically polarised wave is also elliptically polarised, and that the electric and magnetic fields are in phase (i.e.&nbsp;they reach their maximum and minimum values at the same time). From this equation we deduce that <span class="math inline">c |{\boldsymbol{B}}| = |{\boldsymbol{E}}|</span> at all times, so the energy density of a monochromatic wave is</p>
+<p><span class="math display">\mathcal{E} = \frac{1}{2} \epsilon_0 |{\boldsymbol{E}}|^2 + \frac{1}{2\mu_0} |{\boldsymbol{B}}|^2 = \epsilon_0 |{\boldsymbol{E}}|^2,</span></p>
+<p>and the Poynting vector is</p>
+<p><span class="math display">{\boldsymbol{S}}= \frac{1}{\mu_0} {\boldsymbol{E}}\times {\boldsymbol{B}}= \frac{1}{\mu_0 c} |{\boldsymbol{E}}|^2 \hat{{\boldsymbol{k}}} = c \; \mathcal{E} \hat{{\boldsymbol{k}}}.</span></p>
+<p>Finally, we need to discuss what happens when we have a general wave. A general solution to the wave equation can be build by linearly combining plane waves of different frequencies and polarisations.</p>
+</section>
+<section id="reflection-of-light-on-a-conductor" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="reflection-of-light-on-a-conductor"><span class="header-section-number">7.3</span> Reflection of light on a conductor</h2>
+<p>Let’s now look at an application to a real-world problem. Consider a plane monochromatic wave of frequency <span class="math inline">\omega</span> and wavenumber <span class="math inline">k</span> travelling in the <span class="math inline">x</span>-direction, and hitting a perfect conductor sitting in <span class="math inline">x&gt;0</span>. We want to understand what happens to the wave when it hits the conductor.</p>
+<p>We first consider the case where the wave hits the conductor perpendicularly. Wlog we take the incident wave to be</p>
+<p><span class="math display">{\boldsymbol{E}}_\text{inc} = E_0 e^{i(kx - \omega t)} {\boldsymbol{e}}_y.</span></p>
+<p>We know that inside the conductor the electric field must be zero. The electric field lies in the <span class="math inline">y</span>-direction, which is tangent to the surface of the conductor, hence by <a href="3-applications-electrostatics.html#prp-jump-electric-field" class="quarto-xref">Proposition&nbsp;<span>3.2</span></a> we must have that <span class="math inline">{\boldsymbol{E}}= {\boldsymbol{0}}</span> at <span class="math inline">x=0^-</span>. This means that there must be a reflected wave travelling in the opposite direction of the form</p>
+<p><span class="math display">{\boldsymbol{E}}_\text{ref} = - E_0 e^{i(-kx - \omega t)} {\boldsymbol{e}}_y,</span></p>
+<p>so the total electric field is <span class="math inline">{\boldsymbol{E}}= {\boldsymbol{E}}_\text{inc} + {\boldsymbol{E}}_\text{ref}</span>, which is zero at <span class="math inline">x=0</span> as required. Using <span class="math inline">\nabla \times {\boldsymbol{E}}= -\partial {\boldsymbol{B}}/ \partial t</span> we can also obtain the magnetic field <span class="math inline">{\boldsymbol{B}}= {\boldsymbol{B}}_\text{inc} + {\boldsymbol{B}}_\text{ref}</span> with</p>
+<p><span class="math display">{\boldsymbol{B}}_\text{inc} = \frac{E_0}{c} e^{i(kx - \omega t)} {\boldsymbol{e}}_z, \quad \text{and} \quad {\boldsymbol{B}}_\text{ref} = \frac{E_0}{c} e^{i(-kx - \omega t)} {\boldsymbol{e}}_z.</span></p>
+<p>We can check the continuity of the magnetic field at the surface of the conductor (<a href="5-applications-magnetostatics.html#prp-jump-magnetic-field" class="quarto-xref">Proposition&nbsp;<span>5.1</span></a>). The magnetic field is zero inside of the conductor (you can check that from Maxwell’s equations and <span class="math inline">{\boldsymbol{E}}= {\boldsymbol{0}}</span>), and outside <span class="math inline">{\boldsymbol{B}}</span> is in the <span class="math inline">z</span>-direction (i.e.&nbsp;tangential to the surface). Then, the continuity in the normal direction is automatically satisfied, and we find that in the tangential direction</p>
+<p><span class="math display">{\boldsymbol{e}}_x \times {\boldsymbol{B}}= - \frac{2 E_0}{c} e^{-i \omega t} {\boldsymbol{e}}_y,</span></p>
+<p>hence the magnetic field induces a surface current</p>
+<p><span class="math display">{\boldsymbol{K}}= \frac{2 E_0}{\mu_0 c} e^{-i \omega t} {\boldsymbol{e}}_y.</span></p>
+<p>Note that, in practice, the current induced on the surface will be very small and oscillate so quickly that in reality we will not be able to see it (and that’s before any quantum effects kick in).</p>
+<p>Now let’s consider a more complex case: what happens if the wave hits the conductor at an angle <span class="math inline">\theta</span>? Now we write our incident wave as</p>
+<p><span class="math display">{\boldsymbol{E}}_\text{inc} = E_0 e^{i({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t)} {\boldsymbol{e}}_y,</span></p>
+<p>where the vector <span class="math inline">{\boldsymbol{e}}_y</span> points out of the page. Then, we can write the wavector as</p>
+<p><span class="math display">{\boldsymbol{k}}= k \cos \theta {\boldsymbol{e}}_x + k \sin \theta {\boldsymbol{e}}_z.</span></p>
+<p>We now need to worry about the continuity of <span class="math inline">{\boldsymbol{E}}</span> both in the normal and tangential directions. The reflected wave must have the form</p>
+<p><span class="math display">{\boldsymbol{E}}_\text{ref} = E_0' e^{i({\boldsymbol{k}}' \cdot {\boldsymbol{r}}- \omega' t)} {\boldsymbol{u}},</span></p>
+<p>where we allow for the possibility of <span class="math inline">E_0</span>, <span class="math inline">{\boldsymbol{k}}'</span>, <span class="math inline">\omega'</span> and the polarisation vector <span class="math inline">{\boldsymbol{u}}</span> to be different from those of the incident wave. Let’s impose the continuity condition in the tangential direction, the normal vector to the surface is <span class="math inline">{\boldsymbol{e}}_x</span>, hence</p>
+<p><span class="math display">\begin{aligned}
+{\boldsymbol{E}}_\text{inc} \times {\boldsymbol{e}}_x &amp;= - E_0 e^{i({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t)} {\boldsymbol{e}}_z, \\
+{\boldsymbol{E}}_\text{ref} \times {\boldsymbol{e}}_x &amp;= E_0' e^{i({\boldsymbol{k}}' \cdot {\boldsymbol{r}}- \omega' t)} {\boldsymbol{u}}\times {\boldsymbol{e}}_x,
+\end{aligned}</span></p>
+<p>and we have</p>
+<p><span class="math display">{\boldsymbol{E}}\times {\boldsymbol{e}}_x = ({\boldsymbol{E}}_\text{inc} + {\boldsymbol{E}}_\text{ref}) \times {\boldsymbol{e}}_x = {\boldsymbol{0}}</span></p>
+<p>at <span class="math inline">x = 0</span>. This is only possible if <span class="math inline">{\boldsymbol{u}}\times {\boldsymbol{e}}_x = - {\boldsymbol{e}}_z</span>, which means that <span class="math inline">{\boldsymbol{u}}= {\boldsymbol{e}}_y</span> (i.e.&nbsp;the reflected wave is linearly polarised in the same direction as the incident wave), and if <span class="math inline">E_0' = -E_0</span> and <span class="math inline">\omega' = \omega</span>. For <span class="math inline">{\boldsymbol{k}}'</span>, the equation only tells us that <span class="math inline">{\boldsymbol{k}}\cdot {\boldsymbol{e}}_z = {\boldsymbol{k}}' \cdot {\boldsymbol{e}}_z</span>. However, due to the dispersion relation, we must have <span class="math inline">|{\boldsymbol{k}}'| = |{\boldsymbol{k}}|</span>. Therefore, we have two possibilities <span class="math inline">{\boldsymbol{k}}' \cdot {\boldsymbol{e}}_x = \pm {\boldsymbol{k}}\cdot {\boldsymbol{e}}_x</span>. We take the solution with the minus sign, as otherwise the reflected wave would be travelling in the same direction as the incident wave (which does not make physical sense) so we conclude that</p>
+<p><span class="math display">{\boldsymbol{k}}' = - k \cos \theta {\boldsymbol{e}}_x + k \sin \theta {\boldsymbol{e}}_z.</span></p>
+<p>Then, the incident and reflected magnetic fields are</p>
+<p><span class="math display">{\boldsymbol{B}}_\text{inc} = \frac{E_0}{c} e^{i({\boldsymbol{k}}\cdot {\boldsymbol{r}}- \omega t)} (\hat{{\boldsymbol{k}}} \times {\boldsymbol{e}}_z), \quad \text{and} \quad {\boldsymbol{B}}_\text{ref} = -\frac{E_0}{c} e^{i({\boldsymbol{k}}' \cdot {\boldsymbol{r}}- \omega t)} (\hat{{\boldsymbol{k}}}' \times {\boldsymbol{e}}_z).</span></p>
+<p>This tells us that the reflected wave bounces back with the same angle <span class="math inline">\theta</span> as the incident wave.</p>
+</section>
+<section id="magnetostatic-energy-and-inductance" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="magnetostatic-energy-and-inductance"><span class="header-section-number">7.4</span> Magnetostatic energy and inductance</h2>
+<p>In <a href="2-electrostatics.html#sec-electrostatic-energy" class="quarto-xref"><span>Section 2.6</span></a> we derived the expression for the electrostatic energy of a charge distribution, and in <a href="6-electrodynamics.html#def-electromagnetic-energy-density" class="quarto-xref">Definition&nbsp;<span>6.5</span></a> we defined the electromagnetic energy density, but we did not explain where the term related to the magnetic field comes from. This is what we will do in this section.</p>
+<p>The idea is that, if we apply a current on a curve <span class="math inline">C</span>, we will generate a magnetic field and, by Lenz’s law, this magnetic field will induce a current in the opposite direction to the one we are applying. This means that we need to do work to maintain the current flowing through <span class="math inline">C</span>, and this work is stored as magnetic energy in the field.</p>
+<p>Let’s first need to introduce a very useful concept: the inductance.</p>
+<div id="def-inductance" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7.1 (Inductance)</strong></span> Consider a current <span class="math inline">I</span> flowing through a curve <span class="math inline">C</span>, which generates a magnetic field <span class="math inline">{\boldsymbol{B}}</span>. The inductance <span class="math inline">L</span> of this configuration is defined as</p>
+<p><span class="math display"> L = \frac{\Phi}{I},</span></p>
+<p>The inductance is a property only of the geometry of the curve <span class="math inline">C</span>. The unit of inductance is the Henry (H).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</div>
+<p>Equipped with this concept, let’s now talk about the magnetostatic energy of a current distribution. The induced electromotive force of a current <span class="math inline">I</span> flowing through a curve <span class="math inline">C</span> is given by</p>
+<p><span id="eq-inductance-emf"><span class="math display">\mathcal{E}_\text{emf} = - \frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t} = - L \frac{{\mathrm{d}}I}{{\mathrm{d}}t}. \tag{7.2}</span></span></p>
+<p>As we have explained earlier, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve <span class="math inline">C</span>. We have a current <span class="math inline">I</span> in the curve, so in a time interval <span class="math inline">\delta t</span> a charge <span class="math inline">I \; \delta t</span> will flow through the curve, and the work done by the electric field to move this charge is</p>
+<p><span id="eq-work-inductance"><span class="math display">\delta W = \mathcal{E}_\text{emf} q = \mathcal{E}_\text{emf} \; I \; \delta t = - L I \frac{{\mathrm{d}}I}{{\mathrm{d}}t} \delta t. \tag{7.3}</span></span></p>
+<p>Rearranging we obtain</p>
+<p><span class="math display">\frac{\delta W}{\delta t} = - L I \frac{{\mathrm{d}}I}{{\mathrm{d}}t} = - \frac{1}{2} L \frac{{\mathrm{d}}I^2}{{\mathrm{d}}t},</span></p>
+<p>and integrating we find that the work done to maintain the current is</p>
+<p><span class="math display">W = \frac{1}{2} L I^2 = \frac{1}{2} I \Phi.</span></p>
+<p>This work can be interpreted as the energy in stored in the magnetic field we considered, so it is useful to write it in terms of the magnetic field. First, let’s write it in terms of the integral over the whole space:</p>
+<p><span class="math display">\begin{aligned}
+W &amp;= \frac{1}{2} I \Phi \\
+&amp;= \frac{1}{2} I \int_\Sigma {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A \\
+&amp;= \frac{1}{2} I \int_\Sigma (\nabla \times {\boldsymbol{A}}) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A \\
+&amp;= \frac{1}{2} I \int_C {\boldsymbol{A}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s \\
+&amp;= \frac{1}{2} \int_{\mathbb{R}^3} {\boldsymbol{A}}\cdot {\boldsymbol{J}}\; {\mathrm{d}}V,
+\end{aligned}</span></p>
+<p>where, crucially, in the final step we have used that the current <span class="math inline">I</span> is focused in the curve <span class="math inline">C</span> to treat it as a localised current density <span class="math inline">{\boldsymbol{J}}</span> (i.e.&nbsp;<span class="math inline">{\boldsymbol{J}}</span> is zero everywhere except on the curve <span class="math inline">C</span>, where it is infinite in such a way that its integral over any surface intersecting <span class="math inline">C</span> gives <span class="math inline">I</span>) so we can integrate over the whole space. The other steps are just applications of the definitions and Stokes’ theorem.</p>
+<p>Now, we use Ampère’s law and and <a href="1-introduction.html#eq-div-cross-product" class="quarto-xref">Equation&nbsp;<span>1.11</span></a> to write</p>
+<p><span class="math display">\begin{aligned}
+W &amp;= \frac{1}{2 \mu_0} \int_{\mathbb{R}^3} {\boldsymbol{A}}\cdot (\nabla \times {\boldsymbol{B}}) \; {\mathrm{d}}V \\
+&amp;= \frac{1}{2 \mu_0} \int_{\mathbb{R}^3} \left(\nabla \cdot ({\boldsymbol{B}}\times {\boldsymbol{A}}) + {\boldsymbol{B}}\cdot (\nabla \times {\boldsymbol{A}}) \right) \; {\mathrm{d}}V \\
+&amp;= \frac{1}{2 \mu_0} \int_{\mathbb{R}^3} |{\boldsymbol{B}}|^2 \; {\mathrm{d}}V,
+\end{aligned}</span></p>
+<p>where we assume that <span class="math inline">{\boldsymbol{A}}</span> and <span class="math inline">{\boldsymbol{B}}</span> decay sufficiently fast at infinity so that the first term in the integral vanishes.</p>
+<p>This is the magnetostatic energy of the current distribution. There are two important questions arising from this results: (i) what happens if we have a time-dependent current distribution? and (ii) what happens if we have an electric field as well? The answer is that the expression we derived still holds for time-dependent magnetic field, and that we can simply superpose the electric and magnetic energies to obtain the total electromagnetic energy, which is what we defined in <a href="6-electrodynamics.html#def-electromagnetic-energy-density" class="quarto-xref">Definition&nbsp;<span>6.5</span></a>. Unfortunately, proving these results is out of the scope of this module.</p>
+</section>
+<section id="electromagnetic-induction" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="electromagnetic-induction"><span class="header-section-number">7.5</span> Electromagnetic induction</h2>
+<p>The aim of this section is to understand the phenomenon of electromagnetic induction, which is the principle behind the operation of electric generators and transformers.</p>
+<section id="faradays-law-revisited" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="faradays-law-revisited"><span class="header-section-number">7.5.1</span> Faraday’s law revisited</h3>
+<p>Let’s turn our attention back to Faraday’s law in integral form (<a href="6-electrodynamics.html#cor-Faraday-law" class="quarto-xref">Corollary&nbsp;<span>6.1</span></a>), written in terms of the magnetic flux and the electromotive force:</p>
+<p><span class="math display">\mathcal{E}_\text{emf} = - \frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t}.</span></p>
+<p>An interpretation of the electromotive force <span class="math inline">\mathcal{E}_\text{emf}</span> is that it is the work done by the electric field to move a unit charge around the loop <span class="math inline">C</span>. Remember that the magnetic flux is defined as</p>
+<p><span class="math display">\Phi = \int_\Sigma {\boldsymbol{B}}\cdot {\boldsymbol{n}}\; {\mathrm{d}}A,</span></p>
+<p>so if <span class="math inline">\Phi</span> is changing in time, this can only be due to <span class="math inline">{\boldsymbol{B}}</span> changing in time or the surface <span class="math inline">\Sigma</span> changing in time. In either case, we have that <span class="math inline">\mathcal{E}_\text{emf} \neq 0</span>, which means that there is an electric field doing work on the charges which <em>induces</em> a current in the loop.</p>
+<p>Let’s now unpack the derivative of the magnetic flux. Consider a time-dependent surface <span class="math inline">\Sigma(t)</span>, enclosed by the curve <span class="math inline">C(t)</span>. The variation in flux during a small time interval <span class="math inline">\delta t</span> is</p>
+<p><span class="math display">\delta \Phi = \Phi(t + \delta t) - \Phi(t) = \int_{\Sigma(t + \delta t)} {\boldsymbol{B}}(t + \delta t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A - \int_{\Sigma(t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
+<p>Expanding <span class="math inline">{\boldsymbol{B}}(t + \delta t) = {\boldsymbol{B}}(t) + \delta t \; \partial {\boldsymbol{B}}/ \partial t + O(\delta t^2)</span>, we can write</p>
+<p><span id="eq-flux-variation"><span class="math display">\delta \Phi = \int_{\Sigma(t + \delta t)} \frac{\partial {\boldsymbol{B}}(t)}{\partial t} \cdot {\boldsymbol{n}}\; \delta t \; {\mathrm{d}}A - \left(\int_{\Sigma(t + \delta t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A - \int_{\Sigma(t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A \right) + O(\delta t^2). \tag{7.4}</span></span></p>
+<p>Let’s focus on the term in brackets. Consider the volume swept by the surface in the time interval <span class="math inline">\delta t</span>, which we denote by <span class="math inline">\Omega</span>. Then, <span class="math inline">\partial \Omega = \Sigma(t + \delta t) \cup \Sigma(t) \cup \Sigma_\text{side}</span>, where <span class="math inline">\Sigma_\text{side}</span> can be seen as the surface swept by <span class="math inline">C(t)</span>. From Gauss’ law for magnetism, we have</p>
+<p><span class="math display">\int_{\partial \Omega} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A = \int_{\Sigma(t + \delta t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A - \int_{\Sigma(t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A + \int_{\Sigma_\text{side}} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A = 0,</span></p>
+<p>where the minus sign in the second term is due to the fact that the normal vector to <span class="math inline">\Sigma(t)</span>, as we defined it above, points in the same direction as the normal vector to <span class="math inline">\Sigma(t + \delta t)</span>, and so they need to point in opposite directions when we consider the closed surface <span class="math inline">\partial \Omega</span>. Hence</p>
+<p><span class="math display">\int_{\Sigma(t + \delta t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A - \int_{\Sigma(t)} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A = - \int_{\Sigma_\text{side}} {\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A.</span></p>
+<p>Now, we can write the differential surface element of <span class="math inline">\Sigma_\text{side}</span> as <span class="math inline">{\boldsymbol{n}}\; {\mathrm{d}}A = ({\boldsymbol{t}}\; {\mathrm{d}}s) \times ({\boldsymbol{v}}\; \delta t)</span>, where <span class="math inline">{\boldsymbol{v}}</span> is the velocity of the curve <span class="math inline">C(t)</span> and <span class="math inline">{\boldsymbol{t}}</span> is the unit tangent vector to <span class="math inline">C(t)</span>. The integrand, using the cyclic property of the triple product, can be written as</p>
+<p><span class="math display">{\boldsymbol{B}}(t) \cdot {\boldsymbol{n}}\; {\mathrm{d}}A = {\boldsymbol{B}}(t) \cdot (({\boldsymbol{t}}\; {\mathrm{d}}s) \times ({\boldsymbol{v}}\; \delta t)) = ({\boldsymbol{v}}\times {\boldsymbol{B}}(t)) \cdot {\boldsymbol{t}}\; \delta t \; {\mathrm{d}}s.</span></p>
+<p>Dividing <a href="#eq-flux-variation" class="quarto-xref">Equation&nbsp;<span>7.4</span></a> by <span class="math inline">\delta t</span>, taking the limit <span class="math inline">\delta t \to 0</span>, and using all the other results we have computed, we obtain</p>
+<p><span class="math display">\frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t} = \lim_{\delta t \to 0} \frac{\delta \Phi}{\delta t} = \int_{\Sigma(t)} \frac{\partial {\boldsymbol{B}}(t)}{\partial t} \cdot {\boldsymbol{n}}\; {\mathrm{d}}A - \int_{C(t)} ({\boldsymbol{v}}\times {\boldsymbol{B}}(t)) \cdot {\boldsymbol{t}}\; {\mathrm{d}}s.</span></p>
+<p>Using Faraday’s law and Stokes’ theorem, we can tidy up this expression and write</p>
+<p><span class="math display">\frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t} = - \int_{C(t)} \left( {\boldsymbol{E}}+ {\boldsymbol{v}}\times {\boldsymbol{B}}\right) \cdot {\boldsymbol{t}}\; {\mathrm{d}}s.</span></p>
+<p>Note that the term in the integral is the Lorentz force per unit charge, so we can effectively interpret the electromotive force as the work done by the Lorentz force to move a unit charge around the loop <span class="math inline">C(t)</span>.</p>
+</section>
+<section id="resistance" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="resistance"><span class="header-section-number">7.5.2</span> Resistance</h3>
+<p>We have seen that the electromotive force exerts some work on the charges, which means it produces a current. But how do we know how much current it produces? The answer is complicated and it depends on the material where the charges move, but let’s now consider a very simple (and common) case. Before we proceed, we need to acknowledge that when charges accelerate they produce electromagnetic waves, and there will also be the opposing current due to Lenz’s law. However, we will ignore these effects for the sake of simplicity.</p>
+<p>What we will definitely consider is the “friction” that the charges experience when they move through a material. Other particles will get on the way, producing forces that slow down the motion of our charges. A useful analogy is to picture the charges as if they were point masses moving around with some friction. Any applied forces on the masses will produce an acceleration, but the friction will eventually balance the applied forces and the masses will reach a constant velocity (what is commonly known as terminal velocity). Similarly, the charges will eventually reach a constant velocity, and that is the situation we will consider (i.e.&nbsp;we will ignore the acceleration phase).</p>
+<p>In many materials, it turns out that the friction force is proportional to the velocity of the charges (i.e.&nbsp;the current), and so we can write</p>
+<p><span class="math display">\mathcal{E}_\text{emf} = I R,</span></p>
+<p>where <span class="math inline">R</span> is a material property called <em>resistance</em>. This result is known as <em>Ohm’s law</em>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> The unit of resistance is the Ohm (<span class="math inline">\Omega</span>).</p>
+<p>Note that if we ignore the magnetic field, we can write the electromotive force as</p>
+<p><span class="math display">\mathcal{E}_\text{emf} = \int_{C} {\boldsymbol{E}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s = - \int_C \nabla \phi \cdot {\boldsymbol{t}}\; {\mathrm{d}}s,</span></p>
+<p>and this is the drop in electric potential across the curve <span class="math inline">C</span>, which we usually call voltage <span class="math inline">V</span>. Hence, we can also write Ohm’s law as</p>
+<p><span id="eq-ohms-law-voltage"><span class="math display">V = I R, \tag{7.5}</span></span></p>
+<p>which is probably the expression you are more familiar with.</p>
+<p>Resistance is an extensive property (i.e.&nbsp;it depends on the size of the material), so it is often more convenient to work with the <em>resistivity</em> <span class="math inline">\rho</span>, which is an intensive property (i.e.&nbsp;it does not depend on the size of the material) or, its inverse, the <em>conductivity</em> <span class="math inline">\sigma</span>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Then, we can write a general form of Ohm’s law as</p>
+<p><span class="math display">{\boldsymbol{J}}= \sigma {\boldsymbol{E}},</span></p>
+<p>where <span class="math inline">{\boldsymbol{J}}</span> is the current density.</p>
+<p>It is worth emphasising that Ohm’s law is not a fundamental law of nature, but rather an empirical observation that holds for many materials under certain conditions. There are materials that do not obey Ohm’s law, such as superconductors, which have zero resistance below a critical temperature.</p>
+<p>There’s one final remark to make about the resistance of a material. Following our analogy with friction, it is natural to expect that it will dissipate energy, and indeed it does. This energy is dissipated as heat, and we are all very familiar with this effect, as that’s how toasters and many other appliances work.</p>
+<p>Recall the definition of work we provided earlier, <a href="#eq-work-inductance" class="quarto-xref">Equation&nbsp;<span>7.3</span></a>. Combining it with Ohm’s law we obtain</p>
+<p><span class="math display">\delta W = \mathcal{E}_\text{emf} \; I \; \delta t = I^2 R \; \delta t.</span></p>
+<p>Therefore, the dissipated power is</p>
+<p><span class="math display">\frac{\delta W}{\delta t} = I^2 R.</span></p>
+<p>The phenomenon on which a current produces heat is known as <em>Joule heating</em>, but given that most of the time we are interested in materials that follow Ohm’s law, it is also commonly referred to as <em>Ohmic heating</em>.</p>
+</section>
+<section id="application-current-induced-by-a-moving-loop" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="application-current-induced-by-a-moving-loop"><span class="header-section-number">7.5.3</span> Application: current induced by a moving loop</h3>
+<p>Let’s now apply the results we have derived to a concrete problem. Consider a rectangular loop of wire <span class="math inline">C</span> in the <span class="math inline">xy</span>-plane. The loop is shaped like a rectangle of width <span class="math inline">d</span>, and one of the sides is a sliding bar (parallel to the <span class="math inline">y</span>-axis and with mass <span class="math inline">m</span>) that is free to move, so the length <span class="math inline">x(t)</span> of the loop can change in time. There is a static and uniform magnetic field <span class="math inline">{\boldsymbol{B}}= B {\boldsymbol{e}}_z</span> perpendicular to the plane of the loop. We take the resistance of the bar to be <span class="math inline">R</span>, and we assume that the rest of the loop has negligible resistance. Our goal is to compute the position of the bar as a function of time, and the current induced in the loop.</p>
+<p>Let’s define the convention that the current is positive if it flows through the bar in the positive <span class="math inline">y</span>-direction. The force on the bar, by Lorentz’s law, is given by</p>
+<p><span class="math display">{\boldsymbol{F}}= \int_0^d (I \; {\boldsymbol{e}}_y) \times (B {\boldsymbol{e}}_z) \; {\mathrm{d}}y = I B d {\boldsymbol{e}}_x.</span></p>
+<p>Then, by Newton’s second law, we have that the position of the bar satisfies</p>
+<p><span class="math display">m \frac{{\mathrm{d}}^2 x}{{\mathrm{d}}t^2} = I B d.</span></p>
+<p>To close the system we need to determine the induced current <span class="math inline">I(t)</span>. The magnetic flux through the loop is given by</p>
+<p><span class="math display">\Phi = B x d,</span></p>
+<p>so the electromotive force is</p>
+<p><span class="math display">\mathcal{E}_\text{emf} = - \frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t} = - B d \frac{{\mathrm{d}}x}{{\mathrm{d}}t}.</span></p>
+<p>We use Ohm’s law to relate the electromotive force to the current:</p>
+<p><span class="math display">\mathcal{E}_\text{emf} = I R.</span></p>
+<p>Then, the current in the loop is</p>
+<p><span class="math display">I = - \frac{B d}{R} \frac{{\mathrm{d}}x}{{\mathrm{d}}t},</span></p>
+<p>and the position of the bar satisfies the following second-order ordinary differential equation:</p>
+<p><span class="math display">m \frac{{\mathrm{d}}^2 x}{{\mathrm{d}}t^2} = - \frac{B^2 d^2}{R} \frac{{\mathrm{d}}x}{{\mathrm{d}}t}.</span></p>
+<p>If the bar has an initial position <span class="math inline">x_0</span> and initial velocity <span class="math inline">v_0</span> at <span class="math inline">t=0</span>, then the velocity of the bar at time <span class="math inline">t</span> is given by</p>
+<p><span class="math display">v(t) = \frac{{\mathrm{d}}x}{{\mathrm{d}}t} = v_0 e^{- \frac{B^2 d^2}{m R} t},</span></p>
+<p>and the position of the bar is given by</p>
+<p><span class="math display">x(t) = x_0 + \frac{m R}{B^2 d^2} v_0 \left( 1 - e^{- \frac{B^2 d^2}{m R} t} \right).</span></p>
+<p>The induced current in the loop is given by</p>
+<p><span class="math display">I(t) = - \frac{B d}{R} v_0 e^{- \frac{B^2 d^2}{m R} t}.</span></p>
+</section>
+</section>
+<section id="electric-circuits-brief-remark" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="electric-circuits-brief-remark"><span class="header-section-number">7.6</span> Electric circuits (brief remark)</h2>
+<p>We have now all the tools to study basic electric circuits, even though we will not spend much time on it in this module. The usual components that make a circuit are resistors, inductors and capacitors. The constitutive law for each component relate the voltage across the component to the current flowing through it. We can then combine these “building blocks” to create more complex circuits.</p>
+<p>The constitutive law for a resistor is given by Ohm’s law (<a href="#eq-ohms-law-voltage" class="quarto-xref">Equation&nbsp;<span>7.5</span></a>):</p>
+<p><span class="math display">V = I R.</span></p>
+<p>The constitutive law for an inductor is given by the definition of inductance (<a href="#eq-inductance-emf" class="quarto-xref">Equation&nbsp;<span>7.2</span></a>):</p>
+<p><span class="math display">V = L \frac{{\mathrm{d}}I}{{\mathrm{d}}t},</span></p>
+<p>where the voltage is defined in the direction of the current, so the minus sign in <a href="#eq-inductance-emf" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> is not present here.</p>
+<p>Finally, we need to derive the constitutive law for a capacitor from the result we derived in <a href="3-applications-electrostatics.html#exm-parallel-capacitor" class="quarto-xref">Example&nbsp;<span>3.3</span></a>. We found that the charge in the capacitor is given by</p>
+<p><span class="math display">Q = C V.</span></p>
+<p>But remember that the current is the rate of change of charge, so we taking the time derivative of the above equation we obtain</p>
+<p><span class="math display">I = C \frac{{\mathrm{d}}V}{{\mathrm{d}}t}.</span></p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This is in contrast to longitudinal waves, which oscillate in the direction of propagation, like sound waves.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Named after Joseph Henry, an American physicist who discovered electromagnetic induction independently of Faraday<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Named after Georg Simon Ohm, a German physicist who discovered that result<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Very conveniently we already used <span class="math inline">\rho</span> and <span class="math inline">\sigma</span> to denote charge density and surface charge density, but we will not use conductivity and resistivity going forward so there will be no confusion.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./6-electrodynamics.html" class="pagination-link" aria-label="Electrodynamics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Electrodynamics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./8-matter.html" class="pagination-link" aria-label="Electromagnetism in matter">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Electromagnetism in matter</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
