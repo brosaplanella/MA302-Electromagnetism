@@ -138,9 +138,9 @@ Squaring and adding these two equations we obtain
 
 $$\left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 + 2 \frac{E_1 E_2}{\alpha_1 \alpha_2} \sin(\delta_1 - \delta_2) = \cos^2(\delta_1 - \delta_2),$$
 
-or, given that $\delta_1$ and $\delta_2$ are fixed parameters,
+which is the equation for an ellipse. This is easier to see if we have $\delta_1 = \delta_2$, when 
 
-$$ \left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 = \text{constant}.$$
+$$ \left( \frac{E_1}{\alpha_1} \right)^2 + \left( \frac{E_2}{\alpha_2} \right)^2 = 1.$$
 
 Therefore, as shown in @fig-elliptic-polarisation, the tip of the electric field vector $\bfE$ traces an ellipse in the plane spanned by $\bfe_1$ and $\bfe_2$, which is perpendicular to the direction of propagation. This is what we call _elliptically polarised light_. If $\alpha_1 = \alpha_2$, then the wave is called _circularly polarised_, as the tip of the electric field vector traces a circle.
 
@@ -194,7 +194,7 @@ where the vector $\bfe_y$ points out of the page. Then, we can write the wavecto
 
 $$\bfk = k \cos \theta \bfe_x + k \sin \theta \bfe_z.$$
 
-We now need to worry about the continuity of $\bfE$ both in the normal and tangential directions. The reflected wave must have the form
+We now need to worry about the continuity of $\bfE$ across the interface. The reflected wave must have the form
 
 $$\bfE_\text{ref} = E_0' e^{i(\bfk' \cdot \bfr - \omega' t)} \bfu,$$
 
@@ -215,7 +215,7 @@ $$\bfk' = - k \cos \theta \bfe_x + k \sin \theta \bfe_z.$$
 
 Then, the incident and reflected magnetic fields are
 
-$$\bfB_\text{inc} = \frac{E_0}{c} e^{i(\bfk \cdot \bfr - \omega t)} (\hat{\bfk} \times \bfe_z), \quad \text{and} \quad \bfB_\text{ref} = -\frac{E_0}{c} e^{i(\bfk' \cdot \bfr - \omega t)} (\hat{\bfk}' \times \bfe_z).$$
+$$\bfB_\text{inc} = \frac{E_0}{c} e^{i(\bfk \cdot \bfr - \omega t)} (\hat{\bfk} \times \bfe_y), \quad \text{and} \quad \bfB_\text{ref} = -\frac{E_0}{c} e^{i(\bfk' \cdot \bfr - \omega t)} (\hat{\bfk}' \times \bfe_y).$$
 
 This tells us that the reflected wave bounces back with the same angle $\theta$ as the incident wave.
 
@@ -225,7 +225,7 @@ In @sec-electrostatic-energy we derived the expression for the electrostatic ene
 
 The idea is that, if we apply a current on a curve $C$, we will generate a magnetic field and, by Lenz's law, this magnetic field will induce a current in the opposite direction to the one we are applying. This means that we need to do work to maintain the current flowing through $C$, and this work is stored as magnetic energy in the field.
 
-Let's first need to introduce a very useful concept: the inductance.
+First we need to introduce a very useful concept: the inductance.
 
 ::: {#def-inductance}
 ## Inductance
@@ -241,7 +241,7 @@ Equipped with this concept, let's now talk about the magnetostatic energy of a c
 
 $$\mathcal{E}_\text{emf} = - \frac{\dd \Phi}{\dd t} = - L \frac{\dd I}{\dd t}.$$ {#eq-inductance-emf}
 
-As we have explained earlier, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve $C$. We have a current $I$ in the curve, so in a time interval $\delta t$ a charge $I \; \delta t$ will flow through the curve, and the work done by the electric field to move this charge is
+As we explained in the previous chapter, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve $C$. We have a current $I$ in the curve, so in a time interval $\delta t$ a charge $I \; \delta t$ will flow through the curve, and the work done by the electric field to move this charge is
 
 $$\delta W = \mathcal{E}_\text{emf} q = \mathcal{E}_\text{emf} \; I \; \delta t = - L I \frac{\dd I}{\dd t} \delta t.$$ {#eq-work-inductance}
 
