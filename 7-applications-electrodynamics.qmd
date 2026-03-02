@@ -11,7 +11,8 @@ By the end of this chapter, you should be able to:
 * Calculate solutions to the wave equation for monochromatic plane waves.
 * Explain the phenomenon of light polarisation.
 * Explain the reflection of electromagnetic waves on a conductor.
-
+* Calculate the magnetostatic energy of a current distribution, and explain the concept of inductance.
+* Calculate the current induced by a varying magnetic flux.
 :::
 
 In the previous chapter we introduced the time dependency on Maxwell's equations, and derived the wave equation from them. These equations allow us to explain a huge variety of phenomena, such as electromagnetic induction and the behaviour of light. This is the goal of this chapter.
