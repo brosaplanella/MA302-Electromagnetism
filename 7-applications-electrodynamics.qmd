@@ -160,7 +160,7 @@ $$\bfS = \frac{1}{\mu_0} \bfE \times \bfB = \frac{1}{\mu_0 c} |\bfE|^2 \hat{\bfk
 
 Finally, we need to discuss what happens when we have a general wave. A general solution to the wave equation can be build by linearly combining plane waves of different frequencies and polarisations.
 
-## Reflection of light on a conductor
+## Reflection of light on a conductor {#sec-reflection-conductor}
 
 Let's now look at an application to a real-world problem. Consider a plane monochromatic wave of frequency $\omega$ and wavenumber $k$ travelling in the $x$-direction, and hitting a perfect conductor sitting in $x>0$. We want to understand what happens to the wave when it hits the conductor.
 
@@ -243,7 +243,7 @@ $$\mathcal{E}_\text{emf} = - \frac{\dd \Phi}{\dd t} = - L \frac{\dd I}{\dd t}.$$
 
 As we explained in the previous chapter, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve $C$. We have a current $I$ in the curve, so in a time interval $\delta t$ a charge $I \; \delta t$ will flow through the curve, and the work done by the electric field to move this charge is
 
-$$\delta W = \mathcal{E}_\text{emf} q = \mathcal{E}_\text{emf} \; I \; \delta t = - L I \frac{\dd I}{\dd t} \delta t.$$ {#eq-work-inductance}
+$$\delta W = \mathcal{E}_\text{emf} \, \delta q = \mathcal{E}_\text{emf} \, I \, \delta t = - L I \frac{\dd I}{\dd t} \delta t.$$ {#eq-work-inductance}
 
 Rearranging we obtain
 
@@ -337,7 +337,7 @@ where $R$ is a material property called _resistance_. This result is known as _O
 
 Note that if we ignore the magnetic field, we can write the electromotive force as
 
-$$\mathcal{E}_\text{emf} = \int_{C} \bfE \cdot \bft \; \dd s = - \int_C \nabla \phi \cdot \bft \; \dd s,$$
+$$\mathcal{E}_\text{emf} = - \int_{C} \bfE \cdot \bft \; \dd s = \int_C \nabla \phi \cdot \bft \; \dd s,$$
 
 and this is the drop in electric potential across the curve $C$, which we usually call voltage $V$. Hence, we can also write Ohm's law as
 

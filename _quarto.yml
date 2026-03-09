@@ -4,6 +4,8 @@ project:
   preview:
     watch-inputs: true  # re-render inputs when they change
 
+execute:
+  freeze: auto
 
 book:
   title: "MA302 Electromagnetism"
