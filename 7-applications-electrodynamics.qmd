@@ -160,7 +160,7 @@ $$\bfS = \frac{1}{\mu_0} \bfE \times \bfB = \frac{1}{\mu_0 c} |\bfE|^2 \hat{\bfk
 
 Finally, we need to discuss what happens when we have a general wave. A general solution to the wave equation can be build by linearly combining plane waves of different frequencies and polarisations.
 
-## Reflection of light on a conductor
+## Reflection of light on a conductor {#sec-reflection-conductor}
 
 Let's now look at an application to a real-world problem. Consider a plane monochromatic wave of frequency $\omega$ and wavenumber $k$ travelling in the $x$-direction, and hitting a perfect conductor sitting in $x>0$. We want to understand what happens to the wave when it hits the conductor.
 

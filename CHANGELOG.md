@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-03-XX
+
+- Added Section 8.4 on reflection and refraction.
+- Fixed minus sign in Ohm's law.
+
 ## 2026-03-02
 
 - Added Chapter 7 on applications of electrodynamics (note that Electromagnetism in Matter is now Chapter 8).
