@@ -388,7 +388,7 @@ window.Quarto = {
   <ul>
   <li><a href="#solving-the-wave-equation" id="toc-solving-the-wave-equation" class="nav-link active" data-scroll-target="#solving-the-wave-equation"><span class="header-section-number">7.1</span> Solving the wave equation</a></li>
   <li><a href="#sec-light-polarisation" id="toc-sec-light-polarisation" class="nav-link" data-scroll-target="#sec-light-polarisation"><span class="header-section-number">7.2</span> Light polarisation</a></li>
-  <li><a href="#reflection-of-light-on-a-conductor" id="toc-reflection-of-light-on-a-conductor" class="nav-link" data-scroll-target="#reflection-of-light-on-a-conductor"><span class="header-section-number">7.3</span> Reflection of light on a conductor</a></li>
+  <li><a href="#sec-reflection-conductor" id="toc-sec-reflection-conductor" class="nav-link" data-scroll-target="#sec-reflection-conductor"><span class="header-section-number">7.3</span> Reflection of light on a conductor</a></li>
   <li><a href="#magnetostatic-energy-and-inductance" id="toc-magnetostatic-energy-and-inductance" class="nav-link" data-scroll-target="#magnetostatic-energy-and-inductance"><span class="header-section-number">7.4</span> Magnetostatic energy and inductance</a></li>
   <li><a href="#electromagnetic-induction" id="toc-electromagnetic-induction" class="nav-link" data-scroll-target="#electromagnetic-induction"><span class="header-section-number">7.5</span> Electromagnetic induction</a>
   <ul class="collapse">
@@ -549,8 +549,8 @@ Figure&nbsp;7.2: Sketch of an elliptically polarised wave. Adapted from <a href=
 <p><span class="math display">{\boldsymbol{S}}= \frac{1}{\mu_0} {\boldsymbol{E}}\times {\boldsymbol{B}}= \frac{1}{\mu_0 c} |{\boldsymbol{E}}|^2 \hat{{\boldsymbol{k}}} = c \; \mathcal{E} \hat{{\boldsymbol{k}}}.</span></p>
 <p>Finally, we need to discuss what happens when we have a general wave. A general solution to the wave equation can be build by linearly combining plane waves of different frequencies and polarisations.</p>
 </section>
-<section id="reflection-of-light-on-a-conductor" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="reflection-of-light-on-a-conductor"><span class="header-section-number">7.3</span> Reflection of light on a conductor</h2>
+<section id="sec-reflection-conductor" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-reflection-conductor"><span class="header-section-number">7.3</span> Reflection of light on a conductor</h2>
 <p>Let’s now look at an application to a real-world problem. Consider a plane monochromatic wave of frequency <span class="math inline">\omega</span> and wavenumber <span class="math inline">k</span> travelling in the <span class="math inline">x</span>-direction, and hitting a perfect conductor sitting in <span class="math inline">x&gt;0</span>. We want to understand what happens to the wave when it hits the conductor.</p>
 <p>We first consider the case where the wave hits the conductor perpendicularly. Wlog we take the incident wave to be</p>
 <p><span class="math display">{\boldsymbol{E}}_\text{inc} = E_0 e^{i(kx - \omega t)} {\boldsymbol{e}}_y.</span></p>
@@ -595,7 +595,7 @@ Figure&nbsp;7.2: Sketch of an elliptically polarised wave. Adapted from <a href=
 <p>Equipped with this concept, let’s now talk about the magnetostatic energy of a current distribution. The induced electromotive force of a current <span class="math inline">I</span> flowing through a curve <span class="math inline">C</span> is given by</p>
 <p><span id="eq-inductance-emf"><span class="math display">\mathcal{E}_\text{emf} = - \frac{{\mathrm{d}}\Phi}{{\mathrm{d}}t} = - L \frac{{\mathrm{d}}I}{{\mathrm{d}}t}. \tag{7.2}</span></span></p>
 <p>As we explained in the previous chapter, the electromotive force can be interpreted as the work done by the electric field to move a unit charge around the curve <span class="math inline">C</span>. We have a current <span class="math inline">I</span> in the curve, so in a time interval <span class="math inline">\delta t</span> a charge <span class="math inline">I \; \delta t</span> will flow through the curve, and the work done by the electric field to move this charge is</p>
-<p><span id="eq-work-inductance"><span class="math display">\delta W = \mathcal{E}_\text{emf} q = \mathcal{E}_\text{emf} \; I \; \delta t = - L I \frac{{\mathrm{d}}I}{{\mathrm{d}}t} \delta t. \tag{7.3}</span></span></p>
+<p><span id="eq-work-inductance"><span class="math display">\delta W = \mathcal{E}_\text{emf} \, \delta q = \mathcal{E}_\text{emf} \, I \, \delta t = - L I \frac{{\mathrm{d}}I}{{\mathrm{d}}t} \delta t. \tag{7.3}</span></span></p>
 <p>Rearranging we obtain</p>
 <p><span class="math display">\frac{\delta W}{\delta t} = - L I \frac{{\mathrm{d}}I}{{\mathrm{d}}t} = - \frac{1}{2} L \frac{{\mathrm{d}}I^2}{{\mathrm{d}}t},</span></p>
 <p>and integrating we find that the work done to maintain the current is</p>
@@ -652,7 +652,7 @@ W &amp;= \frac{1}{2 \mu_0} \int_{\mathbb{R}^3} {\boldsymbol{A}}\cdot (\nabla \ti
 <p><span class="math display">\mathcal{E}_\text{emf} = I R,</span></p>
 <p>where <span class="math inline">R</span> is a material property called <em>resistance</em>. This result is known as <em>Ohm’s law</em>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> The unit of resistance is the Ohm (<span class="math inline">\Omega</span>).</p>
 <p>Note that if we ignore the magnetic field, we can write the electromotive force as</p>
-<p><span class="math display">\mathcal{E}_\text{emf} = \int_{C} {\boldsymbol{E}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s = - \int_C \nabla \phi \cdot {\boldsymbol{t}}\; {\mathrm{d}}s,</span></p>
+<p><span class="math display">\mathcal{E}_\text{emf} = - \int_{C} {\boldsymbol{E}}\cdot {\boldsymbol{t}}\; {\mathrm{d}}s = \int_C \nabla \phi \cdot {\boldsymbol{t}}\; {\mathrm{d}}s,</span></p>
 <p>and this is the drop in electric potential across the curve <span class="math inline">C</span>, which we usually call voltage <span class="math inline">V</span>. Hence, we can also write Ohm’s law as</p>
 <p><span id="eq-ohms-law-voltage"><span class="math display">V = I R, \tag{7.5}</span></span></p>
 <p>which is probably the expression you are more familiar with.</p>

@@ -390,7 +390,13 @@ window.Quarto = {
   <li><a href="#macroscopic-maxwells-equations" id="toc-macroscopic-maxwells-equations" class="nav-link" data-scroll-target="#macroscopic-maxwells-equations"><span class="header-section-number">8.3</span> Macroscopic Maxwell’s equations</a>
   <ul class="collapse">
   <li><a href="#waves-in-matter" id="toc-waves-in-matter" class="nav-link" data-scroll-target="#waves-in-matter"><span class="header-section-number">8.3.1</span> Waves in matter</a></li>
-  <li><a href="#boundary-conditions" id="toc-boundary-conditions" class="nav-link" data-scroll-target="#boundary-conditions"><span class="header-section-number">8.3.2</span> Boundary conditions</a></li>
+  <li><a href="#sec-boundary-conditions-matter" id="toc-sec-boundary-conditions-matter" class="nav-link" data-scroll-target="#sec-boundary-conditions-matter"><span class="header-section-number">8.3.2</span> Boundary conditions</a></li>
+  </ul></li>
+  <li><a href="#reflection-and-refraction" id="toc-reflection-and-refraction" class="nav-link" data-scroll-target="#reflection-and-refraction"><span class="header-section-number">8.4</span> Reflection and refraction</a>
+  <ul class="collapse">
+  <li><a href="#snells-law" id="toc-snells-law" class="nav-link" data-scroll-target="#snells-law"><span class="header-section-number">8.4.1</span> Snell’s law</a></li>
+  <li><a href="#polarisation" id="toc-polarisation" class="nav-link" data-scroll-target="#polarisation"><span class="header-section-number">8.4.2</span> Polarisation</a></li>
+  <li><a href="#total-internal-reflection" id="toc-total-internal-reflection" class="nav-link" data-scroll-target="#total-internal-reflection"><span class="header-section-number">8.4.3</span> Total internal reflection</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -436,6 +442,7 @@ window.Quarto = {
 <li><p>Understand how electric and magnetic fields behave in matter.</p></li>
 <li><p>Derive the corrections to the Maxwell’s equations due to matter.</p></li>
 <li><p>State Maxwell’s equations (and the electromagnetic wave equations) in matter.</p></li>
+<li><p>Explain the behaviour of electromagnetic waves at the interface between two dielectric materials.</p></li>
 </ul>
 </div>
 </div>
@@ -572,35 +579,158 @@ Figure&nbsp;8.1: Diagrams for the dipole alignment for (a) unpolarised materials
 <p><span class="math display">\frac{1}{v^2} \frac{\partial^2 {\boldsymbol{E}}}{\partial t^2} - \nabla^2 {\boldsymbol{E}}= {\boldsymbol{0}},</span></p>
 <p>and</p>
 <p><span class="math display">\frac{1}{v^2} \frac{\partial^2 {\boldsymbol{B}}}{\partial t^2} - \nabla^2 {\boldsymbol{B}}= {\boldsymbol{0}},</span></p>
-<p>where the new wave propagation speed is given by <span class="math inline">v = (\epsilon \mu)^{-\frac{1}{2}}</span>. It’s not directly obvious from the definitions of <span class="math inline">\epsilon</span> and <span class="math inline">\mu</span>, but for all materials <span class="math inline">v \leq c</span>, so matter basically slows light down. There are also other interesting effects that we will briefly discuss later in this chapter. Note that as the relation between variables is linear, we could replace <span class="math inline">{\boldsymbol{E}}</span> by <span class="math inline">{\boldsymbol{D}}</span> and <span class="math inline">{\boldsymbol{B}}</span> by <span class="math inline">{\boldsymbol{H}}</span> and the equations would still hold.</p>
+<p>where the new wave propagation speed is given by <span class="math inline">v = (\epsilon \mu)^{-\frac{1}{2}}</span>. It’s not directly obvious from the definitions of <span class="math inline">\epsilon</span> and <span class="math inline">\mu</span>, but for all materials <span class="math inline">v \leq c</span>, so matter basically slows light down. The dispersion relation still holds, but now reads <span class="math inline">\omega = v k</span>. There are also other interesting effects that we will briefly discuss later in this chapter. Note that as the relation between variables is linear, we could replace <span class="math inline">{\boldsymbol{E}}</span> by <span class="math inline">{\boldsymbol{D}}</span> and <span class="math inline">{\boldsymbol{B}}</span> by <span class="math inline">{\boldsymbol{H}}</span> and the equations would still hold.</p>
+<p>We could go through the analysis in <a href="7-applications-electrodynamics.html#sec-light-polarisation" class="quarto-xref"><span>Section 7.2</span></a> to determine that for a monochromatic plane wave, the polarisation vectors must obey</p>
+<p><span class="math display">{\boldsymbol{E}}_0 \cdot {\boldsymbol{k}}= 0, \quad {\boldsymbol{B}}_0 \cdot {\boldsymbol{k}}= 0, \quad \text{and} \quad \omega {\boldsymbol{B}}_0 = {\boldsymbol{k}}\times {\boldsymbol{E}}_0.</span></p>
 </section>
-<section id="boundary-conditions" class="level3" data-number="8.3.2">
-<h3 data-number="8.3.2" class="anchored" data-anchor-id="boundary-conditions"><span class="header-section-number">8.3.2</span> Boundary conditions</h3>
+<section id="sec-boundary-conditions-matter" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="sec-boundary-conditions-matter"><span class="header-section-number">8.3.2</span> Boundary conditions</h3>
 <p>To conclude this section, we need to talk about what happens at the interface between two dielectric materials, with different permitivities and permeabilities. We already showed in <a href="3-applications-electrostatics.html" class="quarto-xref"><span>Chapter 3</span></a> and <a href="5-applications-magnetostatics.html" class="quarto-xref"><span>Chapter 5</span></a> that at a surface, electric fields are continuous in the tangent direction but may be discontinuous in the normal direction, and viceversa for magnetic fields. The culprits for those discontinuities were surface charges and currents.</p>
 <p>We now want to extend these conditions for electromagnetic fields in matter. To do so, we will repeat the arguments from previous sections, but we will apply them to <a href="#eq-Maxwell-matter-1" class="quarto-xref">Equation&nbsp;<span>8.7</span></a> – <a href="#eq-Maxwell-matter-4" class="quarto-xref">Equation&nbsp;<span>8.10</span></a>. We label the two materials 1 and 2, and the normal vector <span class="math inline">{\boldsymbol{n}}</span> is defined to point from material 1 to material 2.</p>
 <p>We first apply the pillbox argument to <a href="#eq-Maxwell-matter-1" class="quarto-xref">Equation&nbsp;<span>8.7</span></a>, and in the presence of a (free) surface charge <span class="math inline">\sigma</span> we obtain</p>
-<p><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{D}}_2 - {\boldsymbol{D}}_1\right) = \sigma.</span></p>
+<p><span id="eq-bc-D-normal"><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{D}}_2 - {\boldsymbol{D}}_1\right) = \sigma. \tag{8.15}</span></span></p>
 <p>Similarly, from <a href="#eq-Maxwell-matter-3" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> we obtain</p>
-<p><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{B}}_2 - {\boldsymbol{B}}_1\right) = 0.</span></p>
+<p><span id="eq-bc-B-normal"><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{B}}_2 - {\boldsymbol{B}}_1\right) = 0. \tag{8.16}</span></span></p>
 <p>Now we need to integrate along a close curve that intersects the boundary. From <a href="#eq-Maxwell-matter-2" class="quarto-xref">Equation&nbsp;<span>8.9</span></a> we obtain</p>
-<p><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{E}}_2 - {\boldsymbol{E}}_1 \right) = {\boldsymbol{0}},</span></p>
+<p><span id="eq-bc-E-tangent"><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{E}}_2 - {\boldsymbol{E}}_1 \right) = {\boldsymbol{0}}, \tag{8.17}</span></span></p>
 <p>while for <a href="#eq-Maxwell-matter-4" class="quarto-xref">Equation&nbsp;<span>8.10</span></a> we obtain</p>
-<p><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{H}}_2 - {\boldsymbol{H}}_1 \right) = {\boldsymbol{K}},</span></p>
+<p><span id="eq-bc-H-tangent"><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{H}}_2 - {\boldsymbol{H}}_1 \right) = {\boldsymbol{K}}, \tag{8.18}</span></span></p>
 <p>where <span class="math inline">{\boldsymbol{K}}</span> is the surface current.</p>
 <p>Note that we have obtain one condition per field <span class="math inline">{\boldsymbol{E}}</span>, <span class="math inline">{\boldsymbol{D}}</span>, <span class="math inline">{\boldsymbol{B}}</span> and <span class="math inline">{\boldsymbol{H}}</span>. Typically we will only use two of them, but we can convert between them using the relevant constraints for the materials we are considering.</p>
-<!-- ## Solving the wave equation
-
-## Applications
-
-### Reflection and refraction
-
-Introduce index of refraction
-
-Dispersion relation ? 
-
-### Polarisation
-
-###  -->
+</section>
+</section>
+<section id="reflection-and-refraction" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="reflection-and-refraction"><span class="header-section-number">8.4</span> Reflection and refraction</h2>
+<p>In <a href="7-applications-electrodynamics.html#sec-reflection-conductor" class="quarto-xref"><span>Section 7.3</span></a> we studied the reflection of light on a perfect conductor. Now we will consider a similar problem but with two dielectric materials.</p>
+<section id="snells-law" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="snells-law"><span class="header-section-number">8.4.1</span> Snell’s law</h3>
+<p>Consider two materials: material 1 sits at <span class="math inline">x &lt; 0</span> and has permittivity <span class="math inline">\epsilon_1</span> and permeability <span class="math inline">\mu_1</span>, while material 2 sits at <span class="math inline">x &gt; 0</span> and has permittivity <span class="math inline">\epsilon_2</span> and permeability <span class="math inline">\mu_2</span>. To simplify the notation, we will assume that <span class="math inline">\mu_1 = \mu_2 \approx \mu_0</span>.</p>
+<p>We send a monochromatic plane wave from <span class="math inline">x \to - \infty</span> towards the boundary at <span class="math inline">x = 0</span> at an angle <span class="math inline">\theta_\mathrm{I}</span>. The wave has frequency <span class="math inline">\omega_\mathrm{I}</span> and wavevector <span class="math inline">{\boldsymbol{k}}_\mathrm{I}</span>, such that</p>
+<p><span class="math display"> {\boldsymbol{k}}_\mathrm{I} = k_\mathrm{I} \cos \theta_\mathrm{I} {\boldsymbol{e}}_x + k_\mathrm{I} \sin \theta_\mathrm{I} {\boldsymbol{e}}_z.</span></p>
+<p>Then, the incident wave is</p>
+<p><span class="math display">{\boldsymbol{E}}_\mathrm{inc} = {\boldsymbol{E}}_\mathrm{I} e^{i ({\boldsymbol{k}}_\mathrm{I} \cdot {\boldsymbol{r}}- \omega_\mathrm{I} t)}.</span></p>
+<p>When the wave hits the boundary two things can happen: the wave can be reflected, as we saw in the case of the conductor, or the wave can go through the boundary and be transmitted to the second material. In general both things happen at the same time, so we need to consider the reflected wave and the transmitted wave. The reflected wave takes the form</p>
+<p><span class="math display">{\boldsymbol{E}}_\mathrm{ref} = {\boldsymbol{E}}_\mathrm{R} e^{i ({\boldsymbol{k}}_\mathrm{R} \cdot {\boldsymbol{r}}- \omega_\mathrm{R} t)},</span></p>
+<p>with</p>
+<p><span class="math display">{\boldsymbol{k}}_\mathrm{R} = - k_\mathrm{R} \cos \theta_\mathrm{R} {\boldsymbol{e}}_x + k_\mathrm{R} \sin \theta_\mathrm{R} {\boldsymbol{e}}_z,</span></p>
+<p>and the transmitted wave takes the form</p>
+<p><span class="math display">{\boldsymbol{E}}_\mathrm{trans} = {\boldsymbol{E}}_\mathrm{T} e^{i ({\boldsymbol{k}}_\mathrm{T} \cdot {\boldsymbol{r}}- \omega_\mathrm{T} t)},</span></p>
+<p>with</p>
+<p><span id="eq-transmitted-wavevector"><span class="math display">{\boldsymbol{k}}_\mathrm{T} = k_\mathrm{T} \cos \theta_\mathrm{T} {\boldsymbol{e}}_x + k_\mathrm{T} \sin \theta_\mathrm{T} {\boldsymbol{e}}_z. \tag{8.19}</span></span></p>
+<p>We now need to determine how the amplitude, polarisation, wavevector and frequency of the reflected and transmitted waves relate to those of the incident wave. The overall electric field satisfies</p>
+<p><span class="math display">{\boldsymbol{E}}({\boldsymbol{r}}, t) = \begin{cases}
+{\boldsymbol{E}}_\mathrm{inc} + {\boldsymbol{E}}_\mathrm{ref}, &amp; \quad \text{in} \quad x &lt; 0, \\
+{\boldsymbol{E}}_\mathrm{trans}, &amp; \quad \text{in} \quad x &gt; 0.
+\end{cases}</span></p>
+<p>We can apply the boundary conditions that we derived in <a href="#sec-boundary-conditions-matter" class="quarto-xref"><span>Section 8.3.2</span></a> to the total electric field <span class="math inline">{\boldsymbol{E}}</span> to find out the relations between the incident, reflected and transmitted waves.</p>
+<p>In fact, we will only need <a href="#eq-bc-D-normal" class="quarto-xref">Equation&nbsp;<span>8.15</span></a>. This gives us</p>
+<p><span class="math display">{\boldsymbol{e}}_x \cdot \left( \epsilon_2 {\boldsymbol{E}}_\mathrm{trans} - \epsilon_1 ({\boldsymbol{E}}_\mathrm{inc} + {\boldsymbol{E}}_\mathrm{ref} ) \right) = 0,</span></p>
+<p>at <span class="math inline">x = 0</span>. It yields</p>
+<p><span class="math display">\epsilon_2 {\boldsymbol{E}}_\mathrm{T} \cdot {\boldsymbol{e}}_x e^{i (k_\mathrm{T} \sin \theta_\mathrm{T} z - \omega_\mathrm{T} t)} - \epsilon_1 \left({\boldsymbol{E}}_\mathrm{I} \cdot {\boldsymbol{e}}_x e^{i (k_\mathrm{I} \sin \theta_\mathrm{I} z - \omega_\mathrm{I} t)} + {\boldsymbol{E}}_\mathrm{R} \cdot {\boldsymbol{e}}_x e^{i (k_\mathrm{R} \sin \theta_\mathrm{R} z - \omega_\mathrm{R} t)}\right) = 0.</span></p>
+<p>This needs to be satisfied for all <span class="math inline">z</span> and <span class="math inline">t</span>, so we must have</p>
+<p><span class="math display">\omega_\mathrm{I} = \omega_\mathrm{R} = \omega_\mathrm{T},</span></p>
+<p>and</p>
+<p><span class="math display">k_\mathrm{I} \sin \theta_\mathrm{I} = k_\mathrm{R} \sin \theta_\mathrm{R} = k_\mathrm{T} \sin \theta_\mathrm{T}.</span></p>
+<p>But remember that the frequency and the wave number are related by the dispersion relation <span class="math inline">k_j = \omega_j / v_j</span> for <span class="math inline">j \in \{\mathrm{I}, \mathrm{R}, \mathrm{T}\}</span>, where <span class="math inline">v_j</span> is the speed of light in the material. The incident and reflected waves are in material 1, which has a speed of light <span class="math inline">v_1 = (\epsilon_1 \mu_1)^{-\frac{1}{2}}</span>, so combining the two expressions we found above we find</p>
+<p><span class="math display">\sin \theta_\mathrm{I} = \sin \theta_\mathrm{R},</span></p>
+<p>and because <span class="math inline">0 \leq \theta_\mathrm{I}, \theta_\mathrm{R} &lt; \pi/2</span> (otherwise the wave would be in material 2) the only possiblity is</p>
+<p><span class="math display">\theta_\mathrm{I} = \theta_\mathrm{R}.</span></p>
+<p>This is the law of reflection that we already derived in <a href="7-applications-electrodynamics.html#sec-reflection-conductor" class="quarto-xref"><span>Section 7.3</span></a>.</p>
+<p>Now let’s consider the transmitted wave, which is in material 2 and thus travels at a speed <span class="math inline">v_2 = (\epsilon_2 \mu_2)^{-\frac{1}{2}}</span>. Similar to what we just did, we find</p>
+<p><span class="math display">\frac{\sin \theta_\mathrm{I}}{v_1} = \frac{\sin \theta_\mathrm{T}}{v_2}.</span></p>
+<p>Defining the <em>refractive index</em> of a material as <span class="math inline">n_j = c / v_j</span>, we can rewrite the equation above as</p>
+<p><span id="eq-Snell"><span class="math display">n_1 \sin \theta_\mathrm{I} = n_2 \sin \theta_\mathrm{T}, \tag{8.20}</span></span></p>
+<p>which is known as <em>Snell’s law</em> (or law of refraction).</p>
+<p>But we can go even further and determine the amplitude and polarisation of the reflected and transmitted waves. It all depends on the polarisation of the incident wave, and we will consider two different cases: normal polarisation and parallel polarisation.</p>
+</section>
+<section id="polarisation" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="polarisation"><span class="header-section-number">8.4.2</span> Polarisation</h3>
+<p>Let’s first consider the case when the incident wave is polarised perpendicularly to the plane of incidence (i.e.&nbsp;the plane defined by the incident wavevector and the normal vector to the boundary). In this case, we can write <span class="math inline">{\boldsymbol{E}}_\mathrm{I} = E_\mathrm{I} {\boldsymbol{e}}_y</span>. Given that the electric field must oscillate in the plane perpendicular to the wavevector and (assuming that <span class="math inline">\epsilon_1 \neq \epsilon_2</span>) the incident wavevector is linearly independent with the transmitted wavevector, we must have that <span class="math inline">{\boldsymbol{E}}_\mathrm{R} = E_\mathrm{R} {\boldsymbol{e}}_y</span> and <span class="math inline">{\boldsymbol{E}}_\mathrm{T} = E_\mathrm{T} {\boldsymbol{e}}_y</span>. Now using <a href="#eq-bc-D-normal" class="quarto-xref">Equation&nbsp;<span>8.15</span></a> we obtain</p>
+<p><span class="math display">E_\mathrm{I} + E_\mathrm{R} = E_\mathrm{T}.</span></p>
+<p>Consider now the corresponding magnetic fields. They must oscillate in the direction <span class="math inline">{\boldsymbol{k}}_j \times {\boldsymbol{e}}_y</span>, for <span class="math inline">j \in \{\mathrm{I}, \mathrm{R}, \mathrm{T}\}</span>. Then, we can write <span class="math inline">{\boldsymbol{B}}_\mathrm{I} = B_\mathrm{I} \left(- \sin \theta_\mathrm{I} {\boldsymbol{e}}_x + \cos \theta_\mathrm{I} {\boldsymbol{e}}_z \right)</span>, and similarly for the other magnetic fields.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<p>We now take <a href="#eq-bc-B-normal" class="quarto-xref">Equation&nbsp;<span>8.16</span></a> and <a href="#eq-bc-H-tangent" class="quarto-xref">Equation&nbsp;<span>8.18</span></a>. Because we assumed <span class="math inline">\mu_1 = \mu_2 \approx \mu_0</span> we can replace <span class="math inline">{\boldsymbol{H}}</span> with <span class="math inline">{\boldsymbol{B}}</span>. Then</p>
+<p><span class="math display">\begin{aligned}
+{\boldsymbol{e}}_x \cdot \left( {\boldsymbol{B}}_\mathrm{T} - ({\boldsymbol{B}}_\mathrm{I} + {\boldsymbol{B}}_\mathrm{R})\right) = 0,\\
+{\boldsymbol{e}}_x \times \left( {\boldsymbol{B}}_\mathrm{T} - ({\boldsymbol{B}}_\mathrm{I} + {\boldsymbol{B}}_\mathrm{R})\right) = {\boldsymbol{0}},
+\end{aligned}</span></p>
+<p>and this is only possible if</p>
+<p><span class="math display">{\boldsymbol{B}}_\mathrm{T} - ({\boldsymbol{B}}_\mathrm{I} + {\boldsymbol{B}}_\mathrm{R}) = {\boldsymbol{0}}.</span></p>
+<p>Splitting into <span class="math inline">x</span> and <span class="math inline">z</span> components we obtain</p>
+<p><span class="math display">\begin{aligned}
+B_\mathrm{I} \sin \theta_\mathrm{I} + B_\mathrm{R} \sin \theta_\mathrm{R} &amp;= B_\mathrm{R} \sin \theta_\mathrm{T},\\
+B_\mathrm{I} \cos \theta_\mathrm{I} - B_\mathrm{R} \cos \theta_\mathrm{R} &amp;= B_\mathrm{R} \cos \theta_\mathrm{T}.
+\end{aligned}</span></p>
+<p>The first equation yields, again, <span class="math inline">E_\mathrm{I} + E_\mathrm{R} = E_\mathrm{T}</span>. Using <span class="math inline">\theta_\mathrm{I} = \theta_\mathrm{R}</span> and that <span class="math inline">E_j</span> and <span class="math inline">B_j</span> are related by the speed of light, we can turn the second equation into</p>
+<p><span class="math display">\frac{E_\mathrm{I} - E_\mathrm{R}}{v_1} \cos \theta_\mathrm{I} = \frac{E_\mathrm{T}}{v_2} \cos \theta_\mathrm{T}.</span></p>
+<p>With Snell’s law and a bit of patience, we obtain</p>
+<p><span class="math display">\frac{E_\mathrm{R}}{E_\mathrm{I}} = \frac{n_1 \cos \theta_\mathrm{I} - n_2 \cos \theta_\mathrm{T}}{n_1 \cos \theta_\mathrm{I} + n_2 \cos \theta_\mathrm{T}}, \quad \text{and} \quad \frac{E_\mathrm{T}}{E_\mathrm{I}} = \frac{2 n_1 \cos \theta_\mathrm{I}}{n_1 \cos \theta_\mathrm{I} + n_2 \cos \theta_\mathrm{T}}.</span></p>
+<p>These are the <em>Fresnel equations</em> for normal polarised light (sometimes also called <em>s-polarised</em> light).</p>
+<p>This equation tells us, for example, that if the incident wave is parallel to the interface (i.e.&nbsp;<span class="math inline">\theta_\mathrm{I}</span>), nothing is transmitted. If the wave hits the interface perpendicularly, then <span class="math inline">2n_1/(n_1 + n_2)</span> of the wave is transmitted and <span class="math inline">(n_1-n_2)/(n_1+n_2)</span> is reflected. For example, if material 1 is air (<span class="math inline">n_1 \approx 1</span>) and material 2 is glass (<span class="math inline">n_2 \approx 1.5</span>), the relative amplitudes as a function of the incident angle are shown in <a href="#fig-normal-polarisation" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>.</p>
+<div id="cell-fig-normal-polarisation" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-normal-polarisation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-polarisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="8-matter_files/figure-html/fig-normal-polarisation-output-1.png" width="566" height="278" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-polarisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Relative amplitudes of the reflected and transmitted waves with normal polarisation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Now let’s consider the case when the incident wave is polarised parallel to the plane of incidence. In this case, we can write <span class="math inline">{\boldsymbol{E}}_\mathrm{I} = E_\mathrm{I} \left( \sin \theta_\mathrm{I} {\boldsymbol{e}}_x - \cos \theta_\mathrm{I} {\boldsymbol{e}}_z \right)</span>, and similarly for the other electric fields. Then, using <a href="#eq-bc-E-tangent" class="quarto-xref">Equation&nbsp;<span>8.17</span></a> we obtain</p>
+<p><span class="math display">E_\mathrm{I} \cos \theta_\mathrm{I} + E_\mathrm{R} \cos \theta_\mathrm{R} = E_\mathrm{T} \cos \theta_\mathrm{T}.</span></p>
+<p>Using <a href="#eq-bc-D-normal" class="quarto-xref">Equation&nbsp;<span>8.15</span></a> written in terms of the electric fields, we obtain</p>
+<p><span class="math display">\epsilon_1 E_\mathrm{I} \sin \theta_\mathrm{I} - \epsilon_1 E_\mathrm{R} \sin \theta_\mathrm{R} = \epsilon_2 E_\mathrm{T} \sin \theta_\mathrm{T}.</span></p>
+<p>Now the magnetic field is in perpendicular to the plane of incidence, i.e.&nbsp;points in the <span class="math inline">y</span>-direction. From <a href="#eq-bc-H-tangent" class="quarto-xref">Equation&nbsp;<span>8.18</span></a> we obtain</p>
+<p><span class="math display">B_\mathrm{I} - B_\mathrm{R} = B_\mathrm{T},</span></p>
+<p>hence</p>
+<p><span class="math display">\frac{E_\mathrm{I} - E_\mathrm{R}}{v_1} = \frac{E_\mathrm{T}}{v_2}.</span></p>
+<p>Combining everything we obtain</p>
+<p><span class="math display">\frac{E_\mathrm{R}}{E_\mathrm{I}} = \frac{n_1 \cos \theta_\mathrm{T} - n_2 \cos \theta_\mathrm{I}}{n_1 \cos \theta_\mathrm{T} + n_2 \cos \theta_\mathrm{I}}, \quad \text{and} \quad \frac{E_\mathrm{T}}{E_\mathrm{I}} = \frac{2 n_1 \cos \theta_\mathrm{I}}{n_1 \cos \theta_\mathrm{T} + n_2 \cos \theta_\mathrm{I}}.</span></p>
+<p>These are, again, the <em>Fresnel equations</em> but now for parallel polarised light (sometimes called <em>p-polarised</em> light). In the cases where the incident wave is parallel or perpendicular to the interface, the Fresnel equations for parallel and normal polarised light coincide, but otherwise they are different. Again, for air and glass, the relative amplitudes as a function of the incident angle are shown in <a href="#fig-parallel-polarisation" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<div id="cell-fig-parallel-polarisation" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-parallel-polarisation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-parallel-polarisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="8-matter_files/figure-html/fig-parallel-polarisation-output-1.png" width="566" height="278" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-parallel-polarisation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: Relative amplitudes of the reflected and transmitted waves with parallel polarisation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The parallel polarised case has a very interesting property. In that case, there is a certain incident angle for which the reflected wave is zero, i.e.&nbsp;all the light is transmitted. This angle is called the <em>Brewster angle</em>, <span class="math inline">\theta_\mathrm{B}</span> and it is given by</p>
+<p><span class="math display">\tan \theta_\mathrm{B} = \frac{n_2}{n_1}.</span></p>
+<p>For example, if material 1 is air and material 2 is glass, we have <span class="math inline">\theta_\mathrm{B} \approx 56^{\circ}</span>.</p>
+<p>This phenomenon gives us a simple way to created polarised light: if you shine unpolarised light on a dielectric precisely at an angle <span class="math inline">\theta_\mathrm{B}</span> the reflected wave will have normal polarisation.</p>
+</section>
+<section id="total-internal-reflection" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="total-internal-reflection"><span class="header-section-number">8.4.3</span> Total internal reflection</h3>
+<p>Now let’s return to Snell’s law (<a href="#eq-Snell" class="quarto-xref">Equation&nbsp;<span>8.20</span></a>). Rearranging it, we have that</p>
+<p><span class="math display">\sin \theta_\mathrm{T} = \frac{n_1}{n_2} \sin \theta_\mathrm{I}.</span></p>
+<p>Note that, if <span class="math inline">n_1 &gt; n_2</span>, the right hand side of the equation could be greater than one, and therefore there is no <span class="math inline">\theta_\mathrm{T}</span> that satisfies the equation. This means that there is no transmitted wave and all the wave is reflected, a phenomenon called <em>total internal reflection</em>. For a given pair of materials, we can define the critical incidence angle (i.e.&nbsp;the angle above which there is no transmitted wave) as</p>
+<p><span class="math display">\sin \theta_\mathrm{C} = \frac{n_2}{n_1}.</span></p>
+<p>If now material 1 is glass and material 2 is air, we find that <span class="math inline">\theta_\mathrm{C} \approx 42^{\circ}</span>.</p>
+<p>There is final remark we need to make. If you compute the amplitude of the transmitted wave, you will notice that the amplitude is non-zero beyond the critical angle. Why is that?</p>
+<p>We need to go back to the expression for the transmitted wavevector (<a href="#eq-transmitted-wavevector" class="quarto-xref">Equation&nbsp;<span>8.19</span></a>). The interface condition gave us</p>
+<p><span class="math display">{\boldsymbol{k}}_\mathrm{T} \cdot {\boldsymbol{e}}_z = {\boldsymbol{k}}_\mathrm{I} \cdot {\boldsymbol{e}}_z = \frac{\omega_\mathrm{I}}{v_1} \sin \theta_\mathrm{I},</span></p>
+<p>where we rewrote it in the last step for convenience. Note though that <span class="math inline">\omega_\mathrm{I} = \omega_\mathrm{T} = \omega</span>. From we dispersion relation, we also know that</p>
+<p><span class="math display">|{\boldsymbol{k}}_\mathrm{T}| = \frac{\omega}{v_2}.</span></p>
+<p>Then, the horizontal component of the transmitted wavevector is</p>
+<p><span class="math display">\begin{aligned}
+{\boldsymbol{k}}_\mathrm{T} \cdot {\boldsymbol{e}}_x &amp;= \pm \sqrt{|{\boldsymbol{k}}_\mathrm{T}|^2 - ({\boldsymbol{k}}_\mathrm{T} \cdot {\boldsymbol{e}}_z)^2}\\
+&amp;= \pm \frac{\omega}{v_2} \sqrt{1 - \frac{v_2^2 \sin^2 \theta_\mathrm{I}}{v_1^2}}\\
+&amp;= \pm \frac{\omega}{v_2} \sqrt{1 - \frac{n_1^2 \sin^2 \theta_\mathrm{I}}{n_2^2}}.
+\end{aligned}</span></p>
+<p>When <span class="math inline">\theta_\mathrm{I} = \theta_\mathrm{C}</span>, the <span class="math inline">x</span>-component of the wavevector is imaginary! Setting <span class="math inline">{\boldsymbol{k}}_\mathrm{T} \cdot {\boldsymbol{e}}_x = \pm i \omega \alpha / v_2</span> (where <span class="math inline">\alpha</span> absorbs the square root) we find that the transmitted wave is</p>
+<p><span class="math display">{\boldsymbol{E}}_\mathrm{trans} = {\boldsymbol{E}}_\mathrm{T} e^{i({\boldsymbol{k}}_\mathrm{T} \cdot {\boldsymbol{e}}_z - \omega t)} e^{\mp \omega \alpha x/v_2},</span></p>
+<p>for <span class="math inline">x &gt; 0</span>. The plus sign in the exponent give an exponential blow-up in the wave, which is not physical. Therefore, the only physical solution is the one with the minus sign, which gives an exponential decay in the wave. This is called an <em>evanescent wave</em>, and it is responsible for the non-zero amplitude of the transmitted wave beyond the critical angle. The evanescent wave does not propagate energy into material 2, but it can still interact with objects that are close enough to the boundary.</p>
 
 
 </section>
@@ -616,6 +746,7 @@ Dispersion relation ?
 <li id="fn6"><p>Don’t mix it up with the <em>permittivity</em>!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>Therefore humans are also diamagnetic, as we are made mostly of water.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p>Ferromagnetic materials are a clear example of materials that do not behave linearly.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Be careful with <span class="math inline">{\boldsymbol{B}}_\mathrm{R}</span>, as we defined the angle differently and thus there is a sign change!<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
