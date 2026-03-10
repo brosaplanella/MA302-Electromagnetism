@@ -35,7 +35,7 @@ Diagrams for the dipole alignment for (a) unpolarised materials and (b) polarise
 
 Recall the concept of electric dipole that we introduced in @sec-electric-dipole. We can represent a dielectric medium as a collection of many (many) electric dipoles, as shown in @fig-material-dipoles. Applying the principle of superposition, we can write the potential of the medium as
 
-$$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \sum_{i = 1}^{N} \frac{\bfp_i \cdot (\bfr - \bfr_i)}{|\bfr - \bfr_i|^3}.$$
+$$\phi_\mathrm{dipoles}(\bfr) = \frac{1}{4 \pi \epsilon_0} \sum_{i = 1}^{N} \frac{\bfp_i \cdot (\bfr - \bfr_i)}{|\bfr - \bfr_i|^3}.$$
 
 ::: {#def-electric-polarisation-density}
 
@@ -47,12 +47,12 @@ We define the _electric polarisation density_ as a vector field $\bfP(\bfr): \Om
 
 With this definition, we can write the potential induced by a given polarisation density as
 
-$$\phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\bfP(\bfr') \cdot (\bfr-\bfr')}{|\bfr - \bfr'|^3} \dd V'.$$
+$$\phi_\mathrm{dipoles}(\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\bfP(\bfr') \cdot (\bfr-\bfr')}{|\bfr - \bfr'|^3} \dd V'.$$
 
 Now, by a similar argument to the proof of @lem-div-A-0, we can write
 
 $$\begin{aligned}
-\phi(\bfr)_\mathrm{dipoles} &= \frac{1}{4 \pi \epsilon_0} \int_\Omega \nabla' \cdot \left(\frac{\bfP'(\bfr')}{|\bfr - \bfr'|} \right) \dd V' - \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V' \\
+\phi_\mathrm{dipoles}(\bfr) &= \frac{1}{4 \pi \epsilon_0} \int_\Omega \nabla' \cdot \left(\frac{\bfP'(\bfr')}{|\bfr - \bfr'|} \right) \dd V' - \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V' \\
 &= \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{-\nabla' \cdot \bfP(\bfr')}{|\bfr - \bfr'|} \dd V',
 \end{aligned}$$ {#eq-potential-dipoles}
 
@@ -64,7 +64,7 @@ $$\rho_\mathrm{bound}(\bfr) = - \nabla \cdot \bfP(\bfr),$$ {#eq-rho-bound}
 
 so we can rewrite @eq-potential-dipoles as
 
-$$ \phi(\bfr)_\mathrm{dipoles} = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho_\mathrm{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
+$$ \phi_\mathrm{dipoles}(\bfr) = \frac{1}{4 \pi \epsilon_0} \int_\Omega \frac{\rho_\mathrm{bound}(\bfr')}{|\bfr - \bfr'|} \dd V'.$$
 
 Thus we can interpret $\rho_\mathrm{bound}$ as the _effective_ charge density that produces the electric field @eq-potential-dipoles caused by the dipole distribution. We also observe that @eq-rho-bound looks like Gauss' law but now with $-\bfP/\epsilon_0$ instead of $\bfE$. So how is this related to Gauss' law?
 

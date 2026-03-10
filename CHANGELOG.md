@@ -1,9 +1,10 @@
 # CHANGELOG
 
-## 2026-03-XX
+## 2026-03-10
 
 - Added Section 8.4 on reflection and refraction.
 - Fixed minus sign in Ohm's law.
+- Fixed notation inconsistency with subscript in dipole potential (Chapter 8).
 
 ## 2026-03-02
 
