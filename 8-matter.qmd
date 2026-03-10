@@ -41,7 +41,7 @@ $$\phi_\mathrm{dipoles}(\bfr) = \frac{1}{4 \pi \epsilon_0} \sum_{i = 1}^{N} \fra
 
 ## Electric polarisation density
 
-We define the _electric polarisation density_ as a vector field $\bfP(\bfr): \Omega \in \mathbb{R}^3 \to \mathbb{R}^3$ that gives the dipole moment per unit volume at a certain point in space. This is analogous to the electric charge density in @def-charge-density.
+We define the _electric polarisation density_ as a vector field $\bfP(\bfr): \Omega \subseteq \mathbb{R}^3 \to \mathbb{R}^3$ that gives the dipole moment per unit volume at a certain point in space. This is analogous to the electric charge density in @def-charge-density.
 
 :::
 
