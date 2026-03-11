@@ -1,9 +1,15 @@
 # CHANGELOG
 
-## 2026-03-XX
+## 2026-03-11
+- Minor typo corrections.
+- Fixed notation inconsistency with subscript in dipole potential (Chapter 8).
+- Rearranged sections in Chapter 8 for better flow.
+
+## 2026-03-09
 
 - Added Section 8.4 on reflection and refraction.
 - Fixed minus sign in Ohm's law.
+
 
 ## 2026-03-02
 
