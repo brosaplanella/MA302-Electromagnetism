@@ -232,6 +232,16 @@ where $\bfn$ is the normal unit vector to $\partial \Omega$ pointing outwards.
 
 :::
 
+::: {#thm-generalised-stokes}
+
+Let $\Omega$ be a bounded region of $\mathbb{R}^3$, and $\bff$ a smooth vector field. Then
+
+$$\int_{\partial \Omega} \bff \times \bfn \; \dd A = \int_{\Omega} \nabla \times \bff \; \dd V,$$
+
+where $\bfn$ is the normal unit vector to $\partial \Omega$ pointing outwards.
+
+:::
+
 ### Other coordinate systems
 
 In this module we will mostly work in Cartesian coordinates, but occasionally it might be more convenient to use cylindrical or spherical coordinates. In this section we provide a brief overview of them
