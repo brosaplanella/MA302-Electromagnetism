@@ -574,15 +574,15 @@ Figure&nbsp;8.1: Diagrams for the dipole alignment for (a) unpolarised materials
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="sec-boundary-conditions-matter"><span class="header-section-number">8.3.1</span> Boundary conditions</h3>
 <p>To conclude this section, we need to talk about what happens at the interface between two dielectric materials, with different permitivities and permeabilities. We already showed in <a href="3-applications-electrostatics.html" class="quarto-xref"><span>Chapter 3</span></a> and <a href="5-applications-magnetostatics.html" class="quarto-xref"><span>Chapter 5</span></a> that at a surface, electric fields are continuous in the tangent direction but may be discontinuous in the normal direction, and viceversa for magnetic fields. The culprits for those discontinuities were surface charges and currents.</p>
 <p>We now want to extend these conditions for electromagnetic fields in matter. To do so, we will repeat the arguments from previous sections, but we will apply them to <a href="#eq-Maxwell-matter-1" class="quarto-xref">Equation&nbsp;<span>8.7</span></a> – <a href="#eq-Maxwell-matter-4" class="quarto-xref">Equation&nbsp;<span>8.10</span></a>. We label the two materials 1 and 2, and the normal vector <span class="math inline">{\boldsymbol{n}}</span> is defined to point from material 1 to material 2.</p>
-<p>We first apply the pillbox argument to <a href="#eq-Maxwell-matter-1" class="quarto-xref">Equation&nbsp;<span>8.7</span></a>, and in the presence of a (free) surface charge <span class="math inline">\sigma</span> we obtain</p>
-<p><span id="eq-bc-D-normal"><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{D}}_2 - {\boldsymbol{D}}_1\right) = \sigma. \tag{8.11}</span></span></p>
+<p>We first apply the pillbox argument to <a href="#eq-Maxwell-matter-1" class="quarto-xref">Equation&nbsp;<span>8.7</span></a>, and in the presence of a (free) surface charge <span class="math inline">\sigma_\mathrm{free}</span> we obtain</p>
+<p><span id="eq-bc-D-normal"><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{D}}_2 - {\boldsymbol{D}}_1\right) = \sigma_\mathrm{free}. \tag{8.11}</span></span></p>
 <p>Similarly, from <a href="#eq-Maxwell-matter-3" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> we obtain</p>
 <p><span id="eq-bc-B-normal"><span class="math display">{\boldsymbol{n}}\cdot \left({\boldsymbol{B}}_2 - {\boldsymbol{B}}_1\right) = 0. \tag{8.12}</span></span></p>
 <p>Now we need to integrate along a close curve that intersects the boundary. From <a href="#eq-Maxwell-matter-2" class="quarto-xref">Equation&nbsp;<span>8.9</span></a> we obtain</p>
 <p><span id="eq-bc-E-tangent"><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{E}}_2 - {\boldsymbol{E}}_1 \right) = {\boldsymbol{0}}, \tag{8.13}</span></span></p>
 <p>while for <a href="#eq-Maxwell-matter-4" class="quarto-xref">Equation&nbsp;<span>8.10</span></a> we obtain</p>
-<p><span id="eq-bc-H-tangent"><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{H}}_2 - {\boldsymbol{H}}_1 \right) = {\boldsymbol{K}}, \tag{8.14}</span></span></p>
-<p>where <span class="math inline">{\boldsymbol{K}}</span> is the surface current.</p>
+<p><span id="eq-bc-H-tangent"><span class="math display">{\boldsymbol{n}}\times \left({\boldsymbol{H}}_2 - {\boldsymbol{H}}_1 \right) = {\boldsymbol{K}}_\mathrm{free}, \tag{8.14}</span></span></p>
+<p>where <span class="math inline">{\boldsymbol{K}}_\mathrm{free}</span> is the surface free current.</p>
 <p>Note that we have obtain one condition per field <span class="math inline">{\boldsymbol{E}}</span>, <span class="math inline">{\boldsymbol{D}}</span>, <span class="math inline">{\boldsymbol{B}}</span> and <span class="math inline">{\boldsymbol{H}}</span>. Typically we will only use two of them, but we can convert between them using the relevant constraints for the materials we are considering.</p>
 </section>
 </section>
