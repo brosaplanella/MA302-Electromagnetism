@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 2026-03-17
+- Minor typo corrections.
+
 ## 2026-03-11
 - Minor typo corrections.
 - Fixed notation inconsistency with subscript in dipole potential (Chapter 8).
